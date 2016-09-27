@@ -2,7 +2,6 @@ URxvt.font:			xft:DroidSansMono:pixelsize=16
 URxvt.boldFont:			xft:DroidSansMono:pixelsize=16:bold
 URxvt.italicFont:		xft:DroidSansMono:pixelsize=16:italic
 URxvt.noldItalicFont:		xft:DroidSansMono:pixelsize=16:bold:italic
-URxvt.letterSpace:		-1
 
 #define S_yellow		#B58900
 #define S_orange		#CB4B16
@@ -13,7 +12,7 @@ URxvt.letterSpace:		-1
 #define S_cyan			#2AA198
 #define S_green			#859900
 
-#define S_base03		#282F3A
+#define S_base03		#002b36
 #define S_base02		#073642
 #define S_base01		#586E75
 #define S_base00		#657B83
