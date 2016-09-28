@@ -43,7 +43,7 @@ bindsym Mod4+Return exec i3-sensible-terminal
 bindsym Mod4+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym Mod4+d exec rofi -show run -lines 3 -eh 2 -width 1920 -padding 450 -opacity "90" -bw 0 -bc "#2f343f" -bg "#2f343f" -fg "#b0b9c6" -hlbg "#2f343f" -hlfg "#" -font "System San Francisco Display 18"
+bindsym Mod4+d exec rofi -show run -lines 3 -eh 2 -width 200 -padding 450 -opacity "90" -font "Droid Sans Mono 16"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
