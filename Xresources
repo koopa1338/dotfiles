@@ -53,12 +53,12 @@ URxvt.externalBorder:		0
 URxvt.url-launcher:		/usr/bin/chromium
 URxvt.colorUL:			#7780A1
 
-URxvt.font: xft:Inconsolata:pixelsize=12
-URxvt.fontBold: xft:Inconsolata:bold:pixelsize=12
-URxvt.fontBoldItalic: xft:Inconsolata:bold:italic:pixelsize=12
+!URxvt.font: xft:Inconsolata:pixelsize=12
+!URxvt.fontBold: xft:Inconsolata:bold:pixelsize=12
+!URxvt.fontBoldItalic: xft:Inconsolata:bold:italic:pixelsize=12
 
-URxvt.foreground: #CCCCCC
-URxvt.background: #4B5D7E
+foreground: #CCCCCC
+background: #4B5D7E
 
 ! Normal
 ! color0    black
@@ -70,14 +70,14 @@ URxvt.background: #4B5D7E
 ! color6    cyan
 ! color7    white
 
-urxvt.color0:    #6c6c6c
-urxvt.color1:    #e9897c
-urxvt.color2:    #b6e77d
-urxvt.color3:    #ecebbe
-urxvt.color4:    #a9cdeb
-urxvt.color5:    #ea96eb
-urxvt.color6:    #c9caec
-urxvt.color7:    #CCCCCC
+URxvt.color0:    #6c6c6c
+URxvt.color1:    #e9897c
+URxvt.color2:    #b6e77d
+URxvt.color3:    #ecebbe
+URxvt.color4:    #a9cdeb
+URxvt.color5:    #ea96eb
+URxvt.color6:    #c9caec
+URxvt.color7:    #CCCCCC
 
 ! Light
 ! color8     black
@@ -89,11 +89,11 @@ urxvt.color7:    #CCCCCC
 ! color14    cyan
 ! color15    white
 
-urxvt.color8:    #747474
-urxvt.color9:    #f99286
-urxvt.color10:    #c3f786
-urxvt.color11:    #fcfbcc
-urxvt.color12:    #b6defb
-urxvt.color13:    #fba1fb
-urxvt.color14:    #d7d9fc
-urxvt.color15:    #e2e2e2
+URxvt.color8:    #747474
+URxvt.color9:    #f99286
+URxvt.color10:    #c3f786
+URxvt.color11:    #fcfbcc
+URxvt.color12:    #b6defb
+URxvt.color13:    #fba1fb
+URxvt.color14:    #d7d9fc
+URxvt.color15:    #e2e2e2
