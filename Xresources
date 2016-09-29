@@ -54,8 +54,8 @@ URxvt.url-launcher:		/usr/bin/chromium
 URxvt.colorUL:			#7780A1
 
 
-!foreground: 			#CCCCCC
-!background: 			#383C4A
+*foreground: 			#CCCCCC
+*background: 			#383C4A
 
 
 color0:    				#6c6c6c
