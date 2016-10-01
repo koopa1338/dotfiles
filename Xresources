@@ -48,7 +48,7 @@ pointerColorForeground:		#d7d9fc
 !*color15:				S_base3
 
 URxvt.scrollBar:		false
-URxvt.internalBorder:	0
+URxvt.internalBorder:	15
 URxvt.externalBorder:	0
 URxvt.url-launcher:		/usr/bin/chromium
 URxvt.colorUL:			#7780A1
