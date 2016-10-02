@@ -1,7 +1,11 @@
 general {
         output_format = "i3bar"
         colors = true
-        interval = 5
+        interval = 2
+        color_good = "#B3BDCB"
+        color_bad = "#B3BDCB"
+        color_degraded = "#B3BDCB"
+        
 }
 
 order += "disk /"
@@ -11,31 +15,30 @@ order += "battery 0"
 order += "tztime local"
 order += "volume master"
 wireless wlp5s0 {
-        format_up = " Verbunden mit %essid, %bitrate %ip"
-        format_down = " aus"
+        format_up = "  Verbunden mit %essid, %bitrate %ip "
+        format_down = "  aus "
 }
 
 ethernet enp4s0 {
-        # if you use %speed, i3status requires the cap_net_admin capability
-        format_up = "LAN %ip (%speed)"
-        format_down = "LAN aus"
+        format_up = " LAN %ip "
+        format_down = " LAN aus "
 }
 
 battery 0 {
-        format = "%status %percentage %remaining %emptytime"
-        format_down = "Keine Batterie"
-        status_chr = ""
-        status_bat = ""
-        status_full = ""
+        format = " %status %percentage "
+        format_down = " Keine Batterie "
+        status_chr = "  "
+        status_bat = "  "
+        status_full = "  "
         low_threshold = 10
 }
 
 tztime local {
-        format = "%d.%m.%Y %H:%M:%S"
+        format = " %d.%m.%Y  %H:%M "
 }
 
 #load {
-#        format = "%5min"
+#        format = " %5min "
 #}
 
 #cpu_temperature 0 {
@@ -44,12 +47,12 @@ tztime local {
 #}
 
 disk "/" {
-        format = " %free frei von %total"
+        format = "  %free frei von %total "
 }
 
 
 volume master {
-        format = " %volume"
-        format_muted = "x (%volume)"
+        format = "  %volume "
+        format_muted = " x (%volume) "
         device = "pulse"
 }

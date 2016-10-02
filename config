@@ -167,13 +167,20 @@ bindsym Mod4+r mode "resize"
 
 # fancy windows
 
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 3
 
-for_window [class="^.*"] child_border 2
+for_window [class="^.*"] child_border 3
 
 gaps inner 8
 
 gaps outer 2
+
+# colors
+# class                 border  backgr.    text
+client.focused          #5294E2 #5294E2  #ffffff
+client.unfocused        #414A59 #414A59  #2A313B
+client.focused_inactive #2A313B #2A313B  #B3BDCB
+client.urgent           #C3555B #C3555B  #2A313B
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -181,11 +188,19 @@ bar {
         font pango:DroidSansMono 16,Icons 11
         status_command i3status -c ~/.i3status
 
+        #Whole color settings
         colors {
                 background #2A313B
-                statusline #0888BB
-                separator  #545454
+                statusline #B3BDCB
+                separator  #394249
+
+                # Type             border  background font
+                focused_workspace  #5294E2 #5294E2 #ffffff
+                active_workspace   #414A59 #414A59 #2A313B
+                inactive_workspace #2A313B #2A313B #B3BDCB
+                urgent_workspace   #C3555B #C3555B #2A313B
        }
+       position top
 }
 
 # Pulse Audio controls
@@ -200,16 +215,20 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 15
 bindsym XF86MonBrightnessDown exec xbacklight -dec 15
 
 # Toggle Touchpad
-bindsym Mod4+XF86Tools exec ~/dotfiles/togglePad.sh
+bindsym Mod4+XF86Explorer exec ~/dotfiles/togglePad.sh
 
-#enable tap to click
+#enable and toggle tap to click
 exec synclient TapButton1=1
-
-#restore background
-exec --no-startup-id nitrogen --restore
+bindsym Mod4+XF86LaunchA exec ~/dotfiles/toggleTapClick.sh
 
 #Set Screenposition for other Monitors
 exec --no-startup-id ~/dotfiles/autoxrandr.sh
 
+#restore background
+exec --no-startup-id nitrogen --restore
+
 #blur-lock
-bindsym Mod4+XF86Explorer exec --no-startup-id ~/.i3lock/lock
+bindsym Mod4+XF86Tools exec --no-startup-id ~/.i3lock/lock
+
+#Filebrowser
+bindsym XF86MyComputer exec nautilus
