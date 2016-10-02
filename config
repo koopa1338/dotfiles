@@ -199,8 +199,17 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 15
 # decrease screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 15
 
-# Touchpad controls
-#bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+# Toggle Touchpad
+bindsym Mod4+XF86Tools exec ~/dotfiles/togglePad.sh
 
+#enable tap to click
+exec synclient TapButton1=1
+
+#restore background
 exec --no-startup-id nitrogen --restore
-exec autoxrandr
+
+#Set Screenposition for other Monitors
+exec --no-startup-id ~/dotfiles/autoxrandr.sh
+
+#blur-lock
+bindsym Mod4+XF86Explorer exec --no-startup-id ~/.i3lock/lock
