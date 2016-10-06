@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="zshrc zprofile Xresources"    # list of files/folders to symlink in homedir
+files="zshrc zprofile Xresources i3status"    # list of files/folders to symlink in homedir
 
 ##########
 
@@ -32,3 +32,8 @@ for file in $files; do
 done
 
 ln -s /dotfiles/config ~/.config/i3/config
+ln -s $dir/i3lock/blur-lock.sh ~/.i3lock/lock
+cp $dir/i3lock/lock.png ~/.i3lock/lock.png
+
+ln -s $dir/togglePad.sh ~/bin/togglePad
+ln -s $dir/toggleTapClick.sh ~/bin/toggleTapClick

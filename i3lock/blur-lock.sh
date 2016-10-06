@@ -3,7 +3,7 @@
 scrot /tmp/screen.png
 convert /tmp/screen.png -scale 10% -scale 1000% /tmp/screen.png
 
-if [[ -f $HOME/.i3lock/icon.png ]] 
+if [[ -f $HOME/.i3lock/icon-flat.png ]] 
 then
     # placement x/y
     PX=0
@@ -24,7 +24,7 @@ then
         PX=$(($SROX + $SRX/2 - $RX/2))
         PY=$(($SROY + $SRY/2 - $RY/2))
 
-        convert /tmp/screen.png $HOME/.i3lock/icon.png -geometry +$PX+$PY -composite -matte  /tmp/screen.png
+        convert /tmp/screen.png $HOME/.i3lock/icon-flat.png -geometry +$PX+$PY -composite -matte  /tmp/screen.png
         echo "done"
     done
 fi 

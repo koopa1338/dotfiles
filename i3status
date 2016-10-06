@@ -12,25 +12,29 @@ order += "disk /"
 order += "wireless wlp5s0"
 order += "ethernet enp4s0"
 order += "battery 0"
+order += "cpu_temperature 0"
 order += "tztime local"
 order += "volume master"
+
 wireless wlp5s0 {
         format_up = "  Verbunden mit %essid, %bitrate %ip "
-        format_down = "  aus "
+        format_down = "  nicht verbunden "
 }
 
 ethernet enp4s0 {
         format_up = " LAN %ip "
-        format_down = " LAN aus "
+        format_down = " LAN nicht verbunden "
 }
 
 battery 0 {
         format = " %status %percentage "
         format_down = " Keine Batterie "
-        status_chr = "  "
-        status_bat = "  "
+        status_chr = "  "
+        status_bat = "  "
         status_full = "  "
-        low_threshold = 10
+        low_threshold = 25
+        threshold_type = "time"
+        path = "/sys/class/power_supply/BAT0/uevent"
 }
 
 tztime local {
@@ -41,10 +45,10 @@ tztime local {
 #        format = " %5min "
 #}
 
-#cpu_temperature 0 {
-#        format = " %degrees °C"
-#        path = "/sys/devices/platform/coretemp.0/temp1_input"
-#}
+cpu_temperature 0 {
+        format = " CPU %degrees °C "
+        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
+}
 
 disk "/" {
         format = "  %free frei von %total "
@@ -52,7 +56,7 @@ disk "/" {
 
 
 volume master {
-        format = "  %volume "
-        format_muted = " x (%volume) "
+        format = "   %volume "
+        format_muted = " x  (%volume) "
         device = "pulse"
 }
