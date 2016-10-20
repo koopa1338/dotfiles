@@ -6,7 +6,7 @@ URxvt.letterSpace: 			-1
 
 #define S_yellow			#B58900
 #define S_orange			#CB4B16
-#define S_red				#DC322F
+#define S_red         #DC322F
 #define S_magenta			#D33682
 #define S_violet			#6C71C4
 #define S_blue				#268bd2
