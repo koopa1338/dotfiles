@@ -241,3 +241,6 @@ bindsym Mod4+XF86Tools exec --no-startup-id ~/.i3lock/lock
 
 #Filebrowser
 bindsym XF86MyComputer exec nautilus
+
+#no Touchpadclick while typing
+exec syndaemon -i 0.5 -d -K -t
