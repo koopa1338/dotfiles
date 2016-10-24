@@ -68,6 +68,7 @@ volume master {
 }
 
 spotify {
+    cache_timeout = 1
     format = " {title} von {artist}    "
     format_down = ""
     color_paused = "#ff1844"
