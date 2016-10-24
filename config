@@ -189,7 +189,7 @@ client.urgent           #ff1844 #ff1844  #2A313B
 # finds out, if available)
 bar {
         font pango:DroidSansMono 16,Icons 11
-        status_command i3status -c ~/.i3status
+        status_command py3status -c ~/.i3status
         workspace_buttons yes
         separator_symbol "  "
         tray_padding 20

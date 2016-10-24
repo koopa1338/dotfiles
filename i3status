@@ -3,8 +3,8 @@ general {
         colors = true
         interval = 2
         color_good = "#B3BDCB"
-        color_bad = "#B3BDCB"
-        color_degraded = "#B3BDCB"
+        color_bad = "#ff1844"
+        color_degraded = "#414A59"
 
 }
 
@@ -12,18 +12,21 @@ order += "disk /"
 order += "wireless wlp5s0"
 order += "ethernet enp4s0"
 order += "battery 0"
+order += "load"
 order += "cpu_temperature 0"
 order += "tztime local"
 order += "volume master"
 
 wireless wlp5s0 {
-        format_up = "  Verbunden mit %essid, %bitrate %ip "
-        format_down = "  nicht verbunden "
+        format_up = "   Verbunden mit %essid, %bitrate %ip "
+        format_down = "   nicht verbunden "
+        on_click 1 = "exec wicd-client -n"
 }
 
 ethernet enp4s0 {
         format_up = " LAN %ip "
         format_down = " LAN nicht verbunden "
+        on_click 1 = "exec wicd-gtk"
 }
 
 battery 0 {
@@ -38,12 +41,14 @@ battery 0 {
 }
 
 tztime local {
-        format = " %H:%M %d.%m.%Y "
+        format = "   %H:%M %d.%m.%Y "
+        on_click 1 = "exec gnome-calendar"
+        on_click 3 = "exec gsimplecal"
 }
 
-#load {
-#        format = " %5min "
-#}
+load {
+        format = "   %5min "
+}
 
 cpu_temperature 0 {
         format = " CPU %degrees °C "
@@ -51,7 +56,8 @@ cpu_temperature 0 {
 }
 
 disk "/" {
-        format = "  %free frei von %total "
+        format = "   %free frei von %total "
+        on_click 1 = "exec nautilus"
 }
 
 
@@ -59,4 +65,5 @@ volume master {
         format = "   %volume "
         format_muted = " x  (%volume) "
         device = "pulse"
+        on_click 1 = "exec pavucontrol"
 }
