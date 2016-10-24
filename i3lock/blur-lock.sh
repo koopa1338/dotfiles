@@ -1,13 +1,13 @@
 #!/bin/bash
 
 scrot /tmp/screen.png
-convert /tmp/screen.png -scale 10% -scale 750% /tmp/screen.png
+convert /tmp/screen.png -scale 10% -scale 1000% /tmp/screen.png
 
 if [[ -f $HOME/.i3lock/icon-flat.png ]]
 then
     # placement x/y
     PX=0
-    PY=0
+    PY=
     # lockscreen image info
     R=$(file ~/.i3lock/icon.png | grep -o '[0-9]* x [0-9]*')
     RX=$(echo $R | cut -d' ' -f 1)

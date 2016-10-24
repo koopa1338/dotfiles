@@ -5,7 +5,7 @@ general {
         color_good = "#B3BDCB"
         color_bad = "#B3BDCB"
         color_degraded = "#B3BDCB"
-        
+
 }
 
 order += "disk /"
