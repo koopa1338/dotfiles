@@ -24,7 +24,7 @@ URxvt.letterSpace: 			-1
 
 !background:				S_base03
 !foreground:				S_base0
-*fading:					40
+*fading:					  10
 fadeColor:					#f99286
 cursorColor:				#d7d9fc
 pointerColorBackground:		#c3f786
@@ -55,7 +55,7 @@ URxvt.colorUL:			#7780A1
 
 
 *foreground: 			#CCCCCC
-*background: 			#383C4A
+*background: 			#2A313B
 
 
 color0:    				#6c6c6c

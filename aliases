@@ -1,0 +1,4 @@
+ alias scrotf="scrot ~/Screenshots/%Y-%m-%d-%T-screenshot.png -u"
+ alias scrot=""scrot ~/Screenshots/%Y-%m-%d-%T-screenshot.png"
+ alias scrotmd=""scrot ~/Screenshots/%Y-%m-%d-%T-screenshot.png -m"
+ 

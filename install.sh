@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-fileshome="zshrc zprofile Xresources i3status xprofile"    # list of files/folders to symlink in homedir
+fileshome="zshrc zprofile Xresources i3status xprofile aliases"    # list of files/folders to symlink in homedir
 filesbin="togglePad.sh toggleTapClick.sh autoxrandr.sh"    # list of files/folders to symlink in bin
 
 ##########
