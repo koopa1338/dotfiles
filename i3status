@@ -65,6 +65,7 @@ volume master {
         format_muted = " x  (%volume) "
         device = "pulse"
         on_click 1 = "exec pavucontrol"
+        color_degraded = "#ff1844"
 }
 
 spotify {
