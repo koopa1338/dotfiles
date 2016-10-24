@@ -182,7 +182,7 @@ gaps outer 2
 client.focused          #5294E2 #5294E2  #ffffff
 client.unfocused        #414A59 #414A59  #2A313B
 client.focused_inactive #2A313B #2A313B  #B3BDCB
-client.urgent           #C3555B #C3555B  #2A313B
+client.urgent           #ff1844 #ff1844  #2A313B
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -203,7 +203,7 @@ bar {
                 focused_workspace  #5294E2 #5294E2 #ffffff
                 active_workspace   #414A59 #414A59 #2A313B
                 inactive_workspace #2A313B #2A313B #B3BDCB
-                urgent_workspace   #C3555B #C3555B #2A313B
+                urgent_workspace   #ff1844 #ff1844 #2A313B
        }
        position top
 }
