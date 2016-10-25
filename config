@@ -139,7 +139,7 @@ bindsym Mod4+Shift+r restart
 
 # exit i3 (logs you out of your X session)
 bindsym Mod4+Shift+e mode "$exit"
-set $exit      L =       E =       S =       R =    
+set $exit      L =       E =       S =       R =    
 mode "$exit" {
     bindsym l exec --no-startup-id ~/.i3lock/lock, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
