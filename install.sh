@@ -42,3 +42,5 @@ ln -s /dotfiles/config ~/.config/i3/config
 #blurlock
 ln -s $dir/i3lock/blur-lock.sh ~/.i3lock/lock
 cp $dir/i3lock/lock.png ~/.i3lock/lock.png
+#htoprc
+ln -s $dir/htoprc ~/.config/htop/htoprc
