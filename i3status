@@ -13,7 +13,8 @@ order += "wireless wlp5s0"
 order += "ethernet enp4s0"
 order += "battery 0"
 order += "cpu_temperature 0"
-order += "tztime local"
+order += "tztime time"
+order += "tztime cal"
 order += "volume master"
 order += "spotify"
 
@@ -40,8 +41,13 @@ battery 0 {
         path = "/sys/class/power_supply/BAT0/uevent"
 }
 
-tztime local {
-        format = "   %H:%M %d.%m.%Y "
+tztime time{
+        format = "   %H:%M "
+        on_click 1 = "exec tomate-gtk"
+}
+
+tztime cal{
+        format = "   %d.%m.%Y "
         on_click 1 = "exec gnome-calendar"
         on_click 3 = "exec gsimplecal"
 }
@@ -51,7 +57,7 @@ tztime local {
 #}
 
 cpu_temperature 0 {
-        format = " CPU %degrees °C "
+        format = "   %degrees °C "
         path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
 }
 
