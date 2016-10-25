@@ -37,6 +37,7 @@ for file in $filesbin; do
     ln -s $dir/$file ~/bin/$file
 done
 
+echo "Creating remaining symlinks"
 #move i3 config in place
 ln -s /dotfiles/config ~/.config/i3/config
 #blurlock
