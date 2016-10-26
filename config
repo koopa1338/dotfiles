@@ -108,28 +108,28 @@ bindsym Mod4+Shift+minus move scratchpad
 bindsym Mod4+minus scratchpad show
 
 # switch to workspace
-bindsym Mod4+1 workspace  1 
-bindsym Mod4+2 workspace  2 
-bindsym Mod4+3 workspace  3 
-bindsym Mod4+4 workspace  4 
-bindsym Mod4+5 workspace  5 
-bindsym Mod4+6 workspace  6 
-bindsym Mod4+7 workspace  7 
-bindsym Mod4+8 workspace  8 
-bindsym Mod4+9 workspace  9 
-bindsym Mod4+0 workspace  10 
+bindsym Mod4+1 workspace 1
+bindsym Mod4+2 workspace 2
+bindsym Mod4+3 workspace 3
+bindsym Mod4+4 workspace 4
+bindsym Mod4+5 workspace 5
+bindsym Mod4+6 workspace 6
+bindsym Mod4+7 workspace 7
+bindsym Mod4+8 workspace 8
+bindsym Mod4+9 workspace 9
+bindsym Mod4+0 workspace 10
 
 # move focused container to workspace
-bindsym Mod4+Shift+1 move container to workspace  1 
-bindsym Mod4+Shift+2 move container to workspace  2 
-bindsym Mod4+Shift+3 move container to workspace  3 
-bindsym Mod4+Shift+4 move container to workspace  4 
-bindsym Mod4+Shift+5 move container to workspace  5 
-bindsym Mod4+Shift+6 move container to workspace  6 
-bindsym Mod4+Shift+7 move container to workspace  7 
-bindsym Mod4+Shift+8 move container to workspace  8 
-bindsym Mod4+Shift+9 move container to workspace  9 
-bindsym Mod4+Shift+0 move container to workspace  10 
+bindsym Mod4+Shift+1 move container to workspace 1
+bindsym Mod4+Shift+2 move container to workspace 2
+bindsym Mod4+Shift+3 move container to workspace 3
+bindsym Mod4+Shift+4 move container to workspace 4
+bindsym Mod4+Shift+5 move container to workspace 5
+bindsym Mod4+Shift+6 move container to workspace 6
+bindsym Mod4+Shift+7 move container to workspace 7
+bindsym Mod4+Shift+8 move container to workspace 8
+bindsym Mod4+Shift+9 move container to workspace 9
+bindsym Mod4+Shift+0 move container to workspace 10
 
 # reload the configuration file
 bindsym Mod4+Shift+c reload
@@ -187,12 +187,17 @@ gaps outer 2
 smart_borders on
 
 # colors
-# class                 border  backgr.    text
-client.focused          #5294E2 #5294E2  #ffffff
-client.unfocused        #414A59 #414A59  #2A313B
-client.focused_inactive #2A313B #2A313B  #B3BDCB
-client.urgent           #ff1844 #ff1844  #2A313B
-
+set $blue       #5294E2
+set $red        #ff1844
+set $white      #ffffff
+set $dark-grey  #2A313B
+set $mid-grey   #414A59
+set $li-grey    #B3BDCB
+# class                 border        backgr.       text          indicator
+  client.focused        $blue         $blue         $white        $red
+client.unfocused        $mid-grey     $mid-grey     $dark-grey    $red
+client.focused_inactive $dark-grey    $dark-grey    $li-grey      $red
+client.urgent           $red          $red          $dark-grey    $red
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -204,15 +209,15 @@ bar {
 
         #Whole color settings
         colors {
-                background #2A313B
-                statusline #B3BDCB
-                separator  #394249
+                background $dark-grey
+                statusline $li-grey
+                separator  $mid-grey
 
-                # Type             border  background font
-                focused_workspace  #5294E2 #5294E2 #ffffff
-                active_workspace   #414A59 #414A59 #2A313B
-                inactive_workspace #2A313B #2A313B #B3BDCB
-                urgent_workspace   #ff1844 #ff1844 #2A313B
+                # Type             border       background      font
+                focused_workspace  $blue        $blue           $white
+                active_workspace   $mid-grey    $mid-grey       $dark-grey
+                inactive_workspace $dark-grey   $dark-grey      $li-grey
+                urgent_workspace   $red         $red            $dark-grey
        }
        position top
 }

@@ -78,8 +78,14 @@ color11:    			#fcfbcc
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
+#define white      #ffffff
+#define blue       #5294E2
+#define red        #ff1844
+#define darkgrey  #2A313B
+#define midgrey   #414A59
+#define ligrey    #B3BDCB
 rofi.color-enabled: 	true
-rofi.color-window: 		#2A313B, #2A313B, #1e2529
-rofi.color-normal: 		#2A313B, #c1c1c1, #2A313B, #394249, #ffffff
-rofi.color-active: 		#2A313B, #80cbc4, #2A313B, #394249, #80cbc4
-rofi.color-urgent: 		#2A313B, #ff1844, #2A313B, #394249, #ff1844
+rofi.color-window: 		darkgrey, darkgrey, #1e2529
+rofi.color-normal: 		darkgrey, ligrey, darkgrey, midgrey, white
+rofi.color-active: 		darkgrey, blue, darkgrey, midgrey, blue
+rofi.color-urgent: 		darkgrey, red, darkgrey, midgrey, red
