@@ -254,7 +254,7 @@ bindsym Mod4+XF86Tools exec --no-startup-id ~/.i3lock/lock
 
 #Startup programs
 # Set Screenposition for other Monitors
-exec --no-startup-id ~/dotfiles/autoxrandr.sh
+exec_always --no-startup-id ~/dotfiles/autoxrandr.sh
 # restore background
 exec --no-startup-id nitrogen --restore
 # compton
