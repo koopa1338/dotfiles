@@ -2,60 +2,31 @@ URxvt.font:					xft:DroidSansMono:pixelsize=12
 URxvt.boldFont:				xft:DroidSansMono:pixelsize=12:bold
 URxvt.italicFont:			xft:DroidSansMono:pixelsize=12:italic
 URxvt.boldItalicFont:		xft:DroidSansMono:pixelsize=12:bold:italic
-URxvt.letterSpace: 			-1
+URxvt.letterSpace: 			2
+URxvt.scrollBar:		false
+URxvt.internalBorder:	15
+URxvt.externalBorder:	0
+URxvt.url-launcher:		/usr/bin/chromium
 
-#define S_yellow			#B58900
-#define S_orange			#CB4B16
-#define S_red         #DC322F
-#define S_magenta			#D33682
-#define S_violet			#6C71C4
-#define S_blue				#268bd2
-#define S_cyan				#2AA198
-#define S_green				#859900
+#define white       #ffffff
+#define blue        #5294E2
+#define red         #ff1844
+#define darkgrey    #2A313B
+#define midgrey     #414A59
+#define ligrey      #B3BDCB
 
-#define S_base03			#002b36
-#define S_base02			#073642
-#define S_base01			#586E75
-#define S_base00			#657B83
-#define S_base0				#839496
-#define S_base1				#93A1A1
-#define S_base2				#EEE8D5
-#define S_base3				#FDF6E3
-
-!background:				S_base03
-!foreground:				S_base0
 *fading:					  10
 fadeColor:					#f99286
 cursorColor:				#d7d9fc
 pointerColorBackground:		#c3f786
 pointerColorForeground:		#d7d9fc
 
-!color0:				S_base02
-!color1:				S_red
-!color2:				S_green
-!color3:				S_yellow
-!color4:				S_blue
-!color5:				S_magenta
-!color6:				S_cyan
-!color7:				S_base2
-!color8:				S_orange
-!color9:				S_base03
-!color10:				S_base01
-!color11:				S_base00
-!*color12:				S_base0
-!*color13:				S_violet
-!*color14:				S_base1
-!*color15:				S_base3
-
-URxvt.scrollBar:		false
-URxvt.internalBorder:	15
-URxvt.externalBorder:	0
-URxvt.url-launcher:		/usr/bin/chromium
-URxvt.colorUL:			#7780A1
 
 
-*foreground: 			#CCCCCC
-*background: 			#2A313B
+
+*foreground: 			  ligrey
+*background: 			  darkgrey
+URxvt.colorUL:			ligrey
 
 
 color0:    				#6c6c6c
@@ -78,14 +49,9 @@ color11:    			#fcfbcc
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
-#define white      #ffffff
-#define blue       #5294E2
-#define red        #ff1844
-#define darkgrey  #2A313B
-#define midgrey   #414A59
-#define ligrey    #B3BDCB
+
 rofi.color-enabled: 	true
-rofi.color-window: 		darkgrey, darkgrey, #1e2529
+rofi.color-window: 		darkgrey, darkgrey, blue
 rofi.color-normal: 		darkgrey, ligrey, darkgrey, midgrey, white
 rofi.color-active: 		darkgrey, blue, darkgrey, midgrey, blue
 rofi.color-urgent: 		darkgrey, red, darkgrey, midgrey, red
