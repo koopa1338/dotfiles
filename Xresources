@@ -1,7 +1,7 @@
-URxvt.font:					xft:DroidSansMono:pixelsize=12
-URxvt.boldFont:				xft:DroidSansMono:pixelsize=12:bold
-URxvt.italicFont:			xft:DroidSansMono:pixelsize=12:italic
-URxvt.boldItalicFont:		xft:DroidSansMono:pixelsize=12:bold:italic
+URxvt.font:					xft:DroidSansMonoforPowerline:pixelsize=16
+URxvt.boldFont:				xft:DroidSansMonoforPowerline:pixelsize=16:bold
+URxvt.italicFont:			xft:DroidSansMonoforPowerline:pixelsize=16:italic
+URxvt.boldItalicFont:		xft:DroidSansMonoforPowerline:pixelsize=16:bold:italic
 URxvt.letterSpace: 			2
 URxvt.scrollBar:		false
 URxvt.internalBorder:	15
