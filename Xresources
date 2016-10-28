@@ -29,22 +29,22 @@ pointerColorForeground:		#d7d9fc
 URxvt.colorUL:			ligrey
 
 
-color0:    				#6c6c6c
-color1:    				#e9897c
-color2:    				#b6e77d
-color3:    				#ecebbe
-color4:    				#a9cdeb
-color5:    				#ea96eb
-color6:    				#c9caec
-color7:    				#CCCCCC
-color8:    				#747474
-color9:    				#f99286
-color10:    			#c3f786
-color11:    			#fcfbcc
-*color12:    			#b6defb
-*color13:    			#fba1fb
-*color14:    			#d7d9fc
-*color15:    			#e2e2e2
+color0:    				#061a20
+color1:    				#1e85a0
+color2:    				#1885a0
+color3:    				#4691a0
+color4:    				#1c85a0
+color5:    				#1f92b0
+color6:    				#5b95a0
+color7:    				#2aa4c6
+color8:    				#135f76
+color9:    				#2dcbf4
+color10:    			#24cdf7
+color11:    			#64d0e5
+*color12:    			#2acbf5
+*color13:    			#2dd8ff
+*color14:    			#7fd0df
+*color15:    			#ebe8ff
 
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
