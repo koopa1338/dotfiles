@@ -68,7 +68,7 @@ disk "/" {
 
 volume master {
         format = "   %volume "
-        format_muted = " x  (%volume) "
+        format_muted = "   (%volume) "
         device = "pulse"
         on_click 1 = "exec pavucontrol"
         color_degraded = "#ff1844"
