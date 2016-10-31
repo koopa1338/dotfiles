@@ -24,6 +24,15 @@ font xft:Droid Sans Mono 16
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
+#Startup programs
+# Set Screenposition for other Monitors
+exec_always --no-startup-id ~/dotfiles/autoxrandr.sh
+# restore background
+exec --no-startup-id nitrogen --restore
+# compton
+#exec --no-startup-id compton --config ~/dotfiles/compton.conf -b
+exec --no-startup-id compton -b -f
+
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
 set $up i
@@ -179,7 +188,7 @@ for_window [class="^.*"] border pixel 2
 for_window [class="^.*"] child_border 2
 for_window [title="Lautstärkeregler"] floating enable
 for_window [title="Wicd-*"] floating enable
-for_window [title="Kalender"] floating enable
+for_window [class="Gnome-calendar"] floating enable
 
 
 gaps inner 8
@@ -187,12 +196,14 @@ gaps outer 2
 smart_borders on
 
 # colors
+#definitions
 set $blue       #5294E2
 set $red        #ff1844
 set $white      #ffffff
 set $darkgrey   #2A313B
 set $midgrey    #414A59
 set $ligrey     #B3BDCB
+#settings
 # class                 border        backgr.       text          indicator
   client.focused        $blue         $blue         $white        $red
 client.unfocused        $midgrey      $midgrey      $darkgrey     $red
@@ -256,12 +267,3 @@ exec syndaemon -i 0.75 -d -K -t
 bindsym XF86MyComputer exec nautilus
 # blur-lock
 bindsym Mod4+XF86Tools exec --no-startup-id ~/.i3lock/lock
-
-#Startup programs
-# Set Screenposition for other Monitors
-exec_always --no-startup-id ~/dotfiles/autoxrandr.sh
-# restore background
-exec --no-startup-id nitrogen --restore
-# compton
-#exec --no-startup-id compton --config ~/dotfiles/compton.conf -b
-exec --no-startup-id compton -b -f
