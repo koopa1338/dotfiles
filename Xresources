@@ -28,23 +28,39 @@ pointerColorForeground:		#d7d9fc
 *background: 			  darkgrey
 URxvt.colorUL:			ligrey
 
+*.color0:       #05101d
+*.color1:       #08192d
+*.color2:       #0d2b4f
+*.color3:       #133e71
+*.color4:       #195092
+*.color5:       #307fdc
+*.color6:       #5294e2
+*.color7:       #74a9e8
+*.color8:       #5294e2
+*.color9:       #7997bb
+*.color10:      #ff1844
+*.color11:      #307fdc
+*.color12:      #5294e2
+*.color13:      #74a9e8
+*.color14:      #ff7a93
+*.color15:      #7997bb
 
-color0:    				#061a20
-color1:    				#5294E2
-color2:    				#1885a0
-color3:    				#4691a0
-color4:    				#1c85a0
-color5:    				#1f92b0
-color6:    				#5b95a0
-color7:    				#2aa4c6
-color8:    				#135f76
-color9:    				#2dcbf4
-color10:    			#24cdf7
-color11:    			#64d0e5
-*color12:    			#2acbf5
-*color13:    			#2dd8ff
-*color14:    			#7fd0df
-*color15:    			#ebe8ff
+!color0:    				#02060c
+!color1:    				#08192d
+!color2:    				#0d2b4f
+!color3:    				#133e71
+!color4:    				#195092
+!color5:    				#1e63b4
+!color6:    				#2475d5
+!color7:    				#307fdc
+!color8:    				#5294e2
+!color9:    				#74a9e8
+!color10:    			  #95beed
+!color11:    			  #b7d2f3
+!*color12:    			#d8e7f9
+!*color13:    			#307fdc
+!*color14:    			#74a9e8
+!*color15:    			#d8e7f9
 
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
