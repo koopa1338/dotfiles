@@ -16,34 +16,30 @@ URxvt.url-launcher:		/usr/bin/chromium
 #define ligrey      #B3BDCB
 
 *fading:					  10
-fadeColor:					#f99286
-cursorColor:				#d7d9fc
-pointerColorBackground:		#c3f786
-pointerColorForeground:		#d7d9fc
-
-
-
+fadeColor:					#ff7a93
+cursorColor:				ligrey
 
 *foreground: 			  ligrey
 *background: 			  darkgrey
 URxvt.colorUL:			ligrey
 
-*.color0:       #05101d
-*.color1:       #08192d
-*.color2:       #0d2b4f
-*.color3:       #133e71
-*.color4:       #195092
-*.color5:       #307fdc
-*.color6:       #5294e2
-*.color7:       #74a9e8
-*.color8:       #5294e2
-*.color9:       #7997bb
-*.color10:      #ff1844
-*.color11:      #307fdc
+! black
+*.color0:       #2a313b
+*.color1:       #ff1844
+*.color2:       #a6e22e
+*.color3:       #ff7a93
+*.color4:       #5294e2
+*.color5:       #ae81ff
+*.color6:       #74a9e8
+*.color7:       #b3bdcb
+*.color8:       #414a59
+*.color9:       #ff1844
+*.color10:      #a6e22e
+*.color11:      #ff7a93
 *.color12:      #5294e2
-*.color13:      #74a9e8
-*.color14:      #ff7a93
-*.color15:      #7997bb
+*.color13:      #ae81ff
+*.color14:      #74a9e8
+*.color15:      #b5bfcf
 
 !color0:    				#02060c
 !color1:    				#08192d
