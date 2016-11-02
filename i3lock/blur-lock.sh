@@ -1,7 +1,7 @@
 #!/bin/bash
 
 scrot /tmp/screen.png
-convert /tmp/screen.png -scale 10% -scale 1000% /tmp/screen.png
+#convert /tmp/screen.png -scale 10% -scale 1000% /tmp/screen.png
 
 if [[ -f $HOME/.i3lock/icon-flat.png ]]
 then
@@ -24,7 +24,8 @@ then
         PX=$(($SROX + $SRX/2 - $RX/2))
         PY=$(($SROY + $SRY/2 - $RY/2))
 
-        convert /tmp/screen.png $HOME/.i3lock/icon-flat.png -geometry +$PX+$PY -composite -matte  /tmp/screen.png
+        #convert /tmp/screen.png $HOME/.i3lock/icon-flat.png -geometry +$PX+$PY -composite -matte  /tmp/screen.png
+        ffmpeg -y -i /tmp/screen.png -i $HOME/.i3lock/icon-flat.png -filter_complex "boxblur=5:1,overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2" -vframes 1 /tmp/screen.png
         echo "done"
     done
 fi
