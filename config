@@ -52,7 +52,7 @@ bindsym Mod4+q kill
 # start dmenu (a program launcher)
 bindsym Mod4+d exec rofi -show run -lines 12 -width 800 -height 600 -opacity 90 -font "Droid Sans Mono for Powerline 12"
 bindsym Mod4+w exec rofi -show window -lines 12 -width 800 -height 600 -opacity 90 -font "Droid Sans Mono for Powerline 12"
-#bindsym Mod4+less exec application_on_custom_workspace
+#bindsym Mod4+less exec 
 
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
