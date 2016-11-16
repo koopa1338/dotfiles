@@ -1,3 +1,4 @@
+URxvt*termname:     rxvt-256-color
 URxvt.font:					xft:DroidSansMonoforPowerline:pixelsize=16
 URxvt.boldFont:				xft:DroidSansMonoforPowerline:pixelsize=16:bold
 URxvt.italicFont:			xft:DroidSansMonoforPowerline:pixelsize=16:italic
