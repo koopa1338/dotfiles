@@ -32,8 +32,17 @@ exec --no-startup-id nitrogen --restore
 # compton
 #exec --no-startup-id compton --config ~/dotfiles/compton.conf -b
 exec --no-startup-id compton -b -f
-#nm-applet
-#exec --no-startup-id nm-applet
+
+# Tray Icons
+# polkit
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# dunst
+exec dunst
+# nm-applet
+exec --no-startup-id nm-applet
+# dropbox
+exec --no-startup-id dropbox
+
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
@@ -220,7 +229,6 @@ bar {
         workspace_buttons yes
         separator_symbol "  "
         tray_output primary
-        tray_padding 20
 
         #Whole color settings
         colors {

@@ -10,8 +10,6 @@ general {
 
 order += "spotify"
 order += "disk /"
-order += "wireless wlp5s0"
-order += "ethernet enp4s0"
 order += "battery 0"
 order += "cpu_temperature 0"
 order += "tztime time"
