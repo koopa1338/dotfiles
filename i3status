@@ -21,13 +21,13 @@ order += "volume master"
 wireless wlp5s0 {
         format_up = "   %essid "
         format_down = "  "
-        on_click 1 = "exec wicd-client -n"
+        on_click 1 = ""
 }
 
 ethernet enp4s0 {
         format_up = "  %ip "
         format_down = "  "
-        on_click 1 = "exec wicd-client -n"
+        on_click 1 = ""
 }
 
 battery 0 {
