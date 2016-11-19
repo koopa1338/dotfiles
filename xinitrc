@@ -58,4 +58,5 @@ fi
 
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 numlockx &
+nm-applet --sm-disable &
 exec i3
