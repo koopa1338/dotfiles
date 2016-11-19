@@ -41,7 +41,7 @@ exec dunst
 # nm-applet
 exec --no-startup-id nm-applet
 # dropbox
-exec dropbox
+exec --no-startup-id dropbox-cli start
 
 
 # use these keys for focus, movement, and resize directions when reaching for
