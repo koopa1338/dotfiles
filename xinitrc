@@ -47,7 +47,7 @@ exec ~/dotfiles/scripts/autoxrandr.sh &
 exec compton -b -f &
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id dunst &
-exec dropbox-cli start &
+exec dropbox start -i &
 exec nm-applet --sm-disable &
 
 exec i3

@@ -24,24 +24,6 @@ cursorColor:				ligrey
 *background: 			  darkgrey
 URxvt.colorUL:			ligrey
 
-! black
-!*.color0:       #2a313b
-!*.color1:       #ff1844
-!*.color2:       #a6e22e
-!*.color3:       #ff7a93
-!*.color4:       #5294e2
-!*.color5:       #ae81ff
-!*.color6:       #74a9e8
-!*.color7:       #b3bdcb
-!*.color8:       #414a59
-!*.color9:       #ff1844
-!*.color10:      #a6e22e
-!*.color11:      #ff7a93
-!*.color12:      #5294e2
-!*.color13:      #ae81ff
-!*.color14:      #74a9e8
-!*.color15:      #b5bfcf
-
 *.color0:    				#02060c
 *.color1:    				#08192d
 *.color2:    				#00163D
@@ -57,8 +39,7 @@ URxvt.colorUL:			ligrey
 *.color12:    			#d8e7f9
 *.color13:    			#307fdc
 *.color14:    			#74a9e8
-*.color15:    			#d8e7f9
-
+*.color15:    			#d8e7f92
 
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
