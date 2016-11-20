@@ -43,7 +43,7 @@ fi
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 numlockx &
-exec ~/dotfiles/autoxrandr.sh &
+exec ~/dotfiles/scripts/autoxrandr.sh &
 exec compton -b -f &
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id dunst &
