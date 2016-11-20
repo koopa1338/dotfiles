@@ -10,15 +10,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
-
-
-
-
-
-
-
     xrdb -merge $sysresources
-
 fi
 
 if [ -f $sysmodmap ]; then
@@ -26,15 +18,7 @@ if [ -f $sysmodmap ]; then
 fi
 
 if [ -f "$userresources" ]; then
-
-
-
-
-
-
-
     xrdb -merge "$userresources"
-
 fi
 
 if [ -f "$usermodmap" ]; then
@@ -57,6 +41,13 @@ fi
 #exec xterm -geometry 80x66+0+0 -name login
 
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+
 numlockx &
-nm-applet --sm-disable &
+exec ~/dotfiles/autoxrandr.sh &
+exec compton -b -f &
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+exec --no-startup-id dunst &
+exec dropbox-cli start &
+exec nm-applet --sm-disable &
+
 exec i3

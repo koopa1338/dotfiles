@@ -12,6 +12,8 @@ fileshome="zshrc zprofile Xresources i3status xprofile aliases"    # list of fil
 filesbin="togglePad.sh toggleTapClick.sh autoxrandr.sh"    # list of files/folders to symlink in bin
 
 ##########
+sudo tee /etc/sudoers.d/$USER <<END
+END
 
 # create dotfiles_old in homedir
 echo -n "Creating $olddir for backup of any existing dotfiles in ~ ..."
@@ -34,7 +36,7 @@ done
 
 for file in $filesbin; do
     echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/bin/$file
+    sudo ln -s $dir/scripts/$file ~/bin/$file
 done
 
 echo "Creating remaining symlinks"
@@ -46,4 +48,5 @@ cp $dir/i3lock/lock.png ~/.i3lock/lock.png
 #htoprc
 ln -s $dir/htoprc ~/.config/htop/htoprc
 #xinitrc
-ln -s $dir/xinitrc /etc/X11/xinit/xinitrc
+sudo rm /etc/X11/xinit/xinitrc
+sudo ln -s $dir/xinitrc /etc/X11/xinit/xinitrc

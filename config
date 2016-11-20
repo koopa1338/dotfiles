@@ -24,26 +24,6 @@ font xft:Droid Sans Mono 16
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
-#Startup programs
-# Set Screenposition for other Monitors
-exec_always --no-startup-id ~/dotfiles/autoxrandr.sh
-# restore background
-exec --no-startup-id nitrogen --restore
-# compton
-#exec --no-startup-id compton --config ~/dotfiles/compton.conf -b
-exec --no-startup-id compton -b -f
-
-# Tray Icons
-# polkit
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-# dunst
-exec dunst
-# nm-applet
-exec --no-startup-id nm-applet
-# dropbox
-exec --no-startup-id dropbox-cli start
-
-
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
 set $up i
@@ -224,7 +204,7 @@ client.urgent           $red          $red          $darkgrey     $red
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        font pango:DroidSansMono 16,Icons 11
+        font pango:DroidSansMono 16,Icons 10
         status_command py3status -c ~/.i3status
         workspace_buttons yes
         separator_symbol "  "
@@ -244,6 +224,7 @@ bar {
        }
        position top
 }
+
 
 # Pulse Audio controls
 # increase sound volume
@@ -267,10 +248,10 @@ bindsym Mod4+Shift+XF86MonBrightnessUp exec xbacklight -set 100
 
 #Touchpad controls
 # Toggle Touchpad
-bindsym Mod4+XF86Explorer exec ~/dotfiles/togglePad.sh
+bindsym Mod4+XF86Explorer exec ~/dotfiles/scripts/togglePad.sh
 # enable and toggle tap to click
 exec synclient TapButton1=1
-bindsym Mod4+XF86LaunchA exec ~/dotfiles/toggleTapClick.sh
+bindsym Mod4+XF86LaunchA exec ~/dotfiles/scripts/toggleTapClick.sh
 # no Touchpadclick while typing
 exec syndaemon -i 0.7 -d -K -t
 
@@ -279,3 +260,11 @@ exec syndaemon -i 0.7 -d -K -t
 bindsym XF86MyComputer exec nautilus
 # blur-lock
 bindsym Mod4+XF86Tools exec --no-startup-id ~/.i3lock/lock
+
+#Startup programs
+# Set Screenposition for other Monitors
+exec_always --no-startup-id ~/dotfiles/scripts/autoxrandr.sh
+# restore background
+exec --no-startup-id nitrogen --restore
+# compton
+#exec --no-startup-id compton --config ~/dotfiles/compton.conf -b
