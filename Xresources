@@ -29,11 +29,11 @@ URxvt.colorUL:			ligrey
 *color1: #34b2c0
 *color2: #0f778e
 *color3: #186378
-*color4: #0f4857
-*color5: #0a333d
+*color4: #5294E2
+*color5: #3A5B63
 *color6: #4ecbd1
 *color7: #2a8da0
-*color8: #003365
+*color8: #325B83
 *color9: #4ba2b3
 *color10: #8fd3e8
 *color11: #61b8c3
@@ -41,7 +41,6 @@ URxvt.colorUL:			ligrey
 *color13: #68dce3
 *color14: #34b2c0
 *color15: #0f778e
-
 
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
