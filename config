@@ -248,10 +248,10 @@ bindsym Mod4+Shift+XF86MonBrightnessUp exec xbacklight -set 100
 
 #Touchpad controls
 # Toggle Touchpad
-bindsym Mod4+XF86Explorer exec ~/dotfiles/scripts/togglePad.sh
+bindsym Mod4+XF86Explorer exec ~/dotfiles/bin/togglePad.sh
 # enable and toggle tap to click
 exec synclient TapButton1=1
-bindsym Mod4+XF86LaunchA exec ~/dotfiles/scripts/toggleTapClick.sh
+bindsym Mod4+XF86LaunchA exec ~/dotfiles/bin/toggleTapClick.sh
 # no Touchpadclick while typing
 exec syndaemon -i 0.7 -d -K -t
 
@@ -263,7 +263,7 @@ bindsym Mod4+XF86Tools exec --no-startup-id ~/.i3lock/lock
 
 #Startup programs
 # Set Screenposition for other Monitors
-exec_always --no-startup-id ~/dotfiles/scripts/autoxrandr.sh
+exec_always --no-startup-id ~/dotfiles/bin/autoxrandr.sh
 # restore background
 exec_always --no-startup-id nitrogen --restore
 # compton
