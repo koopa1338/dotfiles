@@ -212,6 +212,7 @@ bar {
         tray_padding 6
         tray_output primary
         height 30
+        position top
 
         #Whole color settings
         colors {
@@ -225,7 +226,6 @@ bar {
                 inactive_workspace $darkgrey    $darkgrey       $ligrey
                 urgent_workspace   $red         $red            $darkgrey
        }
-       position top
 
 }
 
