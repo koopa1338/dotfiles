@@ -257,7 +257,7 @@ bindsym Mod4+XF86Explorer exec ~/dotfiles/bin/togglePad.sh
 exec synclient TapButton1=1
 bindsym Mod4+XF86LaunchA exec ~/dotfiles/bin/toggleTapClick.sh
 # no Touchpadclick while typing
-exec syndaemon -i 0.7 -d -K -t
+#exec syndaemon -i 0.7 -d -K -t
 
 #Misc. keybindings
 # Filebrowser

@@ -37,11 +37,11 @@ fi
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 numlockx &
-exec ~/dotfiles/scripts/autoxrandr.sh &
-exec compton -b -f &
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-exec --no-startup-id dunst &
-exec dropbox-cli start -i &
-exec nm-applet --sm-disable &
+syndaemon -i 0.7 -d -K -t &
+compton -b -f &
+dunst --no-startup-id &
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+sleep 2 && dropbox-cli start -i &
+nm-applet --sm-disable &
 
-exec i3
+sleep 2 && exec i3
