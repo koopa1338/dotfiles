@@ -272,4 +272,5 @@ exec_always ~/dotfiles/bin/autoxrandr.sh
 exec_always --no-startup-id nitrogen --restore
 # compton
 #exec --no-startup-id compton --config ~/dotfiles/compton.conf -b
-exec sleep 30 && dropbox-cli start
+exec sleep 30
+exec dropbox-cli start

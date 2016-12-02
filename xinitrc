@@ -40,7 +40,6 @@ numlockx &
 syndaemon -i 0.7 -d -K -t &
 compton -b -f &
 dunst --no-startup-id &
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 nm-applet --sm-disable &
 
 exec i3
