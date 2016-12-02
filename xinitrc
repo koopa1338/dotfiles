@@ -41,7 +41,6 @@ syndaemon -i 0.7 -d -K -t &
 compton -b -f &
 dunst --no-startup-id &
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-sleep 2 && dropbox-cli start -i &
 nm-applet --sm-disable &
 
-sleep 2 && exec i3
+exec i3

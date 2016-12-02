@@ -267,8 +267,9 @@ bindsym Mod4+XF86Tools exec --no-startup-id ~/.i3lock/lock
 
 #Startup programs
 # Set Screenposition for other Monitors
-exec_always --no-startup-id ~/dotfiles/bin/autoxrandr.sh
+exec_always ~/dotfiles/bin/autoxrandr.sh
 # restore background
 exec_always --no-startup-id nitrogen --restore
 # compton
 #exec --no-startup-id compton --config ~/dotfiles/compton.conf -b
+exec sleep 30 && dropbox-cli start
