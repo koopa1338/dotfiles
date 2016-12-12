@@ -1,5 +1,5 @@
-xset -b
-QT_QPA_PLATFORMTHEME='gtk2'
+xset -b &
+QT_QPA_PLATFORMTHEME='gtk2' &
 nm-applet --sm-disable &
 syndaemon -i 0.7 -d -K -t &
 synclient VertScrollDelta=112 &
