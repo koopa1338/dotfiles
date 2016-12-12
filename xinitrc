@@ -1,5 +1,6 @@
 #!/bin/sh
 
+[ -f ~/.xprofile ] && source ~/.xprofile
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -8,15 +9,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
-
-
-
-
-
-
-
     xrdb -merge $sysresources
-
 fi
 
 if [ -f $sysmodmap ]; then
@@ -24,15 +17,7 @@ if [ -f $sysmodmap ]; then
 fi
 
 if [ -f "$userresources" ]; then
-
-
-
-
-
-
-
     xrdb -merge "$userresources"
-
 fi
 
 if [ -f "$usermodmap" ]; then
@@ -48,16 +33,9 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-export QT_QPA_PLATFORMTHEME='gtk2' &
-
 twm &
 xclock -geometry 50x50-1+1 &
 xterm -geometry 80x50+494+51 &
 xterm -geometry 80x20+494-0 &
-exec nm-applet --sm-disable &
-syndaemon -i 0.7 -d -K -t &
-exec synclient VertScrollDelta=112 &
-compton -b -f &
-dunst --no-startup-id &
 
 exec xterm -geometry 80x66+0+0 -name login
