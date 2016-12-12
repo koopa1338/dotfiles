@@ -179,7 +179,6 @@ mode "$resize" {
 for_window [class="^.*"] border pixel 2
 for_window [class="^.*"] child_border 2
 for_window [class="Pavucontrol"] floating enable
-for_window [class="Wicd-client.py"] floating enable
 for_window [class="Gnome-calendar"] floating enable
 
 
@@ -214,7 +213,7 @@ bar {
         height 30
         position top
 
-        #Whole color settings
+      #Whole color settings
         colors {
                 background $darkgrey
                 statusline $ligrey
@@ -226,29 +225,30 @@ bar {
                 inactive_workspace $darkgrey    $darkgrey       $ligrey
                 urgent_workspace   $red         $red            $darkgrey
        }
-
 }
 
 
+exec_always ~/dotfiles/polybar/poly_restart.sh
+
 # Pulse Audio controls
 # increase sound volume
-bindsym Mod4+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%
 # decrease sound volume
-bindsym Mod4+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5%
 # mute sound
-bindsym Mod4+XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
 # max sound
-bindsym Mod4+Shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 100%
+bindsym Mod4+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 100%
 
 # Sreen brightness controls
 # increase screen brightness
-bindsym Mod4+XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 # decrease screen brightness
-bindsym Mod4+XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 # set to 0
-bindsym Mod4+Shift+XF86MonBrightnessDown exec xbacklight -set 0
+bindsym Mod4+XF86MonBrightnessDown exec xbacklight -set 0
 # set to 100
-bindsym Mod4+Shift+XF86MonBrightnessUp exec xbacklight -set 100
+bindsym Mod4+XF86MonBrightnessUp exec xbacklight -set 100
 
 #Touchpad controls
 # Toggle Touchpad
@@ -272,5 +272,5 @@ exec_always ~/dotfiles/bin/autoxrandr.sh
 exec_always --no-startup-id nitrogen --restore
 # compton
 #exec --no-startup-id compton --config ~/dotfiles/compton.conf -b
-exec sleep 30
-exec dropbox-cli start
+exec sleep 15 && nm-applet --sm-disable
+exec sleep 15 && dropbox-cli start

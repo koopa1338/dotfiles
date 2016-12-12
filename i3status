@@ -9,7 +9,7 @@ general {
 }
 
 order += "spotify"
-order += "disk /"
+#order += "disk /home"
 order += "battery 0"
 order += "cpu_temperature 0"
 order += "tztime time"
@@ -59,7 +59,8 @@ cpu_temperature 0 {
         path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
 }
 
-disk "/" {
+disk "/home" {
+
         format = "   %free frei (%total) "
         on_click 1 = "exec nautilus"
 }
