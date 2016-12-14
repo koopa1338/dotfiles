@@ -85,6 +85,7 @@ qt5-styleplugins
 qt5ct
 rofi
 screen
+speedtest-cli
 splix
 sudo
 texlive-bibtexextra
