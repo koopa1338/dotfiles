@@ -242,9 +242,9 @@ bindsym Mod4+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 1
 
 # Sreen brightness controls
 # increase screen brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 # decrease screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 # set to 0
 bindsym Mod4+XF86MonBrightnessDown exec xbacklight -set 0
 # set to 100

@@ -194,11 +194,12 @@ toggle-off-foreground = #66
 
 
 [module/backlight]
-type = internal/xbacklight
+type = internal/backlight
 output = eDP1
+card = intel_backlight
 
 format = <label> <bar>
-label = BL
+label = %percentage%
 
 bar-width = 10
 bar-indicator = │
