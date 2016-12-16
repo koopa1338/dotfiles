@@ -1,6 +1,6 @@
 #!/bin/sh
 
-[ -f ~/.xprofile ] && source ~/.xprofile
+[ -f $HOME/.xprofile ] && source $HOME/.xprofile
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources

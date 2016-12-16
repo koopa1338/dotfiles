@@ -129,3 +129,11 @@ for file in $filesbin; do
   sudo mv $bin/$file $old/$file
   sudo ln -s $dir/bin/$file $bin/$file
 done
+
+echo "Do you wish to to set qt environment variable?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) source $dir/bin/qt.sh; echo "Pls qt5ct and qt4-config to set qt gtk-theme" break;;
+        No ) break;;
+      esac
+done
