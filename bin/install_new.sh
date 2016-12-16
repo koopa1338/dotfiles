@@ -1,26 +1,55 @@
 #!/bin/bash
 echo "Checking for system updates..."
-sudo pacman -Sy
+sudo pacman -Syy
 sudo pacman -Syu
 
-echo "Installing needed packages..."
-sudo pacman -S - < ~/dotfiles/pkglist.txt
-pkgs=$(cat ~/dotfiles/pkglist_aur.txt)
-for pkg in $pkgs; do
-    yaourt -S $pkg
-done
-echo "done!"
-
-if [ ! -d ~/dofiles_old ] ; then
-  mkdir ~/dotfiles_old
-fi
-old=~/dotfiles_old
-dir=~/dotfiles
-bin=~/bin
-config=~/.config
-
+#variables
+pacman=true
+aur=true
+old=$HOME/dotfiles_old
+dir=$HOME/dotfiles
+pkgs=$(cat $dir/pkglist_aur.txt)
+bin=$HOME/bin
+config=$HOME/.config
 fileshome="zshrc Xresources i3status xprofile aliases"    # list of files/folders to symlink in homedir
 filesbin="togglePad.sh toggleTapClick.sh autoxrandr.sh testcolors.sh pkglist_gen.sh"    # list of files/folders to symlink in bin
+
+echo "Do you wish to install needed packages?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) break;;
+        No ) unset pacman; pacman=false; break;;
+    esac
+done
+
+if $pacman; then
+  echo "Installing needed packages..."
+  sudo pacman -S - < $dir/pkglist.txt --noconfirm
+fi
+echo "done!"
+
+echo "Do you wish to install packages from AUR?"
+select yn in "Yes" "No"; do
+    case $yn in
+      Yes ) break;;
+      No ) unset aur; aur=false; break;;
+    esac
+done
+
+if $aur; then
+  echo "installing AUR packages..."
+  for pkg in $pkgs; do
+      yaourt -S $pkg
+  done
+fi
+echo "done!"
+
+echo "sleep for 50"
+sleep 50
+
+if [ ! -d $old ] ; then
+  mkdir $old
+fi
 
 echo -n "Changing to the $dir directory ..."
 cd $dir
@@ -28,12 +57,12 @@ echo "done"
 
 for file in $fileshome; do
     echo "Creating symlink to $file in home directory."
-    sudo mv ~/.$file $old/$file
-    sudo ln -s $dir/$file ~/.$file
+    sudo mv $HOME/.$file $old/$file
+    sudo ln -s $dir/$file $HOME/.$file
 done
 
 if [ -f /etc/X11/xinit/xinitrc ] ; then
-  sudo mv -f /etc/X11/xinit/xinitrc
+  sudo mv -f /etc/X11/xinit/xinitrc $old
   unset f
 fi
 echo "Creating symlink for xinitrc"
@@ -48,26 +77,26 @@ if [ -f $config/i3/config ] ; then
   sudo mv -f $config/i3/config $old
   unset f
 fi
-ln -s /dotfiles/config $config/i3/config
+ln -s $dir/config $config/i3/config
 echo "custom lockscreen..."
 #blurlock
-if [ ! -d ~/.i3lock ] ; then
-  sudo mkdir ~/.i3lock
+if [ ! -d $HOME/.i3lock ] ; then
+  sudo mkdir $HOME/.i3lock
 fi
-if [ -f ~/.i3lock/blur-lock.sh ] ; then
-  sudo mv -f ~/.i3lock/blur-lock.sh $old
+if [ -f $HOME/.i3lock/lock ] ; then
+  sudo mv -f $HOME/.i3lock/lock $old
   unset f
 fi
-if [ -f ~/.i3lock/lock.png ] ; then
-  sudo mv -f ~/.i3lock/lock.png $old
+if [ -f $HOME/.i3lock/lock.png ] ; then
+  sudo mv -f $HOME/.i3lock/lock.png $old
   unset f
 fi
-sudo ln -s $dir/i3lock/blur-lock.sh ~/.i3lock/lock
-sudo cp $dir/i3lock/lock.png ~/.i3lock/lock.png
+sudo ln -s $dir/i3lock/blur-lock.sh $HOME/.i3lock/lock
+sudo cp $dir/i3lock/lock.png $HOME/.i3lock/lock.png
 echo "htop config..."
 #htoprc
 if [ ! -d $config/htop ] ; then
-  sudo mkdir ~/.config/htop
+  sudo mkdir $config/htop
 fi
 if [ -f $config/htop/htoprc ] ; then
   sudo mv -f $config/htop/htoprc $old
@@ -76,8 +105,19 @@ fi
 sudo ln -s $dir/htoprc $config/htop/htoprc
 echo "done"
 
-if [ ! -d ~/bin ] ; then
-  sudo mkdir ~/bin
+#dunstrc
+if [ ! -d $config/dunst ] ; then
+  sudo mkdir $config/dunst
+fi
+if [ -f $config/dunst/dunstrc ] ; then
+  sudo mv -f $config/dunst/dunstrc $old
+  unset f
+fi
+sudo ln -s $dir/dunstrc $config/htop/dunstrc
+echo "done"
+
+if [ ! -d $bin ] ; then
+  sudo mkdir $bin
 fi
 
 echo -n "Changing to the $bin directory ..."
