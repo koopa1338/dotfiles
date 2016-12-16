@@ -21,6 +21,7 @@ python-wiring
 python-yapsy
 spotify
 tomate-gtk
+tor-browser-de
 ttf-font-awesome
 xcursor-numix
 xdgurl

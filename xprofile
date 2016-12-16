@@ -1,5 +1,5 @@
 xset -b &
-QT_QPA_PLATFORMTHEME='gtk2' &
+QT_QPA_PLATFORMTHEME='qt5ct' &
 numlockx &
 nm-applet --sm-disable &
 syndaemon -i 0.7 -d -K -t &

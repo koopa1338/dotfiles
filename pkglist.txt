@@ -15,7 +15,6 @@ bluez-utils
 brasero
 bumblebee
 bzr
-chromium
 cmake
 compton
 dmraid
@@ -93,7 +92,7 @@ texlive-fontsextra
 texlive-langextra
 texlive-science
 texstudio
-thunderbird
+thunderbird-i18n-de
 tlp-rdw
 totem
 transmission-gtk
