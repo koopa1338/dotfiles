@@ -16,6 +16,7 @@ brasero
 bumblebee
 bzr
 cmake
+cmatrix
 compton
 dmraid
 eog
@@ -65,10 +66,13 @@ make
 mpd
 mpv
 nautilus-share
+ncmpc
+ncmpcpp
 network-manager-applet
 networkmanager-openvpn
 networkmanager-pptp
 nfs-utils
+nmap
 numix-frost-themes
 numix-icon-theme-square
 numlockx
@@ -84,9 +88,9 @@ qt5-styleplugins
 qt5ct
 rofi
 screen
+sonata
 speedtest-cli
 splix
-sudo
 texlive-bibtexextra
 texlive-fontsextra
 texlive-langextra
@@ -96,8 +100,9 @@ thunderbird-i18n-de
 tlp-rdw
 totem
 transmission-gtk
-unetbootin
+weechat
 whois
+wireshark-gtk
 xdg-user-dirs-gtk
 xf86-input-synaptics
 xorg-luit

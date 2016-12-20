@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+    <title>Startpage</title>
+  </head>
+  <body onload="startTime()">
+    <div id="content">
+      <h1 id="time"></h1>
+      <form id="js-search-form" autocomplete="on">
+	<input id="js-search-input" class="search-input" type="text" placeholder="type '?' for commands" autofocus>
+	<input type="submit" style="display: none" onclick="return interpretSearch()">
+      </form>
+      <div class="list">
+	<p>Allgemein</p>
+	<hr>
+	<br>
+	<ul>
+	  <a href="https://youtube.com/"><li>Youtube</li></a>
+	  <a href="https://facebook.com/"><li>Facebook</li></a>
+    <a href="http://blacksununiverse.de/Login/login.php"><li>Blacksun</li></a>
+    <a href="https://twitch.tv/"><li>Twitch</li></a>
+	</ul>
+      </div>
+      <div class="list">
+	<p>Reddit</p>
+	<hr>
+	<br>
+	<ul>
+	  <a href="https://reddit.com/r/unixporn/new"><li>unixporn</li></a>
+	  <a href="https://reddit.com/r/linux/new"><li>linux</li></a>
+	  <a href="https://reddit.com/cpp/new"><li>C++</li></a>
+	  <a href="https://reddit.com/r/kalilinux/new"><li>Kalilinux</li></a>
+	</ul>
+      </div>
+      <div class="list">
+	<p>Dev</p>
+	<hr>
+	<br>
+	<ul>
+	  <a href="https://github.com/"><li>Github</li></a>
+	  <a href="https://stackoverflow.com"><li>Stackoverflow</li></a>
+	  <a href="https://www.codecademy.com/learn"><li>Codecademy</li></a>
+	  <a href="http://www.ringe-mit-dir-selbst.de/"><li>Ringe</li></a>
+	</ul>
+      </div>
+    </div>
+  </body>
+</html>
