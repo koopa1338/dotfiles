@@ -16,23 +16,30 @@ function interpretSearch() {
     switch(search[0])
     {
         case '?':
-            alert("t: twitter\ntw: twitch\nr: reddit\ny: youtube\na: amazon");
+            alert("t: twitter\ntw: twitch\nr: reddit\neb: ebay\ny youtube\na: amazon");
             break;
         case 't:':
-            window.location.href = "https://twitter.com/" + search[1];
+            window.location.href = encodeURI("https://twitter.com/" + search[1]);
             return false;
         case 'tw:':
-            window.location.href = "https://twitch.tv/" + search[1];
+            window.location.href = encodeURI("https://twitch.tv/" + search[1]);
             return false;
         case 'r:':
-            window.location.href = "https://reddit.com/r/" + search[1];
+            window.location.href = encodeURI("https://reddit.com/r/" + search[1]);
+            return false;
+        case 'eb:':
+            for(var i = 1; i < search.length; i++)
+            {
+                searchTerms += search[i]+'+';
+            }
+            window.location.href = encodeURI("http://www.ebay.de/sch/i.html?_odkw=0&_from=R40&_nkw=" + searchTerms);
             return false;
         case 'y:':
             for(var i = 1; i < search.length; i++)
             {
                 searchTerms += search[i]+'+';
             }
-            window.location.href = "https://youtube.com/results?search_query=" + searchTerms;
+            window.location.href = encodeURI("https://youtube.com/results?search_query=" + searchTerms);
             return false;
         case 'a:':
             for(var i = 1; i < search.length; i++)
