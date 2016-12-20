@@ -46,7 +46,7 @@ function interpretSearch() {
             {
                 searchTerms += search[i]+'+';
             };
-            window.location.href = "https://google.com/search?q="+searchTerms;
+            window.location.href = "https://duckduckgo.com/?q=" + searchTerms;
             return false;
     }
 };
