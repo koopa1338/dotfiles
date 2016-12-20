@@ -16,7 +16,7 @@ function interpretSearch() {
     switch(search[0])
     {
         case '?':
-            alert("t: twitter\ntw: twitch\nr: reddit\neb: ebay\ny youtube\na: amazon");
+            alert("t: twitter\ntw: twitch\nr: reddit\neb: ebay\ny: youtube\na: amazon");
             break;
         case 't:':
             window.location.href = encodeURI("https://twitter.com/" + search[1]);
