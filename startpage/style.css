@@ -1,6 +1,5 @@
 @font-face {
-    font-family: 'Lato';
-    src: url('https://fonts.gstatic.com/s/lato/v11/22JRxvfANxSmnAhzbFH8PgLUuEpTyoUstqEm5AMlJo4.woff2') format('woff2');
+    font-family: 'Droid Sans Mono', monospace;
 }
 
 body {
@@ -27,6 +26,10 @@ p {
     font-size: 30px;
 }
 
+hr{
+  border-color: #5294E2;
+}
+
 ul {
     list-style-type: none;
     text-align: left;
@@ -49,12 +52,12 @@ li:hover {
 }
 
 .list {
-    display: inline-block;
+    display: inline-table;
     margin: 20px 10px 10px 10px;
-    width: 200px;
+    width: 210px;
     background-color: #414A59;
     padding-bottom: 20px;
-    height: 273px;
+    height: 293px;
     -webkit-box-shadow: 0px 0px 300px -21px rgba(0,0,0,0.42);
     -moz-box-shadow: 0px 0px 300px -21px rgba(0,0,0,0.42);
     box-shadow: 0px 0px 300px -21px rgba(0,0,0,0.42);
