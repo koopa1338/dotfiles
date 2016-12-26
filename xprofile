@@ -2,7 +2,7 @@ xset -b &
 exec --no-startupid /usr/lib/polkit-gnome/polkit-authentication-agent-1 &
 numlockx &
 nm-applet --sm-disable &
-syndaemon --no-startupid -i 0.7 -d -K -t &
+syndaemon -i 0.7 -d -K -t &
 synclient VertScrollDelta=-112 &
-compton --no-startupid -b -f &
+compton -b -f &
 dunst --no-startup-id &
