@@ -1,6 +1,7 @@
 brother-dcp-9022cdw
 deb2targz
 dropbox-cli
+gtkdialog-svn
 i3-gaps
 java-gnome
 jdownloader2
@@ -8,6 +9,7 @@ kodi-addon-pvr-iptvsimple-git
 kodi-platform-git
 libplatform-legacy
 live-usb-install
+multisystem
 nautilus-dropbox
 neofetch
 oh-my-zsh-git

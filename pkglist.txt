@@ -15,6 +15,7 @@ bluez-utils
 brasero
 bumblebee
 bzr
+cinnamon
 cmake
 cmatrix
 compton
@@ -24,7 +25,6 @@ fakeroot
 ffmpegthumbnailer
 flex
 gedit
-gnome-backgrounds
 gnome-calculator
 gnome-calendar
 gnome-contacts
@@ -68,7 +68,6 @@ mpv
 nautilus-share
 ncmpc
 ncmpcpp
-network-manager-applet
 networkmanager-openvpn
 networkmanager-pptp
 nfs-utils
@@ -84,7 +83,6 @@ pepper-flash
 pidgin
 pkg-config
 pulseaudio-bluetooth
-qt5-styleplugins
 qt5ct
 rofi
 screen
@@ -100,12 +98,12 @@ thunderbird-i18n-de
 tlp-rdw
 totem
 transmission-gtk
+ufw-extras
 weechat
 whois
 wireshark-gtk
 xdg-user-dirs-gtk
 xf86-input-synaptics
-xorg-luit
 xorg-server-utils
 xorg-smproxy
 xorg-x11perf

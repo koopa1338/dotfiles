@@ -1,8 +1,8 @@
 xset -b &
-QT_QPA_PLATFORMTHEME='qt5ct' &
+exec --no-startupid /usr/lib/polkit-gnome/polkit-authentication-agent-1 &
 numlockx &
 nm-applet --sm-disable &
-syndaemon -i 0.7 -d -K -t &
+syndaemon --no-startupid -i 0.7 -d -K -t &
 synclient VertScrollDelta=-112 &
-compton -b -f &
+compton --no-startupid -b -f &
 dunst --no-startup-id &
