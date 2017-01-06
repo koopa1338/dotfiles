@@ -1,5 +1,4 @@
 acpid
-antergos-gnome-defaults-list
 antergos-keyring
 antergos-mirrorlist
 antergos-welcome
@@ -8,7 +7,6 @@ atom
 autoconf
 automake
 b43-fwcutter
-baobab
 bind-tools
 bison
 bluez-utils
@@ -20,24 +18,18 @@ cmake
 cmatrix
 compton
 dmraid
-eog
 fakeroot
 ffmpegthumbnailer
 flex
 gedit
+gnome-bluetooth
 gnome-calculator
 gnome-calendar
-gnome-contacts
-gnome-disk-utility
 gnome-documents
 gnome-logs
 gnome-maps
 gnome-photos
-gnome-shell-extension-dash-to-dock
-gnome-shell-extension-status-menu-buttons
 gnome-sound-recorder
-gnome-system-monitor
-gnome-terminal
 gnome-tweak-tool
 gnome-weather
 gparted
@@ -56,6 +48,7 @@ htop
 hunspell-en
 ipw2100-fw
 ipw2200-fw
+keepnote
 libgnomeui
 libreoffice-fresh-de
 light-locker-settings
@@ -63,6 +56,7 @@ lightdm-gtk-greeter-settings
 lightdm-webkit2-greeter
 lxappearance
 make
+mirage
 mpd
 mpv
 nautilus-share
@@ -89,6 +83,7 @@ screen
 sonata
 speedtest-cli
 splix
+system-config-printer
 texlive-bibtexextra
 texlive-fontsextra
 texlive-langextra
@@ -96,13 +91,11 @@ texlive-science
 texstudio
 thunderbird-i18n-de
 tlp-rdw
-totem
 transmission-gtk
 ufw-extras
 weechat
 whois
 wireshark-gtk
-xdg-user-dirs-gtk
 xf86-input-synaptics
 xorg-server-utils
 xorg-smproxy
