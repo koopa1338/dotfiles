@@ -1,4 +1,5 @@
 acpid
+alsa-utils
 antergos-keyring
 antergos-mirrorlist
 antergos-welcome

@@ -120,6 +120,8 @@ bindsym Mod4+8 workspace 8
 bindsym Mod4+9 workspace 9
 bindsym Mod4+0 workspace 10
 
+#TODO: add monitor specific workspaces
+
 # move focused container to workspace
 bindsym Mod4+Shift+1 move container to workspace 1
 bindsym Mod4+Shift+2 move container to workspace 2

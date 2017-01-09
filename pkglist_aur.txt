@@ -1,3 +1,4 @@
+armitage
 brother-dcp-9022cdw
 deb2targz
 dropbox-cli
@@ -16,8 +17,7 @@ oh-my-zsh-git
 paper-icon-theme-git
 polybar
 purple-facebook-git
-py3status
-py3status-modules
+py3status-git
 python-tomate
 python-wiring
 python-yapsy
