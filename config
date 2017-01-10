@@ -30,118 +30,153 @@ set $up i
 set $down k
 set $left j
 set $right l
+set $mod Mod4
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
-floating_modifier Mod4
+floating_modifier $mod
 
 # start a terminal
-bindsym Mod4+Return exec i3-sensible-terminal
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym Mod4+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym Mod4+d exec rofi -show run -lines 12 -width 800 -height 600 -opacity 50 -font "Droid Sans Mono for Powerline 12"
-bindsym Mod4+w exec rofi -show window -lines 12 -width 800 -height 600 -opacity 50 -font "Droid Sans Mono for Powerline 12"
-#bindsym Mod4+less exec
+bindsym $mod+d exec rofi -show run -lines 12 -width 800 -height 600 -opacity 50 -font "Droid Sans Mono for Powerline 12"
+bindsym $mod+w exec rofi -show window -lines 12 -width 800 -height 600 -opacity 50 -font "Droid Sans Mono for Powerline 12"
+#bindsym $mod+less exec
 
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym Mod4+d exec --no-startup-id i3-dmenu-desktop
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym Mod4+$left focus left
-bindsym Mod4+$down focus down
-bindsym Mod4+$up focus up
-bindsym Mod4+$right focus right
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
 
 # alternatively, you can use the cursor keys:
-bindsym Mod4+Left focus left
-bindsym Mod4+Down focus down
-bindsym Mod4+Up focus up
-bindsym Mod4+Right focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
 # move focused window
-bindsym Mod4+Shift+$left move left
-bindsym Mod4+Shift+$down move down
-bindsym Mod4+Shift+$up move up
-bindsym Mod4+Shift+$right move right
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
 
 # alternatively, you can use the cursor keys:
-bindsym Mod4+Shift+Left move left
-bindsym Mod4+Shift+Down move down
-bindsym Mod4+Shift+Up move up
-bindsym Mod4+Shift+Right move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym Mod4+h split h
+bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym Mod4+v split v
+bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym Mod4+f fullscreen toggle
+bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-#bindsym Mod4+s layout stacking
-#bindsym Mod4+w layout tabbed
-#bindsym Mod4+e layout toggle split
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym Mod4+Shift+space floating toggle
+bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym Mod4+space focus mode_toggle
+bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym Mod4+a focus parent
+bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym Mod4+c focus child
+#bindsym $mod+c focus child
 
 # move the currently focused window to the scratchpad
-bindsym Mod4+Shift+minus move scratchpad
+bindsym $mod+Shift+minus move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym Mod4+minus scratchpad show
+bindsym $mod+minus scratchpad show
 
 # switch to workspace
-bindsym Mod4+1 workspace 1
-bindsym Mod4+2 workspace 2
-bindsym Mod4+3 workspace 3
-bindsym Mod4+4 workspace 4
-bindsym Mod4+5 workspace 5
-bindsym Mod4+6 workspace 6
-bindsym Mod4+7 workspace 7
-bindsym Mod4+8 workspace 8
-bindsym Mod4+9 workspace 9
-bindsym Mod4+0 workspace 10
-
-#TODO: add monitor specific workspaces
+bindcode $mod+87 workspace  1
+bindcode $mod+88 workspace  2
+bindcode $mod+89 workspace  3
+bindcode $mod+83 workspace  4
+bindcode $mod+84 workspace  5
+bindcode $mod+85 workspace  6
+bindcode $mod+79 workspace  7
+bindcode $mod+80 workspace  8
+bindcode $mod+81 workspace  9
+bindcode $mod+90 workspace  10
 
 # move focused container to workspace
-bindsym Mod4+Shift+1 move container to workspace 1
-bindsym Mod4+Shift+2 move container to workspace 2
-bindsym Mod4+Shift+3 move container to workspace 3
-bindsym Mod4+Shift+4 move container to workspace 4
-bindsym Mod4+Shift+5 move container to workspace 5
-bindsym Mod4+Shift+6 move container to workspace 6
-bindsym Mod4+Shift+7 move container to workspace 7
-bindsym Mod4+Shift+8 move container to workspace 8
-bindsym Mod4+Shift+9 move container to workspace 9
-bindsym Mod4+Shift+0 move container to workspace 10
+bindcode $mod+Shift+87 move container to workspace  1
+bindcode $mod+Shift+88 move container to workspace  2
+bindcode $mod+Shift+89 move container to workspace  3
+bindcode $mod+Shift+83 move container to workspace  4
+bindcode $mod+Shift+84 move container to workspace  5
+bindcode $mod+Shift+85 move container to workspace  6
+bindcode $mod+Shift+79 move container to workspace  7
+bindcode $mod+Shift+80 move container to workspace  8
+bindcode $mod+Shift+81 move container to workspace  9
+bindcode $mod+Shift+90 move container to workspace  10
+
+set $out1 VGA1
+
+workspace " 1" output $out1
+workspace " 2" output $out1
+workspace " 3" output $out1
+workspace " 4" output $out1
+workspace " 5" output $out1
+workspace " 6" output $out1
+workspace " 7" output $out1
+workspace " 8" output $out1
+workspace " 9" output $out1
+workspace " 10" output $out1
+
+bindcode $mod+Mod1+87 workspace  1
+bindcode $mod+Mod1+88 workspace  2
+bindcode $mod+Mod1+89 workspace  3
+bindcode $mod+Mod1+83 workspace  4
+bindcode $mod+Mod1+84 workspace  5
+bindcode $mod+Mod1+85 workspace  6
+bindcode $mod+Mod1+79 workspace  7
+bindcode $mod+Mod1+80 workspace  8
+bindcode $mod+Mod1+81 workspace  9
+bindcode $mod+Mod1+90 workspace  10
+
+bindcode $mod+Mod1+control+87 move container to workspace  1
+bindcode $mod+Mod1+control+88 move container to workspace  2
+bindcode $mod+Mod1+control+89 move container to workspace  3
+bindcode $mod+Mod1+control+83 move container to workspace  4
+bindcode $mod+Mod1+control+84 move container to workspace  5
+bindcode $mod+Mod1+control+85 move container to workspace  6
+bindcode $mod+Mod1+control+79 move container to workspace  7
+bindcode $mod+Mod1+control+80 move container to workspace  8
+bindcode $mod+Mod1+control+81 move container to workspace  9
+bindcode $mod+Mod1+control+90 move container to workspace  10
+
 
 # reload the configuration file
-bindsym Mod4+Shift+c reload
+bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym Mod4+Shift+r restart
+bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym Mod4+Shift+e mode "$exit"
+bindsym $mod+Shift+e mode "$exit"
 set $exit      L =       E =       S =       R =    
 mode "$exit" {
     bindsym l exec --no-startup-id ~/.i3lock/lock, mode "default"
@@ -151,7 +186,7 @@ mode "$exit" {
     bindsym Escape mode "default"
 }
 # resize window (you can also use the mouse for that)
-bindsym Mod4+r mode "$resize"
+bindsym $mod+r mode "$resize"
 set $resize     
 mode "$resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -198,7 +233,7 @@ set $midgrey    #414A59
 set $ligrey     #B3BDCB
 #settings
 # class                 border        backgr.       text          indicator
-  client.focused        $blue         $blue         $white        $red
+client.focused          $blue         $blue         $white        $red
 client.unfocused        $midgrey      $midgrey      $darkgrey     $red
 client.focused_inactive $darkgrey     $darkgrey     $ligrey       $red
 client.urgent           $red          $red          $darkgrey     $red
@@ -240,7 +275,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5%
 # mute sound
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
 # max sound
-bindsym Mod4+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 100%
+bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 100%
 
 # Sreen brightness controls
 # increase screen brightness
@@ -248,16 +283,16 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 # decrease screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 # set to 0
-bindsym Mod4+XF86MonBrightnessDown exec xbacklight -set 0
+bindsym $mod+XF86MonBrightnessDown exec xbacklight -set 0
 # set to 100
-bindsym Mod4+XF86MonBrightnessUp exec xbacklight -set 100
+bindsym $mod+XF86MonBrightnessUp exec xbacklight -set 100
 
 #Touchpad controls
 # Toggle Touchpad
-bindsym Mod4+XF86Explorer exec ~/dotfiles/bin/togglePad.sh
+bindsym $mod+XF86Explorer exec ~/dotfiles/bin/togglePad.sh
 # enable and toggle tap to click
 exec synclient TapButton1=1
-bindsym Mod4+XF86LaunchA exec ~/dotfiles/bin/toggleTapClick.sh
+bindsym $mod+XF86LaunchA exec ~/dotfiles/bin/toggleTapClick.sh
 # no Touchpadclick while typing
 #exec syndaemon -i 0.7 -d -K -t
 
@@ -265,7 +300,7 @@ bindsym Mod4+XF86LaunchA exec ~/dotfiles/bin/toggleTapClick.sh
 # Filebrowser
 bindsym XF86MyComputer exec nautilus
 # blur-lock
-bindsym Mod4+XF86Tools exec --no-startup-id ~/.i3lock/lock
+bindsym $mod+XF86Tools exec --no-startup-id ~/.i3lock/lock
 
 #Startup programs
 # Set Screenposition for other Monitors
