@@ -109,6 +109,17 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
+workspace " 1" output eDP1
+workspace " 2" output eDP1
+workspace " 3" output eDP1
+workspace " 4" output eDP1
+workspace " 5" output eDP1
+workspace " 6" output eDP1
+workspace " 7" output eDP1
+workspace " 8" output eDP1
+workspace " 9" output eDP1
+workspace " 10" output eDP1
+
 # switch to workspace
 bindcode $mod+87 workspace  1
 bindcode $mod+88 workspace  2
