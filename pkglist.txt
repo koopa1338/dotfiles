@@ -79,6 +79,7 @@ pidgin
 pkg-config
 pulseaudio-bluetooth
 qt5ct
+remmina
 rofi
 screen
 sonata
@@ -94,6 +95,7 @@ thunderbird-i18n-de
 tlp-rdw
 transmission-gtk
 ufw-extras
+unetbootin
 weechat
 whois
 wireshark-gtk

@@ -1,4 +1,3 @@
-armitage
 brother-dcp-9022cdw
 deb2targz
 dropbox-cli
@@ -15,6 +14,7 @@ nautilus-dropbox
 neofetch
 oh-my-zsh-git
 paper-icon-theme-git
+polkit-explorer
 polybar
 purple-facebook-git
 py3status-git

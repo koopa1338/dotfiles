@@ -5,4 +5,4 @@ syndaemon -i 0.7 -d -K -t &
 synclient VertScrollDelta=-112 &
 compton -b -f &
 dunst --no-startup-id &
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

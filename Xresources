@@ -1,4 +1,4 @@
-URxvt*termname:     rxvt-256-color
+URxvt.termname:     rxvt-256-color
 URxvt.font:					xft:DroidSansMonoforPowerline:pixelsize=16
 URxvt.boldFont:				xft:DroidSansMonoforPowerline:pixelsize=16:bold
 URxvt.italicFont:			xft:DroidSansMonoforPowerline:pixelsize=16:italic
@@ -16,46 +16,53 @@ URxvt.url-launcher:		/usr/bin/chromium
 #define midgrey     #414A59
 #define ligrey      #B3BDCB
 
-*fading:					  10
-fadeColor:					#ff7a93
+!*fading:					  10
+!fadeColor:					#ff7a93
 cursorColor:				ligrey
 
 *foreground: 			  ligrey
 *background: 			  darkgrey
 URxvt.colorUL:			ligrey
 
-! Terminal colors
-! black
-*.color0:       #181c22
-*.color8:       #AE81FF
+!!*background: darkgrey
+!!*foreground: #657b83
+!*fading: 40
+*fadeColor: darkgrey
+*cursorColor: #93a1a1
+*pointerColorBackground: #586e75
+*pointerColorForeground: #93a1a1
 
-! red
-*.color1:       #20252c
-*.color9:       #ff7a93
+!! black dark/light
+*color0: midgrey
+*color8: darkgrey
 
-! green
-*.color2:       #5c90d3
-*.color10:      #4A9BE0
+!! red dark/light
+*color1: #dc322f
+*color9: #cb4b16
 
-! yellow
-*.color3:       #6DB3A0
-*.color11:      #359fee
+!! green dark/light
+*color2: #859900
+*color10: #586e75
 
-! blue
-*.color4:       #3c404e
-*.color12:      #ff1844
+!! yellow dark/light
+*color3: #b58900
+*color11: #657b83
 
-! magenta
-*.color5:       #888
-*.color13:      #529B2F
+!! blue dark/light
+*color4: blue
+*color12: #839496
 
-! cyan
-*.color6:       #8DADD9
-*.color14:      #5294E2
+!! magenta dark/light
+*color5: red
+*color13: #6c71c4
 
-! white
-*.color7:       #75715E
-*.color15:      #FD971F
+!! cyan dark/light
+*color6: #2aa198
+*color14: ligrey
+
+!! white dark/light
+*color7: #eee8d5
+*color15: #fdf6e3
 
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
