@@ -37,12 +37,12 @@ URxvt.colorUL:			ligrey
 *color8: darkgrey
 
 !! red dark/light
-*color1: #dc322f
+*color1: red
 *color9: #cb4b16
 
 !! green dark/light
-*color2: #859900
-*color10: #586e75
+*color12: #859900
+*color10: #cb4b16
 
 !! yellow dark/light
 *color3: #b58900
@@ -50,7 +50,7 @@ URxvt.colorUL:			ligrey
 
 !! blue dark/light
 *color4: blue
-*color12: #839496
+*color2: #839496
 
 !! magenta dark/light
 *color5: red

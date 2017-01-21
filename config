@@ -316,8 +316,8 @@ bindsym $mod+XF86Tools exec --no-startup-id ~/.i3lock/lock
 #Startup programs
 # Set Screenposition for other Monitors
 exec_always ~/dotfiles/bin/autoxrandr.sh
-# restore background
-exec_always --no-startup-id nitrogen --restore
+#set random background
+exec ~/dotfiles/bin/wallpaper.py
 # compton
 #exec --no-startup-id compton --config ~/dotfiles/compton.conf -b
 exec sleep 15 && dropbox-cli start

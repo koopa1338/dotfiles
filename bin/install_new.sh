@@ -126,8 +126,9 @@ echo "done"
 
 for file in $filesbin; do
   echo "Creating symlink to $file in home directory."
+  filewo=$(echo $file | cut -f 1 -d '.')
   sudo mv $bin/$file $old/$file
-  sudo ln -s $dir/bin/$file $bin/$file
+  sudo ln -s $dir/bin/$file $bin/$filewo
 done
 
 echo "Do you wish to to set qt environment variable?"
