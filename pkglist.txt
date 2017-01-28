@@ -1,5 +1,5 @@
+abs
 acpid
-alsa-utils
 antergos-keyring
 antergos-mirrorlist
 antergos-welcome
@@ -19,10 +19,14 @@ cmake
 cmatrix
 compton
 dmraid
+docbook-xsl
+evolution
 fakeroot
 ffmpegthumbnailer
 flex
 gedit
+gimp
+gimp-help-de
 gnome-bluetooth
 gnome-calculator
 gnome-calendar
@@ -37,11 +41,6 @@ gparted
 grub2-theme-antergos
 gsimplecal
 gstreamer-vaapi
-gstreamer0.10-bad-plugins
-gstreamer0.10-base-plugins
-gstreamer0.10-ffmpeg
-gstreamer0.10-good-plugins
-gstreamer0.10-ugly-plugins
 gufw
 haveged
 hplip
@@ -50,7 +49,6 @@ hunspell-en
 ipw2100-fw
 ipw2200-fw
 keepnote
-libgnomeui
 libreoffice-fresh-de
 light-locker-settings
 lightdm-gtk-greeter-settings
@@ -78,7 +76,10 @@ pepper-flash
 pidgin
 pkg-config
 pulseaudio-bluetooth
+python2-pyquery
+python2-requests
 qt5ct
+ranger
 remmina
 rofi
 screen
@@ -91,7 +92,6 @@ texlive-fontsextra
 texlive-langextra
 texlive-science
 texstudio
-thunderbird-i18n-de
 tlp-rdw
 transmission-gtk
 ufw-extras
@@ -100,6 +100,7 @@ weechat
 whois
 wireshark-gtk
 xf86-input-synaptics
+xmlto
 xorg-server-utils
 xorg-smproxy
 xorg-x11perf
