@@ -45,6 +45,7 @@ gufw
 haveged
 hplip
 htop
+hunspell-de
 hunspell-en
 ipw2100-fw
 ipw2200-fw
@@ -80,9 +81,11 @@ python2-pyquery
 python2-requests
 qt5ct
 ranger
+reflector
 remmina
 rofi
 screen
+simplescreenrecorder
 sonata
 speedtest-cli
 splix
@@ -101,6 +104,7 @@ whois
 wireshark-gtk
 xf86-input-synaptics
 xmlto
+xorg-luit
 xorg-server-utils
 xorg-smproxy
 xorg-x11perf

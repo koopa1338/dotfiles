@@ -15,7 +15,6 @@ gstreamer0.10-good
 gstreamer0.10-good-plugins
 gstreamer0.10-ugly
 gstreamer0.10-ugly-plugins
-gtkdialog-svn
 i3-gaps
 java-gnome
 jdownloader2
@@ -29,7 +28,7 @@ libgnome-data
 libgnomeui
 libplatform-legacy
 live-usb-install
-multisystem
+musicbrainz
 nautilus-dropbox
 neofetch
 oh-my-zsh-git
@@ -43,6 +42,7 @@ python-pyfiglet
 python-tomate
 python-wiring
 python-yapsy
+qt5-styleplugins-git
 spotify
 termdown-git
 tomate-gtk
