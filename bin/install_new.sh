@@ -138,3 +138,8 @@ select yn in "Yes" "No"; do
         No ) break;;
       esac
 done
+
+if [ ! -d $HOME/.atom/packages/solarized-dark-syntax-custom ] ; then
+  echo "copy custom solorized-syntax theme for atom"
+  cp -r $dir/atom/solarized-dark-syntax-custom $HOME/.atom/packages/
+fi
