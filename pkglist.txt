@@ -8,6 +8,7 @@ atom
 autoconf
 automake
 b43-fwcutter
+bbswitch-dkms
 bind-tools
 bison
 bluez-utils
@@ -50,12 +51,13 @@ hunspell-en
 ipw2100-fw
 ipw2200-fw
 keepnote
+lib32-alsa-plugins
+lib32-curl
 libreoffice-fresh-de
 light-locker-settings
 lightdm-gtk-greeter-settings
 lightdm-webkit2-greeter
 lxappearance
-make
 mirage
 mpd
 mpv
@@ -71,7 +73,6 @@ numix-icon-theme-square
 numlockx
 orca
 pamac
-patch
 pavucontrol
 pepper-flash
 pidgin
