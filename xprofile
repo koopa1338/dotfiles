@@ -4,6 +4,5 @@ nm-applet --sm-disable &
 syndaemon -i 0.7 -d -K -t &
 synclient VertScrollDelta=-112 &
 compton -b -f &
-exec wallpaper &
 dunst --no-startup-id &
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
