@@ -309,7 +309,7 @@ bindsym $mod+XF86LaunchA exec ~/dotfiles/bin/toggleTapClick.sh
 
 #Misc. keybindings
 # Filebrowser
-bindsym XF86MyComputer exec nautilus
+bindsym XF86MyComputer exec nemo
 # blur-lock
 bindsym $mod+XF86Tools exec --no-startup-id ~/.i3lock/lock
 
