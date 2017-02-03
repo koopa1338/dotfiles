@@ -309,7 +309,7 @@ bindsym $mod+XF86LaunchA exec ~/dotfiles/bin/toggleTapClick.sh
 
 #Misc. keybindings
 # Filebrowser
-bindsym XF86MyComputer exec nemo
+bindsym XF86MyComputer exec nemo --no-desktop
 # blur-lock
 bindsym $mod+XF86Tools exec --no-startup-id ~/.i3lock/lock
 
@@ -317,7 +317,7 @@ bindsym $mod+XF86Tools exec --no-startup-id ~/.i3lock/lock
 # Set Screenposition for other Monitors
 exec_always ~/dotfiles/bin/autoxrandr.sh
 #set random background
-#exec ~/dotfiles/bin/wallpaper.py
+exec ~/dotfiles/bin/wallpaper.py
 # compton
 #exec --no-startup-id compton --config ~/dotfiles/compton.conf -b
 exec sleep 15 && dropbox-cli start

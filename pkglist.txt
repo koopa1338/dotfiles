@@ -25,7 +25,7 @@ evolution
 fakeroot
 ffmpegthumbnailer
 flex
-gedit
+geditq
 gimp
 gimp-help-de
 gnome-bluetooth
