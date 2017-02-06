@@ -304,8 +304,6 @@ bindsym $mod+XF86Explorer exec ~/dotfiles/bin/togglePad.sh
 # enable and toggle tap to click
 exec synclient TapButton1=1
 bindsym $mod+XF86LaunchA exec ~/dotfiles/bin/toggleTapClick.sh
-# no Touchpadclick while typing
-#exec syndaemon -i 0.7 -d -K -t
 
 #Misc. keybindings
 # Filebrowser
@@ -317,7 +315,7 @@ bindsym $mod+XF86Tools exec --no-startup-id ~/.i3lock/lock
 # Set Screenposition for other Monitors
 exec_always ~/dotfiles/bin/autoxrandr.sh
 #set random background
-exec ~/dotfiles/bin/wallpaper.py
+exec ~/dotfiles/bin/wallpaper.sh
 # compton
 #exec --no-startup-id compton --config ~/dotfiles/compton.conf -b
 exec sleep 15 && dropbox-cli start

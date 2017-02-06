@@ -3,6 +3,8 @@ numlockx &
 nm-applet --sm-disable &
 syndaemon -i 0.7 -d -K -t &
 synclient VertScrollDelta=-112 &
+synclient HorizScrollDelta=-112 &
+synclient HorizTwoFingerScroll=1 &
 compton -b -f &
 dunst --no-startup-id &
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
