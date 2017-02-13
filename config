@@ -314,6 +314,7 @@ bindsym $mod+XF86Tools exec --no-startup-id ~/.i3lock/lock
 #Startup programs
 # Set Screenposition for other Monitors
 exec_always ~/dotfiles/bin/autoxrandr.sh
+
 #set random background
 exec ~/dotfiles/bin/wallpaper.sh
 # compton
