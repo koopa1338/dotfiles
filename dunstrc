@@ -9,7 +9,7 @@
     show_age_threshold = 60
     word_wrap = yes
     ignore_newline = no
-    geometry = "200x5-8+36"
+    geometry = "200x5-10+10"
     transparency = 0
     idle_threshold = 120
     monitor = 0
@@ -23,8 +23,8 @@
     startup_notification = false
 
 [frame]
-    width = 1
-    color = "#414A59"
+    width = 2
+    color = "#5294E2"
 
 [shortcuts]
     close = ctrl+space
@@ -40,7 +40,7 @@
 [urgency_normal]
     background = "#2A313B"
     foreground = "#5294E2"
-    timeout = 20
+    timeout = 10
 
 [urgency_critical]
     background = "#2A313B"

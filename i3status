@@ -14,7 +14,7 @@ order += "battery 0"
 order += "cpu_temperature 0"
 order += "tztime time"
 order += "tztime cal"
-order += "volume master"
+order += "volume_status"
 
 wireless wlp5s0 {
         format_up = "   %essid "
@@ -65,12 +65,13 @@ disk "/home" {
         on_click 1 = "exec nemo"
 }
 
-volume master {
-        format = "   %volume "
-        format_muted = "   (%volume) "
-        device = "pulse"
+volume_status {
+        format = "   {percentage}% "
+        format_muted = "   ({percentage}%) "
+        command = amixer
         on_click 1 = "exec pavucontrol"
-        color_degraded = "#ff1844"
+        color_muted = "#ff1844"
+        cache_timeout = 1
 }
 
 spotify {
