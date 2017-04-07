@@ -27,13 +27,18 @@ cowsay
 cronie
 dmraid
 docbook-xsl
+eclipse-java
 evolution
 fakeroot
+flashplugin
 flex
+gdb
 gedit
 gimp
 gimp-help-de
+glances
 gnome-alsamixer
+gnome-backgrounds
 gnome-bluetooth
 gnome-calculator
 gnome-calendar
@@ -62,7 +67,6 @@ ipw2100-fw
 ipw2200-fw
 keepnote
 libreoffice-fresh-de
-light-locker-settings
 lightdm-gtk-greeter-settings
 lightdm-webkit2-greeter
 lxappearance
@@ -83,7 +87,6 @@ numlockx
 orca
 pacaur
 pamac
-pepper-flash
 pidgin
 pkg-config
 pulseaudio-bluetooth
@@ -113,6 +116,7 @@ tlp-rdw
 tmux
 transmission-gtk
 ufw-extras
+uncrustify
 weechat
 whois
 wireshark-gtk

@@ -20,7 +20,6 @@ oh-my-zsh-git
 orbit2
 paper-icon-theme-git
 polkit-explorer
-polybar
 py3status-git
 python-pyfiglet
 python-tomate
@@ -35,6 +34,7 @@ tor-browser-de
 ttf-font-awesome
 ttf-google-fonts
 virtualbox-ext-oracle
+visual-studio-code
 xcursor-numix
 xdgurl
 xfce4-i3-workspaces-plugin-git
