@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sleep 1
 scrot /tmp/screen.png
 ffmpeg -y -i /tmp/screen.png -filter_complex "boxblur=5:1" /tmp/screen.png
 

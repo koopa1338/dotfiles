@@ -15,7 +15,7 @@
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font xft:Droid Sans Mono 16
+font xft:Noto Sans 16
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -109,16 +109,18 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
-workspace " 1" output eDP1
-workspace " 2" output eDP1
-workspace " 3" output eDP1
-workspace " 4" output eDP1
-workspace " 5" output eDP1
-workspace " 6" output eDP1
-workspace " 7" output eDP1
-workspace " 8" output eDP1
-workspace " 9" output eDP1
-workspace " 10" output eDP1
+set $out2 eDP1
+
+workspace " 1" output $out2
+workspace " 2" output $out2
+workspace " 3" output $out2
+workspace " 4" output $out2
+workspace " 5" output $out2
+workspace " 6" output $out2
+workspace " 7" output $out2
+workspace " 8" output $out2
+workspace " 9" output $out2
+workspace " 10" output $out2
 
 # switch to workspace
 bindcode $mod+87 workspace  1
@@ -284,7 +286,9 @@ client.urgent           $red          $red          $darkgrey     $red
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%
 # decrease sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5%
-# mute sound
+# mute Mic
+bindsym XF86AudioMicMute exec --no-startup-id amixer -c 1 sset Capture toggle
+# mute Sound
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
 # max sound
 bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 100%
@@ -308,7 +312,7 @@ bindsym $mod+XF86LaunchA exec ~/dotfiles/bin/toggleTapClick.sh
 
 #Misc. keybindings
 # Filebrowser
-bindsym XF86MyComputer exec nemo --no-desktop
+bindsym XF86MyComputer exec thunar
 # blur-lock
 bindsym $mod+XF86Tools exec --no-startup-id ~/.i3lock/lock
 
