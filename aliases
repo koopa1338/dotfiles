@@ -1,6 +1,2 @@
-alias scrotsf="scrot '%H:%M-%d.%m.%Y-screenshot.png' -e 'mv \$f ~/Screenshots/' -u -d 5 -c"
-alias scrots="scrot '%H:%M-%d.%m.%Y-screenshot.png' -e 'mv \$f ~/Screenshots/' -d 5 -c"
-alias scrotsmd="scrot '%H:%M-%d.%m.%Y-screenshot.png' -e 'mv \$f ~/Screenshots/' -m"
-alias dbrestart="dropbox-cli stop && dropbox-cli start"
-alias mirrorupdate="sudo reflector --verbose -l 20 -p https --sort rate --save /etc/pacman.d/mirrorlist"
-alias pacman-garbage-collector="sudo pacman -Rsn $(pacman -Qdtq)"
+alias mirrorupdate="sudo reflector --verbose -l 20 -p https --sort rate --save /etc/pacman.d/mirrorlist && echo 'Mirrorlist has been updated with the fastest servers!'"
+alias pacman-garbage-collector="sudo pacman -Runs $(pacman -Qdtq)"
