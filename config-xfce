@@ -1,3 +1,5 @@
+set $out1 VGA1
+set $out2 eDP1
 
 # i3 config file (v4)
 #
@@ -109,7 +111,6 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
-set $out2 eDP1
 
 workspace " 1" output $out2
 workspace " 2" output $out2
@@ -146,7 +147,6 @@ bindcode $mod+Shift+80 move container to workspace  8
 bindcode $mod+Shift+81 move container to workspace  9
 bindcode $mod+Shift+90 move container to workspace  10
 
-set $out1 VGA1
 
 workspace " 1" output $out1
 workspace " 2" output $out1
@@ -295,13 +295,13 @@ bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 1
 
 # Sreen brightness controls
 # increase screen brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 -steps 1
 # decrease screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 -steps 1
 # set to 0
-bindsym $mod+XF86MonBrightnessDown exec xbacklight -set 0
+bindsym $mod+XF86MonBrightnessDown exec xbacklight -set 0 -steps 10
 # set to 100
-bindsym $mod+XF86MonBrightnessUp exec xbacklight -set 100
+bindsym $mod+XF86MonBrightnessUp exec xbacklight -set 100 -steps 10
 
 #Touchpad controls
 # Toggle Touchpad

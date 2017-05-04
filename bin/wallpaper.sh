@@ -2,7 +2,7 @@
 
 shopt -s nullglob
 
-cd ~/Wallpaper
+cd ~/Wallpaper/resized
 
 while true; do
         files=()
