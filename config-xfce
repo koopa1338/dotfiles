@@ -251,35 +251,6 @@ client.focused          $blue         $blue         $white        $red
 client.unfocused        $midgrey      $midgrey      $darkgrey     $red
 client.focused_inactive $darkgrey     $darkgrey     $ligrey       $red
 client.urgent           $red          $red          $darkgrey     $red
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#        font pango:DroidSansMono,Icons 11
-#        status_command py3status -c ~/.i3status
-#        workspace_buttons yes
-#        strip_workspace_numbers yes
-#        separator_symbol "  "
-#        tray_padding 6
-#        tray_output primary
-#        height 30
-#        position top
-#
-#      #Whole color settings
-#        colors {
-#                background $darkgrey
-#                statusline $ligrey
-#                separator  $midgrey
-#
-#                # Type             border       background      font
-#                focused_workspace  $blue        $blue           $white
-#                active_workspace   $midgrey     $midgrey        $darkgrey
-#                inactive_workspace $darkgrey    $darkgrey       $ligrey
-#                urgent_workspace   $red         $red            $darkgrey
-#       }
-#}
-
-
-#exec_always ~/dotfiles/polybar/poly_restart.sh
 
 # Pulse Audio controls
 # increase sound volume
@@ -316,12 +287,5 @@ bindsym XF86MyComputer exec thunar
 # blur-lock
 bindsym $mod+XF86Tools exec --no-startup-id ~/.i3lock/lock
 
-#Startup programs
-# Set Screenposition for other Monitors
-#exec_always ~/dotfiles/bin/autoxrandr.sh
-
 #set random background
 exec ~/dotfiles/bin/wallpaper.sh
-# compton
-#exec --no-startup-id compton --config ~/dotfiles/compton.conf -b
-#exec sleep 15 && dropbox-cli start
