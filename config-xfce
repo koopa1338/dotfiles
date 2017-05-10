@@ -266,13 +266,13 @@ bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 1
 
 # Sreen brightness controls
 # increase screen brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 -steps 1
+bindsym XF86KbdBrightnessDown exec xbacklight -inc 5 -steps 1
 # decrease screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 -steps 1
+bindsym XF86KbdBrightnessUp exec xbacklight -dec 5 -steps 1
 # set to 0
-bindsym $mod+XF86MonBrightnessDown exec xbacklight -set 0 -steps 10
+bindsym $mod+XF86KbdBrightnessDown exec xbacklight -set 0 -steps 10
 # set to 100
-bindsym $mod+XF86MonBrightnessUp exec xbacklight -set 100 -steps 10
+bindsym $mod+XF86KbdBrightnessUp exec xbacklight -set 100 -steps 10
 
 #Touchpad controls
 # Toggle Touchpad
