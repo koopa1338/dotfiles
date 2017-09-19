@@ -1,0 +1,29 @@
+# 
+# /etc/fstab: static file system information
+#
+# <file system>	<dir>	<type>	<options>	<dump>	<pass>
+
+# root
+LABEL=ROOT          	/         	btrfs     	rw,noatime,compress=lzo,ssd,space_cache,subvol=@snapshots/snap-xxxxxx	0 0
+
+# boot
+LABEL=BOOT          	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro	0 2
+
+# tmp
+LABEL=ROOT          	/tmp      	btrfs     	rw,noatime,compress=lzo,ssd,space_cache,subvol=@tmp	0 0
+
+# var-log
+LABEL=ROOT          	/var/log  	btrfs     	rw,noatime,compress=lzo,ssd,space_cache,subvol=@varlog	0 0
+
+# pacman-cache
+LABEL=ROOT          	/var/cache/pacman/pkg	btrfs     	rw,noatime,compress=lzo,ssd,space_cache,subvol=@pkg	0 0
+
+# snapshots
+LABEL=ROOT          	/.snapshots	btrfs     	rw,noatime,compress=lzo,ssd,space_cache,subvol=@snapshots	0 0
+
+# btrfs rootsubvolume
+LABEL=ROOT          	/btrfs		btrfs     	rw,noatime,compress=lzo,ssd,space_cache,subvolid=5	0 0
+
+# swap
+LABEL=SWAP          	none      	swap      	defaults  	0 0
+
