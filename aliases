@@ -1,3 +1,0 @@
-alias mirrorupdate="sudo reflector --verbose -l 20 -p https --sort rate --save /etc/pacman.d/mirrorlist && echo 'Mirrorlist has been updated with the fastest servers!'"
-alias pacman-garbage-collector="sudo pacman -Runs $(pacman -Qdtq)"
-alias v="vim"
