@@ -14,7 +14,7 @@ print_info() {
     info underline
 
     info "OS" distro
-    prin "$(color 4)Model" "Lenovo Thinkpad E540"
+    prin "Model" "Lenovo Thinkpad E540"
     info "Kernel" kernel
     info "Uptime" uptime
     info "Shell" shell
