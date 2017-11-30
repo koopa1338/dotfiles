@@ -1,6 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
+set shell=/bin/bash
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -50,6 +50,10 @@ set shiftwidth=4
 set tabstop=4
 set laststatus=2
 let g:airline_powerline_fonts = 1
+" if !exists('g:airline_symbols')
+  " let g:airline_symbols = {}
+" endif
+" let g:airline_symbols.space = "\ua0"
 
 "line numbers
 set rnu
@@ -68,10 +72,47 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "Syntastic settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
+set statusline+=%* 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" Nerdcommenter
+let g:NERDSpaceDelims = 1
+let g:NERTCustomDelimiters = { 'tex': { 'left': '% ', 'right': '' } }
+
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+" navigation bindings
+inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
+vnoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
+map <Space><Tab> <Esc>/<++><Enter>"_c4l
+
+" Latex bindings
+autocmd FileType tex inoremap <F5> <Esc>:w<Enter>:!pdflatex <C-r>%<Enter><Enter>i
+autocmd FileType tex nnoremap <F5> :w<Enter>:!pdflatex <C-r>%<Enter><Enter>
+autocmd FileType tex inoremap ;fig \begin{figure}<Enter><Enter>\end{figure}3kA
+autocmd FileType tex inoremap ;tab \begin{tabular}<Enter><++><Enter>\end{tabular}<Enter><Enter>5kA{}<Esc>i
+autocmd FileType tex inoremap ;a \href{}{<++>}<Space><++><Esc>2T{i
+autocmd FileType tex inoremap ;ol \begin{enumerate}<Enter><Enter>\end{enumerate}<Enter><Enter><++><Esc>3kA\item<Space>
+autocmd FileType tex inoremap ;ul \begin{itemize}<Enter><Enter>\end{itemize}<Enter><Enter><++><Esc>3kA\item<Space>
+autocmd FileType tex inoremap ;chap \chapter{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap ;sec \section{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap ;ssec \subsection{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap ;sssec \subsubsection{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap ;up <Esc>/usepackage<Enter>o\usepackage{}<Esc>i
+autocmd FileType tex nnoremap ;up /usepackage<Enter>o\usepackage{}<Esc>i
+autocmd FileType tex inoremap ;ra {\rightarrow}
+autocmd FileType tex inoremap ;la {\leftarrow}
+autocmd FileType tex inoremap ;lra {\leftrightarrow}
+autocmd FileType tex inoremap ;fa {\forall}
+autocmd FileType tex inoremap ;ex {\exists}
+
+" Bibliography bindings
+autocmd FileType bib inoremap ;a @article{<Enter>author<Space>=<Space>"<++>",<Enter>year<Space>=<Space>"<++>",<Enter>title<Space>=<Space>"<++>",<Enter>journal<Space>=<Space>"<++>",<Enter>volume<Space>=<Space>"<++>",<Enter>pages<Space>=<Space>"<++>",<Enter>}<Enter><++><Esc>8kA,<Esc>i
+autocmd FileType bib inoremap ;b @book{<Enter>author<Space>=<Space>"<++>",<Enter>year<Space>=<Space>"<++>",<Enter>title<Space>=<Space>"<++>",<Enter>publisher<Space>=<Space>"<++>",<Enter>}<Enter><++><Esc>6kA,<Esc>i
+autocmd FileType bib inoremap ;c @incollection{<Enter>author<Space>=<Space>"<++>",<Enter>title<Space>=<Space>"<++>",<Enter>booktitle<Space>=<Space>"<++>",<Enter>editor<Space>=<Space>"<++>",<Enter>year<Space>=<Space>"<++>",<Enter>publisher<Space>=<Space>"<++>",<Enter>}<Enter><++><Esc>8kA,<Esc>i

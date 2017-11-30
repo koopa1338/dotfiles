@@ -1,14 +1,22 @@
-wal -Rq
-neofetch 
-
-alias mirrorupdate="sudo reflector --verbose -l 20 -p https --sort rate --save /etc/pacman.d/mirrorlist and echo 'Mirrorlist has been updated with the fastest servers!'"
+wal -rq
 alias v="vim"
+alias vimrc="vim /home/koopa/dotfiles/vimrc"
+alias e="exit"
 alias lsa="ls -al"
 alias lsl="ls -l"
 alias ..="cd .."
+alias cdu="cd /home/koopa/Dokumente/Uni"
 alias ...="cd ../.."
 alias gita="git add"
 alias giti="git init"
 alias gitc="git commit -m"
 alias gitch="git checkout"
+alias gits="git status"
+alias gitp="git push"
+alias gitpl="git pull"
 alias gitcl="git clone"
+alias pacup="pacaur -Syu"
+alias vbib="vim /home/koopa/latex/Bibliothek.bib"
+alias hdmit="/home/koopa/dotfiles/screenlayout/HDMI_top.sh"
+alias hdmir="/home/koopa/dotfiles/screenlayout/HDMI_right.sh"
+alias hdmil="/home/koopa/dotfiles/screenlayout/HDMI_left.sh"
