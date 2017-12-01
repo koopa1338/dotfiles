@@ -1,4 +1,4 @@
-wal -rq
+wal -r
 alias v="vim"
 alias vimrc="vim /home/koopa/dotfiles/vimrc"
 alias e="exit"
