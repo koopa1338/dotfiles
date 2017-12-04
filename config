@@ -168,8 +168,8 @@ bindsym $mod+Shift+e mode "$exit"
 set $exit E =     S =     R = 
 mode "$exit" {
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec urxvt -e shutdown -h now
-    bindsym r exec urxvt -e reboot
+    bindsym s exec st -e shutdown -h now
+    bindsym r exec st -e reboot
     bindsym Escape mode "default"
 }
 
@@ -180,6 +180,7 @@ for_window [class="^.*"] child_border 2
 for_window [class="Pavucontrol"] floating enable
 for_window [class="TeamViewer"] floating enable
 for_window [class="Wpg"] floating enable
+for_window [class="TeamSpeak 3"] floating enable
 
 gaps inner 8
 gaps outer 2

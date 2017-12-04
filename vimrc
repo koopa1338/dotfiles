@@ -95,8 +95,8 @@ map <Space><Tab> <Esc>/<++><Enter>"_c4l
 " Latex bindings
 autocmd FileType tex inoremap <F5> <Esc>:w<Enter>:!pdflatex <C-r>%<Enter><Enter>i
 autocmd FileType tex nnoremap <F5> :w<Enter>:!pdflatex <C-r>%<Enter><Enter>
-autocmd FileType tex inoremap ;fig \begin{figure}<Enter><Enter>\end{figure}3kA
-autocmd FileType tex inoremap ;tab \begin{tabular}<Enter><++><Enter>\end{tabular}<Enter><Enter>5kA{}<Esc>i
+autocmd FileType tex inoremap ;fig \begin{figure}<Enter><Enter>\end{figure}<Esc>2kA
+autocmd FileType tex inoremap ;tab \begin{tabular}<Enter><++><Enter>\end{tabular}<Enter><Enter><Esc>4kA{}<Esc>i
 autocmd FileType tex inoremap ;a \href{}{<++>}<Space><++><Esc>2T{i
 autocmd FileType tex inoremap ;ol \begin{enumerate}<Enter><Enter>\end{enumerate}<Enter><Enter><++><Esc>3kA\item<Space>
 autocmd FileType tex inoremap ;ul \begin{itemize}<Enter><Enter>\end{itemize}<Enter><Enter><++><Esc>3kA\item<Space>
@@ -104,6 +104,9 @@ autocmd FileType tex inoremap ;chap \chapter{}<Enter><Enter><++><Esc>2kf}i
 autocmd FileType tex inoremap ;sec \section{}<Enter><Enter><++><Esc>2kf}i
 autocmd FileType tex inoremap ;ssec \subsection{}<Enter><Enter><++><Esc>2kf}i
 autocmd FileType tex inoremap ;sssec \subsubsection{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap ;*sec \section*{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap ;*ssec \subsection*{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap ;*sssec \subsubsection*{}<Enter><Enter><++><Esc>2kf}i
 autocmd FileType tex inoremap ;up <Esc>/usepackage<Enter>o\usepackage{}<Esc>i
 autocmd FileType tex nnoremap ;up /usepackage<Enter>o\usepackage{}<Esc>i
 autocmd FileType tex inoremap ;ra {\rightarrow}
