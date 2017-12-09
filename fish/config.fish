@@ -1,5 +1,6 @@
 wal -r
 alias v="vim"
+alias r="ranger"
 alias vimrc="vim /home/koopa/dotfiles/vimrc"
 alias e="exit"
 alias lsa="ls -al"
@@ -20,3 +21,4 @@ alias vbib="vim /home/koopa/latex/Bibliothek.bib"
 alias hdmit="/home/koopa/dotfiles/screenlayout/HDMI_top.sh"
 alias hdmir="/home/koopa/dotfiles/screenlayout/HDMI_right.sh"
 alias hdmil="/home/koopa/dotfiles/screenlayout/HDMI_left.sh"
+alias mirror="/home/koopa/dotfiles/screenlayout/Mirror.sh"

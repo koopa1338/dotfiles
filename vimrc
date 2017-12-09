@@ -13,6 +13,7 @@ Plugin 'chun-yang/auto-pairs'
 Plugin 'mattn/emmet-vim'
 Plugin 'ddollar/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
@@ -59,9 +60,11 @@ let g:airline_powerline_fonts = 1
 set rnu
 set nu
 
+set completeopt-=preview
+
 "leader key
 let mapleader = "ö"
-
+let maplocalleader = "ä"
 "Nerdtree key
 map <C-n> :NERDTreeToggle<CR>
 
@@ -77,6 +80,15 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_loc_list_height = 5
+let g:syntastic_error_symbol = ""
+let g:syntastic_warning_symbol= ""
+let g:syntastic_style_error_symbol = ""
+let g:syntastic_style_warning_symbol = ""
+nmap <leader>sr :SyntasticReset<CR>
+nmap <leader>sc :SyntasticCheck<CR>
+nmap <leader>sj :lnext<CR>
+nmap <leader>sk :lprev<CR>
 
 " Nerdcommenter
 let g:NERDSpaceDelims = 1
@@ -93,14 +105,15 @@ vnoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
 map <Space><Tab> <Esc>/<++><Enter>"_c4l
 
 " Latex bindings
-autocmd FileType tex inoremap <F5> <Esc>:w<Enter>:!pdflatex <C-r>%<Enter><Enter>i
-autocmd FileType tex nnoremap <F5> :w<Enter>:!pdflatex <C-r>%<Enter><Enter>
+autocmd FileType tex inoremap <F5> <Esc>:w<Enter>:!latexmk -pdf -interaction=nonstopmode <C-r>%<Enter>i
+autocmd FileType tex nnoremap <F5> :w<Enter>:!latexmk -pdf -interaction=nonstopmode <C-r>%<Enter>
 autocmd FileType tex inoremap ;fig \begin{figure}<Enter><Enter>\end{figure}<Esc>2kA
 autocmd FileType tex inoremap ;tab \begin{tabular}<Enter><++><Enter>\end{tabular}<Enter><Enter><Esc>4kA{}<Esc>i
+autocmd FileType tex inoremap ;beg \begin{<++>}<Enter><++><Enter>\end{<++>}<Enter><Enter><Esc>4k0<Esc>i
 autocmd FileType tex inoremap ;a \href{}{<++>}<Space><++><Esc>2T{i
 autocmd FileType tex inoremap ;ol \begin{enumerate}<Enter><Enter>\end{enumerate}<Enter><Enter><++><Esc>3kA\item<Space>
 autocmd FileType tex inoremap ;ul \begin{itemize}<Enter><Enter>\end{itemize}<Enter><Enter><++><Esc>3kA\item<Space>
-autocmd FileType tex inoremap ;chap \chapter{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap ;chp \chapter{}<Enter><Enter><++><Esc>2kf}i
 autocmd FileType tex inoremap ;sec \section{}<Enter><Enter><++><Esc>2kf}i
 autocmd FileType tex inoremap ;ssec \subsection{}<Enter><Enter><++><Esc>2kf}i
 autocmd FileType tex inoremap ;sssec \subsubsection{}<Enter><Enter><++><Esc>2kf}i
@@ -109,6 +122,7 @@ autocmd FileType tex inoremap ;*ssec \subsection*{}<Enter><Enter><++><Esc>2kf}i
 autocmd FileType tex inoremap ;*sssec \subsubsection*{}<Enter><Enter><++><Esc>2kf}i
 autocmd FileType tex inoremap ;up <Esc>/usepackage<Enter>o\usepackage{}<Esc>i
 autocmd FileType tex nnoremap ;up /usepackage<Enter>o\usepackage{}<Esc>i
+autocmd FileType tex inoremap ;no \noindent
 autocmd FileType tex inoremap ;ra {\rightarrow}
 autocmd FileType tex inoremap ;la {\leftarrow}
 autocmd FileType tex inoremap ;lra {\leftrightarrow}

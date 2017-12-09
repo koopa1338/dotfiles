@@ -45,7 +45,7 @@ bindsym $mod+q kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec rofi -show run -lines 12 -width 800 -height 600 -font "Droid Sans Mono for Powerline 12"
 bindsym $mod+w exec rofi -show window -lines 12 -width 800 -height 600 -font "Droid Sans Mono for Powerline 12"
-#bindsym $mod+less exec
+bindsym $mod+i exec rofi -show network -modi network:/usr/bin/networkmanager_dmenu
 
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -213,6 +213,8 @@ bindsym XF86AudioMicMute exec --no-startup-id amixer -c 1 set Capture toggle
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 # max sound
 bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 100%
+# Toggle default sink
+bindsym $mod+XF86AudioMute exec python $HOME/dotfiles/bin/soundtoggle.py
 
 # Sreen brightness controls
 # increase screen brightness
