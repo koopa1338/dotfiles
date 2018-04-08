@@ -20,11 +20,11 @@ col = #00f
 
 [sizes]
 bar-width = 100%
-bar-height = 28
+bar-height = 30
 
-bar-offset-x = 200
-bar-top-gap = 20 
-bar-bottom-gap = 20
+;bar-offset-x = 14
+;bar-top-gap = 6 
+;bar-bottom-gap = 3
 
 [bar/mon1]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -34,7 +34,7 @@ bottom = false
 width = ${sizes.bar-width}
 height = ${sizes.bar-height}
 ;offset-x = 100
-offset-y = 0
+;offset-y = 0
 ;radius = 10.0
 fixed-center = true
 
@@ -46,25 +46,26 @@ line-color = #f00
 
 ;border-left-size = ${sizes.bar-offset-x} 
 ;border-top-size = ${sizes.bar-top-gap}
-;border-size = 20
+;border-size = 0
+;border-bottom-size = ${sizes.bar-bottom-gap}
 ;border-color = #00000000
 
-padding-left = 2
-padding-right = 2
+padding-left = 0
+padding-right = 3
 
-module-margin-left = 0
-module-margin-right = 5
+module-margin-left = 2
+module-margin-right = 3
 
 font-0 = TerminessTTF Nerd Font:pixelsize=14;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = Noto Mono for Powerline:pixelsize=14;1
 
-modules-left = i3
-#modules-center = mpd
-modules-right = volume wlan eth battery temperature memory date 
+modules-left = volume
+modules-center = i3
+modules-right = battery temperature memory date powermenu
 
 tray-position = right
-tray-padding = 5
+tray-padding = 1
 ;tray-offset-x = 200
 tray-transparent = false
 ;tray-background = ${colors.primary}
@@ -260,7 +261,7 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date = "  %d.%m.%Y"
+date = "  %a %d.%m.%Y"
 ;date-alt = " %a, %b %d, %Y at %I:%M%p"
 ;date-alt = " %Y-%m-%d"
 
@@ -278,15 +279,19 @@ label = %time%  %date%
 [module/volume]
 type = internal/volume
 
-format-volume = <label-volume> <bar-volume>
-label-volume = "  "
+format-volume = <ramp-volume> <bar-volume>
+;  label-volume = "  "
 label-volume-foreground = ${root.foreground}
 
 ;format-muted-prefix = " " 
 format-muted-foreground = ${colors.foreground-alt}
-label-muted = "  "
+label-muted = "  " 
 
-bar-volume-width = 10
+ramp-volume-0 = "  "
+ramp-volume-1 = "  "
+ramp-volume-2 = "  "
+
+bar-volume-width = 20
 bar-volume-foreground-0 = #55aa55
 bar-volume-foreground-1 = #55aa55
 bar-volume-foreground-2 = #55aa55
@@ -295,19 +300,19 @@ bar-volume-foreground-4 = #55aa55
 bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
+bar-volume-indicator = 
+bar-volume-indicator-font = 0
+bar-volume-fill = 
+bar-volume-fill-font = 0
+bar-volume-empty = 
+bar-volume-empty-font = 0
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
 battery = BAT0
 adapter = AC
-full-at = 98
+full-at = 95
 
 format-charging = <animation-charging> <label-charging>
 #format-charging = <animation-charging> <label-charging>
@@ -365,6 +370,5 @@ screenchange-reload = true
 ;compositing-border = over
 
 [global/wm]
-margin-top = 0
-margin-bottom = 0
-
+margin-top = 5
+margin-bottom = 5

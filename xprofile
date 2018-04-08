@@ -1,3 +1,4 @@
 xset -b &
+numlockx &
 nm-applet --sm-disable &
 syndaemon -i 0.7 -d -K -t &
