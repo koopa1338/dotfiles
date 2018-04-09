@@ -178,6 +178,8 @@ mode "$exit" {
 for_window [class="^.*"] border pixel 4
 for_window [class="^.*"] child_border 2
 for_window [class="Pavucontrol"] floating enable
+for_window [class="keepassx2"] floating enable
+for_window [class="gnome-calculator"] floating enable
 assign [class="TeamViewer"] 10
 for_window [class="TeamViewer"] floating enable
 for_window [class="Wpg"] floating enable
@@ -219,6 +221,8 @@ bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DE
 bindsym $mod+XF86AudioMute exec python $HOME/dotfiles/bin/soundtoggle.py
 
 # Sreen brightness controls
+# toggle screenlayout
+bindsym $mod+v exec --no-startup-id screenlayout
 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5 -steps 1
 # decrease screen brightness
