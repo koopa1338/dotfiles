@@ -1,16 +1,19 @@
 #fish_vi_key_bindings
-cat /home/koopa/.cache/wal/sequences  &
-set fish_color_param 41d9f7
-set fish_color_command 1E6D8B
-set fish_color_autosuggestion 2faddd
-set fish_color_quote 58BDC8
+wpg -t
+set fish_color_param normal
+set fish_color_command normal
+set fish_color_autosuggestion normal
+set fish_color_quote normal
 alias v="vim"
 alias r="ranger"
+alias sr="sudo ranger"
+alias grep="grep --color=auto"
 alias nf="neofetch"
 alias vrc="vim /home/koopa/dotfiles/vimrc"
 alias cu="checkupdates"
 alias e="exit"
 alias lsa="ls -al"
+alias ls="ls -hN --color=auto --group-directories-first"
 alias ..="cd .."
 alias cdu="cd /home/koopa/Dokumente/Uni"
 alias ...="cd ../.."
@@ -23,11 +26,11 @@ alias gitp="git push"
 alias gitpl="git pull"
 alias gitcl="git clone"
 alias pup="trizen -Syu"
-alias paur="trizen"
+alias p="trizen"
 alias cpc="cleanpaccache"
 alias vbib="vim /home/koopa/latex/Bibliothek.bib"
-alias hdmit="/home/koopa/dotfiles/screenlayout/HDMI_top.sh"
-alias hdmir="/home/koopa/dotfiles/screenlayout/HDMI_right.sh"
-alias hdmil="/home/koopa/dotfiles/screenlayout/HDMI_left.sh"
-alias mirror="/home/koopa/dotfiles/screenlayout/Mirror.sh"
 alias rmdir="rm -d"
+alias untar="tar -zxvf"
+alias ipe="curl ipinfo.io/country; and curl ipinfo.io/ip"
+alias lsenum="ls | wc -l"
+alias speed="speedtest --simple"

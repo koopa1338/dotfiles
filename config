@@ -37,15 +37,17 @@ set $mod Mod4
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec st
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show run -lines 12 -width 800 -height 600 -font "TerminessTTF Nerd Font 14"
-bindsym $mod+w exec rofi -show window -lines 12 -width 800 -height 600 -font "TerminessTTF Nerd Font 14"
+bindsym $mod+d exec rofi -show run 
+bindsym $mod+Shift+d exec ~/dotfiles/bin/optirun.sh
+bindsym $mod+w exec rofi -show window
 bindsym $mod+n exec ~/.config/networkmanager-dmenu/networkmanager_dmenu
+bindsym $mod+c exec ~/dotfiles/bin/youtube-viewer.sh
 
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -101,9 +103,9 @@ bindsym $mod+t split toggle
 # resize 
 
 bindsym $mod+Shift+z resize shrink width 5px or 5ppt
-bindsym $mod+Shift+u resize shrink height 5px or 5ppt
-bindsym $mod+Shift+i resize grow width 5px or 5ppt
-bindsym $mod+Shift+o resize grow height 5px or 5ppt
+bindsym $mod+Shift+u resize grow height 5px or 5ppt
+bindsym $mod+Shift+i resize shrink height 5px or 5ppt
+bindsym $mod+Shift+o resize grow width 5px or 5ppt
 
 # change inner gaps
 bindsym $mod+s gaps inner current plus 5
@@ -168,8 +170,8 @@ bindsym $mod+Shift+e mode "$exit"
 set $exit E =     S =     R = 
 mode "$exit" {
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec st -e shutdown -h now
-    bindsym r exec st -e reboot
+    bindsym s exec urxvt -e shutdown -h now
+    bindsym r exec urxvt -e reboot
     bindsym Escape mode "default"
 }
 
@@ -178,8 +180,10 @@ mode "$exit" {
 for_window [class="^.*"] border pixel 4
 for_window [class="^.*"] child_border 2
 for_window [class="Pavucontrol"] floating enable
-for_window [class="keepassx2"] floating enable
-for_window [class="gnome-calculator"] floating enable
+for_window [class="gmic_qt"] floating enable
+for_window [class="Keepassx2"] floating enable
+for_window [instance="sun-awt-X11-XWindowPeer"] floating enable
+for_window [class="Gnome-calculator"] floating enable
 assign [class="TeamViewer"] 10
 for_window [class="TeamViewer"] floating enable
 for_window [class="Wpg"] floating enable
@@ -191,6 +195,7 @@ gaps outer 2
 smart_borders on
 
 # colors
+exec_always ~/.config/wpg/wp_init.sh
 #definitions
 set_from_resource $color0 	i3wm.color0
 set_from_resource $color7 	i3wm.color7
@@ -241,12 +246,12 @@ exec synclient TapButton1=1
 #Misc. keybindings
 # Filebrowser
 bindsym XF86MyComputer exec thunar
-# blur-lock
-bindsym $mod+XF86Tools exec --no-startup-id ~/.i3lock/blur-lock.sh
+# betterlockscreen
+bindsym $mod+XF86Tools exec --no-startup-id betterlockscreen -l dimblur
 # start polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 #exec --no-startup-id compton for floating polybar
 # restore wal configureation and wallpaper
- exec_always --no-startup-id wal -Rq
+# exec_always --no-startup-id wal -Rq
 #Keyboard-layouts
-exec_always "setxkbmap -model pc105 -layout de,us -variant nodeadkeys -option grp:alt_shift_toggle"
+exec_always "setxkbmap -model pc105 -layout de,us -variant nodeadkeys,altgr-intl -option grp:alt_shift_toggle"

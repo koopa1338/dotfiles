@@ -27,3 +27,15 @@ LABEL=ROOT          	/btrfs		btrfs     	rw,noatime,compress=lzo,ssd,space_cache,
 # swap
 LABEL=SWAP          	none      	swap      	defaults  	0 0
 
+##home-folders
+LABEL=HOME          	/btrfs-home			btrfs     	rw,noatime,compress=lzo,space_cache,subvolid=5								0 0
+LABEL=HOME          	/home/koopa/Bilder        	btrfs     	rw,noatime,compress=lzo,space_cache,subvol=@Bilder							0 0
+LABEL=HOME          	/home/koopa/Dokumente        	btrfs     	rw,noatime,compress=lzo,space_cache,subvol=@Dokumente							0 0
+LABEL=HOME          	/home/koopa/Dropbox        	btrfs     	rw,noatime,compress=lzo,space_cache,subvol=@Dropbox							0 0
+LABEL=HOME          	/home/koopa/Downloads        	btrfs     	rw,noatime,compress=lzo,space_cache,subvol=@Downloads							0 0
+LABEL=HOME          	/home/koopa/Musik        	btrfs     	rw,noatime,compress=lzo,space_cache,subvol=@Musik							0 0
+LABEL=HOME          	/home/koopa/Öffentlich        	btrfs     	rw,noatime,compress=lzo,space_cache,subvol=@Öffentlich							0 0
+LABEL=HOME          	/home/koopa/Videos        	btrfs     	rw,noatime,compress=lzo,space_cache,subvol=@Videos							0 0
+
+#externe Festplatte
+#LABEL=Extern			/mnt/usb/Extern		ntfs	defaults,umask=007,uid=1000,gid=100,relatime	0 0

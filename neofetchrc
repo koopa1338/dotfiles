@@ -20,9 +20,9 @@ print_info() {
     info "Shell" shell
     info "Resolution" resolution
     info "WM" wm
-    info "WM Theme" wm_theme
-    info "Theme" theme
-    info "Icons" icons
+    # info "WM Theme" wm_theme
+    # info "Theme" theme
+    # info "Icons" icons
     info "Terminal" term
     info "Terminal Font" term_font
     info "CPU" cpu
@@ -368,7 +368,7 @@ install_time="on"
 # Example:
 # 12h: 'Thu 14 Apr 2016 11:50 PM'
 # 24h: 'Thu 14 Apr 2016 23:50'
-install_time_format="12h"
+install_time_format="24h"
 
 
 # Text Colors
@@ -431,7 +431,7 @@ underline_char="-"
 #
 # Display colors 0-15 in the blocks. (16 colors)
 # neofetch --block_range 0 15
-block_range=(0 7)
+block_range=(0 15)
 
 # Toggle color blocks
 #
@@ -527,7 +527,7 @@ disk_display="off"
 # Default:  'ascii'
 # Values:   'ascii', 'caca', 'catimg', 'jp2a', 'iterm2', 'off', 'tycat', 'w3m'
 # Flag:     --backend
-image_backend="ascii"
+image_backend="w3m"
 
 # Image Source
 #
@@ -540,7 +540,7 @@ image_backend="ascii"
 # NOTE: 'auto' will pick the best image source for whatever image backend is used.
 #       In ascii mode, distro ascii art will be used and in an image mode, your
 #       wallpaper will be used.
-# image_source="/home/koopa/dotfiles/arch-glyph.png"
+image_source="wallpaper"
 
 
 # Ascii Options
@@ -598,7 +598,7 @@ thumbnail_dir="${XDG_CACHE_HOME:-${HOME}/.cache}/thumbnails/neofetch"
 #
 # See this wiki page to learn about the fit and fill options.
 # https://github.com/dylanaraps/neofetch/wiki/What-is-Waifu-Crop%3F
-crop_mode="normal"
+crop_mode="fill"
 
 # Crop offset
 # Note: Only affects 'normal' crop mode.

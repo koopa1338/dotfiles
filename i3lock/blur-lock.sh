@@ -2,7 +2,7 @@
 
 sleep 1
 scrot /tmp/screen.png
-ffmpeg -y -i /tmp/screen.png -filter_complex "boxblur=5:1" /tmp/screen.png
+ffmpeg -y -i /tmp/screen.png -filter_complex "boxblur=lr=15:lp=1:ar=5" /tmp/screen.png
 
 if [[ -f $HOME/.i3lock/lock.png ]]
 then
