@@ -1,3 +1,3 @@
 function wetter
-	curl 'wttr.in/'$argv'?m'
+	curl 'de.wttr.in/'$argv'?m'
 end

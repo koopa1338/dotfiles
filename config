@@ -16,7 +16,7 @@ set $out1 eDP1
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango: TerminessTTF Nerd Font 14
+font pango: Inconsolata Nerd Font 14
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -37,7 +37,7 @@ set $mod Mod4
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+q kill
@@ -47,7 +47,7 @@ bindsym $mod+d exec rofi -show run
 bindsym $mod+Shift+d exec ~/dotfiles/bin/optirun.sh
 bindsym $mod+w exec rofi -show window
 bindsym $mod+n exec ~/.config/networkmanager-dmenu/networkmanager_dmenu
-bindsym $mod+c exec ~/dotfiles/bin/youtube-viewer.sh
+bindsym $mod+c exec ytviewer
 
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -125,6 +125,7 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
+set $WS11 ""
 
 workspace "1" output $out1
 workspace "2" output $out1
@@ -136,6 +137,7 @@ workspace "7" output $out1
 workspace "8" output $out1
 workspace "9" output $out1
 workspace "10" output $out1
+workspace $WS11 output HDMI1 VGA1
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -148,6 +150,7 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
+bindsym $mod+asciicircum workspace $WS11
 
 # move focused container to workspace
 
@@ -161,25 +164,27 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+asciicircum move container to workspace $WS11
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e mode "$exit"
-set $exit E =     S =     R = 
-mode "$exit" {
-    bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec urxvt -e shutdown -h now
-    bindsym r exec urxvt -e reboot
-    bindsym Escape mode "default"
-}
+bindsym $mod+Shift+e exec --no-startup-id clearine
+#bindsym $mod+Shift+e mode "$exit"
+#set $exit E =     S =     R = 
+#mode "$exit" {
+#    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+#    bindsym s exec urxvt -e shutdown -h now
+#    bindsym r exec urxvt -e reboot
+#    bindsym Escape mode "default"
+#}
 
 
 # fancy windows
-for_window [class="^.*"] border pixel 4
-for_window [class="^.*"] child_border 2
-for_window [class="Pavucontrol"] floating enable
+for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] child_border 1
+for_window [class="Pavucontrol"] floating enable resize set 800px 600px
 for_window [class="gmic_qt"] floating enable
 for_window [class="Keepassx2"] floating enable
 for_window [instance="sun-awt-X11-XWindowPeer"] floating enable
@@ -192,6 +197,7 @@ for_window [class="TeamSpeak 3"] floating enable
 
 gaps inner 8
 gaps outer 2
+#smart_gaps on
 smart_borders on
 
 # colors
@@ -228,6 +234,9 @@ bindsym $mod+XF86AudioMute exec python $HOME/dotfiles/bin/soundtoggle.py
 # Sreen brightness controls
 # toggle screenlayout
 bindsym $mod+v exec --no-startup-id screenlayout
+#take a screenshot
+bindsym --release Print exec --no-startup-id "scrot 'screenshot-%d-%m-%Y.png' -e 'mv $f ~/Bilder/Screenshots/'"
+bindsym --release Shift+Print exec --no-startup-id scrot -s 'screenshot_$wx$h-%d-%m-%Y.png' -e 'mv $f ~/Bilder/Screenshots/'
 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5 -steps 1
 # decrease screen brightness
@@ -250,8 +259,8 @@ bindsym XF86MyComputer exec thunar
 bindsym $mod+XF86Tools exec --no-startup-id betterlockscreen -l dimblur
 # start polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-#exec --no-startup-id compton for floating polybar
-# restore wal configureation and wallpaper
-# exec_always --no-startup-id wal -Rq
+#transparency and fade animation
+exec --no-startup-id compton --config ~/dotfiles/compton.conf
 #Keyboard-layouts
 exec_always "setxkbmap -model pc105 -layout de,us -variant nodeadkeys,altgr-intl -option grp:alt_shift_toggle"
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

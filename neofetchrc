@@ -14,22 +14,22 @@ print_info() {
     info underline
 
     info "OS" distro
-    prin "Model" "Lenovo Thinkpad E540"
+    # prin "Model" "Lenovo Thinkpad E540"
     info "Kernel" kernel
-    info "Uptime" uptime
+    # info "Uptime" uptime
     info "Shell" shell
-    info "Resolution" resolution
+    # info "Resolution" resolution
     info "WM" wm
     # info "WM Theme" wm_theme
     # info "Theme" theme
     # info "Icons" icons
-    info "Terminal" term
+    # info "Terminal" term
     info "Terminal Font" term_font
     info "CPU" cpu
-    info "GPU" gpu
-    info "Memory" memory
-    info "Disk" disk
-    info "Packages" packages
+    # info "GPU" gpu
+    # info "Memory" memory
+    # info "Disk" disk
+    # info "Packages" packages
     # info "CPU Usage" cpu_usage
     # info "Battery" battery
     # info "Song" song
@@ -40,7 +40,7 @@ print_info() {
 
     info line_break
     info cols
-    info line_break
+    # info line_break
 }
 
 
@@ -527,7 +527,7 @@ disk_display="off"
 # Default:  'ascii'
 # Values:   'ascii', 'caca', 'catimg', 'jp2a', 'iterm2', 'off', 'tycat', 'w3m'
 # Flag:     --backend
-image_backend="w3m"
+image_backend="ascii"
 
 # Image Source
 #
@@ -540,7 +540,7 @@ image_backend="w3m"
 # NOTE: 'auto' will pick the best image source for whatever image backend is used.
 #       In ascii mode, distro ascii art will be used and in an image mode, your
 #       wallpaper will be used.
-image_source="wallpaper"
+image_source="auto"
 
 
 # Ascii Options
@@ -559,7 +559,7 @@ image_source="wallpaper"
 #       Change this to 'Lubuntu', 'Xubuntu', 'Ubuntu-GNOME' or 'Ubuntu-Budgie' to use the flavors.
 # NOTE: Arch, Crux and Gentoo have a smaller logo variant.
 #       Change this to 'arch_small', 'crux_small' or 'gentoo_small' to use the small logos.
-ascii_distro="auto"
+ascii_distro="arch_small"
 
 # Ascii Colors
 #

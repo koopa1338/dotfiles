@@ -1,8 +1,8 @@
 set nocompatible              " be iMproved, required
 set hlsearch
+set incsearch
 filetype off                  " required
 set shell=/bin/bash
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
@@ -12,6 +12,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'chun-yang/auto-pairs'
 Plugin 'mattn/emmet-vim'
+Plugin 'dbeniamine/cheat.sh-vim'
 Plugin 'ddollar/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
@@ -27,49 +28,30 @@ Plugin 'tpope/vim-repeat'
 Plugin 'honza/vim-snippets'
 Plugin 'dylanaraps/wal.vim'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-" terminal settings
-if &term =~ '256color'
-    " disable Background Color Erase (BCE) so that color schemes
-	" render properly when inside 256-color tmux and GNU screen.
-	" see also http://sunaku.github.io/vim-256color-bce.html
-     set t_ut=
-endif
+call vundle#end()
+filetype plugin indent on
 
 "  commands
 command Q q!
 command W w !sudo tee % > /dev/null
 
-"  settings
+" settings
 set spelllang=de
+set encoding=utf-8
 set cmdheight=2
 set noswapfile
 syntax enable
 colorscheme wal
-set colorcolumn=85
 hi ColorColumn ctermfg=0 ctermbg=1
-" hi LineNr ctermfg=0 ctermbg=1
-set fillchars+=vert:
-" if !exists('g:airline_symbols')
-  " let g:airline_symbols = {}
-" endif
-" let g:airline_symbols.space = "\ua0"
+hi Comment ctermfg=14 ctermbg=NONE
+hi CursorLineNr ctermfg=15 ctermbg=NONE
+set fillchars+=vert:
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
 
-"line numbers
+" line numbers
 set rnu
 set nu
 set ruler
@@ -79,22 +61,21 @@ set shiftwidth=4
 set tabstop=4
 set laststatus=2
 set linebreak
-"  set list
-"  set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,nbsp:⊙
+" set list
+" set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,nbsp:⊙
 set wrap
 set breakindent
 set breakindentopt=shift:2
 set cpoptions+=n
-"  let &showbreak='+'
-
 set completeopt-=preview
 
-"leader key
+" leader key
 let mapleader = "ö"
 let maplocalleader = "ä"
 
-""" other keybindings
+" other keybindings
 :map <F8> :setlocal spell!<CR>
+:nnoremap <leader>h :nohl<CR>
 " tab bindings
 nnoremap tn :tabnew<Space>
 nnoremap tj :tabnext<CR>
@@ -102,29 +83,28 @@ nnoremap tk :tabprev<CR>
 nnoremap th :tabfirst<CR>
 nnoremap tl :tablast<CR>
 
-"  multi-cursor-mappings
+" multi-cursor-mappings
 let g:multi_cursor_use_default_mapping = 0
 
-"  airline font
+" airline font
 let g:airline_powerline_fonts = 1
-"  let g:airline_symbols.space = "\ua0"
 
-""" Nerdtree bindings and Settings
-"Nerdtree key
+" Nerdtree bindings and Settings
+" Nerdtree key
 map <C-n> :NERDTreeToggle<CR>
-"Nerdtee if no file is specified
+" Nerdtee if no file is specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-"Syntastic settings
+" Syntastic settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%* 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-let g:syntastic_loc_list_height = 8
+let g:syntastic_loc_list_height = 10
 let g:syntastic_error_symbol = ""
 let g:syntastic_warning_symbol= ""
 let g:syntastic_style_error_symbol = ""
@@ -138,6 +118,8 @@ nmap <leader>sk :lprev<CR>
 
 " Youcompleteme config
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/.ycm_extra_conf.py'
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Nerdcommenter
 let g:NERDSpaceDelims = 1

@@ -19,11 +19,11 @@ sudo sed -i 's/xxxxxx/$date/g' /.snapshots/snap-$date/etc/fstab
 echo "updated fstab for snapshot snap-"$date
 sudo mv /boot/loader/entries/arch-??-??-??.conf /boot/loader/entries/arch-$date.conf
 sudo sed -ri s/[0-9]{2}-[0-9]{2}-[0-9]{2}/$date/g /boot/loader/entries/arch-$date.conf
-echo "___________________________________"
+echo "-----------------------------------"
 echo "      updated systemd-bootmenu.    "
-echo "___________________________________"
+echo "-----------------------------------"
 sudo btrfs balance start -dusage=5 /btrfs
-echo "___________________________________"
+echo "-----------------------------------"
 echo "      balanced btrfs filesystem.   "
-echo "___________________________________"
+echo "-----------------------------------"
 echo "              done                 "   
