@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: #0b0911;
+    background-color: #1b1b28;
     color: white;
     text-align: center;
     overflow: hidden;
@@ -26,7 +26,7 @@ p {
 }
 
 hr{
-  border-color: #1b162b;
+  border-color: #2b2b40;
 }
 
 ul {
@@ -36,7 +36,7 @@ ul {
 }
 
 li {
-    border-left: 2px solid #0b0911;
+    border-left: 2px solid #1b1b28;
     padding-left: 10px;
     padding-bottom: 5px;
     padding-top: 5px;
@@ -54,7 +54,7 @@ li:hover {
     display: inline-table;
     margin: 20px 10px 10px 10px;
     width: 210px;
-    background-color: #1b162b;
+    background-color: #2b2b40;
     padding-bottom: 20px;
     height: 293px;
     -webkit-box-shadow: 0px 0px 300px -21px rgba(0,0,0,0.42);
@@ -68,7 +68,7 @@ li:hover {
 
 input, input:focus {
     width: 640px;
-    background: #1b162b;
+    background: #2b2b40;
     -webkit-appearence: none;
     -moz-appearance: none;
     -ms-appearance: none;
