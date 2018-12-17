@@ -1,60 +1,122 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
-    <title>Startpage</title>
-  </head>
-  <body onload="startTime()">
-    <div id="content">
-      <h1 id="time"></h1>
-      <form id="js-search-form" autocomplete="off">
-	<input id="js-search-input" class="search-input" type="text" placeholder="type '?' for commands" autofocus>
-	<input type="submit" style="display: none" onclick="return interpretSearch()">
-      </form>
-      <div class="list">
-	<p>General</p>
-	<hr>
-	<br>
-	<ul>
-	  <a href="https://youtube.com/"><li>Youtube</li></a>
-    <a href="https://twitch.tv/directory"><li>Twitch</li></a>
-	</ul>
-      </div>
-      <div class="list">
-	<p>Social</p>
-	<hr>
-	<br>
-	<ul>
-    <a href="https://web.whatsapp.com"><li>Whatsapp</li></a>
-    <a href="https://blog.fefe.de/"><li>Fefe</li></a>
-    <a href="https://social.tchncs.de"><li>Mastodon</li></a>
-	</ul>
-      </div>
-      <div class="list">
-	<p>Reddit</p>
-	<hr>
-	<br>
-	<ul>
-	  <a href="https://reddit.com/r/unixporn/new"><li>unixporn</li></a>
-	  <a href="https://reddit.com/r/linux/new"><li>linux</li></a>
-	  <a href="https://reddit.com/r/netsec/new"><li>netsec</li></a>
-	  <a href="https://reddit.com/r/cpp/new"><li>C++</li></a>
-	  <a href="https://reddit.com/r/archlinux/new"><li>Archlinux</li></a>
-	</ul>
-      </div>
-      <div class="list">
-	<p>Dev</p>
-	<hr>
-	<br>
-	<ul>
-	  <a href="https://github.com/"><li>Github</li></a>
-	  <a href="https://stackoverflow.com"><li>Stackoverflow</li></a>
-	  <a href="https://www.codecademy.com/learn"><li>Codecademy</li></a>
-    <a href="https://www.dropbox.com/home"><li>Dropbox</li></a>
-	</ul>
-      </div>
+
+<head>
+    <meta name="viewport" content="width=device-width,initial-width=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Home</title>
+</head>
+
+<body class="nojs">
+    <div id="top-header">
+        <div id="header-cont">
+            <div id="analog-clock">
+                <canvas id="analog-clock-canvas" width="120" height="120"></canvas>
+            </div>
+            <div id="digital-clock">
+                <div id="clock"></div>
+                <div id="date"></div>
+            </div>
+        </div>
     </div>
-  </body>
+    <header id="sticky-header">
+        <form class="shadow-box" method="GET" action="https://ddg.gg/" autocomplete="off">
+            <input type="text" name="q" placeholder="Search">
+        </form>
+    </header>
+    <main>
+        <section>
+            <div class="shadow-box nav-wrapper">
+                <h1>General</h1>
+                <nav>
+                    <a href="https://youtube.com">
+                        <span>Youtube</span>
+                    </a>
+                    <a href="https://twitch.tv/directory">
+                        <span>Twitch</span>
+                    </a>
+            </div>
+        </section>
+        <section>
+            <div class="shadow-box nav-wrapper">
+                <h1>Social</h1>
+                <nav>
+                    <a href="https://web.whatsapp.com">
+                        <span>Whatsapp</span>
+                    </a>
+                    <a href="https://blog.fefe.de">
+                        <span>Fefe</span>
+                    </a>
+                    <a href="https://social.tchncs.de">
+                        <span>Mastodon</span>
+                    </a>
+                </nav>
+            </div>
+        </section>
+        <section>
+            <div class="shadow-box nav-wrapper">
+                <h1>Reddit</h1>
+                <nav>
+                    <a href="https://www.reddit.com/r/unixporn/new">
+                        <span>Unixporn</span>
+                    </a>
+                    <a href="https://www.reddit.com/r/linux/new">
+                        <span>Linux</span>
+                    </a>
+                    <a href="https://www.reddit.com/r/netsec/new">
+                        <span>Netsec</span>
+                    </a>
+                    <a href="https://www.reddit.com/r/archlinux/new">
+                        <span>Archlinux</span>
+                    </a>
+                </nav>
+            </div>
+        </section>
+        <section>
+            <div class="shadow-box nav-wrapper">
+                <h1>Dev</h1>
+                <nav>
+                    <a href="https://github.com">
+                        <span>Github</span>
+                    </a>    
+                    <a href="https://stackoverflow.com">
+                        <span>Stackoverflow</span>
+                    </a>
+                    <a href="https://www.dropbox.com/home">
+                        <span>Dropbox</span>
+                    </a>
+                    <a href="https://de.overleaf.com/">
+                        <span>Overleaf</span>
+                    </a>
+            </div>
+        </section>
+
+        <!section>
+            <!div class="shadow-box nav-wrapper">
+                <!h1><!/h1>
+                <!nav>
+                    <!a href="https://github.com">
+                        <!span><!/span>
+                    <!/a>
+                    <!a href="https://gitlab.com">
+                        <!img src="https://gitlab.com/favicon.ico" alt="gitlab">
+                        <!span><!/span>
+                    <!/a>
+                <!/nav>
+            <!/div>
+        <!/section>
+
+        <!section>
+            <!div class="shadow-box nav-wrapper">
+                <!h1><!/h1>
+                <!nav>
+                <!/nav>
+            <!/div>
+        <!/section>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+
 </html>
