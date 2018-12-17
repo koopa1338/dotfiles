@@ -1,17 +1,42 @@
 #!/bin/sh
 
-choices="HDMI-left\nHDMI-right\nHDMI-top\nStandard\nVGA-left\nVGA-right\nVGA-top\nMirror\nManual"
+# A UI for detecting and selecting all displays.
+# Probes xrandr for connected displays and lets user select one to use.
+# User may also select "manual selection" which opens arandr.
+# I plan on adding a routine from multi-monitor setups later.
 
-chosen=$(echo -e "$choices" | rofi -dmenu -p "screenlayout" -i)
+twoscreen() { # If multi-monitor is selected and there are two screens.
+	primary=$(echo "$screens" | rofi -dmenu -i -p "Select primary display")
+	secondary=$(echo "$screens" | grep -v "$primary")
+	direction=$(printf "above\\nleft-of\\nright-of\\nbelow" | rofi -dmenu -i -p "What side of $primary should $secondary be on?")
+	xrandr --output "$primary" --auto --output "$secondary" --"$direction" "$primary" --auto
+	}
 
+morescreen() { # If multi-monitor is selected and there are more than two screens.
+	primary=$(echo "$screens" | rofi -dmenu -i -p "asdf")
+	secondary=$(echo "$screens" | grep -v "$primary" | rofi -dmenu -i -p "Select secondary display:")
+	direction=$(printf "above\\nleft-of\\nright-of\\nbelow" | rofi -dmenu -i -p "What side of $primary should $secondary be on?")
+	tertiary=$(echo "$screens" | grep -v "$primary" | grep -v "$secondary" | rofi -dmenu -i -p "Select third display:")
+	xrandr --output "$primary" --auto --output "$secondary" --"$direction" "$primary" --auto --output "$tertiary" --"$(printf "above\\nleft-of\\nright-of\\nbelow" | grep -v "$direction")" "$primary" --auto
+	}
+
+multimon() { # Multi-monitor handler.
+	case "$(echo "$screens" | wc -l)" in
+		1) xrandr $(echo "$allposs" | awk '{print "--output", $1, "--off"}' | tr '\n' ' ') ;;
+		2) twoscreen ;;
+		*) morescreen ;;
+	esac ;}
+
+# Get all possible displays
+allposs=$(xrandr -q | grep "connected")
+
+# Get all connected screens.
+screens=$(echo "$allposs" | grep " connected" | awk '{print $1}')
+
+# Get user choice including multi-monitor and manual selection:
+chosen=$(printf "%s\\nmulti-monitor\\nmanual selection" "$screens" | rofi -dmenu -i -p "Select display arangement:") &&
 case "$chosen" in
-	HDMI-left) xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off --output DP1 --off --output eDP1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output VGA1 --off && polybar_launch ;;
-	HDMI-right) xrandr --output HDMI1 --mode 1920x1080 --pos 1920x0 --rotate normal --output VIRTUAL1 --off --output DP1 --off --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VGA1 --off && polybar_launch ;;
-	HDMI-top) xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off --output DP1 --off --output eDP1 --primary --mode 1920x1080 --pos 0x1080 --rotate normal --output VGA1 --off && polybar_launch ;;
-	Standard) xrandr --output HDMI1 --off --output VIRTUAL1 --off --output DP1 --off --output eDP1 --primary --mode 1920x1080 --pos 0x1080 --rotate normal --output VGA1 --off && polybar_launch ;;
-	Mirror) xrandr --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI1 --noprimary --same-as eDP1 --output VIRTUAL1 --off --output DP1 --off --output VGA1 --off && polybar_launch ;;
-	Manual) arandr ;;
-	VGA-left) xrandr --output VGA1 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off --output DP1 --off --output eDP1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI1 --off && polybar_launch ;;
-	VGA-right) xrandr --output VGA1 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off --output DP1 --off --output eDP1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI1 --off && polybar_launch ;;
-	VGA-top) xrandr --output VGA1 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off --output DP1 --off --output eDP1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI1 --off && polybar_launch ;;
+	"manual selection") arandr ; exit ;;
+	"multi-monitor") multimon ;;
+	*) xrandr --output "$chosen" --auto $(echo "$screens" | grep -v "$chosen" | awk '{print "--output", $1, "--off"}' | tr '\n' ' ') ;;
 esac

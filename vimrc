@@ -1,14 +1,24 @@
-set nocompatible              " be iMproved, required
+"       __     __ ___  __  __  ____    ____ 
+"       \ \   / /|_ _||  \/  ||  _ \  / ___|
+"        \ \ / /  | | | |\/| || |_) || |    
+"         \ V /   | | | |  | ||  _ < | |___ 
+"          \_/   |___||_|  |_||_| \_\ \____|
+
+" settings
+set spelllang=de
+set encoding=utf-8
+set cmdheight=2
+set noswapfile
+syntax enable
+set nocompatible
 set hlsearch
 set incsearch
-filetype off                  " required
+filetype off
 set shell=/bin/bash
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'chun-yang/auto-pairs'
 Plugin 'mattn/emmet-vim'
@@ -27,20 +37,15 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'honza/vim-snippets'
 Plugin 'dylanaraps/wal.vim'
-
 call vundle#end()
+
 filetype plugin indent on
 
 "  commands
 command Q q!
 command W w !sudo tee % > /dev/null
 
-" settings
-set spelllang=de
-set encoding=utf-8
-set cmdheight=2
-set noswapfile
-syntax enable
+" colors and symbols
 colorscheme wal
 hi ColorColumn ctermfg=0 ctermbg=1
 hi Comment ctermfg=14 ctermbg=NONE
@@ -129,10 +134,17 @@ let g:NERTCustomDelimiters = { 'tex': { 'left': '% ', 'right': '' } }
 inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
 vnoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
 map <Space><Tab> <Esc>/<++><Enter>"_c4l
+
+" split bindings
+set splitbelow splitright
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
+
+" Document compile bindings
+" TODO: maybe add a compile script for various filetypes
+autocmd FileType rmd map <F5> :!echo<Space>"require(rmarkdown);<Space>render('<C-r>%')"<Space>\|<Space>R<Space>--vanilla<Enter>
 
 " Latex bindings
 let g:tex_flavor = "latex"
@@ -162,8 +174,6 @@ autocmd FileType tex inoremap ;ex {\exists}
 autocmd FileType tex inoremap ;pie <Esc>:r /home/koopa/latex/templates/piechart_colored.template<Enter><Esc>i
 autocmd FileType tex inoremap ;bar <Esc>:r /home/koopa/latex/templates/barchart_basic.template<Enter><Esc>i
 autocmd FileType tex inoremap ;func <Esc>:r /home/koopa/latex/templates/functiongraphs.template<Enter><Esc>i
-
-autocmd FileType rmd map <F5> :!echo<Space>"require(rmarkdown);<Space>render('<C-r>%')"<Space>\|<Space>R<Space>--vanilla<Enter>
 
 " Bibliography bindings
 autocmd FileType bib inoremap ;a @article{<Enter>author<Space>=<Space>{<++>},<Enter>year<Space>=<Space><++>,<Enter>title<Space>=<Space>{{<++>}},<Enter>journal<Space>=<Space>{<++>},<Enter>volume<Space>=<Space>{<++>},<Enter>pages<Space>=<Space>{<++>},<Enter>}<Enter><++><Esc>8kA,<Esc>i
