@@ -1,14 +1,14 @@
 :root {
-    --bgdark:  #1b1b28;
-    --fgdark:  #607595;
+    --bgdark:  #060525;
+    --fgdark:  #532E99;
 
-    --bglight: #2b2b40;
-    --border:  #2b2b40;
-    --fglight: #6c94d1;
+    --bglight: #0a0949;
+    --border:  #0a0949;
+    --fglight: #bca6be;
 
-    --bgtitle: #2b2b40;
+    --bgtitle: #0a0949;
 
-    --accent:  #d2cbd0;
+    --accent:  #672ed3;
 }
 
 html,
@@ -42,7 +42,7 @@ body {
 }
 
 .shadow-box {
-    box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.4);
+    box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.3);
     text-align: center;
     font-size: 18px
 }
