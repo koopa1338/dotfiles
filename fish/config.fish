@@ -37,5 +37,5 @@ alias ipe="curl ipinfo.io/country; and curl ipinfo.io/ip"
 #alias ipi="ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/'"
 alias lsenum="ls | wc -l"
 alias speed="speedtest --simple"
-
-
+alias yv="youtube-viewer"
+alias ydl="youtube-dl"

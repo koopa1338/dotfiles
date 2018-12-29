@@ -14,7 +14,7 @@ set nocompatible
 set hlsearch
 set incsearch
 filetype off
-set shell=/bin/bash
+set shell=sh
 
 " let Vundle manage Vundle, required
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -25,6 +25,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'dbeniamine/cheat.sh-vim'
 Plugin 'ddollar/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
@@ -95,11 +96,26 @@ let g:multi_cursor_use_default_mapping = 0
 let g:airline_powerline_fonts = 1
 
 " Nerdtree bindings and Settings
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 " Nerdtree key
 map <C-n> :NERDTreeToggle<CR>
 " Nerdtee if no file is specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Syntastic settings
 set statusline+=%#warningmsg#
