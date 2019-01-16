@@ -1,3 +1,4 @@
+#!/bin/python
 import os
 import subprocess
 sound = str(subprocess
@@ -8,3 +9,4 @@ if output == "analog":
     os.system("pactl set-default-sink 0")
 else:
     os.system("pactl set-default-sink 1")
+os.system("polybar_launch")

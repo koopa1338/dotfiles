@@ -29,14 +29,14 @@ print_info() {
     # info "GPU" gpu
     # info "Memory" memory
     # info "Disk" disk
-    # info "Packages" packages
+	info "Packages" packages
     # info "CPU Usage" cpu_usage
     # info "Battery" battery
     # info "Song" song
     # info "Local IP" local_ip
     # info "Public IP" public_ip
     # info "Users" users
-    # info "Install Date" install_date
+	info "Install Date" install_date
 
     info line_break
     info cols
