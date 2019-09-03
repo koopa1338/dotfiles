@@ -7,14 +7,17 @@
 " settings
 set spelllang=de
 set encoding=utf-8
-set cmdheight=2
+set cmdheight=3
 set noswapfile
 syntax enable
 set nocompatible
 set hlsearch
 set incsearch
+set ignorecase
+set smartcase
 filetype off
-set shell=sh
+set shell=fish
+set mps+=<:>
 
 " let Vundle manage Vundle, required
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -22,14 +25,12 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'chun-yang/auto-pairs'
 Plugin 'mattn/emmet-vim'
-Plugin 'dbeniamine/cheat.sh-vim'
 Plugin 'ddollar/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
-Plugin 'terryma/vim-multiple-cursors'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'valloric/youcompleteme'
@@ -37,21 +38,30 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'honza/vim-snippets'
-Plugin 'dylanaraps/wal.vim'
+Plugin 'rdnetto/YCM-Generator'
+Plugin 'vhdirk/vim-cmake'
+" Plugin 'python-mode/python-mode'
+Plugin 'sirver/UltiSnips'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'deviantfero/wpgtk.vim'
 call vundle#end()
 
 filetype plugin indent on
 
 "  commands
 command Q q!
-command W w !sudo tee % > /dev/null
+command W w !sudo -s tee % > /dev/null
+nmap <C-s> :w<CR>
+imap <C-s> <Esc>:w<CR>i
+nmap <C-q> :q<CR>
+imap <C-q> <Esc>:q<CR>
 
 " colors and symbols
-colorscheme wal
+colorscheme wpgtk
 hi ColorColumn ctermfg=0 ctermbg=1
 hi Comment ctermfg=14 ctermbg=NONE
 hi CursorLineNr ctermfg=15 ctermbg=NONE
-set fillchars+=vert:
+hi VertSplit ctermfg=0 ctermbg=8
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
@@ -61,6 +71,8 @@ let g:airline_symbols.space = "\ua0"
 set rnu
 set nu
 set ruler
+
+set wildmenu
 
 " linebreaks
 set shiftwidth=4
@@ -73,15 +85,40 @@ set wrap
 set breakindent
 set breakindentopt=shift:2
 set cpoptions+=n
+set completeopt+=menuone
+set completeopt+=noinsert
+set noinfercase
 set completeopt-=preview
+set completeopt+=menuone,noselect
+
+" cmake flags
+let g:cmake_cxx_compiler='clang++'
+let g:cmake_c_compiler='clang'
+let g:cmake_ycm_symlinks=1
+
+" Ultisnips config
+let g:UltiSnipsExpandTrigger="<C-Space>"
+let g:UltiSnipsJumpForwardTrigger="<C-b>"
+let g:UltiSnipsJumpBackwardTrigger="<C-z>"
+
+" Youcompleteme config
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " leader key
 let mapleader = "ö"
 let maplocalleader = "ä"
 
+" pymodes python
+let g:pymode_python='python3'
+let g:pymode_doc_bind='<leader>K'
+au FileType python setlocal formatprg=autopep8\ -
+
 " other keybindings
 :map <F8> :setlocal spell!<CR>
 :nnoremap <leader>h :nohl<CR>
+:nnoremap <leader>r_ :%s/_/\ /g<CR>
+:nnoremap <leader>r. :%s/\./\ /g<CR>
 " tab bindings
 nnoremap tn :tabnew<Space>
 nnoremap tj :tabnext<CR>
@@ -122,7 +159,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%* 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_loc_list_height = 10
@@ -137,10 +174,19 @@ nmap <leader>sc :SyntasticCheck<CR>
 nmap <leader>sj :lnext<CR>
 nmap <leader>sk :lprev<CR>
 
-" Youcompleteme config
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/.ycm_extra_conf.py'
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" multicursor binding
+
+let g:multi_cursor_use_default_mapping=0
+
+" Default mapping
+let g:multi_cursor_start_word_key      = '<C-m>'
+let g:multi_cursor_select_all_word_key = '<A-m>'
+let g:multi_cursor_start_key           = 'g<C-m>'
+let g:multi_cursor_select_all_key      = 'g<A-m>'
+let g:multi_cursor_next_key            = '<C-m>'
+let g:multi_cursor_prev_key            = '<C-p>'
+let g:multi_cursor_skip_key            = '<C-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
 
 " Nerdcommenter
 let g:NERDSpaceDelims = 1
@@ -150,6 +196,11 @@ let g:NERTCustomDelimiters = { 'tex': { 'left': '% ', 'right': '' } }
 inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
 vnoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
 map <Space><Tab> <Esc>/<++><Enter>"_c4l
+nmap J 10j
+nmap K 10k
+nmap H 10h
+nmap L 10l
+nnoremap <A-j> J
 
 " split bindings
 set splitbelow splitright
@@ -158,15 +209,16 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
-" Document compile bindings
-" TODO: maybe add a compile script for various filetypes
-autocmd FileType rmd map <F5> :!echo<Space>"require(rmarkdown);<Space>render('<C-r>%')"<Space>\|<Space>R<Space>--vanilla<Enter>
+" Text manipulation bindings
+nmap <j :.m -2<CR>
+nmap <k :.m +1<CR>
+
+" Compiler script
+map <localleader>c :w! \| !compile <c-r>%<CR>
 
 " Latex bindings
 let g:tex_flavor = "latex"
-autocmd FileType tex inoremap <F5> <Esc>:w<Enter>:!latexmk -pdf -interaction=nonstopmode <C-r>%<Enter>i
-autocmd FileType tex nnoremap <F5> :w<Enter>:!latexmk -pdf -interaction=nonstopmode <C-r>%<Enter>
-autocmd FileType tex inoremap ;fig \begin{figure}<nter><Enter>\end{figure}<Esc>2kA
+autocmd FileType tex inoremap ;fig \begin{figure}<Enter><Enter>\end{figure}<Esc>2kA
 autocmd FileType tex inoremap ;tab \begin{tabular}<Enter><++><Enter>\\end{tabular}<Enter><Enter><Esc>4kA{}<Esc>i
 autocmd FileType tex inoremap ;beg \begin{DELRN}<Enter><++><Enter>\end{DELRN}<Enter><Enter><++><Esc>4k0fR:MultipleCursorsFind<Space>DELRN<Enter>c
 autocmd FileType tex inoremap ;a \href{}{<++>}<Space><++><Esc>2T{i

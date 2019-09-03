@@ -24,7 +24,7 @@ print_info() {
     # info "Theme" theme
     # info "Icons" icons
     # info "Terminal" term
-    info "Terminal Font" term_font
+    # info "Terminal Font" term_font
     info "CPU" cpu
     # info "GPU" gpu
     # info "Memory" memory
@@ -81,7 +81,7 @@ distro_shorthand="off"
 # Example:
 # on:  'Arch Linux x86_64'
 # off: 'Arch Linux'
-os_arch="on"
+os_arch="off"
 
 
 # Uptime

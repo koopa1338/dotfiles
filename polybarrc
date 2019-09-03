@@ -52,7 +52,7 @@ line-color = #f00
 ;border-color = #00000000
 
 padding-left = 0
-padding-right = 3
+padding-right = 5
 
 module-margin-left = 2
 module-margin-right = 3
@@ -61,7 +61,7 @@ font-0 = Inconsolata Nerd Font:size=14;0
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = Noto Mono for Powerline:pixelsize=14;1
 
-modules-left = volume
+modules-left = volume pulseaudio
 modules-center = i3
 modules-right = battery temperature memory date powermenu
 
@@ -348,7 +348,8 @@ type = internal/temperature
 thermal-zone = 0
 warn-temperature = 85
 
-format = "  "<label>
+format =  <label>
+format-prefix = " "
 format-underline = ${colors.primary}
 ;format-underline = #f50a4d
 format-warn = <ramp> <label-warn>

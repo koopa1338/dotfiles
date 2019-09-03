@@ -38,4 +38,4 @@ LABEL=HOME          	/home/koopa/Öffentlich        	btrfs     	rw,noatime,compr
 LABEL=HOME          	/home/koopa/Videos        	btrfs     	rw,noatime,compress=lzo,space_cache,subvol=@Videos							0 0
 
 #externe Festplatte
-LABEL=Extern			/mnt/usb/Extern		ntfs	rw,suid,dev,exec,noauto,nouser,async,umask=007,uid=1000,gid=100,relatime	0 0
+# LABEL=Extern			/mnt/usb/Extern		ntfs	rw,suid,dev,exec,noauto,nouser,async,umask=007,uid=1000,gid=100,relatime	0 0

@@ -13,17 +13,42 @@ set $left h
 set $right l
 set $mod Mod4
 set $term --no-startup-id kitty
-set $WS01 "1"
-set $WS02 "2"
-set $WS03 "3"
-set $WS04 "4"
-set $WS05 "5"
-set $WS06 "6"
-set $WS07 "7"
-set $WS08 "8"
-set $WS09 "9"
-set $WS10 "10"
-set $WS11 ""
+
+set $WS01 "1"
+set $WS02 "2"
+set $WS03 "3"
+set $WS04 "4"
+set $WS05 "5"
+set $WS06 "6"
+set $WS07 "7"
+set $WS08 "8"
+set $WS09 "9"
+set $WS10 "10"
+
+# HDMI
+set $WS101 "1"
+set $WS102 "2"
+set $WS103 "3"
+set $WS104 "4"
+set $WS105 "5"
+set $WS106 "6"
+set $WS107 "7"
+set $WS108 "8"
+set $WS109 "9"
+set $WS110 "10"
+
+# VGA
+set $WS201 "1"
+set $WS202 "2"
+set $WS203 "3"
+set $WS204 "4"
+set $WS205 "5"
+set $WS206 "6"
+set $WS207 "7"
+set $WS208 "8"
+set $WS209 "9"
+set $WS210 "10"
+
 floating_modifier $mod
 
 #  _ _____                         _             _   _             
@@ -94,6 +119,7 @@ bindsym $mod+minus scratchpad show
 #    \_/\_/ \___/|_|  |_|\_\___/ .__/ \__,_|\___\___||___/
 #                              |_|                        
 
+# eDP1
 workspace $WS01 output $out1
 workspace $WS02 output $out1
 workspace $WS03 output $out1
@@ -104,34 +130,61 @@ workspace $WS07 output $out1
 workspace $WS08 output $out1
 workspace $WS09 output $out1
 workspace $WS10 output $out1
-workspace $WS11 output HDMI1 VGA1
+
+# HDMI
+workspace $WS101 output $out2
+workspace $WS102 output $out2
+workspace $WS103 output $out2
+workspace $WS104 output $out2
+workspace $WS105 output $out2
+workspace $WS106 output $out2
+workspace $WS107 output $out2
+workspace $WS108 output $out2
+workspace $WS109 output $out2
+workspace $WS110 output $out2
+
+# VGA
+workspace $WS201 output $out3
+workspace $WS202 output $out3
+workspace $WS203 output $out3
+workspace $WS204 output $out3
+workspace $WS205 output $out3
+workspace $WS206 output $out3
+workspace $WS207 output $out3
+workspace $WS208 output $out3
+workspace $WS209 output $out3
+workspace $WS210 output $out3
+
+# switch to Monitor
+bindsym $mod+mod1+ctrl+1 focus output $out1
+bindsym $mod+mod1+ctrl+2 focus output $out2
+bindsym $mod+mod1+ctrl+3 focus output $out3
 
 # switch to workspace
-bindsym $mod+1 workspace $WS01
-bindsym $mod+2 workspace $WS02
-bindsym $mod+3 workspace $WS03
-bindsym $mod+4 workspace $WS04
-bindsym $mod+5 workspace $WS05
-bindsym $mod+6 workspace $WS06
-bindsym $mod+7 workspace $WS07
-bindsym $mod+8 workspace $WS08
-bindsym $mod+9 workspace $WS09
-bindsym $mod+0 workspace $WS10
-bindsym $mod+asciicircum workspace $WS11
+bindsym $mod+1 exec --no-startup-id i3multiMonitor goto 1
+bindsym $mod+2 exec --no-startup-id i3multiMonitor goto 2
+bindsym $mod+3 exec --no-startup-id i3multiMonitor goto 3
+bindsym $mod+4 exec --no-startup-id i3multiMonitor goto 4
+bindsym $mod+5 exec --no-startup-id i3multiMonitor goto 5
+bindsym $mod+6 exec --no-startup-id i3multiMonitor goto 6
+bindsym $mod+7 exec --no-startup-id i3multiMonitor goto 7
+bindsym $mod+8 exec --no-startup-id i3multiMonitor goto 8
+bindsym $mod+9 exec --no-startup-id i3multiMonitor goto 9
+bindsym $mod+0 exec --no-startup-id i3multiMonitor goto 10
 
 # move focused container to workspace
+bindsym $mod+Shift+1 exec --no-startup-id i3multiMonitor move 1
+bindsym $mod+Shift+2 exec --no-startup-id i3multiMonitor move 2
+bindsym $mod+Shift+3 exec --no-startup-id i3multiMonitor move 3
+bindsym $mod+Shift+4 exec --no-startup-id i3multiMonitor move 4
+bindsym $mod+Shift+5 exec --no-startup-id i3multiMonitor move 5
+bindsym $mod+Shift+6 exec --no-startup-id i3multiMonitor move 6
+bindsym $mod+Shift+7 exec --no-startup-id i3multiMonitor move 7
+bindsym $mod+Shift+8 exec --no-startup-id i3multiMonitor move 8
+bindsym $mod+Shift+9 exec --no-startup-id i3multiMonitor move 9
+bindsym $mod+Shift+0 exec --no-startup-id i3multiMonitor move 10
 
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
-bindsym $mod+Shift+asciicircum move container to workspace $WS11
+
 
 # __        ___           _                      ______                 
 # \ \      / (_)_ __   __| | _____      _____   / / ___| __ _ _ __  ___ 
@@ -146,10 +199,11 @@ for_window [class="^.*"] child_border 2
 for_window [class="Pavucontrol"] floating enable resize set 800px 600px
 for_window [class="gmic_qt"] floating enable
 for_window [class="Keepassx2"] floating enable
+for_window [class="keepassxc"] floating enable resize set 1000px 800px
 for_window [instance="sun-awt-X11-XWindowPeer"] floating enable
 for_window [class="Gnome-calculator"] floating enable
 for_window [title="Seiteninformation*"] floating enable
-assign [class="TeamViewer"] 10
+assign [class="TeamViewer"] $WS10
 for_window [class="TeamViewer"] floating enable
 for_window [class="Wpg"] floating enable
 
@@ -167,7 +221,7 @@ smart_borders on
 #                                                   |___/     
 
 # Colors
-exec_always --no-startup-id ~/.config/wpg/wp_init.sh
+exec_always --no-startup-id ~/.config/wpg/wp_restore.sh
 
 #definitions
 set_from_resource $color0 	i3wm.color0
@@ -261,10 +315,10 @@ bindsym $mod+n exec --no-startup-id ~/.config/networkmanager-dmenu/networkmanage
 bindsym $mod+c exec --no-startup-id ytviewer
 
 # resize 
-bindsym $mod+Shift+z resize shrink width 5px or 5ppt
-bindsym $mod+Shift+u resize grow height 5px or 5ppt
-bindsym $mod+Shift+i resize shrink height 5px or 5ppt
-bindsym $mod+Shift+o resize grow width 5px or 5ppt
+bindsym $mod+Shift+z resize shrink width 10px or 10ppt
+bindsym $mod+Shift+i resize grow height 10px or 10ppt
+bindsym $mod+Shift+u resize shrink height 10px or 10ppt
+bindsym $mod+Shift+o resize grow width 10px or 10ppt
 
 # change inner gaps
 bindsym $mod+s gaps inner current plus 5
@@ -282,7 +336,7 @@ bindsym --release Print exec --no-startup-id "scrot 'screenshot-%d-%m-%Y.png' -e
 bindsym --release Shift+Print exec --no-startup-id flameshot gui -p ~/Bilder/Screenshots/
 
 # start/shutdown Virtual Machines with rofi
-bindsym $mod+m exec --no-startup-id vm
+bindsym $mod+Shift+m exec --no-startup-id vm
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
@@ -290,6 +344,8 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec --no-startup-id clearine
 
+# ncmpcpp 
+bindsym $mod+m exec --no-startup-id $term -e ncmpcpp
 # Filebrowser
 bindsym XF86MyComputer exec --no-startup-id thunar
 bindsym $mod+r exec --no-startup-id $term -e ranger
@@ -316,4 +372,5 @@ exec --no-startup-id fcitx
 # exec --no-startup-id compton --config ~/dotfiles/compton.conf
 
 # Keyboard-layouts
-exec_always --no-startup-id "setxkbmap -model pc105 -layout de,us -variant nodeadkeys,altgr-intl -option grp:alt_shift_toggle"
+exec_always --no-startup-id "setxkbmap -model pc105 -layout de -variant nodeadkeys"
+exec --no-startup-id xset r rate 300 65
