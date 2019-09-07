@@ -5,7 +5,7 @@
 #    \_/ \__,_|_|  |_|\__,_|_.__/|_|\___||___/
                                             
 set $out1 eDP1
-set $out2 HDMI
+set $out2 HDMI1
 set $out3 VGA1
 set $up k
 set $down j
@@ -14,40 +14,40 @@ set $right l
 set $mod Mod4
 set $term --no-startup-id kitty
 
-set $WS01 "1"
-set $WS02 "2"
-set $WS03 "3"
-set $WS04 "4"
-set $WS05 "5"
-set $WS06 "6"
-set $WS07 "7"
-set $WS08 "8"
-set $WS09 "9"
-set $WS10 "10"
+set $WS01 "1 "
+set $WS02 "2 "
+set $WS03 "3 "
+set $WS04 "4 "
+set $WS05 "5 "
+set $WS06 "6 "
+set $WS07 "7 "
+set $WS08 "8 "
+set $WS09 "9 "
+set $WS10 "10 "
 
 # HDMI
-set $WS101 "1"
-set $WS102 "2"
-set $WS103 "3"
-set $WS104 "4"
-set $WS105 "5"
-set $WS106 "6"
-set $WS107 "7"
-set $WS108 "8"
-set $WS109 "9"
-set $WS110 "10"
+set $WS101 "1 "
+set $WS102 "2 "
+set $WS103 "3 "
+set $WS104 "4 "
+set $WS105 "5 "
+set $WS106 "6 "
+set $WS107 "7 "
+set $WS108 "8 "
+set $WS109 "9 "
+set $WS110 "10 "
 
 # VGA
-set $WS201 "1"
-set $WS202 "2"
-set $WS203 "3"
-set $WS204 "4"
-set $WS205 "5"
-set $WS206 "6"
-set $WS207 "7"
-set $WS208 "8"
-set $WS209 "9"
-set $WS210 "10"
+set $WS201 "1 "
+set $WS202 "2 "
+set $WS203 "3 "
+set $WS204 "4 "
+set $WS205 "5 "
+set $WS206 "6 "
+set $WS207 "7 "
+set $WS208 "8 "
+set $WS209 "9 "
+set $WS210 "10 "
 
 floating_modifier $mod
 
@@ -156,9 +156,9 @@ workspace $WS209 output $out3
 workspace $WS210 output $out3
 
 # switch to Monitor
-bindsym $mod+mod1+ctrl+1 focus output $out1
-bindsym $mod+mod1+ctrl+2 focus output $out2
-bindsym $mod+mod1+ctrl+3 focus output $out3
+bindsym $mod+ctrl+1 focus output $out1
+bindsym $mod+ctrl+2 focus output $out2
+bindsym $mod+ctrl+3 focus output $out3
 
 # switch to workspace
 bindsym $mod+1 exec --no-startup-id i3multiMonitor goto 1

@@ -7,7 +7,7 @@ focused_workspace=$(i3-msg -t get_workspaces | jq --raw-output '.[]|select(.focu
 
 active_postfix=${focused_workspace: -1}
 
-target_workspace=${workspace}${active_postfix}
+target_workspace="${workspace} ${active_postfix}"
 
 if [[ "$action" == "move" ]]; 
 then
