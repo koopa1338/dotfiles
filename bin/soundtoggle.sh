@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 INDEX=$(pacmd list-sinks | grep "*" | awk '{print $3}')
 if [[ $INDEX = "1" ]]; then

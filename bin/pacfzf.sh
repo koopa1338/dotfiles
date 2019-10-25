@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 : "${AUR_PKG_URL:=https://aur.archlinux.org/packages.gz}"
 : "${CACHE_PATH:="$HOME/.cache/pacfzf"}"

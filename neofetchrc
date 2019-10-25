@@ -16,19 +16,19 @@ print_info() {
     info "OS" distro
     # prin "Model" "Lenovo Thinkpad E540"
     info "Kernel" kernel
-    # info "Uptime" uptime
+    info "Uptime" uptime
     info "Shell" shell
     # info "Resolution" resolution
     info "WM" wm
     # info "WM Theme" wm_theme
     # info "Theme" theme
     # info "Icons" icons
-    # info "Terminal" term
-    # info "Terminal Font" term_font
+    info "Terminal" term
+    info "Terminal Font" term_font
     info "CPU" cpu
     # info "GPU" gpu
-    # info "Memory" memory
-    # info "Disk" disk
+    info "Memory" memory
+    info "Disk" disk
 	info "Packages" packages
     # info "CPU Usage" cpu_usage
     # info "Battery" battery

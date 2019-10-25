@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # food: {ascii/ansi} art food in your terminal
 #
 #    ████                        ██

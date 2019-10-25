@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # A general, all-purpose extraction script.
 #
 # Default behavior: Extract archive into new directory

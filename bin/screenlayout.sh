@@ -1,5 +1,4 @@
-#!/bin/sh
-
+#!/bin/bash
 # A UI for detecting and selecting all displays.
 # Probes xrandr for connected displays and lets user select one to use.
 # User may also select "manual selection" which opens arandr.

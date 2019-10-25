@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 action="$1"
 workspace="$2"

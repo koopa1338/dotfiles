@@ -209,7 +209,7 @@ for_window [class="Wpg"] floating enable
 
 # Gaps
 gaps inner 8
-gaps outer 2
+gaps outer 0
 #smart_gaps on
 smart_borders on
 
@@ -245,16 +245,16 @@ client.urgent           $color7       $color7       $color0       $color7
 #    \_/ \___/|_|\__,_|_| |_| |_|\___|  \____|\__|_|  |_|
                                                        
 # increase sound volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% 
+bindsym XF86AudioRaiseVolume exec --no-startup-id volume up
 
 # decrease sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioLowerVolume exec --no-startup-id volume down
 
 # mute Mic
 bindsym XF86AudioMicMute exec --no-startup-id amixer -c 1 set Capture toggle
 
 # mute Sound
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMute exec --no-startup-id volume mute
 
 # max sound
 bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 100%
@@ -315,10 +315,11 @@ bindsym $mod+n exec --no-startup-id ~/.config/networkmanager-dmenu/networkmanage
 bindsym $mod+c exec --no-startup-id ytviewer
 
 # resize 
-bindsym $mod+Shift+z resize shrink width 10px or 10ppt
-bindsym $mod+Shift+i resize grow height 10px or 10ppt
-bindsym $mod+Shift+u resize shrink height 10px or 10ppt
-bindsym $mod+Shift+o resize grow width 10px or 10ppt
+bindsym $mod+Shift+z resize shrink width 7px or 7ppt
+bindsym $mod+Shift+i resize grow height 7px or 7ppt
+bindsym $mod+Shift+u resize shrink height 7px or 7ppt
+bindsym $mod+Shift+o resize grow width 7px or 7ppt
+
 
 # change inner gaps
 bindsym $mod+s gaps inner current plus 5
@@ -332,7 +333,7 @@ bindsym $mod+Shift+y gaps outer current minus 5
 bindsym $mod+v exec --no-startup-id screenlayout
 
 #take a screenshot
-bindsym --release Print exec --no-startup-id "scrot 'screenshot-%d-%m-%Y.png' -e 'mv $f ~/Bilder/Screenshots/'"
+bindsym --release Print exec --no-startup-id screenshot
 bindsym --release Shift+Print exec --no-startup-id flameshot gui -p ~/Bilder/Screenshots/
 
 # start/shutdown Virtual Machines with rofi
@@ -361,15 +362,21 @@ bindsym $mod+XF86Tools exec --no-startup-id betterlockscreen -l dimblur
 # |____/ \__\__,_|_|   \__|\__,_| .__/ 
 #                               |_|    
 
+# start dunst
+exec_always --no-startup-id dunst_launch
+
 # start polybar
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id polybar_launch
+
+# start dunst notification daemon
+exec --no-startup-id dunst
 
 # polkit & mozc
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id fcitx
 
 # transparency and fade animation
-# exec --no-startup-id compton --config ~/dotfiles/compton.conf
+exec --no-startup-id compton --config ~/dotfiles/compton.conf
 
 # Keyboard-layouts
 exec_always --no-startup-id "setxkbmap -model pc105 -layout de -variant nodeadkeys"

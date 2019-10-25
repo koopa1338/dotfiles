@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 CACHEDIR=/home/koopa/.cache/i3lock/current
 MODERNDIR=/usr/share/lightdm-webkit/themes/modern

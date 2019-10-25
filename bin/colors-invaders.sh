@@ -1,5 +1,4 @@
-#!/bin/sh
-
+#!/bin/bash
 # ANSI Color -- use these variables to easily have different color
 #    and format output. Make sure to output the reset sequence after
 #    colors (f = foreground, b = background), and use the 'off'
