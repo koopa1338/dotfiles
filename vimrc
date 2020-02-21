@@ -46,52 +46,53 @@ set completeopt-=preview
 set completeopt+=menuone,noselect
 
 " let Vundle manage Vundle, required
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'bling/vim-airline'
-Plugin 'chun-yang/auto-pairs'
-Plugin 'ddollar/nerdcommenter'
-Plugin 'deviantfero/wpgtk.vim'
-Plugin 'honza/vim-snippets'
-Plugin 'kien/ctrlp.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'rdnetto/YCM-Generator'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'sirver/UltiSnips'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'valloric/youcompleteme'
-Plugin 'vhdirk/vim-cmake'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'zirrostig/vim-schlepp'
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
 " Plugin 'python-mode/python-mode'
-call vundle#end()
+" Plugin 'rdnetto/YCM-Generator'
+" Plugin 'valloric/youcompleteme'
+" Plugin 'VundleVim/Vundle.vim'
+" Plugin 'Xuyuanp/nerdtree-git-plugin'
+" Plugin 'bling/vim-airline'
+" Plugin 'chun-yang/auto-pairs'
+" Plugin 'ddollar/nerdcommenter'
+" Plugin 'deviantfero/wpgtk.vim'
+" Plugin 'honza/vim-snippets'
+" Plugin 'kien/ctrlp.vim'
+" Plugin 'lambdalisue/suda.vim'
+" Plugin 'mattn/emmet-vim'
+" Plugin 'neoclide/coc.nvim'
+" Plugin 'pangloss/vim-javascript'
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'scrooloose/syntastic'
+" Plugin 'sirver/UltiSnips'
+" Plugin 'terryma/vim-multiple-cursors'
+" Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-repeat'
+" Plugin 'tpope/vim-surround'
+" Plugin 'vhdirk/vim-cmake'
+" Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'zirrostig/vim-schlepp'
+" call vundle#end()
 
 filetype plugin indent on
 
 "  commands
 command Q q!
-command W w !sudo -s tee % > /dev/null
+command W w suda://%
 nmap <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>i
 nmap <C-q> :q<CR>
 imap <C-q> <Esc>:q<CR>
-tnoremap <Esc> <C-\><C-n>
+tnoremap <Esc><Esc> <C-\><C-n>
 
 " colors and symbols
-colorscheme wpgtk
 hi ColorColumn ctermfg=0 ctermbg=1
 hi Comment ctermfg=14 ctermbg=NONE
 hi CursorLineNr ctermfg=15 ctermbg=NONE
 hi VertSplit ctermfg=0 ctermbg=8
 if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
+let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
 

@@ -1,11 +1,11 @@
 :root {
-	--bgdark:#121212;
-	--fgdark:#616F93;
-	--bglight:#2b2b2b;
-	--border:#2b2b2b;
-	--fglight:#d5d8da;
-	--bgtitle:#2b2b2b;
-	--accent:#6e89ce;
+	--bgdark:#090b0d;
+	--fgdark:#4E3850;
+	--bglight:#1d232b;
+	--border:#1d232b;
+	--fglight:#bfafc2;
+	--bgtitle:#1d232b;
+	--accent:#6c4070;
 }
 
 html,

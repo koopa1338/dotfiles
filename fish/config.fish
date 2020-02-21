@@ -11,8 +11,9 @@ set fish_color_end normal
 set --export VIRTUAL_ENV_DISABLE_PROMPT 'True'
 # Aliases
 alias v="nvim"
+alias vi="nvim"
 alias vim="nvim"
-alias vrc="nvim /home/koopa/dotfiles/vimrc"
+alias vrc="nvim /home/koopa/dotfiles/nvim/init.vim"
 alias vbib="nvim /home/koopa/latex/Bibliothek.bib"
 alias vconf="nvim /home/koopa/dotfiles/config"
 alias r="ranger"
@@ -47,3 +48,4 @@ abbr cl "clang"
 abbr clpp "clang++"
 abbr gpp "g++"
 abbr g "git"
+abbr scl "systemctl"

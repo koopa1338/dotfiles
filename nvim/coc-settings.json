@@ -1,0 +1,77 @@
+{
+    "diagnostic.signOffset": 3000,
+    "diagnostic.errorSign": "×",
+    "diagnostic.warningSign": "",
+    "diagnostic.infoSign": "ℹ",
+    "diagnostic.hintSign": "•",
+    "diagnostic.messageTarget": "echo",
+    "diagnostic.virtualText": true,
+    "diagnostic.virtualTextPrefix": " ❯❯ ",
+
+    "codeLens.enable": true,
+    "coc.preferences.rootPatterns": [
+        ".vim",
+        ".git/",
+        ".svn/",
+        ".hg",
+        ".projections.json"
+    ],
+
+    "python.jediEnabled": true,
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8CategorySeverity.F": "Warning",
+    "python.linting.flake8CategorySeverity.E": "Warning",
+    "python.linting.mypyEnabled": true,
+    "python.analysis.diagnosticEnabled": true,
+    "python.analysis.openFilesOnly": false,
+    "python.formatting.provider": "autopep8",
+    "python.linting.pydocstyleEnabled": true,
+
+    "signature.enable": true,
+    "signature.target": "echo",
+    "signature.triggerSignatureWait": 300,
+
+    "prettier.tabWidth": 4,
+    "coc.preferences.formatOnSaveFiletypes": [
+        "css",
+        "html",
+        "javascript",
+        "json",
+        "less",
+        "markdown",
+        "python",
+        "go",
+        "reason",
+        "typescript",
+        "typescript.tsx",
+        "yaml",
+        "php",
+        "vim"
+    ],
+
+    "languageserver": {
+        "clangd": {
+            "command": "clangd",
+            "args": ["--background-index"],
+            "rootPatterns": [
+                "compile_flags.txt",
+                "compile_commands.json",
+                ".vim/",
+                ".git/",
+                ".hg/"
+            ],
+            "filetypes": ["c", "cpp", "objc", "objcpp"]
+        },
+        "dockerfile": {
+            "command": "docker-langserver",
+            "filetypes": ["dockerfile"],
+            "args": ["--stdio"]
+        },
+        "bash": {
+            "command": "bash-language-server",
+            "filetypes": ["sh"],
+            "args": ["start"]
+        }
+    }
+}
