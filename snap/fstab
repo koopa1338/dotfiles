@@ -36,6 +36,7 @@ LABEL=HOME          	/home/koopa/Downloads        	btrfs     	rw,noatime,compres
 LABEL=HOME          	/home/koopa/Musik        	btrfs     	rw,noatime,compress=lzo,space_cache,subvol=@Musik							0 0
 LABEL=HOME          	/home/koopa/Öffentlich        	btrfs     	rw,noatime,compress=lzo,space_cache,subvol=@Öffentlich							0 0
 LABEL=HOME          	/home/koopa/Videos        	btrfs     	rw,noatime,compress=lzo,space_cache,subvol=@Videos							0 0
+LABEL=HOME          	/home/koopa/homeoffice        	btrfs     	rw,noatime,compress=lzo,space_cache,subvol=@Office							0 0
 
 #externe Festplatte
 # LABEL=Extern			/mnt/usb/Extern		ntfs	rw,suid,dev,exec,noauto,nouser,async,umask=007,uid=1000,gid=100,relatime	0 0
