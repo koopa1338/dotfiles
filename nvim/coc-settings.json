@@ -7,6 +7,9 @@
     "diagnostic.messageTarget": "echo",
     "diagnostic.virtualText": true,
     "diagnostic.virtualTextPrefix": " ❯❯ ",
+    "clangd.arguments": [
+        "--background-index"
+    ],
 
     "codeLens.enable": true,
     "coc.preferences.rootPatterns": [
@@ -16,53 +19,19 @@
         ".hg",
         ".projections.json"
     ],
+    "coc.preferences.hoverTarget": "float",
+    "coc.preferences.enableFloatHighlight": false,
+    "coc.preferences.useQuickfixForLocations": false,
 
-    "python.jediEnabled": true,
-    "python.linting.enabled": true,
-    "python.linting.flake8Enabled": true,
-    "python.linting.flake8CategorySeverity.F": "Warning",
-    "python.linting.flake8CategorySeverity.E": "Warning",
-    "python.linting.mypyEnabled": true,
-    "python.analysis.diagnosticEnabled": true,
-    "python.analysis.openFilesOnly": false,
-    "python.formatting.provider": "autopep8",
-    "python.linting.pydocstyleEnabled": true,
+    "python.jediEnabled": false,
 
     "signature.enable": true,
     "signature.target": "echo",
     "signature.triggerSignatureWait": 300,
 
     "prettier.tabWidth": 4,
-    "coc.preferences.formatOnSaveFiletypes": [
-        "css",
-        "html",
-        "javascript",
-        "json",
-        "less",
-        "markdown",
-        "python",
-        "go",
-        "reason",
-        "typescript",
-        "typescript.tsx",
-        "yaml",
-        "php",
-        "vim"
-    ],
-
+    "suggest.snippetIndicator": " ►",
     "languageserver": {
-        "clangd": {
-            "command": "clangd",
-            "args": ["--background-index"],
-            "rootPatterns": [
-                "compile_flags.txt",
-                "compile_commands.json",
-                ".vim/",
-                ".git/",
-                ".hg/"
-            ],
-            "filetypes": ["c", "cpp", "objc", "objcpp"]
-        },
         "dockerfile": {
             "command": "docker-langserver",
             "filetypes": ["dockerfile"],
