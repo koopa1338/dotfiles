@@ -325,7 +325,8 @@ noremap L $
 nnoremap Y y$
 
 " Insert newline
-nnoremap <leader><Enter> o<ESC>
+nnoremap <leader>o o<ESC>
+nnoremap <leader>O O<ESC>j
 
 " Search and replace under cursor or selection
 nnoremap <leader>* :%s/\<<C-r><C-w>\>//<Left>
