@@ -2,6 +2,7 @@
 "  <leader>lc   - list references
 "  <leader>lj   - jump to definition
 "  <leader>li   - list implementations
+"  <leader>li   - diagnostic info
 "  <leader>lr   - rename
 "  <leader>lt   - jump to type definition
 "  <leader>ld   - show documentation
@@ -20,12 +21,15 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 " When completions are shown
 "   <tab>           - select next completion
 "   <shift><tab>    - select previous completion
+"   <cr>            - expands if selection is a snippet
 inoremap <silent><expr> <C-SPACE> coc#refresh()
 inoremap <silent><expr> <TAB>
     \ pumvisible() ? '<C-n>' :
     \ <SID>check_back_space() ? '<TAB>' :
     \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? '<C-p>' : '<C-h>'
+inoremap <expr> <CR> pumvisible() ? '<C-y>' : '<CR>'
+imap <expr><CR> pumvisible() ? '<C-y>' : '<Plug>(PearTreeExpand)'
 
 " commands
 command! -nargs=0 Format :call CocAction('format')

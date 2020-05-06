@@ -15,13 +15,15 @@ call plug#begin('~/.vim/plugged')
 
 " searching and file browsing
 	Plug 'scrooloose/nerdtree'
-	Plug 'Yggdroot/LeaderF', {'do': './install.sh'}
+    Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+    Plug 'vn-ki/coc-clap'
 
 " text objects and motions
     Plug 'bkad/CamelCaseMotion'
 	Plug 'wellle/targets.vim'
-	Plug 'tmsvg/pear-tree'
+    Plug 'tmsvg/pear-tree'
 	Plug 'alvan/vim-closetag'
+    Plug 'matze/vim-move'
 
 " shell commands extension
 	Plug 'tpope/vim-eunuch'
@@ -34,6 +36,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'ludovicchabant/vim-gutentags'
 	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'liuchengxu/vista.vim'
 
 " Language documentation integration
     Plug 'Shougo/echodoc.vim'
@@ -84,7 +87,6 @@ set confirm
 set signcolumn=yes
 set path+=**
 
-
 " Figure out the system Python for Neovim.
 if exists("$VIRTUAL_ENV")
     let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
@@ -116,7 +118,6 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
-
 
 " wildmenu
 set wildmenu
@@ -158,11 +159,6 @@ let g:titlecase_map_keys = 0
 " Disable default mappings
 let g:camelcasemotion_key = '<localleader>'
 
-" leaderf
-let g:Lf_WindowPosition='popup'
-let g:Lf_PreviewInPopup=1
-" let g:Lf_GtagsStoreInProject=1
-
 " ultisnips
 let g:UltiSnipsExpandTrigger="<c-q>"
 let g:UltiSnipsJumpForwardTrigger="<c-v>"
@@ -176,6 +172,8 @@ let g:gutentags_ctags_tagfile = '.ctags'
 let g:pear_tree_smart_openers = 1
 let g:pear_tree_smart_closers = 1
 let g:pear_tree_smart_backspace = 1
+let g:pear_tree_map_special_keys = 1
+let g:pear_tree_ft_disabled = ['clap_input']
 let g:pear_tree_pairs = {
             \ '(': {'closer': ')'},
             \ '[': {'closer': ']'},
@@ -331,3 +329,5 @@ nnoremap <leader>O O<ESC>j
 " Search and replace under cursor or selection
 nnoremap <leader>* :%s/\<<C-r><C-w>\>//<Left>
 vnoremap <leader>* "hy:%s/\V<C-r>h//<left>
+
+

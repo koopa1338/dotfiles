@@ -4,7 +4,7 @@
 "   Ctrl+l    - focus sidebar
 "   <leader>n - toggle sidebar, show current file
 nmap <silent><C-n> :NERDTreeToggle<CR>
-nmap <silent><C-l> NERDTreeFocus<CR>
+nmap <silent><C-l> :NERDTreeFocus<CR>
 nmap <silent><leader>N :call <SID>find()<CR>
 
 
