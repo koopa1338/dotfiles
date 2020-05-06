@@ -222,14 +222,16 @@ for_window [class="^.*"] border pixel 4
 for_window [class="^.*"] child_border 2
 for_window [class="Pavucontrol"] floating enable resize set 800px 600px
 for_window [class="gmic_qt"] floating enable
-for_window [class="KeePassXC"] floating enable
+for_window [class="Microsoft Teams - Preview"] floating enable
+for_window [class="KeePassXC"] floating enable move scratchpad
 for_window [class="copyq"] floating enable resize set 800px 600px
 for_window [instance="sun-awt-X11-XWindowPeer"] floating enable
 for_window [class="Gnome-calculator"] floating enable
 for_window [title="Seiteninformation*"] floating enable
-assign [class="TeamViewer"] $WS10
 for_window [class="TeamViewer"] floating enable
 for_window [class="Wpg"] floating enable
+
+assign [class="TeamViewer"] $WS10
 
 # Gaps
 gaps inner 8
