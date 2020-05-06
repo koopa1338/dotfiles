@@ -1,5 +1,5 @@
 fish_vi_key_bindings
-kitty + complete setup fish | source
+#kitty + complete setup fish | source
 set fish_color_param normal
 set fish_color_command normal
 set fish_color_autosuggestion normal
@@ -23,7 +23,7 @@ alias grep="grep --color=auto"
 alias nf="neofetch"
 alias cu="checkupdates"
 alias e="exit"
-alias ls="ls -hN --color=auto --group-directories-first"
+alias ls="ls --color=auto --group-directories-first"
 alias lsa="ls -a"
 alias lla="ls -al"
 alias ..="cd .."
@@ -33,6 +33,7 @@ alias pup="yay -Syu"
 alias p="yay"
 alias cpc="cleanpaccache"
 alias rmdir="rm -d"
+alias mvn8="export JAVA_HOME=/usr/lib/jvm/java-8-openjdk && mvn"
 alias ipe="curl ipinfo.io/country; and curl ipinfo.io/ip"
 #alias ipi="ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/'"
 alias lsenum="ls | wc -l"
@@ -49,3 +50,6 @@ abbr clpp "clang++"
 abbr gpp "g++"
 abbr g "git"
 abbr scl "systemctl"
+
+
+export F4_ACCESSDATA_PATH=/home/koopa/homeoffice/
