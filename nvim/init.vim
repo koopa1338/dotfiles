@@ -19,7 +19,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'vn-ki/coc-clap'
 
 " text objects and motions
-    Plug 'bkad/CamelCaseMotion'
 	Plug 'wellle/targets.vim'
     Plug 'tmsvg/pear-tree'
 	Plug 'alvan/vim-closetag'
@@ -34,7 +33,6 @@ call plug#begin('~/.vim/plugged')
 " syntax and languages
 	Plug 'lervag/vimtex'
 	Plug 'ludovicchabant/vim-gutentags'
-	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'liuchengxu/vista.vim'
 
