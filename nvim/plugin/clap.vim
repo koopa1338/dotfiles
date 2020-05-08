@@ -1,4 +1,4 @@
-let g:clap_disable_run_rooter = v:true
+let g:clap_disable_run_rooter = v:false
 let g:clap_popup_border = 'sharp'
 let g:clap_theme = 'nord'
 let g:clap_layout = { 'relative': 'editor' }
