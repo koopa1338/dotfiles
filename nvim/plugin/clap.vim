@@ -25,5 +25,5 @@ nnoremap <silent> <leader>F  :<C-u>Clap filer<CR>
 nnoremap <silent> <leader>st :<C-u>Clap tags<CR>
 nnoremap <silent> <leader>sT :<C-u>Clap proj_tags<CR>
 nnoremap <silent> <leader>bb :<C-u>Clap buffers<CR>
-nnoremap <silent> <leader>bb :<C-u>Clap buffers<CR>
-nnoremap <silent> <leader>C :<C-u>Clap dotfiles<CR>
+nnoremap <silent> <leader>C :<C-u>Clap<CR>
+cnoreabbrev dot Clap dotfiles
