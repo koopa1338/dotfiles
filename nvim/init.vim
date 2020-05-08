@@ -191,7 +191,7 @@ let g:coc_global_extensions = ['coc-css', 'coc-html', 'coc-vimtex',
     \ 'coc-phpls', 'coc-tslint', 'coc-tsserver', 'coc-yaml',
     \ 'coc-vimlsp', 'coc-xml', 'coc-lists', 'coc-ultisnips',
 	\ 'coc-go', 'coc-snippets', 'coc-rls', 'coc-java',
-    \ 'coc-clangd', 'coc-cmake', 'coc-bibtex']
+    \ 'coc-cmake', 'coc-bibtex']
 
 let g:coc_snippet_next='<tab>'
 

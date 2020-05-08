@@ -7,9 +7,6 @@
     "diagnostic.messageTarget": "echo",
     "diagnostic.virtualText": true,
     "diagnostic.virtualTextPrefix": " ❯❯ ",
-    "clangd.arguments": [
-        "--background-index"
-    ],
 
     "codeLens.enable": true,
     "coc.preferences.rootPatterns": [
@@ -32,6 +29,12 @@
     "prettier.tabWidth": 4,
     "suggest.snippetIndicator": " ►",
     "languageserver": {
+        "clangd": {
+            "command": "clangd",
+            "args": ["--background-index"],
+            "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".git/", ".hg/"],
+            "filetypes": ["c", "cpp", "objc", "objcpp"]
+        },
         "dockerfile": {
             "command": "docker-langserver",
             "filetypes": ["dockerfile"],
