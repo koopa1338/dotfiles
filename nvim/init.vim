@@ -49,8 +49,8 @@ call plug#begin('~/.vim/plugged')
 	Plug 'Xuyuanp/nerdtree-git-plugin'
 	Plug 'junegunn/gv.vim'
 	Plug 'tpope/vim-fugitive'
-	Plug 'airblade/vim-gitgutter'
 	Plug 'rhysd/git-messenger.vim'
+    Plug 'jreybert/vimagit'
 
 " project management
 	Plug 'tpope/vim-projectionist'
