@@ -1,13 +1,14 @@
 {
-    "diagnostic.signOffset": 3000,
-    "diagnostic.errorSign": "×",
-    "diagnostic.warningSign": "",
-    "diagnostic.infoSign": "ℹ",
-    "diagnostic.hintSign": "•",
-    "diagnostic.messageTarget": "echo",
-    "diagnostic.virtualText": true,
-    "diagnostic.virtualTextPrefix": " ❯❯ ",
-
+    "diagnostic": {
+        "signOffset": 3000,
+        "errorSign": "×",
+        "warningSign": "",
+        "infoSign": "ℹ",
+        "hintSign": "•",
+        "messageTarget": "echo",
+        "virtualText": true,
+        "virtualTextPrefix": " ❯❯ "
+    },
     "codeLens.enable": true,
     "coc.preferences.rootPatterns": [
         ".vim",
@@ -16,15 +17,7 @@
         ".hg",
         ".projections.json"
     ],
-    "coc.preferences.hoverTarget": "float",
-    "coc.preferences.enableFloatHighlight": false,
-    "coc.preferences.useQuickfixForLocations": false,
-
     "python.jediEnabled": false,
-
-    "signature.enable": true,
-    "signature.target": "echo",
-    "signature.triggerSignatureWait": 300,
 
     "prettier.tabWidth": 4,
     "suggest.snippetIndicator": " ►",
