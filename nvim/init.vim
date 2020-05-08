@@ -154,9 +154,6 @@ endif
 "
 let g:titlecase_map_keys = 0
 
-" Disable default mappings
-let g:camelcasemotion_key = '<localleader>'
-
 " ultisnips
 let g:UltiSnipsExpandTrigger="<c-q>"
 let g:UltiSnipsJumpForwardTrigger="<c-v>"
@@ -327,5 +324,3 @@ nnoremap <leader>O O<ESC>j
 " Search and replace under cursor or selection
 nnoremap <leader>* :%s/\<<C-r><C-w>\>//<Left>
 vnoremap <leader>* "hy:%s/\V<C-r>h//<left>
-
-
