@@ -95,11 +95,10 @@ endif
 set clipboard+=unnamedplus
 set formatoptions=qrnj1
 set noswapfile
-set spelllang=de
+set spelllang=de_de,en_us
 set nobackup
 set nowritebackup
 set signcolumn=yes
-set autoread
 
 " line numbers
 set rnu
@@ -246,7 +245,11 @@ let g:indentLine_char = '┆'
 " git-messenger
 let g:git_messenger_no_default_mappings = 1
 let g:git_messenger_always_into_popup = 1
-nmap <Leader>gb <Plug>(git-messenger)
+nmap <Leader>gm <Plug>(git-messenger)
+
+" git-browser gv
+nnoremap <leader>gv :GV<CR>
+nnoremap <leader>gV :GV!<CR>
 
 " execute macros over visual selection
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
