@@ -161,6 +161,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 " gutentags
 let g:gutentags_exclude_filetypes = ['gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail', 'git']
 let g:gutentags_ctags_tagfile = '.ctags'
+" we need ctags in json format for claps proj_tags provider
+let g:gutentags_ctags_extra_args = ['--output-format=json']
 
 " pear-tree
 let g:pear_tree_smart_openers = 1
