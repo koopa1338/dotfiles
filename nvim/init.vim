@@ -190,8 +190,8 @@ let g:tex_flavor = "latex"
 let g:git_messenger_no_default_mappings = 1
 let g:git_messenger_always_into_popup = 1
 nmap <leader>gm <Plug>(git-messenger)
-nmap <leader>gv :GV<CR>
-nmap <leader>gV :GV!<CR>
+nmap <leader>gl :GV<CR>
+nmap <leader>gL :GV!<CR>
 nmap <leader>gs :G<CR>
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>gj :diffget //3<CR>
@@ -237,10 +237,10 @@ nmap <silent> <leader>wo :only<CR>
 nmap <silent> <leader>ws :split<CR>
 nmap <silent> <leader>wv :vsplit<CR>
 nmap <silent> <leader>wc :close<CR>
-noremap <C-j> :wincmd j<CR>
-noremap <C-k> :wincmd k<CR>
-noremap <C-h> :wincmd h<CR>
-noremap <C-l> :wincmd l<CR>
+noremap <silent><C-j> :wincmd j<CR>
+noremap <silent><C-k> :wincmd k<CR>
+noremap <silent><C-h> :wincmd h<CR>
+noremap <silent><C-l> :wincmd l<CR>
 
 function! s:ZoomToggle() abort
     if exists('t:zoomed') && t:zoomed
