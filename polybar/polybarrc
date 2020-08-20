@@ -23,14 +23,14 @@ bar-height = 30
 
 ;bar-offset-x = 14
 ;bar-top-gap = 6 
-;bar-bottom-gap = 3
+bar-bottom-gap = 0
 
 [bar/mon1]
 ;monitor = ${env:MONITOR:HDMI-1}
 ;monitor = ${env:MONITOR}
 
 locale = de_DE.UTF-8
-monitor = ${env:MONITOR:eDP1}
+monitor = ${env:MONITOR:eDP}
 bottom = false
 width = ${sizes.bar-width}
 height = ${sizes.bar-height}
@@ -52,17 +52,17 @@ line-color = #f00
 ;border-color = #00000000
 
 padding-left = 0
-padding-right = 5
+padding-right = 1
 
-module-margin-left = 2
-module-margin-right = 3
+module-margin-left = 0
+module-margin-right = 1
 
 font-0 = Inconsolata Nerd Font:size=14;0
 font-1 = Monapo:size=14;0
 font-2 = Noto Mono for Powerline:pixelsize=14;1
 
-modules-left = volume pulseaudio
-modules-center = i3
+modules-left = i3 bspwm
+modules-center = volume
 modules-right = battery temperature memory date
 
 tray-position = right
@@ -72,16 +72,16 @@ tray-transparent = false
 ;tray-background = ${colors.primary}
 tray-detached = false
 
-;wm-restack = bspwm
+wm-restack = bspwm
 ;wm-restack = i3
 
 ;override-redirect = true
 
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
 
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
 
 [module/filesystem]
 type = internal/fs
@@ -105,20 +105,23 @@ label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/bspwm]
 type = internal/bspwm
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
 
-label-focused = %index%
-label-focused-background = ${colors.background-alt}
+label-focused = %name%
+label-focused-background = ${colors.background}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
-label-occupied = %index%
+label-occupied = %name%
 label-occupied-padding = 2
 
-label-urgent = %index%!
+label-urgent = %name%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
-label-empty = %index%
+label-empty = %name%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
 
@@ -263,7 +266,7 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date = "  %a %d.%m.%Y"
+date = "  %a %d.%m.%Y - KW %V"
 ;date-alt = " %a, %b %d, %Y at %I:%M%p"
 ;date-alt = " %Y-%m-%d"
 
@@ -293,7 +296,7 @@ ramp-volume-0 = "  "
 ramp-volume-1 = "  "
 ramp-volume-2 = "  "
 
-bar-volume-width = 20
+bar-volume-width = 15
 bar-volume-foreground-0 = #55aa55
 bar-volume-foreground-1 = #55aa55
 bar-volume-foreground-2 = #55aa55

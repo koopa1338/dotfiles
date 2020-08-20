@@ -123,29 +123,29 @@ bindsym $mod+minus scratchpad show
 #                              |_|                        
 
 # eDP1
-workspace $WS01 output $out1
-workspace $WS02 output $out1
-workspace $WS03 output $out1
-workspace $WS04 output $out1
-workspace $WS05 output $out1
-workspace $WS06 output $out1
-workspace $WS07 output $out1
-workspace $WS08 output $out1
-workspace $WS09 output $out1
-workspace $WS10 output $out1
+# workspace $WS01 output $out1
+# workspace $WS02 output $out1
+# workspace $WS03 output $out1
+# workspace $WS04 output $out1
+# workspace $WS05 output $out1
+# workspace $WS06 output $out1
+# workspace $WS07 output $out1
+# workspace $WS08 output $out1
+# workspace $WS09 output $out1
+# workspace $WS10 output $out1
 
 # HDMI
-# workspace $WS101 output $out2
-# workspace $WS102 output $out2
-# workspace $WS103 output $out2
-# workspace $WS104 output $out2
-# workspace $WS105 output $out2
-# workspace $WS106 output $out2
-# workspace $WS107 output $out2
-# workspace $WS108 output $out2
-# workspace $WS109 output $out2
-# workspace $WS110 output $out2
-
+#workspace $WS101 output $out2
+#workspace $WS102 output $out2
+#workspace $WS103 output $out2
+#workspace $WS104 output $out2
+#workspace $WS105 output $out2
+#workspace $WS106 output $out2
+#workspace $WS107 output $out2
+#workspace $WS108 output $out2
+#workspace $WS109 output $out2
+#workspace $WS110 output $out2
+#
 # VGA
 # workspace $WS201 output $out3
 # workspace $WS202 output $out3
@@ -228,6 +228,7 @@ for_window [class="copyq"] floating enable resize set 800px 600px
 for_window [instance="sun-awt-X11-XWindowPeer"] floating enable
 for_window [class="Gnome-calculator"] floating enable
 for_window [title="Seiteninformation*"] floating enable
+for_window [title="System Logout"] floating enable
 for_window [class="TeamViewer"] floating enable
 for_window [class="Wpg"] floating enable
 
@@ -356,8 +357,8 @@ bindsym $mod+Shift+y gaps inner current minus 5
 bindsym $mod+v exec --no-startup-id screenlayout
 
 #take a screenshot
-bindsym --release Print exec --no-startup-id screenshot
-bindsym --release Shift+Print exec --no-startup-id flameshot gui -p ~/Bilder/Screenshots/
+bindsym $mod+p exec --no-startup-id screenshot full
+bindsym $mod+Shift+p exec --no-startup-id screenshot selection
 
 # start/shutdown Virtual Machines with rofi
 bindsym $mod+Shift+m exec --no-startup-id vm
@@ -366,7 +367,7 @@ bindsym $mod+Shift+m exec --no-startup-id vm
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec --no-startup-id clearine
+bindsym $mod+Shift+e exec --no-startup-id session_handler
 
 # ncmpcpp 
 bindsym $mod+m exec --no-startup-id $term -e ncmpcpp
