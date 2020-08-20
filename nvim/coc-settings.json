@@ -5,9 +5,8 @@
         "warningSign": "",
         "infoSign": "ℹ",
         "hintSign": "•",
-        "messageTarget": "echo",
-        "virtualText": true,
-        "virtualTextPrefix": " ❯❯ "
+        "virtualText": false,
+        "checkCurrentLine": true
     },
     "codeLens.enable": true,
     "coc.preferences.rootPatterns": [
@@ -19,15 +18,11 @@
     ],
     "python.jediEnabled": false,
 
+    "rust.clippy_preference": "on",
+
     "prettier.tabWidth": 4,
     "suggest.snippetIndicator": " ►",
     "languageserver": {
-        "clangd": {
-            "command": "clangd",
-            "args": ["--background-index"],
-            "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".git/", ".hg/"],
-            "filetypes": ["c", "cpp", "objc", "objcpp"]
-        },
         "dockerfile": {
             "command": "docker-langserver",
             "filetypes": ["dockerfile"],

@@ -14,13 +14,15 @@ call plug#begin('~/.vim/plugged')
 	Plug 'markonm/traces.vim'	
 
 " searching and file browsing
-	Plug 'scrooloose/nerdtree'
     Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
     Plug 'vn-ki/coc-clap'
+    Plug 'lambdalisue/fern.vim'
+    Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+    Plug 'lambdalisue/nerdfont.vim'
 
 " text objects and motions
 	Plug 'wellle/targets.vim'
-    Plug 'tmsvg/pear-tree'
+    Plug 'jiangmiao/auto-pairs'
 	Plug 'alvan/vim-closetag'
     Plug 'matze/vim-move'
 
@@ -43,14 +45,11 @@ call plug#begin('~/.vim/plugged')
 	Plug 'bling/vim-airline'
 	Plug 'deviantfero/wpgtk.vim'
 	Plug 'vim-airline/vim-airline-themes'
-    Plug 'yggdroot/indentline'
 
 " version control
-	Plug 'Xuyuanp/nerdtree-git-plugin'
 	Plug 'junegunn/gv.vim'
 	Plug 'tpope/vim-fugitive'
 	Plug 'rhysd/git-messenger.vim'
-    Plug 'jreybert/vimagit'
 
 " project management
 	Plug 'tpope/vim-projectionist'
@@ -67,8 +66,7 @@ set nocompatible
 filetype plugin indent on
 syntax enable
 colorscheme wpgtk
-let mapleader=","
-let maplocalleader = ";"
+let mapleader=" "
 set backspace=indent,eol,start
 set linespace=0
 set showmatch
@@ -84,12 +82,16 @@ set hidden
 set confirm
 set signcolumn=yes
 set path+=**
+set undodir=~/.config/nvim/undodir
+set undofile
 
 " Figure out the system Python for Neovim.
 if exists("$VIRTUAL_ENV")
-    let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
+    let g:python3_host_prog=substitute(system('which -a python3 | head -n2 | tail -n1'), '\n', '', 'g')
+    let g:python2_host_prog=substitute(system('which -a python2 | head -n2 | tail -n1'), '\n', '', 'g')
 else
-    let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
+    let g:python3_host_prog=substitute(system('which python3'), '\n', '', 'g')
+    let g:python2_host_prog=substitute(system('which python2'), '\n', '', 'g')
 endif
 
 set clipboard+=unnamedplus
@@ -141,17 +143,23 @@ set linebreak
 set breakindent
 set breakindentopt=shift:2
 
-" Highlight TODO, FIXME, NOTE, etc.
+" Highlighta settings and maps
 if has("autocmd")
     if v:version > 701
         autocmd Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|CHANGED\|DONE\|XXX\|BUG\|HACK\)')
         autocmd Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\|NOTICE\)')
     endif
 endif
+map <silent><Esc> :nohl<CR>
+map <silent><C-c> <Esc>
 
 " Plugin settings
 "
 let g:titlecase_map_keys = 0
+
+" Fern nerdfont
+let g:fern#renderer = "nerdfont"
+nmap <silent><C-n> :Fern . -drawer -width=35 -toggle<CR>
 
 " ultisnips
 let g:UltiSnipsExpandTrigger="<c-q>"
@@ -161,32 +169,13 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 " gutentags
 let g:gutentags_exclude_filetypes = ['gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail', 'git']
 let g:gutentags_ctags_tagfile = '.ctags'
-" we need ctags in json format for claps proj_tags provider
-let g:gutentags_ctags_extra_args = ['--output-format=json']
-
-" pear-tree
-let g:pear_tree_smart_openers = 1
-let g:pear_tree_smart_closers = 1
-let g:pear_tree_smart_backspace = 1
-let g:pear_tree_map_special_keys = 1
-let g:pear_tree_ft_disabled = ['clap_input']
-let g:pear_tree_pairs = {
-            \ '(': {'closer': ')'},
-            \ '[': {'closer': ']'},
-            \ '{': {'closer': '}'},
-            \ "'": {'closer': "'"},
-            \ '"': {'closer': '"'},
-            \ '/*': {'closer': '*/'},
-            \ '<!--': {'closer': '-->'}
-            \ }
 
 " coc language server
 let g:coc_global_extensions = ['coc-css', 'coc-html', 'coc-vimtex',
     \ 'coc-json', 'coc-prettier', 'coc-python', 'coc-stylelint',
     \ 'coc-phpls', 'coc-tslint', 'coc-tsserver', 'coc-yaml',
     \ 'coc-vimlsp', 'coc-xml', 'coc-lists', 'coc-ultisnips',
-	\ 'coc-go', 'coc-snippets', 'coc-rls', 'coc-java',
-    \ 'coc-cmake', 'coc-bibtex']
+	\ 'coc-go', 'coc-snippets',  'coc-java', 'coc-bibtex']
 
 let g:coc_snippet_next='<tab>'
 
@@ -194,63 +183,18 @@ let g:coc_snippet_next='<tab>'
 let g:loaded_netrw       = 1
 let g:loaded_netrwPlugin = 1
 
-" projectionist
-let g:projectionist_heuristics = {
-    \   "*": {
-    \       "*.c": {
-    \           "alternate": "{}.h",
-    \           "type": "source"
-    \       },
-    \       "*.h": {
-    \           "alternate": "{}.c",
-    \           "type": "header"
-    \       },
-    \       "*.cc": {
-    \           "alternate": [
-    \               "{}.hpp",
-    \               "{}.hh",
-    \               "{}.h",
-    \           ],
-    \           "type": "source"
-    \       },
-    \       "*.hh": {
-    \           "alternate": [
-    \               "{}.cpp",
-    \               "{}.cc",
-    \           ],
-    \           "type": "header"
-    \       },
-    \       "*.cpp": {
-    \           "alternate": [
-    \               "{}.hpp",
-    \               "{}.hh",
-    \               "{}.h",
-    \           ],
-    \           "type": "source"
-    \       },
-    \       "*.hpp": {
-    \           "alternate": [
-    \               "{}.cpp",
-    \               "{}.cc",
-    \           ],
-    \           "type": "header"
-    \       }
-    \   }
-    \ }
+" tex falvor
+let g:tex_flavor = "latex"
 
-" indentline
-let g:indentLine_setColors = 1
-let g:indentLine_color_term = 8
-let g:indentLine_char = '┆'
-
-" git-messenger
+" git-integration
 let g:git_messenger_no_default_mappings = 1
 let g:git_messenger_always_into_popup = 1
-nmap <Leader>gm <Plug>(git-messenger)
-
-" git-browser gv
-nnoremap <leader>gv :GV<CR>
-nnoremap <leader>gV :GV!<CR>
+nmap <leader>gm <Plug>(git-messenger)
+nmap <leader>gv :GV<CR>
+nmap <leader>gV :GV!<CR>
+nmap <leader>gs :G<CR>
+nmap <leader>gf :diffget //2<CR>
+nmap <leader>gj :diffget //3<CR>
 
 " execute macros over visual selection
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
@@ -293,6 +237,10 @@ nmap <silent> <leader>wo :only<CR>
 nmap <silent> <leader>ws :split<CR>
 nmap <silent> <leader>wv :vsplit<CR>
 nmap <silent> <leader>wc :close<CR>
+noremap <C-j> :wincmd j<CR>
+noremap <C-k> :wincmd k<CR>
+noremap <C-h> :wincmd h<CR>
+noremap <C-l> :wincmd l<CR>
 
 function! s:ZoomToggle() abort
     if exists('t:zoomed') && t:zoomed
@@ -317,6 +265,7 @@ noremap j gj
 noremap k gk
 noremap H ^
 noremap L $
+nnoremap <TAB> %
 
 " Yank from cursor to end of line
 nnoremap Y y$
@@ -326,5 +275,5 @@ nnoremap <leader>o o<ESC>
 nnoremap <leader>O O<ESC>j
 
 " Search and replace under cursor or selection
-nnoremap <leader>* :%s/\<<C-r><C-w>\>//<Left>
-vnoremap <leader>* "hy:%s/\V<C-r>h//<left>
+nnoremap <leader>* :%s/\<<C-r><C-w>\>/<Left>
+vnoremap <leader>* "hy:%s/\V<C-r>h/<left>

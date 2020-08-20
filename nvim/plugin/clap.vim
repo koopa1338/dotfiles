@@ -10,7 +10,6 @@ let g:clap_provider_dotfiles = {
         \ '~/dotfiles/nvim/coc-settings.json',
         \ '~/dotfiles/fish/config.fish',
         \ '~/dotfiles/nvim/plugin/coc.vim',
-        \ '~/dotfiles/nvim/plugin/nerdtree.vim',
         \ '~/dotfiles/nvim/plugin/clap.vim'
     \ ],
     \ 'sink': 'e',
@@ -27,3 +26,4 @@ nnoremap <silent> <leader>sT :<C-u>Clap proj_tags<CR>
 nnoremap <silent> <leader>bb :<C-u>Clap buffers<CR>
 nnoremap <silent> <leader>C :<C-u>Clap<CR>
 cnoreabbrev dot Clap dotfiles
+

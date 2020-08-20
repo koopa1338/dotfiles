@@ -14,6 +14,7 @@ nmap <silent> <leader>li <Plug>(coc-implementation)
 nmap <silent> <leader>lI <Plug>(coc-diagnostic-info)
 nmap <silent> <leader>ln <Plug>(coc-rename)
 nmap <silent> <leader>lt <Plug>(coc-type-definition)
+nmap <silent> <leader>la :CocAction<CR>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " Completion
@@ -29,7 +30,6 @@ inoremap <silent><expr> <TAB>
     \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? '<C-p>' : '<C-h>'
 inoremap <expr> <CR> pumvisible() ? '<C-y>' : '<CR>'
-imap <expr><CR> pumvisible() ? '<C-y>' : '<Plug>(PearTreeExpand)'
 
 " commands
 command! -nargs=0 Format :call CocAction('format')

@@ -1,0 +1,128 @@
+snippet #! "Shebang header for python scripts" b
+#!/usr/bin/env python
+# encoding: utf-8
+$0
+endsnippet
+
+snippet ifmain "ifmain" b
+if __name__ == '__main__':
+	${1:main()}$0
+endsnippet
+
+snippet from "from module import name" b
+from ${1:module} import ${2:Stuff}
+endsnippet
+
+snippet roprop "Read Only Property" b
+@property
+def ${1:name}(self):
+	${2:return self._$1}$0
+endsnippet
+
+snippet cl
+class ${1:ClassName}(${2:object}):
+	"""${3:docstring for $1}"""
+	def __init__(self, ${4:arg}):
+		${5:super($1, self).__init__()}
+		self.$4 = $4
+		${6}
+endsnippet
+
+####################
+# If / Else / Elif #
+####################
+snippet if "If" b
+if ${1:condition}:
+   ${2:pass}
+endsnippet
+
+snippet ife "If / Else" b
+if ${1:condition}:
+   ${2:pass}
+else:
+   ${3:pass}
+endsnippet
+
+snippet ifee "If / Elif / Else" b
+if ${1:condition}:
+   ${2:pass}
+elif ${3:condition}:
+   ${4:pass}
+else:
+   ${5:pass}
+endsnippet
+
+##########################
+# Try / Except / Finally #
+##########################
+snippet try "Try / Except" b
+try:
+	${1:pass}
+except ${2:Exception}, ${3:e}:
+	${4:raise $3}
+endsnippet
+
+snippet try "Try / Except / Else" b
+try:
+	${1:pass}
+except ${2:Exception}, ${3:e}:
+	${4:raise $3}
+else:
+	${5:pass}
+endsnippet
+
+snippet try "Try / Except / Finally" b
+try:
+	${1:pass}
+except ${2:Exception}, ${3:e}:
+	${4:raise $3}
+finally:
+	${5:pass}
+endsnippet
+
+snippet try "Try / Except / Else / Finally" b
+try:
+	${1:pass}
+except${2: ${3:Exception}, ${4:e}}:
+	${5:raise}
+else:
+	${6:pass}
+finally:
+	${7:pass}
+endsnippet
+
+#####################
+# Assertions & Tests #
+#####################
+
+snippet pdb "Set PDB breakpoint" b
+import pdb; pdb.set_trace()
+endsnippet
+
+snippet ipdb "Set IPDB breakpoint" b
+import ipdb; ipdb.set_trace()
+endsnippet
+
+snippet pudb "Set PUDB breakpoint" b
+import pudb; pudb.set_trace()
+endsnippet
+
+snippet ae "Assert equal" b
+self.assertEqual(${1:first},${2:second})
+endsnippet
+
+snippet at "Assert True" b
+self.assertTrue(${0:exp})
+endsnippet
+
+snippet af "Assert False" b
+self.assertFalse(${1:expression})
+endsnippet
+
+snippet aae "Assert almost equal" b
+self.assertAlmostEqual(${1:first},${2:second})
+endsnippet
+
+snippet ar "Assert raises" b
+self.assertRaises(${1:exception}, ${2:func}${3/.+/, /}${3:arguments})
+endsnippet
