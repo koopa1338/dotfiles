@@ -17,10 +17,10 @@ let g:clap_provider_dotfiles = {
 
 " grep: Grep on the fly with rg
 " grep2: Grep on the fly with cache and dynamic results with maple
-nnoremap <silent> <leader>sS :<C-u>Clap grep2 +no-cache<CR>
+nnoremap <silent> <leader>sn:<C-u>Clap grep2 +no-cache<CR>
 nnoremap <silent> <leader>ss :<C-u>Clap grep2<CR>
-nnoremap <silent> <leader>f  :<C-u>Clap files<CR>
-nnoremap <silent> <leader>F  :<C-u>Clap filer<CR>
+nnoremap <silent> <leader>ff  :<C-u>Clap files<CR>
+nnoremap <silent> <leader>fp  :<C-u>Clap filer<CR>
 nnoremap <silent> <leader>st :<C-u>Clap tags<CR>
 nnoremap <silent> <leader>sT :<C-u>Clap proj_tags<CR>
 nnoremap <silent> <leader>bb :<C-u>Clap buffers<CR>
