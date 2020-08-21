@@ -83,3 +83,9 @@
     file-style = bold yellow box ul
     file-decoration-style = none
 
+
+[includeIf "gitdir:~/dev/"]
+    path = ~/dotfiles/git/work
+
+[includeIf "gitdir:~/homeoffice/"]
+    path = ~/dotfiles/git/work
