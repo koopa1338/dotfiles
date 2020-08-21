@@ -1,32 +1,25 @@
 [user]
-	email = sinner1991@gmail.com
-	name = koopa1338
-[color]
-    diff = auto
-    status = auto
-    branch = auto
-    ui = true
+    name = koopa1338
+    email = sinner1991@gmail.com
 [alias]
 	a = add
-	aa = add --all
-	ap = add -p
-	au = add -u
-	aup = add -up
+	aa = a --all
+	ap = a -p
+	au = a -u
+	aup = a -up
 	br = branch
-	bra = branch -a
+	bra = br -a
 	cl = clone
 	cm = commit
-	cma = commit --amend
-	cmi = commit --interactive
-	cmm = commit -m
+	cma = cm --amend
+    cmf = cm --fixup
+	cmi = cm --interactive
+	cmm = cm -m
 	co = checkout
-    d = diff
-    ds = diff --stat
-    dc = diff --cached
-	dis = checkout --
+	dis = co --
 	f = fetch
-	fa = fetch --all
-	fp = fetch -p
+	fa = f --all
+	fp = f -p
 	i = init
 	ll = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
 	ls = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'
@@ -34,28 +27,42 @@
 	mb = !git checkout --no-track -B `git rev-parse --abbrev-ref HEAD`
 	out = !git --no-pager ls --branches --simplify-by-decoration --not --remotes
 	p = push
-	pf = push --force-with-lease
-	pl = pull --rebase
+	pf = p --force-with-lease
+	pr = p --rebase
 	rb = rebase
-	rba = rebase --abort
-	rbc = rebase --continue
-	rbi = rebase -i
-	rbs = rebase --skip
+	rba = rb --abort
+	rbc = rb --continue
+	rbi = rb --interactive
+	rbia = rb --interactive --autosquash
+	rbs = rb --skip
 	remotes = remote -v
 	rs = reset
 	st = status -sb
 	sta = stash
 	uncm = reset --mixed HEAD~
 	unstage = reset HEAD --
-    be = branch --edit-description
+    be = br --edit-description
+    d = diff
+    dc = d --cached
+    ds = d --staged
+    dst = d --stats
     incoming = remote update --prune; git log ..@{upstream}
-    outgoing = log @{upstream}..
-    pln = pull --rebase --no-autostash
+    pl = pull
+    pln = pl --rebase --no-autostash
+    p = push
+    pf = p --force-with-lease
     pub = push -u origin $(git branch-name)
-    stal = stash list
-    stap = stash pop
+    stal = sta list
+    stap = sta pop
     tags = tag -n1 --list
     unpub = !git push origin :$(git branch-name)
+
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    ui = true
 
 [push]
     default = simple
@@ -75,7 +82,7 @@
 [interactive]
     diffFilter = delta --color-only
 [delta]
-    side-by-side = true
+    side-by-side = false
     line-numbers = true
     syntax-theme = base16
 [delta "decorations"]
