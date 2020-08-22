@@ -75,6 +75,7 @@
 [core]
     pager = delta
 	autocrlf = input
+    askPass = true
 [credential]
 	helper = store
 [rebase]
