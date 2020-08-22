@@ -537,6 +537,7 @@ tags
 .tags
 ctags
 .ctags
+.ctags.lock
 !tags/
 gtags.files
 GTAGS
