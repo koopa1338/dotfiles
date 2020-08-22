@@ -82,14 +82,23 @@
 [interactive]
     diffFilter = delta --color-only
 [delta]
+    features = decorations
+[delta "decorations"]
+    file-style = bold 7 box
+    file-decoration-style = none
+    minus-style = normal 1
+    minus-non-emph-style = normal 1
+    minus-empty-line-marker-style = normal 1
+    minus-emph-style = normal 9
+    line-numbers-minus-style = 1
     side-by-side = false
     line-numbers = true
     syntax-theme = base16
-[delta "decorations"]
-    commit-decoration-style = bold yellow box ul
-    file-style = bold yellow box ul
-    file-decoration-style = none
-
+    plus-style = normal 5
+    plus-non-emph-style = normal 5
+    plus-empty-line-marker-style = normal 5
+    plus-emph-style = normal 13
+    line-numbers-plus-style = 5
 
 [includeIf "gitdir:~/dev/"]
     path = ~/dotfiles/git/work
