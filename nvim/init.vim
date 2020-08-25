@@ -26,9 +26,6 @@ call plug#begin('~/.vim/plugged')
 	Plug 'alvan/vim-closetag'
     Plug 'matze/vim-move'
 
-" shell commands extension
-	Plug 'tpope/vim-eunuch'
-
 " miscellaneous
     Plug 'SirVer/ultisnips'
 
@@ -37,6 +34,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'ludovicchabant/vim-gutentags'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'liuchengxu/vista.vim'
+    Plug 'godlygeek/tabular'
 
 " Language documentation integration
     Plug 'Shougo/echodoc.vim'
@@ -175,7 +173,8 @@ let g:coc_global_extensions = ['coc-css', 'coc-html', 'coc-vimtex',
     \ 'coc-json', 'coc-prettier', 'coc-python', 'coc-stylelint',
     \ 'coc-phpls', 'coc-tslint', 'coc-tsserver', 'coc-yaml',
     \ 'coc-vimlsp', 'coc-xml', 'coc-lists', 'coc-ultisnips',
-	\ 'coc-go', 'coc-snippets',  'coc-java', 'coc-bibtex']
+	\ 'coc-go', 'coc-snippets',  'coc-java', 'coc-bibtex',
+    \ 'coc-markdownlint']
 
 let g:coc_snippet_next='<tab>'
 
