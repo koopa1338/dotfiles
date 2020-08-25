@@ -1,7 +1,7 @@
 let g:clap_disable_run_rooter = v:false
 let g:clap_popup_border = 'sharp'
 let g:clap_theme = 'nord'
-let g:clap_layout = { 'relative': 'editor' }
+let g:clap_layout = { 'relative': 'editor', 'row': '15%' }
 let g:clap_project_root_markers = ['.svn', '.git', '.git/','.hg','.hg/' , '.idea', '.idea/', '.project']
 let g:clap_provider_dotfiles = {
     \ 'source': [
