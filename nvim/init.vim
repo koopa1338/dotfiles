@@ -208,6 +208,7 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.space = "\ua0"
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 nnoremap <silent><leader><leader> :call ToggleQuickfix()<CR>
 function! ToggleQuickfix()
@@ -269,10 +270,4 @@ nnoremap <TAB> %
 " Yank from cursor to end of line
 nnoremap Y y$
 
-" Insert newline
-nnoremap <leader>o o<ESC>
-nnoremap <leader>O O<ESC>j
-
-" Search and replace under cursor or selection
-nnoremap <leader>* :%s/\<<C-r><C-w>\>/<Left>
-vnoremap <leader>* "hy:%s/\V<C-r>h/<left>
+autocmd VimResized * wincmd =
