@@ -83,6 +83,10 @@ set path+=**
 set undodir=~/.config/nvim/undodir
 set undofile
 
+" More natural splitting
+set splitbelow
+set splitright
+
 " Figure out the system Python for Neovim.
 if exists("$VIRTUAL_ENV")
     let g:python3_host_prog=substitute(system('which -a python3 | head -n2 | tail -n1'), '\n', '', 'g')
