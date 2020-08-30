@@ -9,9 +9,9 @@
 "  K            - show documentation
 nmap <silent> <leader>lr <Plug>(coc-references)
 nmap <silent> <leader>ld <Plug>(coc-definition)
-nmap <silent> <leader>lD <Plug>(coc-declaration)
+nmap <silent> <leader>lc <Plug>(coc-declaration)
 nmap <silent> <leader>li <Plug>(coc-implementation)
-nmap <silent> <leader>lI <Plug>(coc-diagnostic-info)
+nmap <silent> <leader>lD :CocDiagnostics<CR>
 nmap <silent> <leader>ln <Plug>(coc-rename)
 nmap <silent> <leader>lt <Plug>(coc-type-definition)
 nmap <silent> <leader>la :CocAction<CR>

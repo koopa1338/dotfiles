@@ -192,6 +192,8 @@ nmap <leader>gm <Plug>(git-messenger)
 nmap <leader>gl :GV<CR>
 nmap <leader>gL :GV!<CR>
 nmap <leader>gs :G<CR>
+nmap <leader>gd :Gdiff<CR>
+nmap <leader>gp :Gpush<CR>
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>gj :diffget //3<CR>
 
@@ -222,25 +224,23 @@ function! ToggleQuickfix()
 endfunction
 
 " buffers
-nmap <silent> <leader>ba :e#<CR>
 nmap <silent> <leader>bd :bdelete<CR>
 nmap <silent> <leader>bD :%bdelete<CR>
 nmap <silent> <leader>bw :bwipeout<CR>
 nmap <silent> <leader>bW :%bwipeout<CR>
-nmap <silent> <leader>bo :%bdelete\|edit #\|normal `"<CR>
-nmap <silent> <leader>bO :%bwipeout\|edit #\|normal `"<CR>
-nmap <silent> <leader>by :normal! ggVGy``<CR>
-nmap <silent> <leader>bp :normal! ggdGP<CR>
 
 " windows
 nmap <silent> <leader>wo :only<CR>
 nmap <silent> <leader>ws :split<CR>
 nmap <silent> <leader>wv :vsplit<CR>
-nmap <silent> <leader>wc :close<CR>
+nmap <silent> <leader>wq :close<CR>
 noremap <silent><C-j> :wincmd j<CR>
 noremap <silent><C-k> :wincmd k<CR>
 noremap <silent><C-h> :wincmd h<CR>
 noremap <silent><C-l> :wincmd l<CR>
+if has('windows')
+  set fillchars=vert:┃
+endif
 
 function! s:ZoomToggle() abort
     if exists('t:zoomed') && t:zoomed
@@ -265,9 +265,15 @@ noremap j gj
 noremap k gk
 noremap H ^
 noremap L $
-nnoremap <TAB> %
+
+" make tab and shift + tab be useful
+nnoremap <tab>   :cn<CR>
+nnoremap <S-tab> :cp<CR>
+
+" moving lines also accepts count
+nnoremap <leader>k  :<c-u>execute 'move -1-'. v:count1<cr>
+nnoremap <leader>j :<c-u>execute 'move +'. v:count1<cr>
 
 " Yank from cursor to end of line
 nnoremap Y y$
 
-autocmd VimResized * wincmd =
