@@ -104,11 +104,6 @@ set signcolumn=yes
 set rnu
 set nu
 set ruler
-augroup NumberToggle
-    autocmd!
-    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-    autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
 
 " search
 set incsearch
@@ -147,6 +142,15 @@ if has("autocmd")
         autocmd Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|CHANGED\|DONE\|XXX\|BUG\|HACK\)')
         autocmd Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\|NOTICE\)')
     endif
+
+    augroup NumberToggle
+        autocmd!
+        autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+        autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+    augroup END
+
+    autocmd VimResized * wincmd =
+
 endif
 map <silent><Esc> :nohl<CR>
 map <silent><C-c> <Esc>
