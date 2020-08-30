@@ -2,37 +2,35 @@
 call plug#begin('~/.vim/plugged')
 
 " libs
-	Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-repeat'
 
 " editing
-	Plug 'tpope/vim-surround'
-	Plug 'tpope/vim-commentary'
-	Plug 'svermeulen/vim-subversive'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-commentary'
+    Plug 'svermeulen/vim-subversive'
 
 " movement and search
-	Plug 'junegunn/vim-slash'	
-	Plug 'markonm/traces.vim'	
+    Plug 'junegunn/vim-slash'
+    Plug 'markonm/traces.vim'
 
 " searching and file browsing
     Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
     Plug 'vn-ki/coc-clap'
     Plug 'lambdalisue/fern.vim'
-    Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-    Plug 'lambdalisue/nerdfont.vim'
 
 " text objects and motions
-	Plug 'wellle/targets.vim'
+    Plug 'wellle/targets.vim'
     Plug 'jiangmiao/auto-pairs'
-	Plug 'alvan/vim-closetag'
+    Plug 'alvan/vim-closetag'
     Plug 'matze/vim-move'
 
 " miscellaneous
     Plug 'SirVer/ultisnips'
 
 " syntax and languages
-	Plug 'lervag/vimtex'
-	Plug 'ludovicchabant/vim-gutentags'
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'lervag/vimtex'
+    Plug 'ludovicchabant/vim-gutentags'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'liuchengxu/vista.vim'
     Plug 'godlygeek/tabular'
 
@@ -40,17 +38,19 @@ call plug#begin('~/.vim/plugged')
     Plug 'Shougo/echodoc.vim'
 
 " theme
-	Plug 'bling/vim-airline'
-	Plug 'deviantfero/wpgtk.vim'
-	Plug 'vim-airline/vim-airline-themes'
+    Plug 'bling/vim-airline'
+    Plug 'deviantfero/wpgtk.vim'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+    Plug 'lambdalisue/nerdfont.vim'
 
 " version control
-	Plug 'junegunn/gv.vim'
-	Plug 'tpope/vim-fugitive'
-	Plug 'rhysd/git-messenger.vim'
+    Plug 'junegunn/gv.vim'
+    Plug 'tpope/vim-fugitive'
+    Plug 'rhysd/git-messenger.vim'
 
 " project management
-	Plug 'tpope/vim-projectionist'
+    Plug 'tpope/vim-projectionist'
 
 call plug#end()
 
@@ -173,7 +173,7 @@ let g:coc_global_extensions = ['coc-css', 'coc-html', 'coc-vimtex',
     \ 'coc-json', 'coc-prettier', 'coc-python', 'coc-stylelint',
     \ 'coc-phpls', 'coc-tslint', 'coc-tsserver', 'coc-yaml',
     \ 'coc-vimlsp', 'coc-xml', 'coc-lists', 'coc-ultisnips',
-	\ 'coc-go', 'coc-snippets',  'coc-java', 'coc-bibtex',
+    \ 'coc-go', 'coc-snippets',  'coc-java', 'coc-bibtex',
     \ 'coc-markdownlint']
 
 let g:coc_snippet_next='<tab>'
