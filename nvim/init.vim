@@ -14,15 +14,16 @@ call plug#begin('~/.vim/plugged')
     Plug 'markonm/traces.vim'
 
 " searching and file browsing
-    Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
-    Plug 'vn-ki/coc-clap'
     Plug 'lambdalisue/fern.vim'
+    Plug 'junegunn/fzf.vim'
+    Plug 'stsewd/fzf-checkout.vim'
 
 " text objects and motions
     Plug 'wellle/targets.vim'
     Plug 'jiangmiao/auto-pairs'
     Plug 'alvan/vim-closetag'
     Plug 'matze/vim-move'
+    Plug 'godlygeek/tabular'
 
 " miscellaneous
     Plug 'SirVer/ultisnips'
@@ -32,7 +33,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'ludovicchabant/vim-gutentags'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'liuchengxu/vista.vim'
-    Plug 'godlygeek/tabular'
 
 " Language documentation integration
     Plug 'Shougo/echodoc.vim'
