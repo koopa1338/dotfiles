@@ -140,6 +140,11 @@ set linebreak
 set breakindent
 set breakindentopt=shift:2
 
+if has('windows')
+  set fillchars=vert:┃
+endif
+
+
 " Highlighta settings and maps
 if has("autocmd")
     if v:version > 701
@@ -154,8 +159,8 @@ if has("autocmd")
     augroup END
 
     autocmd VimResized * wincmd =
-
 endif
+
 map <silent><Esc> :nohl<CR>
 map <silent><C-c> <Esc>
 
@@ -246,9 +251,6 @@ noremap <silent><C-j> :wincmd j<CR>
 noremap <silent><C-k> :wincmd k<CR>
 noremap <silent><C-h> :wincmd h<CR>
 noremap <silent><C-l> :wincmd l<CR>
-if has('windows')
-  set fillchars=vert:┃
-endif
 
 function! s:ZoomToggle() abort
     if exists('t:zoomed') && t:zoomed
