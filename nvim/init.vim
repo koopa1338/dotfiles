@@ -288,3 +288,5 @@ nnoremap <leader>j :<c-u>execute 'move +'. v:count1<cr>
 " Yank from cursor to end of line
 nnoremap Y y$
 
+nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
+nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
