@@ -1,4 +1,5 @@
 .ctags
 startpage/
 nvim/undodir
+nvim/plugin/packer_compiled.vim
 git/work

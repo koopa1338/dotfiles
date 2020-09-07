@@ -1,59 +1,4 @@
-" Plugins
-call plug#begin('~/.vim/plugged')
-
-" libs
-    Plug 'tpope/vim-repeat'
-
-" editing
-    Plug 'tpope/vim-surround'
-    Plug 'tpope/vim-commentary'
-    Plug 'svermeulen/vim-subversive'
-
-" movement and search
-    Plug 'junegunn/vim-slash'
-    Plug 'markonm/traces.vim'
-
-" searching and file browsing
-    Plug 'lambdalisue/fern.vim'
-    Plug 'junegunn/fzf.vim'
-    Plug 'stsewd/fzf-checkout.vim'
-
-" text objects and motions
-    Plug 'wellle/targets.vim'
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'alvan/vim-closetag'
-    Plug 'matze/vim-move'
-    Plug 'godlygeek/tabular'
-
-" miscellaneous
-    Plug 'SirVer/ultisnips'
-
-" syntax and languages
-    Plug 'lervag/vimtex'
-    Plug 'ludovicchabant/vim-gutentags'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'liuchengxu/vista.vim'
-
-" Language documentation integration
-    Plug 'Shougo/echodoc.vim'
-
-" theme
-    Plug 'bling/vim-airline'
-    Plug 'deviantfero/wpgtk.vim'
-    Plug 'vim-airline/vim-airline-themes'
-    Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-    Plug 'lambdalisue/nerdfont.vim'
-
-" version control
-    Plug 'junegunn/gv.vim'
-    Plug 'tpope/vim-fugitive'
-    Plug 'rhysd/git-messenger.vim'
-    Plug 'airblade/vim-gitgutter'
-
-" project management
-    Plug 'tpope/vim-projectionist'
-
-call plug#end()
+lua require('plugins')
 
 " encoding
 set encoding=utf-8
@@ -81,8 +26,8 @@ set hidden
 set confirm
 set signcolumn=yes
 set path+=**
-set undodir=~/.config/nvim/undodir
-set undofile
+" set undodir=~/.config/nvim/undodir
+" set undofile
 
 " More natural splitting
 set splitbelow
@@ -160,13 +105,15 @@ if has("autocmd")
     augroup END
 
     autocmd VimResized * wincmd =
+
+    au TextYankPost * silent! lua vim.highlight.on_yank()
 endif
 
 map <silent><Esc> :nohl<CR>
 map <silent><C-c> <Esc>
 
 " Plugin settings
-"
+
 let g:titlecase_map_keys = 0
 
 " Fern nerdfont
@@ -181,16 +128,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 " gutentags
 let g:gutentags_exclude_filetypes = ['gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail', 'git']
 let g:gutentags_ctags_tagfile = '.ctags'
-
-" coc language server
-let g:coc_global_extensions = ['coc-css', 'coc-html', 'coc-vimtex',
-    \ 'coc-json', 'coc-prettier', 'coc-python', 'coc-stylelint',
-    \ 'coc-phpls', 'coc-tslint', 'coc-tsserver', 'coc-yaml',
-    \ 'coc-vimlsp', 'coc-xml', 'coc-lists', 'coc-ultisnips',
-    \ 'coc-go', 'coc-snippets',  'coc-java', 'coc-bibtex',
-    \ 'coc-markdownlint']
-
-let g:coc_snippet_next='<tab>'
 
 " disable netrw
 let g:loaded_netrw       = 1
@@ -290,3 +227,6 @@ nnoremap Y y$
 
 nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
 nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
+
+
+" lua require('init')
