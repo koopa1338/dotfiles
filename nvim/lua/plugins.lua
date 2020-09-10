@@ -18,9 +18,7 @@ return require('packer').startup(function()
 
     -- searching and file browsing
     use 'junegunn/fzf.vim'
-    use {'stsewd/fzf-checkout.vim',
-        opt = true,
-        requires = {'junegunn/fzf.vim'}}
+    use {'stsewd/fzf-checkout.vim', requires = {'junegunn/fzf.vim'}}
 
     -- text objects and motions
     use 'wellle/targets.vim'
@@ -35,17 +33,15 @@ return require('packer').startup(function()
     -- syntax and languages
     use {'lervag/vimtex', ft = {'tex'}}
     use 'neovim/nvim-lspconfig'
-    use 'nvim-lua/completion-nvim'
-    use 'nvim-lua/diagnostic-nvim'
+    -- use 'nvim-lua/completion-nvim'
+    -- use 'nvim-lua/diagnostic-nvim'
 
     -- theme
     use 'bling/vim-airline'
     use 'deviantfero/wpgtk.vim'
     use 'vim-airline/vim-airline-themes'
     use {'lambdalisue/fern-renderer-nerdfont.vim',
-        opt = true,
-        requires = {'lambdalisue/fern.vim'}}
-    use 'lambdalisue/nerdfont.vim'
+        requires = {'lambdalisue/fern.vim', 'lambdalisue/nerdfont.vim'}}
 
     -- version control
     use 'junegunn/gv.vim'
