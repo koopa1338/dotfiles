@@ -26,8 +26,8 @@ set hidden
 set confirm
 set signcolumn=yes
 set path+=**
-" set undodir=~/.config/nvim/undodir
-" set undofile
+set undodir=~/.config/nvim/undodir
+set undofile
 
 " More natural splitting
 set splitbelow
@@ -43,7 +43,7 @@ else
 endif
 
 set clipboard+=unnamedplus
-set formatoptions=qrnj1
+set formatoptions=cqrnj1
 set noswapfile
 set spelllang=de_de,en_us
 set nobackup
@@ -87,7 +87,7 @@ set breakindent
 set breakindentopt=shift:2
 
 if has('windows')
-  set fillchars=vert:┃
+  set fillchars=vert:┃,eob:￭
 endif
 
 
@@ -183,12 +183,17 @@ nmap <silent> <leader>bW :%bwipeout<CR>
 " windows
 nmap <silent> <leader>wo :only<CR>
 nmap <silent> <leader>ws :split<CR>
-nmap <silent> <leader>wv :vsplit<CR>
+nmap <silent> <leader>wns :new<CR>
+nmap <silent> <leader>wnv :vnew<CR>
 nmap <silent> <leader>wq :close<CR>
 noremap <silent><C-j> :wincmd j<CR>
 noremap <silent><C-k> :wincmd k<CR>
 noremap <silent><C-h> :wincmd h<CR>
 noremap <silent><C-l> :wincmd l<CR>
+noremap <silent><leader><C-j> :wincmd J<CR>
+noremap <silent><leader><C-k> :wincmd K<CR>
+noremap <silent><leader><C-h> :wincmd H<CR>
+noremap <silent><leader><C-l> :wincmd L<CR>
 
 function! s:ZoomToggle() abort
     if exists('t:zoomed') && t:zoomed
