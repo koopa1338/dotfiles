@@ -76,6 +76,7 @@
     pager = delta
 	autocrlf = input
     askPass = true
+    excludesFile = ~/.config/git/ignore
 [credential]
 	helper = store
 [rebase]
