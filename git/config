@@ -51,7 +51,7 @@
     pln = pl --rebase --no-autostash
     p = push
     pf = p --force-with-lease
-    pub = push -u origin $(git branch-name)
+    pub = !git push -u origin $(git branch-name)
     stal = sta list
     stap = sta pop
     tags = tag -n1 --list
