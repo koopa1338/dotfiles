@@ -17,8 +17,10 @@ return require('packer').startup(function()
     use 'markonm/traces.vim'
 
     -- searching and file browsing
-    use 'junegunn/fzf.vim'
-    use {'stsewd/fzf-checkout.vim', requires = {'junegunn/fzf.vim'}}
+    -- use 'junegunn/fzf.vim'
+    -- use {'stsewd/fzf-checkout.vim', requires = {'junegunn/fzf.vim'}}
+    use {'nvim-lua/telescope.nvim',
+        requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim', 'nvim-treesitter/nvim-treesitter'}}
 
     -- text objects and motions
     use 'wellle/targets.vim'
@@ -33,8 +35,8 @@ return require('packer').startup(function()
     -- syntax and languages
     use {'lervag/vimtex', ft = {'tex'}}
     use 'neovim/nvim-lspconfig'
-    -- use 'nvim-lua/completion-nvim'
-    -- use 'nvim-lua/diagnostic-nvim'
+    use 'nvim-lua/completion-nvim'
+    use 'nvim-lua/diagnostic-nvim'
 
     -- theme
     use 'bling/vim-airline'

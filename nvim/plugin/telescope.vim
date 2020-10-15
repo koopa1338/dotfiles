@@ -1,0 +1,9 @@
+nnoremap <silent> <leader>fg <cmd>lua require'telescope.builtin'.git_files{}<CR>
+nnoremap <silent> <leader>ff <cmd>lua require'telescope.builtin'.find_files{}<CR>
+nnoremap <silent> <leader>fr <cmd>lua require'telescope.builtin'.live_grep{}<CR>
+nnoremap <silent> <leader>bb <cmd>lua require'telescope.builtin'.buffers{}<CR>
+nnoremap <silent> <leader>ft <cmd>lua require'telescope.builtin'.lsp_document_symbols{}<CR>
+nnoremap <silent> <leader>fT <cmd>lua require'telescope.builtin'.lsp_workspace_symbols{}<CR>
+nnoremap <silent> <leader>fs <cmd>lua require'telescope.builtin'.lsp_references{}<CR>
+nnoremap <silent> <leader>fq <cmd>lua require'telescope.builtin'.quickfix{}<CR>
+nnoremap <silent> <leader>fe <cmd>lua require'telescope.builtin'.treesitter{}<CR>
