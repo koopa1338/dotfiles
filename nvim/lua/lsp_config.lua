@@ -1,6 +1,9 @@
+vim.cmd('packadd nvim-lspconfig')
+vim.cmd('packadd diagnostic-nvim')
+vim.cmd('packadd completion-nvim')
 local nvim_lsp = require('nvim_lsp')
-local completion = require('completion')
 local diagnostics = require('diagnostic')
+local completion = require('completion')
 
 -- Can set this lower if needed.
 -- require('vim.lsp.log').set_level("debug")
@@ -10,10 +13,8 @@ local mapper = function(mode, key, result)
     vim.fn.nvim_buf_set_keymap(0, mode, key, result, {noremap = true, silent = true})
 end
 
-local setup_custom_diagnostics = function()
-    Diagnostic = require('vim.lsp.actions').Diagnostic
-    Location = require('vim.lsp.actions').Location
 
+local setup_custom_diagnostics = function()
     vim.lsp.callbacks["textDocument/publishDiagnostics"] = Diagnostic.handle_publish_diagnostics.with {
         should_underline = false,
         update_in_insert = false
@@ -22,13 +23,13 @@ local setup_custom_diagnostics = function()
     mapper(
     'n',
     '<leader>dn',
-    '<cmd>lua vim.lsp.structures.Diagnostic.buf_move_next_diagnostic()<CR>'
+    ':lua vim.lsp.structures.Diagnostic.buf_move_next_diagnostic()<CR>'
     )
 
     mapper(
     'n',
     '<leader>dp',
-    '<cmd>lua vim.lsp.structures.Diagnostic.buf_move_prev_diagnostic()<CR>'
+    ':lua vim.lsp.structures.Diagnostic.buf_move_prev_diagnostic()<CR>'
     )
 end
 
@@ -37,26 +38,19 @@ local custom_attach = function()
     diagnostics.on_attach()
     completion.on_attach()
 
-    mapper('n', '<leader>lc', '<cmd>lua vim.lsp.buf.declaration()<CR>')
-    mapper('n', '<leader>ld', '<cmd>lua vim.lsp.buf.definition()<CR>')
-    mapper('n', '<leader>li', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-    mapper('n', '<leader>lt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
-    mapper('n', '<leader>lr', '<cmd>lua vim.lsp.buf.references()<CR>')
-    mapper('n', '<leader>L', '<cmd>lua vim.lsp.buf.code_action()<CR>')
-    mapper('n', '<leader>ln', '<cmd>lua vim.lsp.buf.rename()<CR>')
+    mapper('n', '<leader>lc', ':lua vim.lsp.buf.declaration()<CR>')
+    mapper('n', '<leader>ld', ':lua vim.lsp.buf.definition()<CR>')
+    mapper('n', '<leader>li', ':lua vim.lsp.buf.implementation()<CR>')
+    mapper('n', '<leader>lt', ':lua vim.lsp.buf.type_definition()<CR>')
+    mapper('n', '<leader>lr', ':lua vim.lsp.buf.references()<CR>')
+    mapper('n', '<leader>L', ':lua vim.lsp.buf.code_action()<CR>')
+    mapper('n', '<leader>ln', ':lua vim.lsp.buf.rename()<CR>')
 
-    mapper('n', '<leader>ll', '<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
+    mapper('n', '<leader>ll', ':lua vim.lsp.util.show_line_diagnostics()<CR>')
 
-    mapper('n', '<leader>gd',
-    '<cmd>lua vim.lsp.buf.definition { callbacks = { Location.jump_first, Location.highlight.with { timeout = 300 } } }<CR>'
-    )
-
-    mapper('n', '<leader>pd',
-    '<cmd>lua vim.lsp.buf.definition { callbacks = Location.preview.with { lines_below = 5 } }<CR>'
-    )
 end
 
-local servers = {'gopls', 'rust_analyzer', 'vimls', 'jsonls', 'bashls', 'dockerls'}
+local servers = {'jedi_language_server', 'gopls', 'rust_analyzer', 'vimls', 'jsonls', 'bashls', 'dockerls'}
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
       on_attach = custom_attach,

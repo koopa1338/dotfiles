@@ -1,9 +1,10 @@
 lua require('plugins')
+lua require('lsp_config')
 
 " encoding
 set encoding=utf-8
 set fileencoding=utf-8
-scriptencoding utf-8
+scriptencoding=utf-8
 
 " general settings
 set nocompatible
