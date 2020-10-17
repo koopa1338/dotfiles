@@ -1,2 +1,3 @@
-require('packages')
-local ok, _ = pcall(function() require('lsp_config') end)
+require('_packages')
+require('_lsp_config')
+require('_treesitter')
