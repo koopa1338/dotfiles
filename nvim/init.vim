@@ -1,5 +1,5 @@
+lua require('init')
 lua require('plugins')
-lua require('lsp_config')
 
 " encoding
 set encoding=utf-8
@@ -235,4 +235,3 @@ nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1
 nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
 
-" lua require('init')

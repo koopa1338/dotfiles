@@ -1,6 +1,3 @@
-vim.cmd('packadd nvim-lspconfig')
-vim.cmd('packadd diagnostic-nvim')
-vim.cmd('packadd completion-nvim')
 local nvim_lsp = require('nvim_lsp')
 local diagnostics = require('diagnostic')
 local completion = require('completion')
