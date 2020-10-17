@@ -66,7 +66,7 @@ set smartcase
 set wildmenu
 set wildmode=longest:full,full
 set wildoptions=pum
-set completeopt+=menuone,noinsert,noselect
+set completeopt=menuone,noinsert,noselect
 set cpoptions+=n
 set noinfercase
 set shortmess+=c
@@ -145,9 +145,12 @@ let g:lua_tree_bindings = {
     \}
 
 " ultisnips
-let g:UltiSnipsExpandTrigger="<c-q>"
-let g:UltiSnipsJumpForwardTrigger="<c-v>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsExpandTrigger="<c-y"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+let g:completion_enable_snippet = 'UltiSnips'
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " gutentags
 let g:gutentags_exclude_filetypes = ['gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail', 'git']
