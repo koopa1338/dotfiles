@@ -1,3 +1,5 @@
 require('_packages')
 require('_lsp_config')
 require('_treesitter')
+require('_telescope')
+require('_express_line')
