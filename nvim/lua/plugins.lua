@@ -17,8 +17,6 @@ return require('packer').startup(function()
     use 'markonm/traces.vim'
 
     -- searching and file browsing
-    -- use 'junegunn/fzf.vim'
-    -- use {'stsewd/fzf-checkout.vim', requires = {'junegunn/fzf.vim'}}
     use {'nvim-lua/telescope.nvim',
         requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim', 'nvim-treesitter/nvim-treesitter'}}
 
@@ -42,8 +40,8 @@ return require('packer').startup(function()
     use 'bling/vim-airline'
     use 'deviantfero/wpgtk.vim'
     use 'vim-airline/vim-airline-themes'
-    use {'lambdalisue/fern-renderer-nerdfont.vim',
-        requires = {'lambdalisue/fern.vim', 'lambdalisue/nerdfont.vim'}}
+    use 'kyazdani42/nvim-web-devicons'
+    use 'kyazdani42/nvim-tree.lua'
 
     -- version control
     use 'junegunn/gv.vim'

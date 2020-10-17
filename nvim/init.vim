@@ -117,9 +117,32 @@ map <silent><C-c> <Esc>
 
 let g:titlecase_map_keys = 0
 
-" Fern nerdfont
-let g:fern#renderer = "nerdfont"
-nmap <silent><C-n> :Fern . -drawer -width=35 -toggle<CR>
+" LuaTree settings
+nnoremap <C-n> :LuaTreeToggle<CR>
+let g:lua_tree_show_icons = {
+    \ 'git': 0,
+    \ 'folders': 0,
+    \ 'files': 1,
+    \}
+let g:lua_tree_bindings = {
+    \ 'edit':            ['<CR>', 'o'],
+    \ 'edit_vsplit':     '<C-v>',
+    \ 'edit_split':      '<C-x>',
+    \ 'edit_tab':        '<C-t>',
+    \ 'toggle_ignored':  'I',
+    \ 'toggle_dotfiles': 'H',
+    \ 'refresh':         'R',
+    \ 'preview':         '<Tab>',
+    \ 'cd':              '.',
+    \ 'create':          'a',
+    \ 'remove':          'd',
+    \ 'rename':          'c',
+    \ 'cut':             'x',
+    \ 'copy':            'y',
+    \ 'paste':           'p',
+    \ 'prev_git_item':   'gn',
+    \ 'next_git_item':   'gp',
+    \}
 
 " ultisnips
 let g:UltiSnipsExpandTrigger="<c-q>"
