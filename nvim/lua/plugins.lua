@@ -37,9 +37,8 @@ return require('packer').startup(function()
     use 'nvim-lua/diagnostic-nvim'
 
     -- theme
-    use 'bling/vim-airline'
     use 'deviantfero/wpgtk.vim'
-    use 'vim-airline/vim-airline-themes'
+    use {'tjdevries/express_line.nvim', requires = {'nvim-lua/plenary.nvim'}}
     use 'kyazdani42/nvim-web-devicons'
     use 'kyazdani42/nvim-tree.lua'
 
