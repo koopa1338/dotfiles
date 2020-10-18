@@ -118,6 +118,8 @@ let g:titlecase_map_keys = 0
 
 " LuaTree settings
 nnoremap <C-n> :LuaTreeToggle<CR>
+let g:lua_tree_git_hl = 1
+let g:lua_tree_indent_markers = 1
 let g:lua_tree_show_icons = {
     \ 'git': 0,
     \ 'folders': 0,
