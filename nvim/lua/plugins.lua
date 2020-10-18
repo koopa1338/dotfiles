@@ -17,8 +17,14 @@ return require('packer').startup(function()
     use 'markonm/traces.vim'
 
     -- searching and file browsing
-    use {'nvim-lua/telescope.nvim',
-        requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim', 'nvim-treesitter/nvim-treesitter'}}
+    use {
+        'nvim-lua/telescope.nvim',
+        requires = {
+            'nvim-lua/popup.nvim',
+            'nvim-lua/plenary.nvim',
+            'nvim-treesitter/nvim-treesitter'
+        }
+    }
 
     -- text objects and motions
     use 'wellle/targets.vim'
@@ -38,7 +44,10 @@ return require('packer').startup(function()
 
     -- theme
     use 'deviantfero/wpgtk.vim'
-    use {'tjdevries/express_line.nvim', requires = {'nvim-lua/plenary.nvim'}}
+    use {
+        'tjdevries/express_line.nvim',
+        requires = {'nvim-lua/plenary.nvim'}
+    }
     use 'kyazdani42/nvim-web-devicons'
     use 'kyazdani42/nvim-tree.lua'
 

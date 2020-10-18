@@ -9,6 +9,6 @@ require "nvim-treesitter.configs".setup {
             node_incremental = '<M-w>',  -- increment to the upper named parent
             scope_incremental = '<M-e>', -- increment to the upper scope (as defined in locals.scm)
             node_decremental = '<M-C-w>',  -- decrement to the previous node
-        },
-    },
+        }
+    }
 }
