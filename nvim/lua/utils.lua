@@ -7,7 +7,7 @@ function M.map(mode, key, result, opts)
         key,
         result,
         {
-            noremap = true,
+            noremap = opts.noremap or true,
             silent = opts.silent or false,
             expr = opts.expr or false,
             script = opts.script or false
