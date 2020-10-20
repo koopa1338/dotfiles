@@ -117,7 +117,7 @@ map <silent><C-c> <Esc>
 let g:titlecase_map_keys = 0
 
 " ultisnips
-let g:UltiSnipsExpandTrigger="<c-y"
+let g:UltiSnipsExpandTrigger="<c-y>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 let g:completion_enable_snippet = 'UltiSnips'
