@@ -25,6 +25,12 @@ return require('packer').startup(function()
             'nvim-treesitter/nvim-treesitter'
         }
     }
+    use {
+        'nvim-treesitter/nvim-treesitter-refactor',
+        requires = {
+            'nvim-treesitter/nvim-treesitter'
+        }
+    }
 
     -- text objects and motions
     use 'wellle/targets.vim'
