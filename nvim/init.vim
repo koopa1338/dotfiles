@@ -28,6 +28,7 @@ set signcolumn=yes
 set path+=**
 set undodir=~/.config/nvim/undodir
 set undofile
+set inccommand=split
 
 " More natural splitting
 set splitbelow
