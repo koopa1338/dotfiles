@@ -61,7 +61,7 @@ font-0 = Inconsolata Nerd Font:size=14;0
 font-1 = Monapo:size=14;0
 font-2 = Noto Mono for Powerline:pixelsize=14;1
 
-modules-left = i3 bspwm
+modules-left = bspwm
 modules-center = volume
 modules-right = battery temperature memory date
 
