@@ -160,16 +160,7 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-nnoremap <silent><leader><leader> :call ToggleQuickfix()<CR>
-function! ToggleQuickfix()
-    for buffer in tabpagebuflist()
-        if bufname(buffer) == ''
-            cclose
-            return
-        endif
-    endfor
-    copen
-endfunction
+nnoremap <silent><leader><leader> :lua require("utils").quickfix_toggle()<CR>
 
 " buffers
 nmap <silent> <leader>bd :bdelete<CR>
