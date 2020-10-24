@@ -28,19 +28,58 @@ local custom_attach = function()
     map('n', '<leader>ll', ':lua vim.lsp.util.show_line_diagnostics()<CR>', opts)
 end
 
+-- local servers = {
+--     'jedi_language_server',
+--     'gopls',
+--     'rust_analyzer',
+--     'vimls',
+--     'jsonls',
+--     'bashls',
+--     'dockerls'
+-- }
 local servers = {
-    'jedi_language_server',
-    'gopls',
-    'rust_analyzer',
-    'vimls',
-    'jsonls',
-    'bashls',
-    'dockerls'
-}
-for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup {
-        on_attach = custom_attach,
+  bashls = {},
+  vimls = {},
+  ocamlls = {},
+  yamlls = {},
+  tsserver = {},
+  jsonls = {},
+  dockerls = {},
+  rust_analyzer = {},
+  gopls = {},
+  jedi_language_server = {},
+  html = {
+    filetypes = {"html", "jinja"}
+  },
+  sumneko_lua = {
+    settings = {
+      Lua = {
+        runtime = {
+          version = "LuaJIT",
+          path = vim.split(package.path, ";")
+        },
+        completion = {
+          keywordSnippet = "Disable"
+        },
+        diagnostics = {
+          enable = true,
+          globals = {"vim"}
+        },
+        workspace = {
+          library = {
+            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+            [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+          }
+        }
+      }
     }
+  },
+  cssls = {},
+}
+
+for server, config in pairs(servers) do
+    config.on_attach = custom_attach
+    nvim_lsp[server].setup(config)
 end
 
 g.indicator_errors = ''
