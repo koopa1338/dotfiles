@@ -62,6 +62,7 @@ return require('packer').startup(function()
     use 'tpope/vim-fugitive'
     use 'rhysd/git-messenger.vim'
     use 'airblade/vim-gitgutter'
+    use 'rhysd/committia.vim'
 
     -- project management
     use 'tpope/vim-projectionist'
