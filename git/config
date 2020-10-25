@@ -51,11 +51,11 @@
     pln = pl --rebase --no-autostash
     p = push
     pf = p --force-with-lease
-    pub = !git push -u origin $(git branch-name)
+    pub = !git push -u origin $(git branch --show-current)
     stal = sta list
     stap = sta pop
     tags = tag -n1 --list
-    unpub = !git push origin :$(git branch-name)
+    unpub = !git push origin :$(git branch --show-current)
 
 
 [color]
