@@ -20,7 +20,7 @@ set scrolloff=5
 set mouse=a
 set mousehide
 set modeline
-set updatetime=300
+set updatetime=100
 set cmdheight=2
 set hidden
 set confirm
