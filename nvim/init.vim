@@ -107,7 +107,10 @@ if has("autocmd")
 
     autocmd VimResized * wincmd =
 
-    au TextYankPost * silent! lua vim.highlight.on_yank()
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+
+    autocmd FileType help wincmd L
+    autocmd FileType fugitive wincmd H
 endif
 
 map <silent><Esc> :nohl<CR>
@@ -170,9 +173,10 @@ nmap <silent> <leader>bW :%bwipeout<CR>
 
 " windows
 nmap <silent> <leader>wo :only<CR>
-nmap <silent> <leader>ws :split<CR>
-nmap <silent> <leader>wns :new<CR>
-nmap <silent> <leader>wnv :vnew<CR>
+nmap <silent> <leader>wss :split<CR>
+nmap <silent> <leader>wsv :vsplit<CR>
+nmap <silent> <leader>wsn :new<CR>
+nmap <silent> <leader>wvn :vnew<CR>
 nmap <silent> <leader>wq :close<CR>
 noremap <silent><C-j> :wincmd j<CR>
 noremap <silent><C-k> :wincmd k<CR>
@@ -196,8 +200,8 @@ noremap H ^
 noremap L $
 
 " make tab and shift + tab be useful
-nnoremap <tab>   :cn<CR>
-nnoremap <S-tab> :cp<CR>
+nnoremap <M-o> :cn<CR>
+nnoremap <m-i> :cp<CR>
 
 " moving lines also accepts count
 nnoremap <leader>k  :<c-u>execute 'move -1-'. v:count1<cr>
