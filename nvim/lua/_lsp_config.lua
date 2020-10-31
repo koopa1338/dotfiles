@@ -6,7 +6,7 @@ local g = vim.g
 
 local opts = {silent = true}
 local setup_custom_diagnostics = function()
-    vim.lsp.callbacks["textDocument/publishDiagnostics"] = Diagnostic.handle_publish_diagnostics.with {
+    vim.lsp.callbacks["textDocument/publishDiagnostics"] = diagnostics.handle_publish_diagnostics.with {
         should_underline = false,
         update_in_insert = false
     }
