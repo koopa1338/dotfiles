@@ -16,6 +16,7 @@ map("n", "<Leader>fg", ":lua require('telescope.builtin').git_files{}<CR>", {sil
 map("n", "<Leader>ff", ":lua require('telescope.builtin').find_files{}<CR>", {silent = true})
 map("n", "<Leader>fr", ":lua require('telescope.builtin').live_grep{}<CR>", {silent = true})
 map("n", "<Leader>bb", ":lua require('telescope.builtin').buffers{}<CR>", {silent = true})
+map("n", "<Leader>fb", ":lua require('telescope.builtin').current_buffer_fuzzy_find{}<CR>", {silent = true})
 map("n", "<Leader>ft", ":lua require('telescope.builtin').lsp_document_symbols{}<CR>", {silent = true})
 map("n", "<Leader>fT", ":lua require('telescope.builtin').lsp_workspace_symbols{}<CR>", {silent = true})
 map("n", "<Leader>fs", ":lua require('telescope.builtin').lsp_references{}<CR>", {silent = true})
