@@ -5,19 +5,10 @@ local map = require('utils').map
 local g = vim.g
 
 local opts = {silent = true}
-local setup_custom_diagnostics = function()
-    vim.lsp.callbacks["textDocument/publishDiagnostics"] = diagnostics.handle_publish_diagnostics.with {
-        should_underline = false,
-        update_in_insert = false
-    }
-    map('n', '<leader>dn', ':lua vim.lsp.structures.Diagnostic.buf_move_next_diagnostic()<CR>', opts)
-    map('n', '<leader>dp', ':lua vim.lsp.structures.Diagnostic.buf_move_prev_diagnostic()<CR>', opts)
-end
-
-local custom_attach = function()
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-    diagnostics.on_attach()
-    completion.on_attach()
+local custom_attach = function(client)
+    vim.cmd("setlocal omnifunc=v:lua.vim.lsp.omnifunc")
+    diagnostics.on_attach(client)
+    completion.on_attach(client)
     map('n', '<leader>lc', ':lua vim.lsp.buf.declaration()<CR>', opts)
     map('n', '<leader>ld', ':lua vim.lsp.buf.definition()<CR>', opts)
     map('n', '<leader>li', ':lua vim.lsp.buf.implementation()<CR>', opts)
@@ -28,15 +19,6 @@ local custom_attach = function()
     map('n', '<leader>ll', ':lua vim.lsp.util.show_line_diagnostics()<CR>', opts)
 end
 
--- local servers = {
---     'jedi_language_server',
---     'gopls',
---     'rust_analyzer',
---     'vimls',
---     'jsonls',
---     'bashls',
---     'dockerls'
--- }
 local servers = {
   bashls = {},
   vimls = {},
