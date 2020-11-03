@@ -46,7 +46,6 @@ return require('packer').startup(function()
     use {'lervag/vimtex', ft = {'tex'}}
     use 'neovim/nvim-lspconfig'
     use 'nvim-lua/completion-nvim'
-    use 'nvim-lua/diagnostic-nvim'
 
     -- theme
     use 'deviantfero/wpgtk.vim'

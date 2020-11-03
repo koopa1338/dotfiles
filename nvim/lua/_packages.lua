@@ -1,6 +1,5 @@
 vim.cmd("packadd nvim-lspconfig")
 vim.cmd("packadd completion-nvim")
-vim.cmd("packadd diagnostic-nvim")
 vim.cmd("packadd popup.nvim")
 vim.cmd("packadd plenary.nvim")
 vim.cmd("packadd telescope.nvim")

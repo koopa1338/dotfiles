@@ -1,5 +1,4 @@
 local nvim_lsp = require('nvim_lsp')
-local diagnostics = require('diagnostic')
 local completion = require('completion')
 local map = require('utils').map
 local g = vim.g
@@ -7,7 +6,6 @@ local g = vim.g
 local opts = {silent = true}
 local custom_attach = function(client)
     vim.cmd("setlocal omnifunc=v:lua.vim.lsp.omnifunc")
-    diagnostics.on_attach(client)
     completion.on_attach(client)
     map('n', '<leader>lc', ':lua vim.lsp.buf.declaration()<CR>', opts)
     map('n', '<leader>ld', ':lua vim.lsp.buf.definition()<CR>', opts)
