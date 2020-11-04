@@ -52,6 +52,7 @@ return require('packer').startup(function()
         'tjdevries/express_line.nvim',
         requires = {'nvim-lua/plenary.nvim'}
     }
+    use 'norcalli/nvim-colorizer.lua'
     use 'kyazdani42/nvim-web-devicons'
     use 'kyazdani42/nvim-tree.lua'
 
