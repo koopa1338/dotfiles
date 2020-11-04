@@ -47,7 +47,7 @@ return require('packer').startup(function()
     use 'nvim-lua/completion-nvim'
 
     -- theme
-    use 'deviantfero/wpgtk.vim'
+    use 'tjdevries/colorbuddy.nvim'
     use {
         'tjdevries/express_line.nvim',
         requires = {'nvim-lua/plenary.nvim'}

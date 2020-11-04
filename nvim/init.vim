@@ -9,7 +9,6 @@ scriptencoding=utf-8
 set nocompatible
 filetype plugin indent on
 syntax enable
-colorscheme wpgtk
 let mapleader=" "
 set backspace=indent,eol,start
 set linespace=0
