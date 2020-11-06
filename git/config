@@ -13,6 +13,7 @@
 	cl = clone
 	cm = commit
 	cma = cm --amend
+	ccma = cma --no-edit
     cmf = cm --fixup
 	cmi = cm --interactive
 	cmm = cm -m
