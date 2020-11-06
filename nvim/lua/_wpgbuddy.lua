@@ -129,3 +129,26 @@ Group.new("CursorColumn"   , colors.wpg_1  , colors.none  , styles.NONE)
 Group.new("Line"           , colors.wpg_12 , colors.none  , styles.bold)
 Group.new("SpecialComment" , colors.wpg_8  , colors.none  , styles.NONE)
 
+local lighter = function(color, step)
+    if not step then
+        return color:dark()
+    else
+        local i = 0
+        repeat
+            color = color:light()
+            i = i + 1
+        until(i > step)
+    end
+end
+
+local darker = function(color, step)
+    if not step then
+        return color:dark()
+    else
+        local i = 0
+        repeat
+            color = color:dark()
+            i = i + 1
+        until(i > step)
+    end
+end
