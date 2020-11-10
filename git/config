@@ -45,8 +45,6 @@
     pl = pull
     plr = pl --rebase
     pln = pl --rebase --no-autostash
-    p = push
-    pf = p --force-with-lease
     pub = !git push -u origin $(git branch --show-current)
     stl = stash list
     stp = stash pop
