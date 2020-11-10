@@ -1,5 +1,4 @@
 vim.cmd [[packadd packer.nvim]]
-vim._update_package_paths()
 return require('packer').startup(function()
     -- Packer
     use {'wbthomason/packer.nvim', opt = true}
