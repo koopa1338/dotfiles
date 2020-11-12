@@ -24,6 +24,10 @@ local servers = {
   yamlls = {},
   tsserver = {},
   jsonls = {},
+  jdtls = {
+    filetypes = { "java" },
+    root_dir = nvim_lsp.util.root_pattern(".git")
+  },
   dockerls = {},
   rust_analyzer = {},
   gopls = {},
