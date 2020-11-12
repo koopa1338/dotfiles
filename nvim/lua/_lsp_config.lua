@@ -22,16 +22,22 @@ local servers = {
   vimls = {},
   ocamlls = {},
   yamlls = {},
-  tsserver = {},
+  tsserver = {
+    root_dir = nvim_lsp.util.find_git_root or nvim_lsp.util.find_node_modules_root
+  },
   jsonls = {},
   jdtls = {
     filetypes = { "java" },
-    root_dir = nvim_lsp.util.root_pattern(".git")
+    root_dir = nvim_lsp.util.find_git_root
   },
   dockerls = {},
-  rust_analyzer = {},
+  rust_analyzer = {
+      root_dir = nvim_lsp.util.find_git_root
+  },
   gopls = {},
-  jedi_language_server = {},
+  jedi_language_server = {
+    root_dir = nvim_lsp.util.find_git_root
+  },
   html = {
     filetypes = {"html", "jinja"}
   },
