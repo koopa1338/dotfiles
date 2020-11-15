@@ -1,154 +1,244 @@
-local Color, colors, Group, groups, styles = require("colorbuddy").setup()
+local Color, c, Group, group, styles = require("colorbuddy").setup()
 
-Color.new('wpg_0'  ,'#090B3B')
-Color.new('wpg_1'  ,'#386188')
-Color.new('wpg_2'  ,'#4C7495')
-Color.new('wpg_3'  ,'#5F9CA7')
-Color.new('wpg_4'  ,'#73CDB5')
-Color.new('wpg_5'  ,'#90AEA6')
-Color.new('wpg_6'  ,'#99DEAF')
-Color.new('wpg_7'  ,'#c9ecdb')
-Color.new('wpg_8'  ,'#0f1266')
-Color.new('wpg_9'  ,'#3c7ebd')
-Color.new('wpg_10' ,'#5498d0')
-Color.new('wpg_11' ,'#6ad6ea')
-Color.new('wpg_12' ,'#80fff4')
-Color.new('wpg_13' ,'#a6f6e1')
-Color.new('wpg_14' ,'#aeffda')
-Color.new('wpg_15' ,'#eaffff')
+local themeColors = {
+    "#090B3B",
+    "#386188",
+    "#4C7495",
+    "#5F9CA7",
+    "#73CDB5",
+    "#90AEA6",
+    "#99DEAF",
+    "#c9ecdb",
+    "#0f1266",
+    "#3c7ebd",
+    "#5498d0",
+    "#6ad6ea",
+    "#80fff4",
+    "#a6f6e1",
+    "#aeffda",
+    "#eaffff",
+  }
+for i, color in ipairs(themeColors) do Color.new("wpg_" .. i - 1, color) end
+Color.new("fg", "#eaffff")
+Color.new("bg", "#0f1266")
 
-Color.new('Black'       ,'#090B3B' )
-Color.new('DarkRed'     ,'#386188' )
-Color.new('DarkGreen'   ,'#4C7495' )
-Color.new('Brown'       ,'#5F9CA7' )
-Color.new('DarkBlue'    ,'#73CDB5' )
-Color.new('DarkMagenta' ,'#90AEA6' )
-Color.new('DarkCyan'    ,'#99DEAF' )
-Color.new('LightGray'   ,'#c9ecdb' )
-Color.new('DarkGray'    ,'#0f1266' )
-Color.new('Red'         ,'#3c7ebd' )
-Color.new('Green'       ,'#5498d0' )
-Color.new('Yellow'      ,'#6ad6ea' )
-Color.new('Blue'        ,'#80fff4' )
-Color.new('Magenta'     ,'#a6f6e1' )
-Color.new('Cyan'        ,'#aeffda' )
-Color.new('White'       ,'#eaffff' )
+-- Diff
+Group.new("DiffAdd", c.none, c.wpg_10)
+Group.new("DiffChange", c.none, c.wpg_12)
+Group.new("DiffDelete", c.none, c.wpg_9)
+Group.new("DiffText", c.none, c.wpg_3)
 
-Color.new('seagreen',  '#698b69')
-Color.new('turquoise', '#698b69')
+Group.new("Normal", c.fg:dark(), c.wpg_0)
 
-Color.new('diffadd', '#0a5c2c')
-Color.new('diffdel', '#570f18')
+-- Conceal
+Group.new("Conceal", c.wpg_3:light(), c.none)
 
-Group.new('Normal'            , colors.wpg_15      , colors.wpg_0)
-Group.new("User1"             , colors.wpg_15      , colors.wpg_6)
-Group.new("User2"             , colors.wpg_15      , colors.wpg_8)
-Group.new("Title"             , colors.wpg_5       , colors.none)
-Group.new("TabLineFill"       , colors.wpg_15      , colors.wpg_8)
-Group.new("TabLine"           , colors.wpg_15      , colors.wpg_8)
-Group.new("TabLineSel"        , colors.wpg_0       , colors.wpg_14)
-Group.new("StatusLine"        , colors.wpg_0       , colors.wpg_14)
-Group.new("StatusLineNC"      , colors.wpg_15      , colors.wpg_8)
-Group.new("StatusLineTerm"    , colors.wpg_12      , colors.wpg_0)
-Group.new("StatusLineTermNC"  , colors.wpg_15      , colors.wpg_8)
-Group.new("CursorLine"        , colors.wpg_0       , colors.none)
-Group.new("Visual"            , colors.wpg_0       , colors.wpg_14)
-Group.new("CursorLineNr"      , colors.wpg_15      , colors.wpg_6)
-Group.new("LineNr"            , colors.wpg_7       , colors.wpg_8)
-Group.new("VertSplit"         , colors.wpg_0       , colors.wpg_8)
-Group.new("Specialkey"        , colors.wpg_13      , colors.wpg_0)
-Group.new("ErrorMsg"          , colors.wpg_0       , colors.wpg_9)
-Group.new("Pmenu"             , colors.wpg_15      , colors.wpg_8)
-Group.new("PmenuSbar"         , colors.wpg_4      , colors.wpg_2)
-Group.new("PmenuSel"          , colors.wpg_0       , colors.wpg_14)
-Group.new("PmenuThumb"        , colors.wpg_8      , colors.wpg_3)
-Group.new("SpellBad"          , colors.wpg_8       , colors.wpg_9)
-Group.new("Comment"           , colors.wpg_4       , colors.wpg_0        , styles.italic)
-Group.new("MatchParen"        , colors.wpg_12      , colors.wpg_8)
-Group.new("DiffAdd"           , colors.none        , colors.diffadd)
-Group.new("DiffDelete"        , colors.none        , colors.diffdel)
-Group.new("DiffText"          , colors.wpg_0       , colors.none)
-Group.new("DiffChange"        , colors.wpg_0       , colors.none)
-Group.new("YCMWarningSection" , colors.wpg_0       , colors.wpg_4)
-Group.new("WarningMsg"        , colors.wpg_10      , colors.none)
-Group.new("MoreMsg"           , colors.wpg_15      , colors.none)
-Group.new("Directory"         , colors.wpg_11      , colors.none)
-Group.new("Folded"            , colors.wpg_15      , colors.wpg_8)
+Group.new("VertSplit", c.wpg_0, c.none)
 
-Group.new("ColorColumn"       , colors.none        , colors.wpg_1)
-Group.new("Cursor"            , colors.wpg_0      , colors.wpg_4)
-Group.new("iCursor"           , colors.wpg_0      , colors.wpg_4)
-Group.new("EndOfBuffer"       , colors.none        , colors.none)
-Group.new("NonText"           , colors.none        , colors.none)
-Group.new("SpellCap"          , colors.wpg_13     , colors.wpg_0)
-Group.new("SpellLocal"        , colors.wpg_5      , colors.wpg_0)
-Group.new("SpellRare"         , colors.wpg_6      , colors.wpg_0)
-Group.new("VisualNOS"         , colors.wpg_2      , colors.wpg_1)
+Group.new("Function", c.wpg_8, c.none, styles.bold)
 
-Group.new("Constant"          , colors.wpg_11      , colors.none)
-Group.new("Identifier"        , colors.wpg_12      , colors.none)
-Group.new("Statement"         , colors.wpg_10      , colors.none)
-Group.new("Keyword"           , colors.wpg_13      , colors.none)
-Group.new("Conditional"       , colors.wpg_11      , colors.none)
-Group.new("Number"            , colors.wpg_12      , colors.none)
-Group.new("PreProc"           , colors.wpg_10      , colors.none)
-Group.new("Type"              , colors.wpg_13      , colors.none         , styles.italic)
-Group.new("Ignore"            , colors.wpg_0       , colors.none)
-Group.new("Error"             , colors.wpg_0       , colors.wpg_1)
-Group.new("Todo"              , colors.wpg_15      , colors.wpg_8)
-Group.new("SignColumn"        , colors.wpg_12      , colors.wpg_8)
-Group.new("Search"            , colors.wpg_0       , colors.wpg_12)
+Group.new("Error", c.wpg_9, c.none, styles.bold)
+Group.new("ErrorMsg", c.wpg_1:dark(), c.wpg_1:dark(.75))
 
-Group.new("Question"          , groups.Type        , groups.Type)
-Group.new("FoldColumn"        , groups.Folded      , groups.Folded)
+Group.new("WarningMsg", c.wpg_4:light(.3), c.wpg_12:dark(.3))
+Group.new("Exception", c.wpg_9, c.none, styles.NONE)
 
-Group.new("Special"           , groups.Type        , groups.Type)
-Group.new("String"            , groups.Constant    , groups.Constant)
-Group.new("Character"         , groups.Constant    , groups.Constant)
-Group.new("Boolean"           , groups.Statement   , groups.Statement)
-Group.new("Repeat"            , groups.Conditional , groups.Conditional)
-Group.new("Label"             , groups.Type        , groups.Type)
-Group.new("Operator"          , groups.Type        , groups.Type)
-Group.new("Include"           , groups.PreProc     , groups.PreProc)
-Group.new("Define"            , groups.PreProc     , groups.PreProc)
-Group.new("Macro"             , groups.PreProc     , groups.PreProc)
-Group.new("PreCondit"         , groups.PreProc     , groups.PreProc)
-Group.new("StorageClass"      , groups.Type        , groups.Type)
-Group.new("Structure"         , groups.Type        , groups.Type)
-Group.new("Tag"               , groups.Special     , groups.Special)
-Group.new("Debug"             , groups.Special     , groups.Special)
-Group.new("Typedef"           , groups.Type        , groups.Type)
+Group.new("Boolean", c.wpg_2:dark(), c.none, styles.NONE)
+Group.new("Character", c.wpg_14, c.none, styles.NONE)
+Group.new("Comment", c.wpg_3:dark(), c.bg:light(.04), styles.NONE)
+Group.new("Conditional", c.wpg_10, c.none, styles.NONE)
+Group.new("Constant", c.wpg_4, c.none, styles.NONE)
 
-Group.new('Conceal'        , colors.wpg_3  , colors.none)
-Group.new('Function'       , colors.wpg_9  , colors.none  , styles.bold)
-Group.new("Delimiter"      , colors.wpg_6  , colors.none  , styles.NONE)
-Group.new("Exception"      , colors.wpg_9  , colors.none  , styles.NONE)
-Group.new("Float"          , colors.wpg_15 , colors.none  , styles.NONE)
-Group.new("SpecialChar"    , colors.wpg_13 , colors.none  , styles.NONE)
-Group.new("CursorColumn"   , colors.wpg_1  , colors.none  , styles.NONE)
-Group.new("Line"           , colors.wpg_12 , colors.none  , styles.bold)
-Group.new("SpecialComment" , colors.wpg_8  , colors.none  , styles.NONE)
+Group.new("Underlined", c.none, c.none, styles.italic)
 
-local lighter = function(color, step)
-    if not step then
-        return color:dark()
-    else
-        local i = 0
-        repeat
-            color = color:light()
-            i = i + 1
-        until(i > step)
-    end
+Group.new("Float", c.wpg_4, c.none, styles.NONE)
+
+Group.new("NormalFloat", c.wpg_4, c.wpg_0:dark(.4))
+
+-- Search
+Group.new("IncSearch", c.wpg_10:light(), c.wpg_10:dark(.5), styles.italic)
+Group.new("Search", c.wpg_10, c.wpg_10:dark(.8))
+
+-- Numbers
+Group.new("Number", c.wpg_15, c.none, styles.NONE)
+
+Group.new("Define", c.wpg_10, c.none, styles.NONE)
+
+Group.new("Delimiter", c.wpg_6, c.none, styles.NONE)
+
+Group.new("Directory", c.wpg_4)
+
+Group.new("Function", c.wpg_8)
+
+-- Folds
+Group.new("Folded", c.wpg_4:dark(.1))
+Group.new("FoldColumn", c.wpg_4:light())
+
+Group.new("Identifier", c.wpg_2, c.none, styles.NONE)
+Group.new("Include", c.wpg_10, c.none, styles.NONE)
+
+Group.new("Keyword", c.wpg_4, c.none, styles.italic)
+
+Group.new("Label", c.wpg_10, c.none, styles.italic)
+
+Group.new("Operator", c.wpg_12:dark(), c.none, styles.NONE)
+
+Group.new("PreProc", c.wpg_10, c.none, styles.NONE)
+
+Group.new("Repeat", c.wpg_12:dark(), c.none, styles.NONE)
+
+Group.new("Statement", c.wpg_10, c.none, styles.NONE)
+Group.new("StorageClass", c.wpg_10, c.none, styles.NONE)
+Group.new("String", c.wpg_14, c.none, styles.NONE)
+Group.new("Structure", c.wpg_10, c.none, styles.NONE)
+Group.new("Tag", c.wpg_4, c.none, styles.NONE)
+
+Group.new("Title", c.wpg_4, c.none)
+
+Group.new("Todo", c.wpg_13, c.none, styles.NONE)
+
+Group.new("Type", c.wpg_10:light(), c.none, styles.italic)
+Group.new("Typedef", c.wpg_10, c.none, styles.NONE)
+
+-- Side Column
+Group.new("CursorColumn", c.wpg_1, c.none, styles.NONE)
+Group.new("LineNr", c.wpg_10, c.none, styles.NONE)
+Group.new("CursorLineNr", c.wpg_5, c.none, styles.NONE)
+Group.new("Line", c.wpg_12, c.none, styles.bold)
+Group.new("SignColumn", c.none, c.none, styles.NONE)
+
+Group.new("ColorColumn", c.none, c.wpg_1)
+Group.new("Cursor", c.wpg_0, c.wpg_4)
+Group.new("CursorLine", c.none, c.wpg_0)
+Group.new("iCursor", c.wpg_0, c.wpg_4)
+
+Group.new("EndOfBuffer", c.wpg_3, c.none)
+
+Group.new("MatchParen", c.none, c.wpg_13:dark())
+Group.new("NonText", c.wpg_0:light(), c.none)
+
+-- Popup Menu
+Group.new("PMenu", c.wpg_2:light(), c.wpg_5:dark(.3))
+Group.new("PmenuSbar", c.wpg_4, c.wpg_0:dark())
+Group.new("PMenuSel", c.wpg_2:light(.2), c.wpg_0:dark(.7))
+Group.new("PmenuThumb", c.wpg_8:light(), c.wpg_3)
+
+-- Special
+Group.new("Special", c.wpg_4, c.none, styles.NONE)
+Group.new("SpecialChar", c.wpg_13, c.none, styles.NONE)
+Group.new("SpecialKey", c.wpg_13)
+Group.new("SpecialComment", c.wpg_8, c.none, styles.NONE)
+
+-- Spell
+Group.new("SpellBad", c.wpg_11, c.none)
+Group.new("SpellCap", c.wpg_13, c.none)
+Group.new("SpellLocal", c.wpg_5, c.none)
+Group.new("SpellRare", c.wpg_6, c.none)
+
+-- Statusline
+Group.new("StatusLine", c.wpg_10, c.wpg_0:light(.2))
+Group.new("StatusLineNC", c.wpg_4, c.wpg_0:light(.3))
+
+-- Tabline
+Group.new("TabLine", c.wpg_2, c.wpg_8:dark())
+Group.new("TabLineSel", c.wpg_10:light(), c.wpg_13, styles.bold)
+Group.new("TabLineFill", c.wpg_2, c.wpg_8:dark())
+
+Group.new("Question", c.wpg_10, c.none, styles.bold)
+
+-- Visual
+Group.new("Visual", c.wpg_10, c.wpg_13:dark(.2))
+Group.new("VisualNOS", c.wpg_2, c.wpg_1)
+
+-- LSP
+Group.new("LspDiagnosticsDefaultHint", c.wpg_13:light(), c.wpg_13:dark(.9))
+Group.new("LspDiagnosticsDefaultError", c.wpg_1:dark(),
+        c.wpg_1:dark(.7))
+Group.new("LspDiagnosticsDefaultWarning", c.wpg_6, c.wpg_6:dark(.6))
+Group.new("LspDiagnosticsDefaultInformation", c.fg)
+
+-- Telescope
+Group.new("TelescopeBorder", c.fg:dark(.3))
+Group.new("TelescopeNormal", c.wpg_0:light(.3))
+Group.new("TelescopePromptPrefix", c.wpg_10:dark(.2))
+
+Group.new("TelescopeSelection", c.wpg_10:light(), c.wpg_0:light(.2), styles.bold)
+Group.new("TelescopeMatching", c.wpg_4:light())
+
+-- Treesitter
+local error = {"TSError"}
+local punctuation = {"TSPunctDelimiter", "TSPunctBracket", "TSPunchSpecial"}
+local constants = {"TSConstant", "TsConstBuiltin", "TSConstMacro"}
+local constructors = {"TSConstructor"}
+local string = {"TSStringRegex", "TSString", "TSStringEscape"}
+local boolean = {"TSBoolean"}
+local functions = {"TSFunction", "TSFuncBuiltin", "TSFuncMacro"}
+local methods = {"TSMethod"}
+local fields = {"TSField", "TSProperty"}
+local number = {"TSNumber", "TSFloat"}
+local parameters = {"TSParameter", "TSParameterReference"}
+local operators = {"TSOperator"}
+local forwords = {"TSConditional", "TSRepeat"}
+local keyword = {"TSKeyword", "TSKeywordOperator"}
+local types = {"TSType", "TSTypeBuiltin"}
+local labels = {"TSLabel"}
+local namespaces = {"TSNamespace"}
+local includes = {"TSInclude"}
+local variables = {"TSVariable", "TSVariableBuiltin"}
+local tags = {"TSTag", "TSTagDelimiter"}
+local text = {"TSText", "TSStrong", "TSEmphasis", "TSUnderline", "TSTitle", "TSLiteral", "TSURI"}
+local groups = {
+  {error, c.wpg_1:light(), c.wpg_9:dark(.5)},
+  {punctuation, c.wpg_3:dark(.35)},
+  {constants, c.wpg_5:light()},
+  {string, c.wpg_10:light():light()},
+  {boolean, c.wpg_2:light()},
+  {functions, c.wpg_14:light(.1)},
+  {methods, c.wpg_14:light(.1)},
+  {fields, c.wpg_8:light()},
+  {number, c.wpg_6:light()},
+  {parameters, c.wpg_6:dark()},
+  {operators, c.wpg_3:dark():dark()},
+  {forwords, c.wpg_8:light(), c.none},
+  {keyword, c.wpg_4:dark(.2), c.none, styles.italic},
+  {constructors, c.wpg_10},
+  {types, c.wpg_10},
+  {includes, c.wpg_4},
+  {labels, c.wpg_4:light()},
+  {namespaces, c.wpg_4},
+  {variables, c.wpg_6},
+  {tags, c.wpg_8},
+  {text, c.fg},
+}
+
+-- Apply grouping to each color group
+for _, group in ipairs(groups) do
+  for _, color in ipairs(group[1]) do Group.new(color, group[2], group[3], group[4]) end
 end
 
-local darker = function(color, step)
-    if not step then
-        return color:dark()
-    else
-        local i = 0
-        repeat
-            color = color:dark()
-            i = i + 1
-        until(i > step)
-    end
-end
+Group.new("TSPunctDelimiter", c.wpg_3:dark():dark())
+Group.new("TSVariableBuiltin", c.wpg_6:dark(), c.none, styles.bold)
+
+-- null
+Group.new("TSConstBuiltin", c.wpg_6:dark(.3), c.none, styles.bold)
+
+Group.new("TSTypeBuiltin", c.wpg_10:dark(.2), c.none, styles.bold)
+Group.new("TSFuncBuiltin", c.wpg_8:light(.1), c.none, styles.bold)
+
+-- Vim
+Group.new("vimcommand", c.wpg_4)
+Group.new("vimmap", c.wpg_4)
+Group.new("vimbracket", c.wpg_10)
+Group.new("vimmapmodkey", c.wpg_6)
+Group.new("vimnotation", c.wpg_6)
+Group.new("vimmaplhs", c.wpg_10)
+Group.new("vimiscommand", c.wpg_10:light())
+Group.new("vimFilter", c.wpg_7)
+Group.new("vimMapRhs", c.wpg_15:dark(.1))
+Group.new("vimMapRhsExtend", c.wpg_15:dark(.1))
+
+Group.new("vimlet", c.wpg_4:dark())
+Group.new("vimnotfunc", c.wpg_4:dark())
+Group.new("vimAutoCmdSfxList", c.wpg_6)
+Group.new("vimUserFunc", c.wpg_10)
+Group.new("vimSetEqual", c.wpg_6)
