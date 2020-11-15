@@ -9,7 +9,10 @@ scriptencoding=utf-8
 set nocompatible
 filetype plugin indent on
 syntax enable
-set termguicolors
+if (has("termguicolors"))
+  set termguicolors
+  hi LineNr ctermbg=NONE guibg=NONE
+endif
 let mapleader=" "
 set backspace=indent,eol,start
 set linespace=0
