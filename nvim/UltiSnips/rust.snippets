@@ -40,14 +40,7 @@ impl $1 for $2 {
 }
 endsnippet
 
-snippet s "struct"
-#[derive(Debug)]
-struct $1 {
-	$2
-}
-endsnippet
-
-snippet si "struct and impl"
+snippet structi "struct and impl"
 #[derive(Debug)]
 struct $1 {
 	$2
@@ -58,17 +51,17 @@ impl $1 {
 }
 endsnippet
 
-snippet t "trait"
+snippet tr "trait"
 trait $1 {
 	$2
 }
 endsnippet
 
-snippet d "debug"
+snippet d! "debug"
 dbg!($0)
 endsnippet
 
-snippet pl "println"
+snippet pl! "println"
 println!("$0")
 endsnippet
 
@@ -86,13 +79,13 @@ if let Some($1) = $2 {
 }$5
 endsnippet
 
-snippet e "enum"
+snippet en "enum"
 #[derive(Debug)]
 enum $1 {
 	$2
 }
 endsnippet
 
-snippet debug "derive debug"
+snippet drdebug "derive debug"
 #[derive(Debug)]
 endsnippet
