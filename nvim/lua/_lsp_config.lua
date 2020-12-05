@@ -20,19 +20,23 @@ end
 local servers = {
   bashls = {},
   vimls = {},
-  ocamlls = {},
+  ocamlls = {
+    root_dir = nvim_lsp.util.root_pattern(".merlin", "package.json") or nvim_lsp.util.find_git_root
+  },
   yamlls = {},
   tsserver = {
     root_dir = nvim_lsp.util.find_git_root or nvim_lsp.util.find_node_modules_root
   },
-  jsonls = {},
+  jsonls = {
+      cmd = { "json-languageserver", "--stdio" }
+  },
   jdtls = {
     filetypes = { "java" },
     root_dir = nvim_lsp.util.find_git_root
   },
   dockerls = {},
   rust_analyzer = {
-      root_dir = nvim_lsp.util.find_git_root
+    root_dir = nvim_lsp.util.root_pattern("Cargo.toml", "rust-project.json") or nvim_lsp.util.find_git_root
   },
   gopls = {},
   jedi_language_server = {
