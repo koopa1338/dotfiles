@@ -4,11 +4,6 @@ local sections = require('el.sections')
 local subscribe = require('el.subscribe')
 local lsp_statusline = require('el.plugins.lsp_status')
 
---[[
--- disabled because of a bug in subscribe module
--- see issue: https://github.com/tjdevries/express_line.nvim/issues/31
--- for more information
-
 local git_branch = subscribe.buf_autocmd(
     "el_git_branch",
     "BufEnter",
@@ -36,7 +31,6 @@ local git_changes = subscribe.buf_autocmd(
     function(window, buffer)
         return extensions.git_changes(window, buffer)
     end)
---]]
 
 require('el').setup {
     generator = function(win_id)
@@ -44,9 +38,9 @@ require('el').setup {
             extensions.gen_mode {
                 format_string = ' %s '
             },
-            -- git_branch,
+            git_branch,
             sections.split,
-            -- file_icon,
+            file_icon,
             builtin.shortened_file,
             sections.collapse_builtin {
                 ' ',
@@ -55,7 +49,7 @@ require('el').setup {
             sections.split,
             lsp_statusline.current_function,
             lsp_statusline.server_progress,
-            -- git_changes,
+            git_changes,
             '[', builtin.line_with_width(3), ':',  builtin.column_with_width(2), ']',
             sections.collapse_builtin {
                 '[',
