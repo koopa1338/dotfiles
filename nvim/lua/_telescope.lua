@@ -1,8 +1,12 @@
 local map = require('utils').map
 local actions = require('telescope.actions')
+local previewers = require('telescope.previewers')
 
 require('telescope').setup {
   defaults = {
+    file_previewer = previewers.vim_buffer_cat.new,
+    grep_previewer = previewers.vim_buffer_vimgrep.new,
+    qflist_previewer = previewers.vim_buffer_qflist.new,
     mappings = {
       i = {
           ["<C-j>"] = actions.move_selection_next,
