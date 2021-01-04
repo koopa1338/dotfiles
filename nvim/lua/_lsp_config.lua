@@ -7,15 +7,17 @@ local opts = {silent = true}
 local custom_attach = function(client)
     vim.cmd("setlocal omnifunc=v:lua.vim.lsp.omnifunc")
     completion.on_attach(client)
-    map('n', '<leader>lc', ':lua vim.lsp.buf.declaration()<CR>', opts)
+    map('n', '<leader>lD', ':lua vim.lsp.buf.declaration()<CR>', opts)
     map('n', '<leader>ld', ':lua vim.lsp.buf.definition()<CR>', opts)
     map('n', '<leader>li', ':lua vim.lsp.buf.implementation()<CR>', opts)
     map('n', '<leader>lt', ':lua vim.lsp.buf.type_definition()<CR>', opts)
     map('n', '<leader>lr', ':lua vim.lsp.buf.references()<CR>', opts)
-    map('n', '<leader>L', ':lua vim.lsp.buf.code_action()<CR>', opts)
-    map('n', '<leader>ln', ':lua vim.lsp.buf.rename()<CR>', opts)
+    map('n', '<leader>lc', ':lua vim.lsp.buf.code_action()<CR>', opts)
+    map('n', '<leader>lR', ':lua vim.lsp.buf.rename()<CR>', opts)
     map('n', '<leader>ll', ':lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-    map('n', '<leader>lF', ':lua vim.lsp.buf.formatting_sync(nil, 1000)<CR>', opts)
+    map('n', '<leader>lj', ':lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+    map('n', '<leader>lk', ':lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+    map('n', '<leader>lf', ':lua vim.lsp.buf.formatting_sync(nil, 1000)<CR>', opts)
 end
 
 local servers = {
