@@ -29,6 +29,8 @@ set path+=**
 set undodir=~/.config/nvim/undodir
 set undofile
 set inccommand=split
+set notimeout
+set nottimeout
 
 " More natural splitting
 set splitbelow
