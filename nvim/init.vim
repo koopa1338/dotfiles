@@ -51,7 +51,6 @@ set noswapfile
 set spelllang=de_de,en_us
 set nobackup
 set nowritebackup
-set signcolumn=yes
 
 " line numbers
 set rnu
@@ -129,10 +128,6 @@ let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 let g:completion_enable_snippet = 'UltiSnips'
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" gutentags
-let g:gutentags_exclude_filetypes = ['gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail', 'git']
-let g:gutentags_ctags_tagfile = '.ctags'
 
 " disable netrw
 let g:loaded_netrw       = 1
