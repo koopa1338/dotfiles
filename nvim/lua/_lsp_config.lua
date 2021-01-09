@@ -21,6 +21,9 @@ local custom_attach = function(client)
 end
 
 local servers = {
+  clangd = {
+    filetypes = { "c", "cc", "cpp", "objc", "objcpp" }
+  },
   bashls = {},
   vimls = {},
   ocamlls = {
