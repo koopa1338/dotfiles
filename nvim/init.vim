@@ -170,8 +170,8 @@ nmap <silent> <leader>bW :%bwipeout<CR>
 
 " windows
 nmap <silent> <leader>wo :only<CR>
-nmap <silent> <leader>wss :split<CR>
-nmap <silent> <leader>wsv :vsplit<CR>
+nmap <silent> <leader>wss :vsplit<CR>
+nmap <silent> <leader>wsx :split<CR>
 nmap <silent> <leader>wsn :new<CR>
 nmap <silent> <leader>wvn :vnew<CR>
 nmap <silent> <leader>wq :close<CR>
