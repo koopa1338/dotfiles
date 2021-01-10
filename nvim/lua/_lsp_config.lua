@@ -34,7 +34,7 @@ local servers = {
     root_dir = nvim_lsp.util.find_git_root or nvim_lsp.util.find_node_modules_root
   },
   jsonls = {
-      cmd = { "json-languageserver", "--stdio" }
+    cmd = { "json-languageserver", "--stdio" }
   },
   jdtls = {
     filetypes = { "java" },
@@ -48,9 +48,7 @@ local servers = {
   jedi_language_server = {
     root_dir = nvim_lsp.util.find_git_root
   },
-  html = {
-    filetypes = {"html", "jinja"}
-  },
+  html = {},
   sumneko_lua = {
     settings = {
       Lua = {
