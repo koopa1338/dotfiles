@@ -30,6 +30,7 @@ return require('packer').startup(function()
             'nvim-treesitter/nvim-treesitter'
         }
     }
+    use 'mhinz/vim-startify'
 
     -- text objects and motions
     use 'wellle/targets.vim'
