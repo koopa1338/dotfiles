@@ -1,6 +1,8 @@
 local map = require('utils').map
 local g = vim.g
 
+map('n', '<leader>~', ':Startify<CR>', {silent = true})
+
 g.startify_bookmarks = {
     "~/dotfiles",
     "~/Projects/kawa-rs",
@@ -12,9 +14,13 @@ g.startify_bookmarks = {
 
 g.startify_lists = {
     { type = "bookmarks", header = {"    Bookmarks"} },
-    { type = "dir", header = {"    MRU "} },
-    { type = "files", header = {"    MRU Files"} },
     { type = "commands", header = {"    Commands"} },
 }
 
-map('n', '<leader>~', ':Startify<CR>', {silent = true})
+
+g.startify_commands = {
+    { "Update Plugins", "PackerUpdate" },
+    { "Update Treesitter", "TSUpdate" },
+}
+
+g.startify_change_to_dir = 1
