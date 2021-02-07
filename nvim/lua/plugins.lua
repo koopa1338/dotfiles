@@ -60,10 +60,12 @@ return require('packer').startup(function()
     use 'junegunn/gv.vim'
     use 'tpope/vim-fugitive'
     use 'rhysd/git-messenger.vim'
-    -- use 'airblade/vim-gitgutter'
     use 'mhinz/vim-signify'
     use 'rhysd/committia.vim'
 
     -- project management
     use 'tpope/vim-projectionist'
+
+    -- debugging
+    use 'puremourning/vimspector'
 end)
