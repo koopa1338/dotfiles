@@ -18,6 +18,7 @@ local custom_attach = function(client)
     map('n', '<leader>lj', ':lua vim.lsp.diagnostic.goto_next()<CR>', opts)
     map('n', '<leader>lk', ':lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     map('n', '<leader>lf', ':lua vim.lsp.buf.formatting_sync(nil, 1000)<CR>', opts)
+    map('n', '<leader>ls', ':lua vim.lsp.buf.signature_help()<CR>', opts)
 end
 
 local servers = {
