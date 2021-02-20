@@ -1,5 +1,4 @@
 function cleanpaccache
-	sudo -v
 	paccache -rvuk0&
 	await "Cleaning cache of uninstalled packages "
 	paccache -rvk2&
