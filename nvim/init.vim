@@ -136,18 +136,6 @@ let g:loaded_netrwPlugin = 1
 " tex falvor
 let g:tex_flavor = "latex"
 
-" git-integration
-let g:git_messenger_no_default_mappings = 1
-let g:git_messenger_always_into_popup = 1
-nmap <leader>gm <Plug>(git-messenger)
-nmap <leader>gl :GV<CR>
-nmap <leader>gL :GV!<CR>
-nmap <leader>gs :G<CR>
-nmap <leader>gd :Gdiff<CR>
-nmap <leader>gp :Gpush<CR>
-nmap <leader>gf :diffget //2<CR>
-nmap <leader>gj :diffget //3<CR>
-
 " execute macros over visual selection
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
