@@ -18,6 +18,7 @@ require('telescope').setup {
 
 map("n", "<Leader>fg", ":lua require('telescope.builtin').git_files{}<CR>", {silent = true})
 map("n", "<Leader>ff", ":lua require('telescope.builtin').find_files{}<CR>", {silent = true})
+map("n", "<Leader>fF", ":lua require('telescope.builtin').find_files({ hidden = true })<CR>", {silent = true})
 map("n", "<Leader>fr", ":lua require('telescope.builtin').live_grep{}<CR>", {silent = true})
 map("n", "<Leader>bb", ":lua require('telescope.builtin').buffers{}<CR>", {silent = true})
 map("n", "<Leader>fb", ":lua require('telescope.builtin').current_buffer_fuzzy_find{}<CR>", {silent = true})
