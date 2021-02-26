@@ -26,3 +26,4 @@ map("n", "<Leader>fT", ":lua require('telescope.builtin').lsp_workspace_symbols{
 map("n", "<Leader>fs", ":lua require('telescope.builtin').lsp_references{}<CR>", {silent = true})
 map("n", "<Leader>fq", ":lua require('telescope.builtin').quickfix{}<CR>", {silent = true})
 map("n", "<Leader>fe", ":lua require('telescope.builtin').treesitter{}<CR>", {silent = true})
+map("n", "<Leader>fm", ":lua require('telescope.builtin').marks(require('telescope.themes').get_dropdown())<CR>", {silent = true})
