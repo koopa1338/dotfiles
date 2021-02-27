@@ -7,12 +7,29 @@ require('telescope').setup {
     file_previewer = previewers.vim_buffer_cat.new,
     grep_previewer = previewers.vim_buffer_vimgrep.new,
     qflist_previewer = previewers.vim_buffer_qflist.new,
+    layout_strategy = 'horizontal',
+    layout_defaults = {
+      horizontal = {
+        width_padding = 0.1,
+        height_padding = 0.1,
+        preview_width = 0.6,
+      },
+      vertical = {
+        width_padding = 0.05,
+        height_padding = 1,
+        preview_height = 0.5,
+      }
+    },
     mappings = {
       i = {
           ["<C-j>"] = actions.move_selection_next,
           ["<C-k>"] = actions.move_selection_previous,
       }
-    }
+    },
+    selection_strategy = "reset",
+    sorting_strategy = "descending",
+    scroll_strategy = "cycle",
+    prompt_position = "top",
   }
 }
 
