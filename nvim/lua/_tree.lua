@@ -14,23 +14,11 @@ g.nvim_tree_width = 40
 g.nvim_tree_width_allow_resize = 1
 
 g.nvim_tree_bindings = {
-    edit = {'<CR>', 'o'},
-    edit_vsplit = {'<C-v>'},
-    edit_split = {'<C-x>'},
-    edit_tab = {'<C-t>'},
-    toggle_ignored = {'I'},
-    toggle_dotfiles = {'H'},
-    refresh = {'R'},
-    preview = {'<Tab>'},
-    cd = {'.'},
-    create = {'a'},
-    remove = {'d'},
-    rename = {'c'},
-    cut = {'x'},
-    copy = {'y'},
-    paste = {'p'},
-    prev_git_item = {'gn'},
-    next_git_item = {'gp'},
+    ["."] = ":lua require'nvim-tree'.on_keypress('cd')<CR>",
+    ["c"] = ":lua require'nvim-tree'.on_keypress('rename')<CR>",
+    ["y"] = ":lua require'nvim-tree'.on_keypress('copy')<CR>",
+    ["gn"] = ":lua require'nvim-tree'.on_keypress('next_git_item')<CR>",
+    ["gp"] = ":lua require'nvim-tree'.on_keypress('prev_git_item')<CR>",
 }
 
 map('n', '<C-n>', "<cmd>NvimTreeToggle<CR>", {
