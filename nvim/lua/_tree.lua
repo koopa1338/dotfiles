@@ -14,6 +14,7 @@ g.nvim_tree_show_icons = {
     files = 1,
 }
 g.nvim_tree_ignore = {'.git', 'node_modules', '.cache'}
+g.nvim_tree_auto_ignore_ft = {'startify'}
 g.nvim_tree_width = 40
 g.nvim_tree_width_allow_resize = 1
 
@@ -25,9 +26,7 @@ g.nvim_tree_bindings = {
     ["gp"] = tree_kb('prev_git_item'),
 }
 
-map('n', '<C-n>', "<cmd>NvimTreeToggle<CR>", {
-    silent = true
-})
+
 g.nvim_tree_icons = {
     git = {
         unstaged = '☒',
@@ -36,3 +35,5 @@ g.nvim_tree_icons = {
         untracked = '✸'
     }
 }
+
+map('n', '<C-n>', "<cmd>NvimTreeToggle<CR>", { silent = true })
