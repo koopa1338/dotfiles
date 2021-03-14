@@ -7,12 +7,6 @@ g.diagnostic_enable_underline = 0
 g.diagnostic_trimmed_virtual_text = "40"
 g.diagnostic_insert_delay = 1
 
--- Cursorhold/CursorHoldI is broken atm: https://github.com/neovim/neovim/issues/12587
--- command("autocmd CursorHold <buffer> lua vim.lsp.util.show_line_diagnostics()")
--- command("autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()")
--- command("autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()")
-command("autocmd CursorMoved <buffer> lua vim.lsp.util.buf_clear_references()")
-
 sign_define(
     "LspDiagnosticsErrorSign",
     {text = "", texthl = "LspDiagnosticsError"}
