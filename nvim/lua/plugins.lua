@@ -39,9 +39,6 @@ return require('packer').startup(function()
     use 'matze/vim-move'
     use 'godlygeek/tabular'
 
-    -- snippets
-    use 'SirVer/ultisnips'
-
     -- syntax and languages
     use {'lervag/vimtex', ft = {'tex'}}
     use 'neovim/nvim-lspconfig'
