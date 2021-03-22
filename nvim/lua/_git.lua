@@ -15,10 +15,10 @@ map("n", "<Leader>gf", ":diffget //2<CR>", {silent = true})
 map("n", "<Leader>gj", ":diffget //3<CR>", {silent = true})
 
 -- git signify
-g.signify_sign_add = '+'
-g.signify_sign_delete = '-'
-g.signify_sign_delete_first_line = '_'
-g.signify_sign_change = '~'
+g.signify_sign_add = ''
+g.signify_sign_delete = ''
+g.signify_sign_delete_first_line = 'ﳺ'
+g.signify_sign_change = '勒'
 
 map("n", "<Leader>gd", ":SignifyHunkDiff<CR>", {silent = true})
 map("n", "<Leader>gu", ":SignifyHunkUndo<CR>", {silent = true})
