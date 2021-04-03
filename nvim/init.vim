@@ -94,25 +94,23 @@ endif
 
 
 " Highlighta settings and maps
-if has("autocmd")
-    if v:version > 701
-        autocmd Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|CHANGED\|DONE\|XXX\|BUG\|HACK\)')
-        autocmd Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\|NOTICE\)')
-    endif
-
-    augroup NumberToggle
-        autocmd!
-        autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-        autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-    augroup END
-
-    autocmd VimResized * wincmd =
-
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
-
-    autocmd FileType help wincmd L
-    autocmd FileType fugitive wincmd H
+if v:version > 701
+    autocmd Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|CHANGED\|DONE\|XXX\|BUG\|HACK\)')
+    autocmd Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\|NOTICE\)')
 endif
+
+augroup NumberToggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+    autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
+autocmd VimResized * wincmd =
+
+autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+
+autocmd FileType help wincmd L
+autocmd FileType fugitive wincmd H
 
 map <silent><Esc> :nohl<CR>
 map <silent><C-c> <Esc>
