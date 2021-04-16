@@ -195,4 +195,8 @@ nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1
 xnoremap  < <gv
 xnoremap  > >gv
 
+" search for multiple words seperated by |
+" Example /\vtest|live highlights test and live
+nnoremap g/ /\v
+
 lua require('init')
