@@ -57,7 +57,13 @@ return require('packer').startup(function()
     use 'junegunn/gv.vim'
     use 'tpope/vim-fugitive'
     use 'rhysd/git-messenger.vim'
-    use 'mhinz/vim-signify'
+    use {
+      'lewis6991/gitsigns.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim'
+      }
+    }
+
     use 'rhysd/committia.vim'
 
     -- project management
