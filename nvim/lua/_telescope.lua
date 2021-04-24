@@ -7,7 +7,7 @@ require('telescope').setup {
     file_previewer = previewers.vim_buffer_cat.new,
     grep_previewer = previewers.vim_buffer_vimgrep.new,
     qflist_previewer = previewers.vim_buffer_qflist.new,
-    layout_strategy = 'horizontal',
+    layout_strategy = 'flex',
     layout_defaults = {
       horizontal = {
         width_padding = 0.1,
@@ -33,15 +33,17 @@ require('telescope').setup {
   }
 }
 
-map("n", "<Leader>fg", ":lua require('telescope.builtin').git_files{}<CR>", {silent = true})
-map("n", "<Leader>ff", ":lua require('telescope.builtin').find_files{}<CR>", {silent = true})
-map("n", "<Leader>fF", ":lua require('telescope.builtin').find_files({ hidden = true })<CR>", {silent = true})
-map("n", "<Leader>fr", ":lua require('telescope.builtin').live_grep{}<CR>", {silent = true})
-map("n", "<Leader>bb", ":lua require('telescope.builtin').buffers{}<CR>", {silent = true})
-map("n", "<Leader>fb", ":lua require('telescope.builtin').current_buffer_fuzzy_find{}<CR>", {silent = true})
-map("n", "<Leader>ft", ":lua require('telescope.builtin').lsp_document_symbols{}<CR>", {silent = true})
-map("n", "<Leader>fT", ":lua require('telescope.builtin').lsp_workspace_symbols{}<CR>", {silent = true})
-map("n", "<Leader>fs", ":lua require('telescope.builtin').lsp_references{}<CR>", {silent = true})
-map("n", "<Leader>fq", ":lua require('telescope.builtin').quickfix{}<CR>", {silent = true})
-map("n", "<Leader>fe", ":lua require('telescope.builtin').treesitter{}<CR>", {silent = true})
-map("n", "<Leader>fm", ":lua require('telescope.builtin').marks(require('telescope.themes').get_dropdown())<CR>", {silent = true})
+map("n", "<leader>fg", ":lua require('telescope.builtin').git_files{}<CR>", {silent = true})
+map("n", "<leader>ff", ":lua require('telescope.builtin').find_files{}<CR>", {silent = true})
+map("n", "<leader>fF", ":lua require('telescope.builtin').find_files({ hidden = true })<CR>", {silent = true})
+map("n", "<leader>FF", ":lua require('telescope.builtin').file_browser({ hidden = true })<CR>", {silent = true})
+map("n", "<leader>fr", ":lua require('telescope.builtin').live_grep{}<CR>", {silent = true})
+map("n", "<leader>bb", ":lua require('telescope.builtin').buffers{}<CR>", {silent = true})
+map("n", "<leader>fb", ":lua require('telescope.builtin').current_buffer_fuzzy_find{}<CR>", {silent = true})
+map("n", "<leader>ft", ":lua require('telescope.builtin').lsp_document_symbols{}<CR>", {silent = true})
+map("n", "<leader>fT", ":lua require('telescope.builtin').lsp_workspace_symbols{}<CR>", {silent = true})
+map('n', '<leader>lc', ":lua require('telescope.builtin').lsp_code_actions{}<CR>", {silent = true})
+map("n", "<leader>fs", ":lua require('telescope.builtin').lsp_references{}<CR>", {silent = true})
+map("n", "<leader>fq", ":lua require('telescope.builtin').quickfix{}<CR>", {silent = true})
+map("n", "<leader>fe", ":lua require('telescope.builtin').treesitter{}<CR>", {silent = true})
+map("n", "<leader>fm", ":lua require('telescope.builtin').marks(require('telescope.themes').get_dropdown())<CR>", {silent = true})
