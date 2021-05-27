@@ -18,6 +18,7 @@ local custom_attach = function(client)
     map('n', '<leader>lk', ':lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     map('n', '<leader>lf', ':lua vim.lsp.buf.formatting_sync(nil, 1000)<CR>', opts)
     map('n', '<leader>ls', ':lua vim.lsp.buf.signature_help()<CR>', opts)
+    -- map('n', '<leader>lh', ':lua require("lsp_extensions").inlay_hints({prefix = "", highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"}})<CR>', opts)
 end
 
 local servers = {
@@ -31,6 +32,7 @@ local servers = {
   },
   yamlls = {},
   tsserver = {
+    cmd = { "tsserver" },
     root_dir = nvim_lsp.util.find_git_root or nvim_lsp.util.find_node_modules_root
   },
   jsonls = {
@@ -38,6 +40,7 @@ local servers = {
   },
   jdtls = {
     filetypes = { "java" },
+    cmd = { "jdtls" },
     root_dir = nvim_lsp.util.find_git_root
   },
   dockerls = {},
