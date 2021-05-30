@@ -21,15 +21,16 @@ return require('packer').startup(function()
         requires = {
             'nvim-lua/popup.nvim',
             'nvim-lua/plenary.nvim',
-            'nvim-treesitter/nvim-treesitter'
+            { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
         }
     }
-    use {
-        'nvim-treesitter/nvim-treesitter-refactor',
-        requires = {
-            'nvim-treesitter/nvim-treesitter'
-        }
-    }
+    -- use {
+    --     'nvim-treesitter/nvim-treesitter-refactor',
+    --     requires = {
+    --         'nvim-treesitter/nvim-treesitter'
+    --     },
+        
+    -- }
     use 'mhinz/vim-startify'
 
     -- text objects and motions
