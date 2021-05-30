@@ -14,6 +14,7 @@ g.nvim_tree_ignore = {'.git', 'node_modules', '.cache'}
 g.nvim_tree_auto_ignore_ft = {'startify'}
 g.nvim_tree_width = 40
 g.nvim_tree_width_allow_resize = 1
+g.nvim_tree_lsp_diagnostics = 1
 
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 g.nvim_tree_bindings = {
