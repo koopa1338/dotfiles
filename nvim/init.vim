@@ -199,4 +199,7 @@ xnoremap  > >gv
 " Example /\vtest|live highlights test and live
 nnoremap g/ /\v
 
+" format json
+command! -range=% Jsonfmt <line1>,<line2>!jq .
+
 lua require('init')
