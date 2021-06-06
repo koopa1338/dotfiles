@@ -9,7 +9,6 @@ return require('packer').startup(function()
     -- editing
     use 'tpope/vim-surround'
     use 'tpope/vim-commentary'
-    use 'svermeulen/vim-subversive'
 
     -- movement and search
     use 'junegunn/vim-slash'
@@ -24,13 +23,7 @@ return require('packer').startup(function()
             { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
         }
     }
-    -- use {
-    --     'nvim-treesitter/nvim-treesitter-refactor',
-    --     requires = {
-    --         'nvim-treesitter/nvim-treesitter'
-    --     },
-        
-    -- }
+
     use 'mhinz/vim-startify'
 
     -- text objects and motions
@@ -41,13 +34,14 @@ return require('packer').startup(function()
     use 'godlygeek/tabular'
 
     -- syntax and languages
-    use {'lervag/vimtex', ft = {'tex'}}
+    use {'lervag/vimtex', ft = { 'tex' } }
     use 'neovim/nvim-lspconfig'
     use 'nvim-lua/completion-nvim'
-    use 'rust-lang/rust.vim'
+    use {'rust-lang/rust.vim', ft = { 'rust' } }
 
     -- theme
     use 'deviantfero/wpgtk.vim'
+    use 'rktjmp/lush.nvim'
     use {
         'tjdevries/express_line.nvim',
         requires = {'nvim-lua/plenary.nvim'}
@@ -65,11 +59,7 @@ return require('packer').startup(function()
         'nvim-lua/plenary.nvim'
       }
     }
-
     use 'rhysd/committia.vim'
-
-    -- project management
-    use 'tpope/vim-projectionist'
 
     -- debugging
     use 'puremourning/vimspector'
