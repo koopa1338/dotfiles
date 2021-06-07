@@ -1,5 +1,5 @@
 vim.cmd [[packadd packer.nvim]]
-return require('packer').startup(function()
+return require('packer').startup({function()
     -- Packer
     use {'wbthomason/packer.nvim', opt = true}
 
@@ -63,4 +63,13 @@ return require('packer').startup(function()
 
     -- debugging
     use 'puremourning/vimspector'
-end)
+
+end,
+config = {
+  display = {
+    open_fn = function()
+      return require('packer.util').float({ border = 'single' })
+    end
+  }
+}
+})
