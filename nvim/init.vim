@@ -119,9 +119,6 @@ map <silent><C-c> <Esc>
 
 let g:titlecase_map_keys = 0
 
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
 " disable netrw
 let g:loaded_netrw       = 1
 let g:loaded_netrwPlugin = 1
@@ -179,7 +176,7 @@ noremap L $
 
 " make tab and shift + tab be useful
 nnoremap <M-o> :cn<CR>
-nnoremap <m-i> :cp<CR>
+nnoremap <M-i> :cp<CR>
 
 " moving lines also accepts count
 nnoremap <leader>k  :<c-u>execute 'move -1-'. v:count1<cr>

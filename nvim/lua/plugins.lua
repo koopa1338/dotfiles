@@ -36,8 +36,8 @@ return require('packer').startup({function()
     -- syntax and languages
     use {'lervag/vimtex', ft = { 'tex' } }
     use 'neovim/nvim-lspconfig'
-    use 'nvim-lua/completion-nvim'
     use {'rust-lang/rust.vim', ft = { 'rust' } }
+    use 'hrsh7th/nvim-compe'
 
     -- theme
     use 'deviantfero/wpgtk.vim'

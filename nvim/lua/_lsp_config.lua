@@ -1,12 +1,40 @@
 local nvim_lsp = require('lspconfig')
-local completion = require('completion')
 local map = require('utils').map
 local g = vim.g
 
+require('compe').setup {
+    enabled = true,
+    autocomplete = true,
+    debug = false,
+    min_length = 1,
+    preselect = 'enable',
+    throttle_time = 80,
+    source_timeout = 200,
+    incomplete_delay = 400,
+    max_abbr_width = 100,
+    max_kind_width = 100,
+    max_menu_width = 100,
+    documentation = true,
+    source = {
+        path = true,
+        buffer = true,
+        calc = true,
+        nvim_lsp = true,
+        nvim_lua = true,
+        vsnip = false,
+        ultisnips = false,
+    }
+}
+
+-- Use <Tab> and <S-Tab> to navigate through popup menu, CR for confirm
+map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', { expr = true })
+map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', { expr = true })
+map('i', '<CR>', 'compe#confirm("<CR>")', { expr = true })
+
+-- lsp config
 local opts = {silent = true}
 local custom_attach = function(client)
     vim.cmd("setlocal omnifunc=v:lua.vim.lsp.omnifunc")
-    completion.on_attach(client)
     map('n', '<leader>lD', ':lua vim.lsp.buf.declaration()<CR>', opts)
     map('n', '<leader>ld', ':lua vim.lsp.buf.definition()<CR>', opts)
     map('n', '<leader>li', ':lua vim.lsp.buf.implementation()<CR>', opts)
@@ -18,9 +46,9 @@ local custom_attach = function(client)
     map('n', '<leader>lk', ':lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     map('n', '<leader>lf', ':lua vim.lsp.buf.formatting_sync(nil, 1000)<CR>', opts)
     map('n', '<leader>ls', ':lua vim.lsp.buf.signature_help()<CR>', opts)
+    map('n', '<leader>lC', ':lua vim.lsp.buf.code_action()<CR>', opts)
     map('n', '<leader>lci', ':lua vim.lsp.buf.incoming_calls()<CR>', opts)
     map('n', '<leader>lco', ':lua vim.lsp.buf.outgoing_calls()<CR>', opts)
-    -- map('n', '<leader>lh', ':lua require("lsp_extensions").inlay_hints({prefix = "", highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"}})<CR>', opts)
 end
 
 local servers = {
