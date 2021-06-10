@@ -73,6 +73,9 @@ local servers = {
     cmd = { "jdtls" },
     root_dir = nvim_lsp.util.find_git_root
   },
+  texlab = {
+    cmd = { "texlab" },
+  },
   dockerls = {},
   rust_analyzer = {
     root_dir = nvim_lsp.util.root_pattern("Cargo.toml", "rust-project.json") or nvim_lsp.util.find_git_root
