@@ -33,7 +33,7 @@ map('i', '<CR>', 'compe#confirm("<CR>")', { expr = true })
 
 -- lsp config
 local opts = {silent = true}
-local custom_attach = function(client)
+local custom_attach = function()
     vim.cmd("setlocal omnifunc=v:lua.vim.lsp.omnifunc")
     map('n', '<leader>lD', ':lua vim.lsp.buf.declaration()<CR>', opts)
     map('n', '<leader>ld', ':lua vim.lsp.buf.definition()<CR>', opts)
