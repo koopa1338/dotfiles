@@ -109,7 +109,9 @@ local servers = {
       }
     }
   },
-  cssls = {},
+  cssls = {
+    cmd = { "css-languageserver", "--stdio" },
+  },
 }
 
 for server, config in pairs(servers) do
