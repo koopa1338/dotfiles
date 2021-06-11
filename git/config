@@ -18,14 +18,13 @@
 	cmi = cm --interactive
 	cmm = cm -m
 	co = checkout
-	f = fetch
-	fa = f --all
+	f = fetch --all
+	fc = f --all
 	fp = f -p
 	ll = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
 	lsa = !git ll --all
 	p = push
 	pf = p --force-with-lease
-	pr = p --rebase
 	rb = rebase
 	rba = rb --abort
 	rbc = rb --continue
@@ -42,8 +41,8 @@
     dc = d --cached
     ds = d --staged
     dst = d --stat
-    pl = pull
-    plr = pl --rebase
+    pl = pull --all
+    plc = pull
     pln = pl --rebase --no-autostash
     pub = !git push -u origin $(git branch --show-current)
     stl = stash list
