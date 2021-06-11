@@ -86,6 +86,7 @@ local servers = {
   },
   html = {},
   sumneko_lua = {
+    cmd = { "lua-language-server" },
     settings = {
       Lua = {
         runtime = {
