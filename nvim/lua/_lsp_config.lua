@@ -80,7 +80,17 @@ local servers = {
   rust_analyzer = {
     root_dir = nvim_lsp.util.root_pattern("Cargo.toml", "rust-project.json") or nvim_lsp.util.find_git_root
   },
-  gopls = {},
+  gopls = {
+    cmd = {"gopls", "serve"},
+    settings = {
+      gopls = {
+        analyses = {
+          unusedparams = true,
+        },
+        staticcheck = true,
+      },
+    }
+  },
   jedi_language_server = {
     root_dir = nvim_lsp.util.find_git_root
   },
