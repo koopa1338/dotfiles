@@ -138,8 +138,6 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-nnoremap <silent><leader><leader> :lua require("utils").quickfix_toggle()<CR>
-
 " buffers
 nmap <silent> <leader>bd :bdelete<CR>
 nmap <silent> <leader>bD :%bdelete<CR>

@@ -34,15 +34,4 @@ function M.zoom_toggle()
     end
 end
 
--- quickfix
-function M.quickfix_toggle()
-    for _, v in ipairs(vim.fn.tabpagebuflist()) do
-        if vim.api.nvim_buf_get_name(v) == '' then
-            vim.cmd("cclose")
-            return
-        end
-    end
-    vim.cmd("copen")
-end
-
 return M

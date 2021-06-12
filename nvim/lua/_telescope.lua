@@ -30,6 +30,7 @@ require('telescope').setup {
     sorting_strategy = "descending",
     scroll_strategy = "cycle",
     prompt_position = "top",
+    prompt_prefix = "  ",
   }
 }
 
@@ -44,6 +45,8 @@ map("n", "<leader>ft", ":lua require('telescope.builtin').lsp_document_symbols{}
 map("n", "<leader>fT", ":lua require('telescope.builtin').lsp_workspace_symbols{}<CR>", {silent = true})
 map('n', '<leader>lc', ":lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_ivy({previewer = false}))<CR>", {silent = true})
 map("n", "<leader>fs", ":lua require('telescope.builtin').lsp_references{}<CR>", {silent = true})
-map("n", "<leader>fq", ":lua require('telescope.builtin').quickfix(require('telescope.themes').get_ivy({previewer = false}))<CR>", {silent = true})
 map("n", "<leader>fe", ":lua require('telescope.builtin').treesitter{}<CR>", {silent = true})
 map("n", "<leader>fm", ":lua require('telescope.builtin').marks(require('telescope.themes').get_ivy())<CR>", {silent = true})
+
+map("n", "<leader><leader>q", ":lua require('telescope.builtin').quickfix()<CR>", {silent = true})
+map("n", "<leader><leader>l", ":lua require('telescope.builtin').loclist()<CR>", {silent = true})
