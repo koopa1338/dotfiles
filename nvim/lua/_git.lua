@@ -6,8 +6,8 @@ g.git_messenger_no_default_mappings = 1
 g.git_messenger_always_into_popup = 1
 
 map("n", "<Leader>gm", "<Plug>(git-messenger)", {silent = true})
-map("n", "<Leader>gl", ":GV<CR>", {silent = true})
-map("n", "<Leader>gL", ":GV!<CR>", {silent = true})
+map("n", "<Leader>gl", ":Gclog<CR>", {silent = true})
+map("n", "<Leader>gL", ":GV<CR>", {silent = true})
 map("n", "<Leader>gs", ":G<CR>", {silent = true})
 map("n", "<Leader>gD", ":Gdiff<CR>", {silent = true})
 map("n", "<Leader>gp", ":Git push<CR>", {silent = true})
