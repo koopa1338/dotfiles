@@ -1,11 +1,10 @@
 #!/bin/bash
 
-RESTORE='\033[0m'
 RED='\033[00;31m'
 YELLOW='\033[00;33m'
 BLUE='\033[00;34m'
 
-FORBIDDEN=( '@nocheckin' )
+FORBIDDEN=( '@nocheckin' '//nocheckin' '^[<>|=]{7,}' '#nocheckin' )
 FOUND=''
 
 for j in "${FORBIDDEN[@]}"
@@ -16,9 +15,9 @@ do
     # the trick is here...use `git show :file` to output what is staged
     # test it against each of the FORBIDDEN strings ($j)
 
-    if echo `git show :$i` | grep -q "$j"; then
+    if echo `git show :$i` | rg -q -e "$j"; then
 
-      FOUND+="${BLUE}$i ${RED}contains ${RESTORE}\"$j\"${RESTORE}\n"
+      FOUND+="${BLUE}$i ${RED}contains nocheckin or merge/rebase symbols\n"
 
     fi
   done
