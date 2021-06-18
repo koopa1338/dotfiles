@@ -195,6 +195,6 @@ xnoremap  > >gv
 nnoremap g/ /\v
 
 " format json
-command! -range=% Jsonfmt <line1>,<line2>!jq .
+command! -range=% Jsonfmt <line1>,<line2>!jql .
 
 lua require('init')
