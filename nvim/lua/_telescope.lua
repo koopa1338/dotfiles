@@ -26,6 +26,7 @@ require('telescope').setup {
       i = {
           ["<C-j>"] = actions.move_selection_next,
           ["<C-k>"] = actions.move_selection_previous,
+          ["<M-q>"] = actions.smart_send_to_qflist,
       }
     },
     selection_strategy = "reset",
