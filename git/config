@@ -18,9 +18,8 @@
 	cmi = cm --interactive
 	cmm = cm -m
 	co = checkout
-	f = fetch --all
-	fc = f --all
-	fp = f -p
+	f = fetch --all -v
+	fp = f -p -t -P -v
 	ll = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
 	lsa = !git ll --all
 	p = push
@@ -83,6 +82,9 @@
 
 [rebase]
     autoStash = true
+
+[merge]
+    conflictStyle = diff3
 
 [interactive]
     diffFilter = delta --color-only
