@@ -92,7 +92,9 @@ local servers = {
   jedi_language_server = {
     root_dir = nvim_lsp.util.find_git_root
   },
-  html = {},
+  html = {
+    cmd = {"html-languageserver", "--stdio"},
+  },
   sumneko_lua = {
     cmd = { "lua-language-server" },
     settings = {
