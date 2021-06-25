@@ -15,13 +15,13 @@ return require('packer').startup({function()
     use 'markonm/traces.vim'
 
     -- searching and file browsing
+    use 'nvim-lua/popup.nvim'
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use {
-        'nvim-lua/telescope.nvim',
+        'nvim-telescope/telescope-project.nvim',
         requires = {
-            'nvim-lua/popup.nvim',
-            'nvim-lua/plenary.nvim',
-            { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-        }
+            'nvim-lua/telescope.nvim',
+        },
     }
 
     use 'mhinz/vim-startify'

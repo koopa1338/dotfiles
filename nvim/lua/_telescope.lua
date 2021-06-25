@@ -2,6 +2,8 @@ local map = require('utils').map
 local actions = require('telescope.actions')
 local previewers = require('telescope.previewers')
 
+require'telescope'.load_extension('project')
+
 require('telescope').setup {
   defaults = {
     file_previewer = previewers.vim_buffer_cat.new,
@@ -31,6 +33,12 @@ require('telescope').setup {
     scroll_strategy = "cycle",
     prompt_position = "top",
     prompt_prefix = "  ",
+  },
+  extensions = {
+    project = {
+      base_dir = '~/Projects',
+      max_depth = 3
+    }
   }
 }
 
@@ -43,6 +51,7 @@ map("n", "<leader>bb", ":lua require('telescope.builtin').buffers(require('teles
 map("n", "<leader>fb", ":lua require('telescope.builtin').current_buffer_fuzzy_find({previewer = false})<CR>", {silent = true})
 map("n", "<leader>fe", ":lua require('telescope.builtin').treesitter{}<CR>", {silent = true})
 map("n", "<leader>fm", ":lua require('telescope.builtin').marks(require('telescope.themes').get_ivy())<CR>", {silent = true})
+map("n", "<leader>fp", ":lua require('telescope').extensions.project.project{ display_type = 'full' }<CR>", {silent = true})
 
 -- lsp bindings
 map("n", "<leader>ft", ":lua require('telescope.builtin').lsp_document_symbols{}<CR>", {silent = true})
