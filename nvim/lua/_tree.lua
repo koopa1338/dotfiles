@@ -18,11 +18,11 @@ g.nvim_tree_lsp_diagnostics = 1
 
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 g.nvim_tree_bindings = {
-    ["."] = tree_cb('cd'),
-    ["c"] = tree_cb('rename'),
-    ["y"] = tree_cb('copy'),
-    ["gn"] = tree_cb('next_git_item'),
-    ["gp"] = tree_cb('prev_git_item'),
+    { key = { "." }, cb = tree_cb('cd') },
+    { key = { "c" }, cb = tree_cb('rename') },
+    { key = { "y" }, cb = tree_cb('copy') },
+    { key = { "gn" }, cb = tree_cb("next_git_item") },
+    { key = { "gp" }, cb = tree_cb("prev_git_item") },
 }
 
 
