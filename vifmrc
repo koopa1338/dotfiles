@@ -1,0 +1,190 @@
+set vicmd=nvim      " use nvim as editor
+
+set wildmenu        " list completions
+set wildstyle=popup " list completions in a popup window
+
+set syscalls        " use syscalls instead of 
+set ignorecase      " search case insensitive
+set smartcase       " override ignorecase when regex contains upper case letter
+set nohlsearch      " no automatic search highlighting
+set incsearch       " display hits while typing
+set scrolloff=3     " lines above and below cursor
+set trash           " mv to trash directory instead of deleting
+set history=1000    " directory history size
+set sortnumbers     " enable natural sorting of numbers
+set undolevels=1000 " undo history size
+set number          " display line numbers
+set relativenumber  " display line numbers relative to cursor
+set tabstop=4
+
+set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
+    \phistory,fhistory,dirstack,registers,bookmarks,bmarks
+
+" APPEARANCE
+
+set statusline="%A %10u:%-7g %15s %20d"
+set timefmt="%H:%M %d.%m.%Y"
+
+set milleroptions=lsize:0,csize:1,rsize:1
+
+" file type icons
+set classify=' :dir:/, :exe:, :reg:, :link:'
+set classify+=' ::../::, ::*.sh::, ::*.[hc]pp::, ::*.[hc]::, ::/^copying|license$/::, ::.git/,,*.git/::, ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::, ::*.htm,,*.html,,**.[sx]html,,*.xml::'
+set classify+=' ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar,,*.lzh,,*.lzma,,*.rar,,*.rpm,,*.rz,,*.tar,,*.taz,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2,,*.xz,,*.z,,*.zip,,*.zoo::'
+set classify+=' ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.png,,*.ppm,,*.svg,,*.svgz,,*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd::'
+set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma,,*.ac3::'
+set classify+=' ::*.avi,,*.ts,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
+set classify+=' ::*.doc,,*.docx::, ::*.xls,,*.xls[mx]::, ::*.pptx,,*.ppt::'
+
+
+" file type actions
+
+filextype *.pdf zathura &
+fileviewer *.pdf pdftotext -nopgbrk %c -
+
+" Images
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
+        \ ristretto %f &,
+" fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
+"         \ imgt draw %px %py %pw %ph %c
+"         \ %pc
+"         \ imgt clear
+
+" fileviewer *.gif
+"         \ imgt gifpreview %px %py %pw %ph %c
+"         \ %pc
+"         \ imgt clear
+
+" Archives
+filetype *.zip unzip %f
+fileviewer *.zip,*.jar,*.war,*.ear zip -sf %c
+
+filetype *.tar,*.tar.bz2,*.tbz2,*.tgz,*.tar.gz tar -xf %f
+fileviewer *.tar,*.tar.bz2,*.tbz2,*.tgz,*.tar.gz tar -tf %f
+
+" Docs
+filextype *.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx,*.ppt,*.ods
+    \ libreoffice %f &
+
+" Video
+filextype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
+         \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
+         \*.as[fx]
+        \ mpv --really-quiet %f &,
+" fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
+"         \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx
+"         \ imgt videopreview %px %py %pw %ph %c
+"         \ %pc
+"         \ imgt clear
+
+" Audio
+filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
+       \ mpv %f,
+fileviewer *.mp3 mp3info
+fileviewer *.flac soxi
+
+" Web
+filetype *.html,*.htm
+            \ firefox %f &,
+
+
+fileviewer *.html,*.htm,*.md,*.txt,*.yml,*.toml,*.json,*.adoc,
+            \ bat %f
+
+" Object
+filetype *.o nm %f | less
+
+" Man page
+filetype *.[1-8] man ./%c
+fileviewer *.[1-8] man ./%c | col -b
+
+" SHA1
+filetype *.sha1
+       \ sha1sum -c %f %S,
+
+" SHA256
+filetype *.sha256
+       \ sha256sum -c %f %S,
+
+" SHA512
+filetype *.sha512
+       \ sha512sum -c %f %S,
+
+" GPG signature
+filetype *.asc
+       \ !!gpg --verify %c,
+
+" Directories
+
+filextype */
+        \ Thunar %f &,
+
+filetype */
+        \ ncdu %f
+
+fileviewer */
+        \ tre -l 2 %f
+
+" THEME
+
+highlight clear
+
+highlight Border	cterm=none	ctermfg=default	ctermbg=default
+
+highlight TopLine	cterm=none	ctermfg=6	ctermbg=default
+highlight TopLineSel	cterm=bold	ctermfg=14	ctermbg=8
+
+highlight Win		cterm=none	ctermfg=default	ctermbg=default
+highlight OtherWin  cterm=none	ctermfg=default	ctermbg=default
+highlight Directory	cterm=bold	ctermfg=1	ctermbg=default
+highlight CurrLine	cterm=bold,inverse	ctermfg=1	ctermbg=default
+highlight OtherLine	cterm=bold	ctermfg=default	ctermbg=8
+highlight Selected	cterm=none	ctermfg=13	ctermbg=8
+
+highlight JobLine	cterm=bold	ctermfg=13	ctermbg=8
+highlight StatusLine	cterm=bold	ctermfg=14	ctermbg=8
+highlight ErrorMsg	cterm=bold	ctermfg=11	ctermbg=default
+highlight WildMenu	cterm=bold	ctermfg=8	ctermbg=9
+highlight CmdLine	cterm=none	ctermfg=5	ctermbg=default
+
+highlight Executable	cterm=bold	ctermfg=3	ctermbg=default
+highlight Link		cterm=none	ctermfg=12	ctermbg=default
+highlight BrokenLink	cterm=bold	ctermfg=5	ctermbg=default
+highlight Device	cterm=none,standout	ctermfg=4	ctermbg=default
+highlight Fifo		cterm=none	ctermfg=15	ctermbg=default
+highlight Socket	cterm=bold	ctermfg=10	ctermbg=default
+
+" ====================================================================================
+
+" Sample mappings
+
+" Start shell in current directory
+nnoremap s :shell<cr>
+
+" Display sorting dialog
+nnoremap S :sort<cr>
+
+" Toggle visibility of preview window
+nnoremap w :view<cr>
+vnoremap w :view<cr>gv
+
+" Mappings for faster renaming
+nnoremap I cw<c-a>
+nnoremap cc cw<c-u>
+nnoremap A cw
+
+" Open editor to edit vifmrc and apply settings after returning to vifm
+nnoremap ,c :write | edit $MYVIFMRC | restart<cr>
+
+" Commands
+command link ln -s %d/%f %D
+command diff nvim -d %f %F
+
+" yank current directory path into the clipboard
+nnoremap yd :!echo -n %d | xclip -selection clipboard %i<cr>:echo expand('%"d') "is yanked to clipboard"<cr>
+
+" yank current file path into the clipboard
+nnoremap yf :!echo -n %c:p | xclip -selection clipboard %i<cr>:echo expand('%"c:p') "is yanked to clipboard"<cr>
+
+" yank current filename without path into the clipboard
+nnoremap yn :!echo -n %c | xclip -selection clipboard %i<cr>:echo expand('%"c') "is yanked to clipboard"<cr>
