@@ -39,6 +39,7 @@ bspc config gapless_monocle true
 bspc config click_to_focus button1
 bspc config focus_follows_pointer true
 bspc config remove_disabled_monitors true
+bspc config pointer_follows_monitor true
 
 bspc config border_width 4
 bspc config window_gap 8

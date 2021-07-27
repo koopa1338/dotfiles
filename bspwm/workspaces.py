@@ -8,7 +8,8 @@ def set_monitor_workspaces():
     for i, m in enumerate(get_monitors()):
         pre = ""
         if i > 0:
-            pre = f"数{i}".translate(subscript)
+            pre = f"数"
+            pre += f"{i}".translate(subscript)
         cmd = f"bspc monitor {m.name} -d" 
         for ws in ws_names:
             cmd += f" {pre}{ws}"

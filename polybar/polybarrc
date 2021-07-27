@@ -21,22 +21,14 @@ col = #00f
 bar-width = 100%
 bar-height = 30
 
-;bar-offset-x = 14
-;bar-top-gap = 6 
 bar-bottom-gap = 0
 
 [bar/mon1]
-;monitor = ${env:MONITOR:HDMI-1}
-;monitor = ${env:MONITOR}
-
 locale = de_DE.UTF-8
 monitor = ${env:MONITOR:eDP}
 bottom = false
 width = ${sizes.bar-width}
 height = ${sizes.bar-height}
-;offset-x = 100
-;offset-y = 0
-;radius = 10.0
 fixed-center = true
 
 background = ${colors.background}
@@ -44,12 +36,6 @@ foreground = ${colors.foreground}
 
 line-size = 3
 line-color = #f00
-
-;border-left-size = ${sizes.bar-offset-x} 
-;border-top-size = ${sizes.bar-top-gap}
-;border-size = 0
-;border-bottom-size = ${sizes.bar-bottom-gap}
-;border-color = #00000000
 
 padding-left = 0
 padding-right = 1
@@ -62,26 +48,52 @@ font-1 = Monapo:size=14;0
 font-2 = Noto Mono for Powerline:pixelsize=14;1
 
 modules-left = bspwm
-modules-center = volume
+modules-center = alsa
 modules-right = battery temperature memory date
 
 tray-position = right
 tray-padding = 1
-;tray-offset-x = 200
-tray-transparent = false
-;tray-background = ${colors.primary}
 tray-detached = false
 
 wm-restack = bspwm
-;wm-restack = i3
-
-;override-redirect = true
 
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
 
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
+[bar/mon2]
+locale = de_DE.UTF-8
+monitor = ${env:MONITOR}
+bottom = false
+width = ${sizes.bar-width}
+height = ${sizes.bar-height}
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+padding-left = 0
+padding-right = 1
+
+module-margin-left = 0
+module-margin-right = 1
+
+font-0 = Inconsolata Nerd Font:size=14;0
+font-1 = Monapo:size=14;0
+font-2 = Noto Mono for Powerline:pixelsize=14;1
+
+modules-left = bspwm
+
+tray-position = right
+tray-padding = 1
+tray-detached = false
+
+wm-restack = bspwm
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
 
 [module/filesystem]
 type = internal/fs
@@ -164,11 +176,6 @@ label-urgent-padding = 2
 type = internal/mpd
 format-online = <label-song> <label-time> <toggle>
 
-;icon-prev = 
-;icon-stop = 
-;icon-play = 
-;icon-pause = 
-;icon-next = 
 icon-prev = <<
 icon-stop = X
 icon-play-prefix = #f00
@@ -229,11 +236,9 @@ interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = ${colors.primary}
-;format-connected-underline = #9f78e1
 label-connected = %essid%
 
 format-disconnected =
-;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
@@ -251,13 +256,11 @@ interface = enp4s0
 interval = 3.0
 
 format-connected-underline = ${colors.primary}
-;format-connected-underline = #55aa55
 format-connected-prefix = ""
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
 format-disconnected =
-;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
@@ -267,28 +270,20 @@ type = internal/date
 interval = 5
 
 date = "  %a %d.%m.%Y - KW %V"
-;date-alt = " %a, %b %d, %Y at %I:%M%p"
-;date-alt = " %Y-%m-%d"
-
 time = "  %H:%M"
-;time-alt = %H:%M:%S
-;time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.primary}
-;format-underline = #0a6cf5
 
 label = %time%  %date%
 
-[module/volume]
-type = internal/volume
+[module/alsa]
+type = internal/alsa
 
 format-volume = <ramp-volume> <bar-volume>
-;  label-volume = "  "
 label-volume-foreground = ${root.foreground}
 
-;format-muted-prefix = " " 
 format-muted-foreground = ${colors.foreground-alt}
 label-muted = "  " 
 
@@ -320,7 +315,6 @@ adapter = AC
 full-at = 95
 
 format-charging = <animation-charging> <label-charging>
-#format-charging = <animation-charging> <label-charging>
 format-charging-underline = ${colors.primary}
 
 format-discharging = <ramp-capacity> <label-discharging>
@@ -355,12 +349,11 @@ warn-temperature = 85
 format =  <label>
 format-prefix = " "
 format-underline = ${colors.primary}
-;format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
-label = %temperature%
-label-warn = %temperature%
+label = %temperature-c%
+label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
 ramp-0 = 
@@ -370,10 +363,6 @@ ramp-foreground = ${colors.foreground-alt}
 
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
 
 [global/wm]
 margin-top = 5

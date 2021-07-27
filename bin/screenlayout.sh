@@ -9,7 +9,7 @@ twoscreen() { # If multi-monitor is selected and there are two screens.
 	secondary=$(echo "$screens" | grep -v "$primary")
 	direction=$(printf "above\\nleft-of\\nright-of\\nbelow" | rofi -dmenu -i -p "What side of $primary should $secondary be on?")
 	ressecondary=$(echo "$screenres" | rofi -dmenu -i -p "Select resolution for secondary screen")
-	xrandr --output "$primary" --auto --output "$secondary" --"$direction" "$primary" --mode "$ressecondary" ; polybar_launch&
+	xrandr --output "$primary" --primary  --auto --output "$secondary" --"$direction" "$primary" --mode "$ressecondary" ; polybar_launch&
 	}
 
 morescreen() { # If multi-monitor is selected and there are more than two screens.
@@ -19,7 +19,7 @@ morescreen() { # If multi-monitor is selected and there are more than two screen
 	direction=$(printf "above\\nleft-of\\nright-of\\nbelow" | rofi -dmenu -i -p "What side of $primary should $secondary be on?")
 	tertiary=$(echo "$screens" | grep -v "$primary" | grep -v "$secondary" | rofi -dmenu -i -p "Select third display:")
 	restertiary=$(echo "$screenres" | rofi -dmenu -i -p "Select resolution for tertiary screen")
-	xrandr --output "$primary" --auto --output "$secondary" --"$direction" "$primary" --mode "$ressecondary" --output "$tertiary" --"$(printf "above\\nleft-of\\nright-of\\nbelow" | grep -v "$direction")" "$primary" --mode "$restertiary" ; polybar_launch&
+	xrandr --output "$primary" --primary --auto --output "$secondary" --"$direction" "$primary" --mode "$ressecondary" --output "$tertiary" --"$(printf "above\\nleft-of\\nright-of\\nbelow" | grep -v "$direction")" "$primary" --mode "$restertiary" ; polybar_launch&
 	}
 
 multimon() { # Multi-monitor handler.
@@ -43,6 +43,6 @@ chosen=$(printf "multi-monitor\\nmanual selection\\n%s" "$screens" | rofi -dmenu
 case "$chosen" in
 	"manual selection") arandr ; exit ;;
 	"multi-monitor") multimon ;;
-	*) xrandr --output "$chosen" --auto $(echo "$screens" | grep -v "$chosen" | awk '{print "--output", $1, "--off"}' | tr '\n' ' ') ; polybar_launch& ;;
+	*) xrandr --output "$chosen" --primary --auto $(echo "$screens" | grep -v "$chosen" | awk '{print "--output", $1, "--off"}' | tr '\n' ' ') ; polybar_launch& ;;
 esac
 sleep 2
