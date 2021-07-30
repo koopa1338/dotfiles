@@ -30,9 +30,9 @@ alias cpc="cleanpaccache"
 alias ipe="curl ipinfo.io/country; and curl ipinfo.io/ip"
 alias lsenum="exa | wc -l"
 alias speed="speedtest --simple"
+alias kxc="keepassxc-cli"
 
 # Abbreveations
-abbr sdv "sudo -E nvim"
-abbr sde "sudo -E"
+abbr sde "sudoedit"
 abbr g "git"
 abbr scl "systemctl"
