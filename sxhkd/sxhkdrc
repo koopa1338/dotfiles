@@ -26,7 +26,8 @@ super + {_,shift + }p
     screenshot {full, selection}
 
 XF86MyComputer{ + shift }
-    {thunar, st -e vifm}
+    {alacritty -e vifm, thunar}
+
 # make sxhkd reload its configuration files:
 # super + Escape
 # 	pkill -USR1 -x sxhkd
@@ -79,10 +80,9 @@ super + g
 #
 # state/flags
 
-
 # set the window state
-super + f
-	bspc desktop -l next
+super + f {f, space}
+	bspc node -t {tiled,fullscreen}
 
 # set the node flags
 super + {m,x,y}
