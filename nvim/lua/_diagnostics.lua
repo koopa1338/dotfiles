@@ -1,4 +1,3 @@
-local command = vim.api.nvim_command
 local sign_define = vim.fn.sign_define
 local g = vim.g
 
