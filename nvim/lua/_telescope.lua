@@ -55,10 +55,13 @@ map("n", "<leader>fm", ":lua require('telescope.builtin').marks(require('telesco
 map("n", "<leader>fp", ":lua require('telescope').extensions.project.project{ display_type = 'full' }<CR>", {silent = true})
 
 -- lsp bindings
-map("n", "<leader>ft", ":lua require('telescope.builtin').lsp_document_symbols{}<CR>", {silent = true})
-map("n", "<leader>fT", ":lua require('telescope.builtin').lsp_workspace_symbols{}<CR>", {silent = true})
-map('n', '<leader>lC', ":lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_ivy({previewer = false}))<CR>", {silent = true})
-map("n", "<leader>lr", ":lua require('telescope.builtin').lsp_references{}<CR>", {silent = true})
+map("n", "<leader>ts", ":lua require('telescope.builtin').lsp_document_symbols{}<CR>", {silent = true})
+map("n", "<leader>tS", ":lua require('telescope.builtin').lsp_workspace_symbols{}<CR>", {silent = true})
+map('n', '<leader>tc', ":lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_ivy({previewer = false}))<CR>", {silent = true})
+map("n", "<leader>tr", ":lua require('telescope.builtin').lsp_references{}<CR>", {silent = true})
+map("n", "<leader>td", ":lua require('telescope.builtin').lsp_document_diagnostics{}<CR>", {silent = true})
+map("n", "<leader>tD", ":lua require('telescope.builtin').lsp_workspace_diagnostics{}<CR>", {silent = true})
+map("n", "<leader>li", ":lua require('telescope.builtin').lsp_implementations{}<CR>", {silent = true})
 
 map("n", "<leader><leader>q", ":lua require('telescope.builtin').quickfix()<CR>", {silent = true})
 map("n", "<leader><leader>l", ":lua require('telescope.builtin').loclist()<CR>", {silent = true})
