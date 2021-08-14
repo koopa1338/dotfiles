@@ -81,8 +81,8 @@ super + g
 # state/flags
 
 # set the window state
-super + f {f, space}
-	bspc node -t {tiled,fullscreen}
+super + f
+    bspc node focused.tiled -t fullscreen || bspc node focused.fullscreen -t tiled
 
 # set the node flags
 super + {m,x,y}
