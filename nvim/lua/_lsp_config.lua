@@ -94,8 +94,12 @@ local servers = {
   },
 }
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 for server, config in pairs(servers) do
     config.on_attach = custom_attach
+    config.capabilities = capabilities
     nvim_lsp[server].setup(config)
 end
 
