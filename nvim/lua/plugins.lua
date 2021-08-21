@@ -38,6 +38,7 @@ return require('packer').startup({function()
     use 'neovim/nvim-lspconfig'
     use {'rust-lang/rust.vim', ft = { 'rust' } }
     use 'hrsh7th/nvim-compe'
+    use 'L3MON4D3/LuaSnip'
 
     -- theme
     use 'deviantfero/wpgtk.vim'
