@@ -7,18 +7,18 @@ g.diagnostic_trimmed_virtual_text = "40"
 g.diagnostic_insert_delay = 1
 
 sign_define(
-    "LspDiagnosticsErrorSign",
-    {text = "", texthl = "LspDiagnosticsError"}
+    "LspDiagnosticsSignError",
+    {text = "", texthl = "LspDiagnosticsSignError"}
 )
 sign_define(
-    "LspDiagnosticsWarningSign",
-    {text = "", texthl = "LspDiagnosticsWarning"}
+    "LspDiagnosticsSignWarning",
+    {text = "", texthl = "LspDiagnosticsSignWarning"}
 )
 sign_define(
-    "LspDiagnosticsInformationSign",
-    {text = "כֿ", texthl = "LspDiagnosticsInformation"}
+    "LspDiagnosticsSignInformation",
+    {text = "כֿ", texthl = "LspDiagnosticsSignInformation"}
 )
 sign_define(
-    "LspDiagnosticsHintSign",
-    {text = "➤", texthl = "LspDiagnosticsHint"}
+    "LspDiagnosticsSignHint",
+    {text = "➤", texthl = "LspDiagnosticsSignHint"}
 )
