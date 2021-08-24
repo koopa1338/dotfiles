@@ -1,7 +1,24 @@
-vim.cmd [[packadd packer.nvim]]
-return require('packer').startup({function()
+local fn, api = vim.fn, vim.api
+-- Install packer
+local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+
+if fn.empty(fn.glob(install_path)) > 0 then
+  fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+end
+
+api.nvim_exec(
+    [[
+        augroup Packer
+        autocmd!
+        autocmd BufWritePost init.lua PackerCompile
+        augroup end
+    ]],
+  false
+)
+
+return require('packer').startup({function(use)
     -- Packer
-    use {'wbthomason/packer.nvim', opt = true}
+    use {'wbthomason/packer.nvim'}
 
     -- libs
     use 'tpope/vim-repeat'
