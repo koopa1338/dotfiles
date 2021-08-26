@@ -43,9 +43,9 @@ require('telescope').setup {
   }
 }
 
-map("n", "<leader>fg", ":lua require('telescope.builtin').git_files{}<CR>", {silent = true})
-map("n", "<leader>ff", ":lua require('telescope.builtin').fd{}<CR>", {silent = true})
-map("n", "<leader>fF", ":lua require('telescope.builtin').fd({ hidden = true, no_ignore = true })<CR>", {silent = true})
+map("n", "<leader>fg", ":lua require('telescope.builtin').git_files(require('telescope.themes').get_dropdown())<CR>", {silent = true})
+map("n", "<leader>ff", ":lua require('telescope.builtin').fd(require('telescope.themes').get_ivy())<CR>", {silent = true})
+map("n", "<leader>fF", ":lua require('telescope.builtin').fd(require('telescope.themes').get_ivy({ hidden = true, no_ignore = true }))<CR>", {silent = true})
 map("n", "<leader>FF", ":lua require('telescope.builtin').file_browser({ hidden = true })<CR>", {silent = true})
 map("n", "<leader>fr", ":lua require('telescope.builtin').live_grep{}<CR>", {silent = true})
 map("n", "<leader>bb", ":lua require('telescope.builtin').buffers(require('telescope.themes').get_ivy())<CR>", {silent = true})
