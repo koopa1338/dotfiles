@@ -1,10 +1,11 @@
 require('plugins')
-local o, g, v, cmd, fn = vim.opt, vim.g, vim.v, vim.cmd, vim.fn
+local g, v, cmd, fn = vim.g, vim.v, vim.cmd, vim.fn
+local o = vim.opt
+local og = vim.opt_global
 
 -- encoding
-g.encoding = 'utf-8'
-g.fileencoding = 'utf-8'
-g.scritpencoding = 'utf-8'
+og.encoding = 'utf-8'
+og.fileencoding = 'utf-8'
 
 -- general settings
 cmd [[
@@ -14,12 +15,14 @@ cmd [[
 
     command! -range=% Jsonfmt <line1>,<line2>!jql .
 ]]
-g.nocompatible = true
+
+-- globals
 g.mapleader = ' '
 g.mousehide = true
-g.notimeout = true
-g.nottimeout = true
-o.backspace = 'indent,eol,start'
+
+o.timeout = false
+o.ttimeout = false
+o.backspace = { 'indent', 'eol', 'start' }
 o.showmatch = true
 o.whichwrap = 'b,s,h,l,<,>,<,>'
 o.scrolljump = 10
@@ -40,12 +43,21 @@ o.inccommand = 'split'
 o.splitbelow = true
 o.splitright = true
 
-o.clipboard = o.clipboard + 'unnamedplus'
-o.formatoptions = 'cqrnj1'
-g.noswapfile = true
-o.spelllang = 'de_de,en_us'
-g.nobackup = true
-g.nowritebackup = true
+o.clipboard = 'unnamedplus'
+o.formatoptions = o.formatoptions
+  - "a" -- Auto formatting is BAD.
+  - "t" -- Don't auto format my code. I got linters for that.
+  + "c" -- In general, I like it when comments respect textwidth
+  + "q" -- Allow formatting comments w/ gq
+  - "o" -- O and o, don't continue comments
+  + "r" -- But do continue when pressing enter.
+  + "n" -- Indent past the formatlistpat, not underneath it.
+  + "j" -- Auto-remove comments if possible.
+  - "2" -- I'm not in gradeschool anymore
+o.swapfile = false
+o.spelllang = { 'de_de', 'en_us' }
+o.backup = false
+o.writebackup = false
 
 -- line numbers
 o.rnu = true
@@ -60,11 +72,11 @@ o.smartcase = true
 
 -- wildmenu
 o.wildmenu = true
-o.wildmode = 'longest:full,full'
+o.wildmode = { 'longest:full', 'full' }
 o.wildoptions = 'pum'
-o.completeopt = 'menuone,noinsert,noselect'
+o.completeopt = { 'menuone', 'noinsert', 'noselect' }
 o.cpoptions = o.cpoptions + 'n'
-g.noinfercase = true
+o.infercase = false
 o.shortmess = o.shortmess + 'c'
 
 -- formatting
@@ -74,7 +86,7 @@ o.shiftwidth = 4
 o.expandtab = true
 o.tabstop = 4
 o.softtabstop =4
-g.nojoinspaces = true
+o.joinspaces = false
 o.splitright = true
 o.splitbelow = true
 o.laststatus = 2
@@ -93,6 +105,9 @@ g.loaded_netrwPlugin = 1
 
 -- tex falvor
 g.tex_flavor = "latex"
+
+-- luasnip
+g.snippets = 'luasnip'
 
 if v.version > 701 then
     cmd [[
