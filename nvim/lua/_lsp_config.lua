@@ -1,7 +1,8 @@
 local nvim_lsp = require('lspconfig')
+local status = require("_lsp_status")
+local nvim_status = require('lsp-status')
 local path = nvim_lsp.util.path
 local map = require('utils').map
-local g = vim.g
 
 
 local function get_python_path()
@@ -21,10 +22,15 @@ local function get_python_path()
   return vim.fn.exepath('python3') or vim.fn.exepath('python') or 'python'
 end
 
+status.activate()
+
 -- lsp config
 local opts = {silent = true}
-local custom_attach = function()
-    vim.cmd("setlocal omnifunc=v:lua.vim.lsp.omnifunc")
+local custom_attach = function(client)
+
+    nvim_status.on_attach(client)
+    vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"
+
     map('n', '<leader>lD', ':lua vim.lsp.buf.declaration()<CR>', opts)
     map('n', '<leader>ld', ':lua vim.lsp.buf.definition()<CR>', opts)
     map('n', '<leader>lt', ':lua vim.lsp.buf.type_definition()<CR>', opts)
@@ -132,9 +138,6 @@ for server, config in pairs(servers) do
     nvim_lsp[server].setup(config)
 end
 
-g.indicator_errors = ''
-g.indicator_warnings = ''
-g.indicator_info = '🛈'
-g.indicator_hint = '!'
-g.indicator_ok = ''
-g.spinner_frames = {'⣾', '⣽', '⣻', '⢿', '⡿', '⣟', '⣯', '⣷'}
+
+
+

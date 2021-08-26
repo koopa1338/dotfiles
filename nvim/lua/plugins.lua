@@ -53,6 +53,7 @@ return require('packer').startup({function(use)
     -- syntax and languages
     use {'lervag/vimtex', ft = { 'tex' } }
     use 'neovim/nvim-lspconfig'
+    use "wbthomason/lsp-status.nvim"
     use {'rust-lang/rust.vim', ft = { 'rust' } }
     use 'hrsh7th/nvim-compe'
     use 'L3MON4D3/LuaSnip'

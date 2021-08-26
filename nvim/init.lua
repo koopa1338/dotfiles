@@ -131,6 +131,7 @@ cmd [[
 require('_mappings')
 require('_packages')
 require('_lsp_config')
+require('_lsp_status')
 require('_diagnostics')
 require('_treesitter')
 require('_telescope')
