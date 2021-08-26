@@ -30,6 +30,13 @@ return require('packer').startup({function(use)
     -- movement and search
     use 'junegunn/vim-slash'
     use 'markonm/traces.vim'
+    use {
+      "tpope/vim-scriptease",
+      cmd = {
+        "Messages", --view messages in quickfix list
+        "Verbose", -- view verbose output in preview window.
+      },
+    }
 
     -- searching and file browsing
     use 'nvim-lua/popup.nvim'
