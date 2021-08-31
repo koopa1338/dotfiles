@@ -70,11 +70,21 @@ _G.s_tab_complete = function()
   end
 end
 
+_G.esc_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t '<cmd>lua require("compe")._close()<CR>'
+  else
+    return t '<Esc>'
+  end
+end
+
 -- Map tab to the above tab complete functiones
 map('i', '<Tab>', 'v:lua.tab_complete()', { expr = true })
 map('s', '<Tab>', 'v:lua.tab_complete()', { expr = true })
 map('i', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true })
 map('s', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true })
+map('i', '<Esc>', 'v:lua.esc_complete()', { expr = true })
+map('s', '<Esc>', 'v:lua.esc_complete()', { expr = true })
 
 -- Map compe confirm and complete functions
 map('i', '<cr>', 'compe#confirm("<cr>")', { expr = true })
