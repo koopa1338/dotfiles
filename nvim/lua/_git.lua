@@ -17,29 +17,29 @@ map("n", "<Leader>gj", ":diffget //3<CR>", {silent = true})
 -- git signs
 --
 require('gitsigns').setup {
-  signs = {
-    add          = {hl = 'GitSignsAdd'   , text = '', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
-    change       = {hl = 'GitSignsChange', text = '勒', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-    delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-    topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-    changedelete = {hl = 'GitSignsChange', text = 'ﳺ', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-  },
-  numhl = true,
-  linehl = false,
-  keymaps = {
-    -- Default keymap options
-    noremap = true,
-    buffer = true,
+    signs = {
+        add          = {hl = 'GitSignsAdd'   , text = '', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+        change       = {hl = 'GitSignsChange', text = '勒', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+        delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+        topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+        changedelete = {hl = 'GitSignsChange', text = 'ﳺ', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+    },
+    numhl = true,
+    linehl = false,
+    keymaps = {
+        -- Default keymap options
+        noremap = true,
+        buffer = true,
 
-  },
-  watch_index = {
-    interval = 1000
-  },
-  current_line_blame = false,
-  sign_priority = 6,
-  update_debounce = 100,
-  status_formatter = nil, -- Use default
-  use_internal_diff = true,  -- If luajit is present
+    },
+    watch_index = {
+        interval = 1000
+    },
+    current_line_blame = false,
+    sign_priority = 6,
+    update_debounce = 100,
+    status_formatter = nil, -- Use default
+    use_internal_diff = true,  -- If luajit is present
 }
 
 map("n", "<leader>gB", ":lua require('gitsigns').blame_line()<CR>", {silent = true})

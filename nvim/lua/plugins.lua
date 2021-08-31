@@ -3,17 +3,17 @@ local fn, api = vim.fn, vim.api
 local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
-  fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+    fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 end
 
 api.nvim_exec(
     [[
-        augroup Packer
-        autocmd!
-        autocmd BufWritePost init.lua PackerCompile
-        augroup end
+    augroup Packer
+    autocmd!
+    autocmd BufWritePost init.lua PackerCompile
+    augroup end
     ]],
-  false
+    false
 )
 
 return require('packer').startup({function(use)
@@ -31,11 +31,11 @@ return require('packer').startup({function(use)
     use 'junegunn/vim-slash'
     use 'markonm/traces.vim'
     use {
-      "tpope/vim-scriptease",
-      cmd = {
-        "Messages", --view messages in quickfix list
-        "Verbose", -- view verbose output in preview window.
-      },
+        "tpope/vim-scriptease",
+        cmd = {
+            "Messages", --view messages in quickfix list
+            "Verbose", -- view verbose output in preview window.
+        },
     }
 
     -- searching and file browsing
@@ -80,10 +80,10 @@ return require('packer').startup({function(use)
     use 'tpope/vim-fugitive'
     use 'rhysd/git-messenger.vim'
     use {
-      'lewis6991/gitsigns.nvim',
-      requires = {
-        'nvim-lua/plenary.nvim'
-      }
+        'lewis6991/gitsigns.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim'
+        }
     }
     use 'rhysd/committia.vim'
 
@@ -91,11 +91,11 @@ return require('packer').startup({function(use)
     use 'puremourning/vimspector'
 
 end,
-config = {
-  display = {
-    open_fn = function()
-      return require('packer.util').float({ border = 'single' })
-    end
-  }
-}
+    config = {
+        display = {
+            open_fn = function()
+                return require('packer.util').float({ border = 'single' })
+            end
+        }
+    }
 })
