@@ -27,6 +27,9 @@ require('compe').setup {
     }
 }
 
+-- get friendly-snippets to work with LuaSnip
+require("luasnip/loaders/from_vscode").lazy_load()
+
 -- Utility functions for compe and luasnip
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
