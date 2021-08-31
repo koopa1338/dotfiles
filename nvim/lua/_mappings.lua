@@ -7,8 +7,10 @@ map("", "<C-c>", "<Esc>", {silent = true, noremap = false})
 -- buffers
 map("n", "<leader>bd", ":bdelete<CR>", {silent = true, noremap = false})
 map("n", "<leader>bD", ":%bdelete<CR>", {silent = true, noremap = false})
+map("n", "<leader>BD", ":.+,$bdelete<CR>", {silent = true, noremap = false})
 map("n", "<leader>bw", ":bwipeout<CR>", {silent = true, noremap = false})
 map("n", "<leader>bW", ":%bwipeout<CR>", {silent = true, noremap = false})
+map("n", "<leader>BW", ":.+,$bwipeout<CR>", {silent = true, noremap = false})
 
 -- windows
 map("n", "<leader>wo", ":only<CR>", {silent= true, noremap = false})

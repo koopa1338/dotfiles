@@ -5,42 +5,38 @@ local previewers = require('telescope.previewers')
 require'telescope'.load_extension('project')
 
 require('telescope').setup {
-  defaults = {
-    file_previewer = previewers.vim_buffer_cat.new,
-    grep_previewer = previewers.vim_buffer_vimgrep.new,
-    qflist_previewer = previewers.vim_buffer_qflist.new,
-    layout_strategy = 'flex',
-    layout_config = {
-      prompt_position = "top",
-      horizontal = {
-        -- width_padding = 0.1,
-        -- height_padding = 0.1,
-        preview_width = 0.6,
-      },
-      vertical = {
-        -- width_padding = 0.1,
-        -- height_padding = 1,
-        preview_height = 0.5,
-      }
+    defaults = {
+        file_previewer = previewers.vim_buffer_cat.new,
+        grep_previewer = previewers.vim_buffer_vimgrep.new,
+        qflist_previewer = previewers.vim_buffer_qflist.new,
+        layout_strategy = 'flex',
+        layout_config = {
+            prompt_position = "top",
+            horizontal = {
+                preview_width = 0.6,
+            },
+            vertical = {
+                preview_height = 0.5,
+            }
+        },
+        mappings = {
+            i = {
+                ["<C-j>"] = actions.move_selection_next,
+                ["<C-k>"] = actions.move_selection_previous,
+                ["<M-q>"] = actions.smart_send_to_qflist,
+            }
+        },
+        selection_strategy = "reset",
+        sorting_strategy = "descending",
+        scroll_strategy = "cycle",
+        prompt_prefix = "  ",
     },
-    mappings = {
-      i = {
-          ["<C-j>"] = actions.move_selection_next,
-          ["<C-k>"] = actions.move_selection_previous,
-          ["<M-q>"] = actions.smart_send_to_qflist,
-      }
-    },
-    selection_strategy = "reset",
-    sorting_strategy = "descending",
-    scroll_strategy = "cycle",
-    prompt_prefix = "  ",
-  },
-  extensions = {
-    project = {
-      base_dir = '~/Projects',
-      max_depth = 3
+    extensions = {
+        project = {
+            base_dir = '~/Projects',
+            max_depth = 3
+        }
     }
-  }
 }
 
 map("n", "<leader>fg", ":lua require('telescope.builtin').git_files(require('telescope.themes').get_dropdown())<CR>", {silent = true})
