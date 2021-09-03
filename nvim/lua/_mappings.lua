@@ -28,7 +28,7 @@ map("", "<leader><C-k>", ":wincmd K<CR>", {silent= true})
 map("", "<leader><C-h>", ":wincmd H<CR>", {silent= true})
 map("", "<leader><C-l>", ":wincmd L<CR>", {silent= true})
 
-map("n", "<Leader>z", "require('utils').zoom_toggle()", {silent = true})
+map("n", "<Leader>z", ":lua require('utils').zoom_toggle()<CR>", {silent = true})
 map("x", "@", ":<C-u>call ExecuteMacroOverVisualRange()<CR>", {})
 
 map("n", "<C-s>", ":w<CR>", {noremap = false})
@@ -62,3 +62,5 @@ map("x", ">", ">gv", {})
 -- search for multiple words seperated by |
 -- Example /\vtest|live highlights test and live
 map("n", "g/", "/\\v", {})
+
+map("n", "<leader><leader>m", ":Messages<CR>", {silent = true})
