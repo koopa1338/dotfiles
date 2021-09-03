@@ -1,32 +1,21 @@
 local M = {}
 
+local buf_keymap = vim.api.nvim_buf_set_keymap
+local keymap = vim.api.nvim_set_keymap
+
 -- Key mapping
 function M.map(mode, key, result, opts)
+    local opts_or_defaults = {
+        noremap = opts.noremap or true,
+        silent = opts.silent or false,
+        expr = opts.expr or false,
+        script = opts.script or false
+    }
+
     if opts.buffer then
-        vim.api.nvim_buf_set_keymap(
-            0,
-            mode,
-            key,
-            result,
-            {
-                noremap = opts.noremap or true,
-                silent = opts.silent or false,
-                expr = opts.expr or false,
-                script = opts.script or false
-            }
-        )
+        buf_keymap(0, mode, key, result, opts_or_defaults)
     else
-        vim.api.nvim_set_keymap(
-            mode,
-            key,
-            result,
-            {
-                noremap = opts.noremap or true,
-                silent = opts.silent or false,
-                expr = opts.expr or false,
-                script = opts.script or false
-            }
-        )
+        keymap(mode, key, result, opts_or_defaults)
     end
 end
 
