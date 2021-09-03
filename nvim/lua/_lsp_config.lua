@@ -30,17 +30,36 @@ local custom_attach = function(client)
     nvim_status.on_attach(client)
     vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"
 
-    map('n', '<leader>lD', ':lua vim.lsp.buf.declaration()<CR>', opts)
-    map('n', '<leader>ld', ':lua vim.lsp.buf.definition()<CR>', opts)
-    map('n', '<leader>lt', ':lua vim.lsp.buf.type_definition()<CR>', opts)
-    map('n', '<leader>lr', ':lua vim.lsp.buf.rename()<CR>', opts)
+    if client.resolved_capabilities.declaration then
+        map('n', '<leader>lD', ':lua vim.lsp.buf.declaration()<CR>', opts)
+    end
+
+    if client.resolved_capabilities.goto_definition then
+        map('n', '<leader>ld', ':lua vim.lsp.buf.definition()<CR>', opts)
+    end
+
+    if client.resolved_capabilities.type_definition then
+        map('n', '<leader>lt', ':lua vim.lsp.buf.type_definition()<CR>', opts)
+    end
+
+    if client.resolved_capabilities.rename then
+        map('n', '<leader>lr', ':lua vim.lsp.buf.rename()<CR>', opts)
+    end
+
+    if client.resolved_capabilities.document_formatting then
+        map('n', '<leader>lf', ':lua vim.lsp.buf.formatting({})<CR>', opts)
+    end
+
+    if client.resolved_capabilities.signature_help then
+        map('n', '<leader>ls', ':lua vim.lsp.buf.signature_help()<CR>', opts)
+    end
+
+    map('n', '<leader>lci', ':lua vim.lsp.buf.incoming_calls()<CR>', opts)
+    map('n', '<leader>lco', ':lua vim.lsp.buf.outgoing_calls()<CR>', opts)
     map('n', '<leader>ll', ':lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
     map('n', '<leader>lj', ':lua vim.lsp.diagnostic.goto_next()<CR>', opts)
     map('n', '<leader>lk', ':lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-    map('n', '<leader>lf', ':lua vim.lsp.buf.formatting_sync(nil, 1000)<CR>', opts)
-    map('n', '<leader>ls', ':lua vim.lsp.buf.signature_help()<CR>', opts)
-    map('n', '<leader>lci', ':lua vim.lsp.buf.incoming_calls()<CR>', opts)
-    map('n', '<leader>lco', ':lua vim.lsp.buf.outgoing_calls()<CR>', opts)
+
 end
 
 -- Make runtime files discoverable to the server
@@ -136,3 +155,30 @@ for server, config in pairs(servers) do
     config.capabilities = capabilities
     nvim_lsp[server].setup(config)
 end
+
+vim.lsp.protocol.CompletionItemKind = {
+    " [text]",
+    " [method]",
+    " [function]",
+    " [constructor]",
+    "ﰠ [field]",
+    " [variable]",
+    " [class]",
+    " [interface]",
+    " [module]",
+    " [property]",
+    " [unit]",
+    " [value]",
+    " [enum]",
+    " [key]",
+    " [color]",
+    " [file]",
+    " [reference]",
+    " [folder]",
+    " [enum member]",
+    " [constant]",
+    " [struct]",
+    "⌘ [event]",
+    " [operator]",
+    " [type]"
+}
