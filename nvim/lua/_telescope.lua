@@ -59,8 +59,8 @@ map("n", "<leader>ltd", ":lua require('telescope.builtin').lsp_document_diagnost
 map("n", "<leader>ltD", ":lua require('telescope.builtin').lsp_workspace_diagnostics{}<CR>", {silent = true})
 map("n", "<leader>lti", ":lua require('telescope.builtin').lsp_implementations{}<CR>", {silent = true})
 
-map("n", "<leader><leader>q", ":lua require('telescope.builtin').quickfix()<CR>", {silent = true})
-map("n", "<leader><leader>l", ":lua require('telescope.builtin').loclist()<CR>", {silent = true})
+map("n", "<leader><leader>q", ":lua require('telescope.builtin').quickfix({layout_strategy = 'vertical'})<CR>", {silent = true})
+map("n", "<leader><leader>l", ":lua require('telescope.builtin').loclist({layout_strategy = 'vertical'})<CR>", {silent = true})
 
-map("n", "<leader>tm", ":lua require('telescope.builtin').man_pages()<CR>", {silent = true})
+map("n", "<leader>tm", ":lua require('telescope.builtin').man_pages({layout_strategy = 'vertical'})<CR>", {silent = true})
 map("n", "<leader>tk", ":lua require('telescope.builtin').keymaps()<CR>", {silent = true})
