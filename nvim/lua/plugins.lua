@@ -31,10 +31,10 @@ return require('packer').startup({function(use)
     use 'junegunn/vim-slash'
     use 'markonm/traces.vim'
     use {
-        "tpope/vim-scriptease",
+        'tpope/vim-scriptease',
         cmd = {
-            "Messages", --view messages in quickfix list
-            "Verbose", -- view verbose output in preview window.
+            'Messages', --view messages in quickfix list
+            'Verbose', -- view verbose output in preview window.
         },
     }
 
@@ -60,11 +60,19 @@ return require('packer').startup({function(use)
     -- syntax and languages
     use {'lervag/vimtex', ft = { 'tex' } }
     use 'neovim/nvim-lspconfig'
-    use "wbthomason/lsp-status.nvim"
+    use 'wbthomason/lsp-status.nvim'
     use {'rust-lang/rust.vim', ft = { 'rust' } }
-    use 'hrsh7th/nvim-compe'
+    use {
+      "hrsh7th/nvim-cmp",
+      requires = {
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-nvim-lsp',
+        'saadparwaiz1/cmp_luasnip',
+      }
+    }
     use 'L3MON4D3/LuaSnip'
-    use "rafamadriz/friendly-snippets"
+    use 'rafamadriz/friendly-snippets'
 
     -- theme
     use 'deviantfero/wpgtk.vim'

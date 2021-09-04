@@ -155,31 +155,3 @@ for server, config in pairs(servers) do
     config.capabilities = capabilities
     nvim_lsp[server].setup(config)
 end
-
-vim.lsp.protocol.CompletionItemKind = {
-    '', -- Text
-    '', -- Method
-    '', -- Function
-    '', -- Constructor
-    'ﰠ', -- Field
-    '', -- Variable
-    '', -- Class
-    '', -- Interface
-    '', -- Module
-    '', -- Property
-    '', -- Unit
-    '', -- Value
-    '', -- Enum
-    '', -- Keyword
-    '﬌', -- Snippet
-    '', -- Color
-    '', -- File
-    '', -- Reference
-    '', -- Folder
-    '', -- EnumMember
-    '', -- Constant
-    '', -- Struct
-    '', -- Event
-    'ﬦ', -- Operator
-    '', -- TypeParameter
-}
