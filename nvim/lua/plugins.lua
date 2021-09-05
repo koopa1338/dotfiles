@@ -67,13 +67,13 @@ return require('packer').startup({function(use)
     }
     use {'rust-lang/rust.vim', ft = { 'rust' } }
     use {
-      "hrsh7th/nvim-cmp",
-      requires = {
-        'hrsh7th/cmp-buffer',
-        'hrsh7th/cmp-path',
-        'hrsh7th/cmp-nvim-lsp',
-        'saadparwaiz1/cmp_luasnip',
-      }
+        "hrsh7th/nvim-cmp",
+        requires = {
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-nvim-lsp',
+            'saadparwaiz1/cmp_luasnip',
+        }
     }
     use 'L3MON4D3/LuaSnip'
     use 'rafamadriz/friendly-snippets'
