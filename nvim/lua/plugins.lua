@@ -62,14 +62,8 @@ return require('packer').startup({function(use)
     use 'neovim/nvim-lspconfig'
     use 'wbthomason/lsp-status.nvim'
     use {
-      "folke/lsp-trouble.nvim",
-      cmd = "LspTrouble",
-      config = function()
-        require("trouble").setup {
-          auto_preview = false,
-          auto_fold = true,
-        }
-      end,
+        "folke/lsp-trouble.nvim",
+        cmd = "LspTrouble",
     }
     use {'rust-lang/rust.vim', ft = { 'rust' } }
     use {
