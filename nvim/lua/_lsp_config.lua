@@ -1,6 +1,5 @@
 local nvim_lsp = require('lspconfig')
 local status = require("_lsp_status")
-local nvim_status = require('lsp-status')
 local path = nvim_lsp.util.path
 local map = require('utils').map
 
@@ -27,7 +26,7 @@ status.activate()
 local opts = {silent = true}
 local custom_attach = function(client)
 
-    nvim_status.on_attach(client)
+    status.on_attach(client)
     vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"
 
     if client.resolved_capabilities.declaration then
@@ -149,6 +148,7 @@ local servers = {
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities = vim.tbl_extend("keep", capabilities, status.capabilities)
 
 for server, config in pairs(servers) do
     config.on_attach = custom_attach
