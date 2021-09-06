@@ -7,10 +7,10 @@ status.activate = function()
     nvim_status.register_progress()
     nvim_status.config({
         status_symbol = "  LSP:",
-        indicator_errors = "",
+        indicator_errors = "",
         indicator_warnings = "",
-        indicator_info = "🛈",
-        indicator_hint = "!",
+        indicator_info = "כֿ",
+        indicator_hint = "➤",
         indicator_ok = "",
         spinner_frames = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" },
     })

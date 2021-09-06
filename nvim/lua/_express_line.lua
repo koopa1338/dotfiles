@@ -47,8 +47,7 @@ require('el').setup {
                 builtin.modified_flag
             },
             sections.split,
-            lsp_statusline.current_function,
-            lsp_statusline.server_progress,
+            lsp_statusline.segment,
             git_changes,
             '[', builtin.line_with_width(3), ':',  builtin.column_with_width(2), ']',
             sections.collapse_builtin {
