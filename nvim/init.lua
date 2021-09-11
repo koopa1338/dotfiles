@@ -124,7 +124,7 @@ cmd [[
     augroup NumberToggle
         autocmd!
         autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-        autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+        autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
     augroup END
 
     autocmd VimResized * wincmd =
