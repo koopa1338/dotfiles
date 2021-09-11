@@ -44,6 +44,7 @@ map("n", "<leader>ff", ":lua require('telescope.builtin').fd(require('telescope.
 map("n", "<leader>fF", ":lua require('telescope.builtin').fd(require('telescope.themes').get_ivy({ hidden = true, no_ignore = true }))<CR>", {silent = true})
 map("n", "<leader>FF", ":lua require('telescope.builtin').file_browser({ hidden = true })<CR>", {silent = true})
 map("n", "<leader>fr", ":lua require('telescope.builtin').live_grep{}<CR>", {silent = true})
+map("n", "<leader>fR", ":lua require('telescope.builtin').registers{}<CR>", {silent = true})
 map("n", "<leader>bb", ":lua require('telescope.builtin').buffers(require('telescope.themes').get_ivy())<CR>", {silent = true})
 map("n", "<leader>fb", ":lua require('telescope.builtin').current_buffer_fuzzy_find({previewer = false})<CR>", {silent = true})
 map("n", "<leader>fe", ":lua require('telescope.builtin').treesitter{}<CR>", {silent = true})
