@@ -35,11 +35,18 @@ require('gitsigns').setup {
     watch_index = {
         interval = 1000
     },
-    current_line_blame = false,
+    current_line_blame = true,
+    current_line_blame_opts = {
+        virt_text = true,
+        virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+        delay = 350,
+    },
     sign_priority = 6,
     update_debounce = 100,
     status_formatter = nil, -- Use default
-    use_internal_diff = true,  -- If luajit is present
+    diff_opts = {
+        internal = true,  -- If luajit is present
+    },
 }
 
 map("n", "<leader>gB", ":lua require('gitsigns').blame_line()<CR>", {silent = true})
