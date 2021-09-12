@@ -17,8 +17,8 @@ local git_branch = subscribe.buf_autocmd(
 local file_icon = subscribe.buf_autocmd(
     "el_file_icon",
     "BufRead",
-    function(_, bufnr)
-        local icon = extensions.file_icon(_, bufnr)
+    function(_, bufffer)
+        local icon = extensions.file_icon(_, bufffer)
         if icon then
             return icon .. ' '
         end
@@ -33,14 +33,14 @@ local git_changes = subscribe.buf_autocmd(
     end)
 
 require('el').setup {
-    generator = function(win_id)
+    generator = function(window, buffer)
         return {
             extensions.gen_mode {
                 format_string = ' %s '
             },
-            git_branch,
+            git_branch(window, buffer),
             sections.split,
-            file_icon,
+            file_icon(window, buffer),
             builtin.shortened_file,
             sections.collapse_builtin {
                 ' ',
@@ -48,7 +48,7 @@ require('el').setup {
             },
             sections.split,
             lsp_statusline.segment,
-            git_changes,
+            git_changes(window, buffer),
             '[', builtin.line_with_width(3), ':',  builtin.column_with_width(2), ']',
             sections.collapse_builtin {
                 '[',
