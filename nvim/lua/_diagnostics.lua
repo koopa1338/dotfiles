@@ -22,10 +22,3 @@ sign_define(
     "LspDiagnosticsSignHint",
     {text = "➤", texthl = "LspDiagnosticsSignHint"}
 )
-
-require("trouble").setup({
-    auto_preview = false,
-    auto_fold = true,
-    auto_close = true,
-    use_lsp_diagnostic_signs = true,
-})

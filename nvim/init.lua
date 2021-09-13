@@ -1,4 +1,5 @@
 require('plugins')
+
 local g, v, cmd, fn = vim.g, vim.v, vim.cmd, vim.fn
 local o = vim.opt
 local og = vim.opt_global
@@ -133,6 +134,7 @@ cmd [[
 
     autocmd FileType help wincmd L
     autocmd FileType fugitive wincmd H
+    autocmd FileType qf set nobuflisted
 ]]
 
 -- TODO: port to lua
@@ -144,7 +146,6 @@ cmd [[
 ]]
 
 require('_mappings')
-require('_packages')
 require('_lsp_config')
 require('_lsp_status')
 require('_diagnostics')
