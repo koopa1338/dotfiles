@@ -160,3 +160,12 @@ super + shift + minus
 
 super + minus
     scratch cycle;
+
+#
+# dunst
+#
+ctrl + {_,shift + } space
+    dunstctl {close, close-all}
+
+ctrl + shift + period
+    dunstctl context
