@@ -19,7 +19,7 @@ super + c
 super + v
     screenlayout
 
-super + XF86Tools
+super + alt + l
     betterlockscreen -l dimblur
 
 super + {_,shift + }p
