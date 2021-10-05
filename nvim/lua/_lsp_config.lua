@@ -77,7 +77,7 @@ local servers = {
     },
     yamlls = {},
     tsserver = {
-        cmd = { "tsserver" },
+        cmd = { "typescript-language-server", "--stdio" },
         root_dir = nvim_lsp.util.find_git_root or nvim_lsp.util.find_node_modules_root
     },
     jsonls = {
