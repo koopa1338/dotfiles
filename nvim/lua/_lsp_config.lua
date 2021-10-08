@@ -155,3 +155,20 @@ for server, config in pairs(servers) do
     config.capabilities = capabilities
     nvim_lsp[server].setup(config)
 end
+
+require('rust-tools').setup({
+    tools = {
+        inlay_hints = {
+            -- prefix for parameter hints
+            parameter_hints_prefix = "🢘 ",
+
+            -- prefix for all the other hints (type, chaining)
+            other_hints_prefix = "🢚 ",
+
+            -- whether to align to the length of the longest line in the file
+            max_len_align = true,
+        },
+    }
+})
+
+

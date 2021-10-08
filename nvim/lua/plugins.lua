@@ -58,7 +58,9 @@ return require('packer').startup({function(use)
     use 'godlygeek/tabular'
 
     -- syntax and languages
-    use {'lervag/vimtex', ft = { 'tex' } }
+    use {'lervag/vimtex',
+        ft = { 'tex' }
+    }
     use 'neovim/nvim-lspconfig'
     use 'wbthomason/lsp-status.nvim'
     use {
@@ -73,7 +75,13 @@ return require('packer').startup({function(use)
             })
         end,
     }
-    use {'rust-lang/rust.vim', ft = { 'rust' } }
+    use {
+        'simrat39/rust-tools.nvim',
+        requires = {
+            'mfussenegger/nvim-dap',
+            'nvim-lua/plenary.nvim'
+        },
+    }
     use {
         "hrsh7th/nvim-cmp",
         requires = {
@@ -91,7 +99,9 @@ return require('packer').startup({function(use)
     use 'rktjmp/lush.nvim'
     use {
         'tjdevries/express_line.nvim',
-        requires = {'nvim-lua/plenary.nvim'}
+        requires = {
+            'nvim-lua/plenary.nvim'
+        }
     }
     use 'kyazdani42/nvim-web-devicons'
     use 'kyazdani42/nvim-tree.lua'
@@ -108,8 +118,13 @@ return require('packer').startup({function(use)
     }
     use 'rhysd/committia.vim'
 
-    -- debugging
-    use 'puremourning/vimspector'
+    -- debugger
+    use {
+        "rcarriga/nvim-dap-ui",
+        requires = {
+            "mfussenegger/nvim-dap"
+        }
+    }
 
 end,
     config = {
