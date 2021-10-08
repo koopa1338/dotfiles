@@ -12,10 +12,16 @@ g.nvim_tree_show_icons = {
 g.nvim_tree_ignore = {'.git', 'node_modules', '.cache'}
 g.nvim_tree_icons = {
     git = {
-        unstaged = '☒',
-        staged = '☑',
-        unmerged = '',
+        unstaged = 'ﳺ',
+        staged = '',
+        unmerged = '🗲',
         untracked = '✸'
+    },
+    lsp = {
+        error = "",
+        warning = "",
+        info = "כֿ",
+        hint = "➤",
     }
 }
 
