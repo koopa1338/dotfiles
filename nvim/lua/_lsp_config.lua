@@ -172,3 +172,5 @@ require('rust-tools').setup({
 })
 
 
+-- setting up debugger
+require("dapui").setup()
