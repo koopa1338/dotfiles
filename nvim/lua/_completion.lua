@@ -30,11 +30,6 @@ local cmp_kinds = {
 }
 
 
--- Utility functions for cmp
-local t = function(str)
-    return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-
 cmp.setup({
     snippet = {
         expand = function(args)
