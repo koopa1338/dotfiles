@@ -130,7 +130,7 @@ cmd [[
 
     autocmd VimResized * wincmd =
 
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank({timeout = 200})
 
     autocmd FileType help wincmd L
     autocmd FileType fugitive wincmd H
