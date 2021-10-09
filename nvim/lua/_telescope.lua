@@ -28,7 +28,7 @@ require('telescope').setup {
         },
         selection_strategy = "reset",
         sorting_strategy = "descending",
-        scroll_strategy = "cycle",
+        scroll_strategy = "limit",
         prompt_prefix = "🔎  ",
     },
     extensions = {
