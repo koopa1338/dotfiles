@@ -2,8 +2,6 @@ local map = require('utils').map
 local actions = require('telescope.actions')
 local previewers = require('telescope.previewers')
 
-require'telescope'.load_extension('project')
-
 require('telescope').setup {
     defaults = {
         file_previewer = previewers.vim_buffer_cat.new,
@@ -39,6 +37,10 @@ require('telescope').setup {
         }
     }
 }
+
+-- loading extensions
+require('telescope').load_extension('project')
+require('telescope').load_extension('fzf')
 
 map("n", "<leader>fg", ":lua require('telescope.builtin').git_files(require('telescope.themes').get_dropdown())<CR>", {silent = true})
 map("n", "<leader>ff", ":lua require('telescope.builtin').fd(require('telescope.themes').get_ivy())<CR>", {silent = true})

@@ -47,6 +47,10 @@ return require('packer').startup({function(use)
             'nvim-lua/telescope.nvim',
         },
     }
+    use {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        run = 'make'
+    }
 
     use 'mhinz/vim-startify'
 
