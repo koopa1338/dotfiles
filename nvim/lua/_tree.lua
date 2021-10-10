@@ -17,12 +17,6 @@ g.nvim_tree_icons = {
         unmerged = '🗲',
         untracked = '✸'
     },
-    lsp = {
-        error = "",
-        warning = "",
-        info = "כֿ",
-        hint = "➤",
-    }
 }
 
 map('n', '<C-n>', "<cmd>NvimTreeToggle<CR>", { silent = true })
@@ -30,21 +24,31 @@ map('n', '<C-n>', "<cmd>NvimTreeToggle<CR>", { silent = true })
 local tree_cb = require('nvim-tree.config').nvim_tree_callback
 local tree = require('nvim-tree')
 tree.setup({
-    disable_netrw       = true,
-    open_on_setup       = false,
-    ignore_ft_on_setup  = {'startify'},
-    update_to_buf_dir   = {
+    disable_netrw = true,
+    hijack_netrw = true,
+    open_on_setup = false,
+    ignore_ft_on_setup = {'startify'},
+    auto_close = true,
+    open_on_tab = false,
+    update_to_buf_dir = {
         enable = true,
         auto_open = true,
     },
-    auto_close          = true,
-    open_on_tab         = false,
-    hijack_cursor       = false,
-    update_cwd          = true,
-    lsp_diagnostics     = true,
+    hijack_cursor = false,
+    update_cwd = true,
+    diagnostics = {
+        enable = true,
+        icons = {
+            error = "",
+            warning = "",
+            info = "כֿ",
+            hint = "➤",
+        }
+
+    },
     update_focused_file = {
-        enable      = false,
-        update_cwd  = false,
+        enable = false,
+        update_cwd = false,
         ignore_list = {}
     },
     system_open = {
@@ -54,6 +58,7 @@ tree.setup({
     view = {
         width = 40,
         auto_resize = true,
+        side = 'left',
         mappings = {
             custom_only = false,
             list = {
