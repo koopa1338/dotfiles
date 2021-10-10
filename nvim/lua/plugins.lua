@@ -80,13 +80,6 @@ return require('packer').startup({function(use)
         end,
     }
     use {
-        'simrat39/rust-tools.nvim',
-        requires = {
-            'mfussenegger/nvim-dap',
-            'nvim-lua/plenary.nvim'
-        },
-    }
-    use {
         "hrsh7th/nvim-cmp",
         requires = {
             'hrsh7th/cmp-buffer',
