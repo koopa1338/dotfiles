@@ -126,7 +126,8 @@ local servers = {
                     path = runtime_path
                 },
                 completion = {
-                    keywordSnippet = "Disable"
+                    keywordSnippet = "Disable",
+                    showWord = "Disable",
                 },
                 diagnostics = {
                     enable = true,
