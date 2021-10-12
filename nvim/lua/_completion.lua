@@ -1,5 +1,6 @@
 local cmp = require("cmp")
 local luasnip = require('luasnip')
+local lspkind = require('lspkind')
 
 local cmp_kinds = {
     Text          = '',
@@ -43,16 +44,7 @@ cmp.setup({
         { name = "path" },
     },
     formatting = {
-        format = function(entry, vim_item)
-            vim_item.kind = (cmp_kinds[vim_item.kind] .. '  ' .. vim_item.kind) or ""
-            vim_item.menu = ({
-            buffer = "[Buffer]",
-            path = "[Path]",
-            nvim_lsp = "[LSP]",
-            luasnip = "[LuaSnip]",
-        })[entry.source.name]
-        return vim_item
-    end,
+        format = lspkind.cmp_format({symbol_map = cmp_kinds}),
     },
     mapping = {
         ["<C-c>"] = cmp.mapping.close(),
