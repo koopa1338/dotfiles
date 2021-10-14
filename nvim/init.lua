@@ -1,4 +1,6 @@
+require('impatient')
 require('plugins')
+require('packer_compiled')
 
 local g, v, cmd, fn = vim.g, vim.v, vim.cmd, vim.fn
 local o = vim.opt
