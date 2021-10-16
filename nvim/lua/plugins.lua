@@ -94,7 +94,6 @@ return require('packer').startup({function(use)
     use 'rafamadriz/friendly-snippets'
 
     -- theme
-    use 'deviantfero/wpgtk.vim'
     use 'rktjmp/lush.nvim'
     use {
         'tjdevries/express_line.nvim',

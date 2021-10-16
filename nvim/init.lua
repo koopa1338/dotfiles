@@ -22,6 +22,7 @@ cmd [[
 -- globals
 g.mapleader = ' '
 g.mousehide = true
+og.termguicolors = true
 
 o.timeout = false
 o.ttimeout = false
@@ -158,3 +159,4 @@ require('_tree')
 require('_startify')
 require('_git')
 require('_completion')
+require('_walush')

@@ -1,7 +1,3 @@
-[user]
-    name = koopa1338
-    email = sinner1991@gmail.com
-
 [alias]
 	a = add
 	aa = a --all
@@ -97,8 +93,8 @@
     line-numbers = true
     file-modified-label = modified:
 
-[includeIf "gitdir:~/dev/"]
-    path = ~/dotfiles/git/work
+[include]
+    path = ~/dotfiles/git/user
 
 [init]
 	templatedir = ~/.config/git/git-templates
