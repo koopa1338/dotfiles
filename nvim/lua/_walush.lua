@@ -105,30 +105,30 @@ local walush = lush(function()
         FloatBorder {VertSplit},
         SpecialChar { fg = xres.color12, bg = xres.color8 },
         SpecialComment { fg = xres.color11, bg = xres.color8 },
-        FoldColumn { fg = xres.color14, bg = xres.color15 }, --    ctermfg=14 ctermbg=242 guifg=Cyan guibg=Grey
+        FoldColumn { fg = xres.color14, bg = xres.bg }, --    ctermfg=14 ctermbg=242 guifg=Cyan guibg=Grey
         Folded { FoldColumn },
         WarningMsg { fg = xres.color10 }, -- WarningMsg     ctermfg=10 guifg=Red
         DiffAdd { fg = xres.color15, bg = hsl('#002800') }, -- DiffAdd        ctermfg=0 ctermbg=4 guibg=DarkBlue
-        DiffChange { fg = DiffAdd.fg, bg = hsl('#006000') }, -- DiffChange     ctermfg=0 ctermbg=5 guibg=DarkMagenta
+        DiffChange { DiffAdd }, -- DiffChange     ctermfg=0 ctermbg=5 guibg=DarkMagenta
         DiffDelete { fg = xres.color15, bg = hsl('#3f0001') }, -- DiffDelete     ctermfg=0 ctermbg=6 gui=bold guifg=Blue guibg=DarkCyan
-        DiffText { fg = DiffDelete.fg, bg = hsl('#901011'), gui = 'bold' }, -- DiffText       cterm=bold ctermfg=0 ctermbg=9 gui=bold guibg=Red
+        DiffText { fg = DiffChange.fg, bg = hsl('#006000'), gui = 'bold' }, -- DiffText       cterm=bold ctermfg=0 ctermbg=9 gui=bold guibg=Red
         Conceal { fg = xres.color7 }, -- Conceal        ctermfg=7 ctermbg=242 guifg=LightGrey guibg=DarkGrey
         SpellBad { fg = xres.color8, bg = xres.color9 }, -- SpellBad       ctermfg=8 ctermbg=9 gui=undercurl guisp=Red
-        SpellCap { bg = xres.color12, gui = 'undercurl' }, -- SpellCap       ctermbg=12 gui=undercurl guisp=Blue
-        SpellRare { bg = xres.color13, gui = 'undercurl' }, -- SpellRare      ctermbg=13 gui=undercurl guisp=Magenta
-        SpellLocal { bg = xres.color14, gui = 'undercurl' }, -- SpellLocal     ctermbg=14 gui=undercurl guisp=Cyan
+        SpellCap { bg = hsl(xres.color12).da(25), gui = 'undercurl' }, -- SpellCap       ctermbg=12 gui=undercurl guisp=Blue
+        SpellRare { bg = hsl(xres.color13).da(55), gui = 'undercurl' }, -- SpellRare      ctermbg=13 gui=undercurl guisp=Magenta
+        SpellLocal { bg = xres.color8, gui = 'undercurl' }, -- SpellLocal     ctermbg=14 gui=undercurl guisp=Cyan
         TabLine { fg = xres.color15, bg = xres.color8, gui = 'underline' }, -- TabLine        ctermfg=15 ctermbg=8 gui=underline guibg=DarkGrey
-        TabLineSel { fg = xres.color0, bg = xres.color14, gui = 'bold' }, -- TabLineSel     ctermfg=0 ctermbg=14 gui=bold
-        TabLineFill { fg =xres.color15, bg = xres.color8, gui = 'reverse' }, -- TabLineFill    ctermfg=15 ctermbg=8 gui=reverse
+        TabLineSel { fg = xres.color0, bg = hsl(xres.color8).lighten(40), gui = 'bold' }, -- TabLineSel     ctermfg=0 ctermbg=14 gui=bold
+        TabLineFill { fg =xres.color8, bg = xres.color15 }, -- TabLineFill    ctermfg=15 ctermbg=8 gui=reverse
         CursorColumn {}, -- CursorColumn   ctermbg=242 guibg=Grey40
         CursorLine { bg = xres.color0 }, -- CursorLine     ctermbg=0 guibg=Grey40
         ColorColumn { bg = xres.color1 }, -- ColorColumn    ctermbg=1 guibg=DarkRed
         NormalNC {}, -- NormalNC       cleared
         MsgArea {}, -- MsgArea        cleared
         RedrawDebugNormal { gui = 'reverse' }, -- RedrawDebugNormal xxx cterm=reverse gui=reverse
-        RedrawDebugClear { bg = xres.color11 }, -- RedrawDebugClear xxx ctermbg=11 guibg=Yellow
-        RedrawDebugComposed { bg = xres.color10 }, -- RedrawDebugComposed xxx ctermbg=10 guibg=Green
-        RedrawDebugRecompose { bg = xres.color9 }, -- RedrawDebugRecompose xxx ctermbg=9 guibg=Red
+        RedrawDebugClear { bg = hsl(xres.color11).ro(180).lighten(70) }, -- RedrawDebugClear xxx ctermbg=11 guibg=Yellow
+        RedrawDebugComposed { bg = hsl(xres.color10).da(50) }, -- RedrawDebugComposed xxx ctermbg=10 guibg=Green
+        RedrawDebugRecompose { bg = hsl(xres.color9).da(50) }, -- RedrawDebugRecompose xxx ctermbg=9 guibg=Red
         Cursor { fg = xres.bg, bg = xres.fg }, -- Cursor         xxx guifg=bg guibg=fg
         lCursor { fg = xres.bg, bg = xres.fg }, -- lCursor        xxx guifg=bg guibg=fg
         -- FloatShadow {}, -- FloatShadow    xxx guibg=Black blend=80
@@ -161,7 +161,7 @@ local walush = lush(function()
         NvimDoubleQuote {NvimStringQuote},
         NvimDoubleQuotedBody {NvimStringBody},
         NvimDoubleQuotedEscape {NvimStringSpecial},
-        NvimInternalError { fg = xres.color9, bg = xres.color9 }, -- NvimInternalError xxx ctermfg=9 ctermbg=9 guifg=Red guibg=Red
+        NvimInternalError { fg = xres.color9, bg = hsl(xres.color9).da(50) }, -- NvimInternalError xxx ctermfg=9 ctermbg=9 guifg=Red guibg=Red
         NvimAssignment { Operator }, -- NvimAssignment xxx links to Operator
         NvimPlainAssignment { NvimAssignment }, -- NvimPlainAssignment xxx links to NvimAssignment
         NvimAugmentedAssignment { NvimAssignment }, -- NvimAugmentedAssignment xxx links to NvimAssignment
