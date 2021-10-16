@@ -632,6 +632,24 @@ local walush = lush(function()
         GitSignsAdd { DiffAdd }, -- GitSignsAdd    xxx links to DiffAdd
         GitSignsAddNr { GitSignsAdd }, -- GitSignsAddNr  xxx links to GitSignsAdd
         GitSignsCurrentLineBlame { NonText }, -- GitSignsCurrentLineBlame xxx links to NonText
+
+        diffOnly { Constant }, -- diffOnly       xxx links to Constant
+        diffIdentical { Constant }, -- diffIdentical  xxx links to Constant
+        diffDiffer { Constant }, -- diffDiffer     xxx links to Constant
+        diffBDiffer { Constant }, -- diffBDiffer    xxx links to Constant
+        diffIsA { Constant }, -- diffIsA        xxx links to Constant
+        diffNoEOL { Constant }, -- diffNoEOL      xxx links to Constant
+        diffCommon { Constant }, -- diffCommon     xxx links to Constant
+        diffRemoved { DiffDelete }, -- diffRemoved    xxx links to Special
+        diffAdded { DiffAdd }, -- diffAdded      xxx links to Identifier
+        diffChanged { DiffChange }, -- diffChanged    xxx links to PreProc
+        diffSubname { PreProc }, -- diffSubname    xxx links to PreProc
+        diffLine { Statement }, -- diffLine       xxx links to Statement
+        diffFile { Type }, -- diffFile       xxx links to Type
+        diffOldFile { fg = DiffDelete.bg.lighten(40) }, -- diffOldFile    xxx links to diffFile
+        diffNewFile { fg = DiffAdd.bg.lighten(40) }, -- diffNewFile    xxx links to diffFile
+        diffIndexLine { PreProc }, -- diffIndexLine  xxx links to PreProc
+        diffComment { Comment }, -- diffComment    xxx links to Comment
     }
 end)
 
