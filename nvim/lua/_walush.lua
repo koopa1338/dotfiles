@@ -1,4 +1,5 @@
 local lush = require('lush')
+local hsl = lush.hsl
 
 local function get_xresources_color(color_name)
    local command = io.popen('xrdb -query | grep ' .. color_name .. ' -m 1 | cut -f 2')
@@ -47,8 +48,8 @@ local walush = lush(function()
         CursorLineNr { fg = xres.color15, bg = xres.color6, gui = 'bold' },
         Type { fg = xres.color13, bg = xres.bg, gui = 'bold' },
         Question { Type },
-        StatusLine { fg = xres.color15, bg = xres.color14, gui = 'reverse, bold' },
-        StatusLineNC { fg = xres.color15, bg = xres.color8, gui = 'reverse' },
+        StatusLine { fg = xres.color15, bg = xres.color8, gui = 'bold' },
+        StatusLineNC { fg = xres.color15, bg = xres.color8 },
         Comment { fg = xres.color4, bg = xres.color0 },
         SignColumn { fg = xres.color12, bg = xres.color8 },
         VertSplit { fg = xres.color0, bg = xres.color8, gui = 'reverse' },
@@ -107,10 +108,10 @@ local walush = lush(function()
         FoldColumn { fg = xres.color14, bg = xres.color15 }, --    ctermfg=14 ctermbg=242 guifg=Cyan guibg=Grey
         Folded { FoldColumn },
         WarningMsg { fg = xres.color10 }, -- WarningMsg     ctermfg=10 guifg=Red
-        DiffAdd { fg = xres.color0, bg = xres.color4 }, -- DiffAdd        ctermfg=0 ctermbg=4 guibg=DarkBlue
-        DiffChange { fg = xres.color0, bg = xres.color5 }, -- DiffChange     ctermfg=0 ctermbg=5 guibg=DarkMagenta
-        DiffDelete { fg = xres.color0, bg = xres.color6 }, -- DiffDelete     ctermfg=0 ctermbg=6 gui=bold guifg=Blue guibg=DarkCyan
-        DiffText { fg = xres.color0, bg = xres.color9, gui = 'bold' }, -- DiffText       cterm=bold ctermfg=0 ctermbg=9 gui=bold guibg=Red
+        DiffAdd { fg = xres.color15, bg = hsl('#002800') }, -- DiffAdd        ctermfg=0 ctermbg=4 guibg=DarkBlue
+        DiffChange { fg = DiffAdd.fg, bg = hsl('#006000') }, -- DiffChange     ctermfg=0 ctermbg=5 guibg=DarkMagenta
+        DiffDelete { fg = xres.color15, bg = hsl('#3f0001') }, -- DiffDelete     ctermfg=0 ctermbg=6 gui=bold guifg=Blue guibg=DarkCyan
+        DiffText { fg = DiffDelete.fg, bg = hsl('#901011'), gui = 'bold' }, -- DiffText       cterm=bold ctermfg=0 ctermbg=9 gui=bold guibg=Red
         Conceal { fg = xres.color7 }, -- Conceal        ctermfg=7 ctermbg=242 guifg=LightGrey guibg=DarkGrey
         SpellBad { fg = xres.color8, bg = xres.color9 }, -- SpellBad       ctermfg=8 ctermbg=9 gui=undercurl guisp=Red
         SpellCap { bg = xres.color12, gui = 'undercurl' }, -- SpellCap       ctermbg=12 gui=undercurl guisp=Blue
@@ -555,8 +556,8 @@ local walush = lush(function()
         -- NvimTreeImageFile xxx gui=bold guifg=Purple
         -- NvimTreeIndentMarker xxx guifg=#8094b4
         -- NvimTreeFolderIcon xxx guifg=#8094b4
-        NvimTreeGitDeleted { fg = xres.color13 }, -- NvimTreeGitDeleted xxx guifg=13
-        NvimTreeGitNew { fg = xres.color10 }, -- NvimTreeGitNew xxx guifg=10
+        NvimTreeGitDeleted { DiffDelete }, -- NvimTreeGitDeleted xxx guifg=13
+        NvimTreeGitNew { DiffAdd }, -- NvimTreeGitNew xxx guifg=10
         NvimTreeGitMerge { fg = xres.color12 }, -- NvimTreeGitMerge xxx guifg=12
         -- NvimTreeGitRenamed xxx guifg=Purple
         NvimTreeSymlink { fg = xres.color11, gui = 'bold' }, -- NvimTreeSymlink xxx gui=bold guifg=11
@@ -624,6 +625,13 @@ local walush = lush(function()
         TelescopeResultsField { Function }, -- TelescopeResultsField xxx links to Function
         TelescopeResultsFunction { Function }, -- TelescopeResultsFunction xxx links to Function
         TelescopeResultsMethod { Method }, -- TelescopeResultsMethod xxx links to Method
+
+        -- Gitsigns
+        GitSignsDelete { DiffDelete }, -- GitSignsDelete xxx links to DiffDelete
+        GitSignsDeleteNr { GitSignsDelete }, -- GitSignsDeleteNr xxx links to GitSignsDelete
+        GitSignsAdd { DiffAdd }, -- GitSignsAdd    xxx links to DiffAdd
+        GitSignsAddNr { GitSignsAdd }, -- GitSignsAddNr  xxx links to GitSignsAdd
+        GitSignsCurrentLineBlame { NonText }, -- GitSignsCurrentLineBlame xxx links to NonText
     }
 end)
 
