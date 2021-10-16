@@ -590,7 +590,7 @@ local walush = lush(function()
         NvimTreeLspDiagnosticsHint { DiagnosticHint }, -- NvimTreeLspDiagnosticsHint xxx links to DiagnosticHint
 
         -- Telescope
-        TelescopeSelection { fg = xres.color7, bg = xres.color8 }, -- TelescopeSelection xxx links to Visual
+        TelescopeSelection { fg = xres.color7, bg = hsl(xres.color8).lighten(10) }, -- TelescopeSelection xxx links to Visual
         TelescopeSelectionCaret { TelescopeSelection }, -- TelescopeSelectionCaret xxx links to TelescopeSelection
         TelescopeMultiSelection { Type }, -- TelescopeMultiSelection xxx links to Type
         TelescopeNormal { Normal }, -- TelescopeNormal xxx links to Normal
