@@ -13,7 +13,6 @@ og.fileencoding = 'utf-8'
 -- general settings
 cmd [[
     filetype plugin indent on
-    colorscheme wpgtk
     syntax enable
 
     command! -range=% Jsonfmt <line1>,<line2>!jql .
