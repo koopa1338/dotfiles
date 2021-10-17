@@ -5,3 +5,4 @@ nvim/plugin/packer_compiled.vim
 nvim/plugin/packer_compiled.lua
 nvim/lua/packer_compiled.lua
 git/user
+git/gitk
