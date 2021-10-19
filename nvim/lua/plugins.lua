@@ -64,7 +64,12 @@ return require('packer').startup({function(use)
 
     -- text objects and motions
     use 'wellle/targets.vim'
-    use 'jiangmiao/auto-pairs'
+    use {
+        'windwp/nvim-autopairs',
+        config = function()
+            require('nvim-autopairs').setup({})
+        end
+    }
     use 'windwp/nvim-ts-autotag'
     use 'matze/vim-move'
     use 'godlygeek/tabular'
