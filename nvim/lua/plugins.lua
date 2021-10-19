@@ -65,7 +65,7 @@ return require('packer').startup({function(use)
     -- text objects and motions
     use 'wellle/targets.vim'
     use 'jiangmiao/auto-pairs'
-    use 'alvan/vim-closetag'
+    use 'windwp/nvim-ts-autotag'
     use 'matze/vim-move'
     use 'godlygeek/tabular'
 
