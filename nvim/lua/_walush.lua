@@ -159,8 +159,8 @@ local walush = lush(function()
         RedrawDebugRecompose { bg = xres.color9.da(50) }, -- RedrawDebugRecompose xxx ctermbg=9 guibg=Red
         Cursor { fg = xres.bg, bg = xres.fg }, -- Cursor         xxx guifg=bg guibg=fg
         lCursor { fg = xres.bg, bg = xres.fg }, -- lCursor        xxx guifg=bg guibg=fg
-        -- FloatShadow {}, -- FloatShadow    xxx guibg=Black blend=80
-        -- FloatShadowThrough {}, -- FloatShadowThrough xxx guibg=Black blend=100
+        FloatShadow { fg = xres.fg.lighten(20) , bg = xres.bg.lighten(20) }, -- FloatShadow    xxx guibg=Black blend=80
+        FloatShadowThrough { fg = xres.fg, bg = xres.bg }, -- FloatShadowThrough xxx guibg=Black blend=100
         Error { DiagnosticError }, -- Error          xxx ctermfg=0 ctermbg=1 guifg=White guibg=Red
         Todo { fg = xres.color14, bg = xres.color8 }, -- Todo           xxx ctermfg=15 ctermbg=8 guifg=Blue guibg=Yellow
         Number { fg = xres.color12 }, -- Number         xxx ctermfg=12
