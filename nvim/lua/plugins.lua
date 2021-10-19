@@ -1,4 +1,4 @@
-local fn, api = vim.fn, vim.api
+local fn, cmd = vim.fn, vim.cmd
 -- Install packer
 local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
@@ -6,15 +6,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
     fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 end
 
-api.nvim_exec(
-    [[
+cmd [[
     augroup Packer
-    autocmd!
-    autocmd BufWritePost init.lua PackerCompile
+        autocmd!
+        autocmd BufWritePost init.lua PackerCompile
     augroup end
-    ]],
-    false
-)
+]]
 
 return require('packer').startup({function(use)
     -- Packer
