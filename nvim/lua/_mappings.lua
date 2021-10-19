@@ -45,10 +45,6 @@ map("", "L", "$", {})
 map("", "<M-o>", ":cn<CR>", {})
 map("", "<M-i>", ":cp<CR>", {})
 
--- moving lines also accepts count
-map("n", "<leader>k", ":<c-u>execute 'move -1-'. v:count1<cr>", {})
-map("n", "<leader>j", ":<c-u>execute 'move +'. v:count1<cr>", {})
-
 -- Yank from cursor to end of line
 map("n", "Y", "y$", {})
 
