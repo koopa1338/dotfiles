@@ -26,7 +26,14 @@ return require('packer').startup({function(use)
 
     -- editing
     use 'tpope/vim-surround'
-    use 'tpope/vim-commentary'
+    use {
+        'terrortylor/nvim-comment',
+        config = function()
+            require('nvim_comment').setup({
+                comment_empty = false,
+            })
+        end
+    }
 
     -- movement and search
     use 'junegunn/vim-slash'
