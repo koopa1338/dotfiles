@@ -41,7 +41,6 @@ map("", "k", "gk", {})
 map("", "H", "^", {})
 map("", "L", "$", {})
 
--- make tab and shift + tab be useful
 map("", "<M-o>", ":cn<CR>", {})
 map("", "<M-i>", ":cp<CR>", {})
 
