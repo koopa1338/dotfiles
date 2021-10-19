@@ -36,6 +36,35 @@ xres.none = 'NONE'
 local walush = lush(function()
     return {
 
+        -- git
+        DiffAdd { fg = xres.color15, bg = hsl('#002800') }, -- DiffAdd        ctermfg=0 ctermbg=4 guibg=DarkBlue
+        DiffChange { DiffAdd }, -- DiffChange     ctermfg=0 ctermbg=5 guibg=DarkMagenta
+        DiffDelete { fg = xres.color15, bg = hsl('#3f0001') }, -- DiffDelete     ctermfg=0 ctermbg=6 gui=bold guifg=Blue guibg=DarkCyan
+        DiffText { fg = DiffChange.fg, bg = hsl('#006000'), gui = 'bold' }, -- DiffText       cterm=bold ctermfg=0 ctermbg=9 gui=bold guibg=Red
+
+        -- Diagnostics
+        DiagnosticError { fg = DiffDelete.bg.lighten(35)  }, -- DiagnosticError xxx ctermfg=1 guifg=Red
+        DiagnosticWarn { fg = DiagnosticError.fg.ro(50) }, -- DiagnosticWarn xxx ctermfg=3 guifg=Orange
+        DiagnosticWarning { DiagnosticWarn },
+        DiagnosticInfo { fg =  xres.color7, bg = xres.bg.lighten(15) }, -- DiagnosticInfo xxx ctermfg=4 guifg=LightBlue
+        DiagnosticHint { fg = xres.color15 }, -- DiagnosticHint xxx ctermfg=7 guifg=LightGrey
+        DiagnosticUnderlineError { fg = DiagnosticError.fg, gui = 'underline' }, -- DiagnosticUnderlineError xxx cterm=underline gui=underline guisp=Red
+        DiagnosticUnderlineWarn { fg = DiagnosticWarn.fg, gui = 'underline' }, -- DiagnosticUnderlineWarn xxx cterm=underline gui=underline guisp=Orange
+        DiagnosticUnderlineInfo { fg = DiagnosticInfo.fg, gui = 'underline' }, -- DiagnosticUnderlineInfo xxx cterm=underline gui=underline guisp=LightBlue
+        DiagnosticUnderlineHint { fg = DiagnosticHint.fg, gui = 'underline' }, -- DiagnosticUnderlineHint xxx cterm=underline gui=underline guisp=LightGrey
+        DiagnosticVirtualTextError { DiagnosticError }, -- DiagnosticVirtualTextError xxx links to DiagnosticError
+        DiagnosticVirtualTextWarn { DiagnosticWarn }, -- DiagnosticVirtualTextWarn xxx links to DiagnosticWarn
+        DiagnosticVirtualTextInfo { DiagnosticInfo }, -- DiagnosticVirtualTextInfo xxx links to DiagnosticInfo
+        DiagnosticVirtualTextHint { DiagnosticHint }, -- DiagnosticVirtualTextHint xxx links to DiagnosticHint
+        DiagnosticFloatingError { DiagnosticError }, -- DiagnosticFloatingError xxx links to DiagnosticError
+        DiagnosticFloatingWarn { DiagnosticWarn }, -- DiagnosticFloatingWarn xxx links to DiagnosticWarn
+        DiagnosticFloatingInfo { DiagnosticInfo }, -- DiagnosticFloatingInfo xxx links to DiagnosticInfo
+        DiagnosticFloatingHint { DiagnosticHint }, -- DiagnosticFloatingHint xxx links to DiagnosticHint
+        DiagnosticSignError { DiagnosticError }, -- DiagnosticSignError xxx links to DiagnosticError
+        DiagnosticSignWarn { DiagnosticWarn }, -- DiagnosticSignWarn xxx links to DiagnosticWarn
+        DiagnosticSignInfo { DiagnosticInfo }, -- DiagnosticSignInfo xxx links to DiagnosticInfo
+        DiagnosticSignHint { DiagnosticHint }, -- DiagnosticSignHint xxx links to DiagnosticHint
+
         -- General
         SpecialKey { fg = xres.color13, bg = xres.color0 },
         TermCursor { gui = 'reverse' },
@@ -90,7 +119,6 @@ local walush = lush(function()
         Constant { fg = xres.color11, bg = xres.bg },
         String {Constant},
         Character {Constant},
-        DiagnosticWarning {Constant},
         Visual { fg = xres.color0, bg = xres.color14 },
         Function { fg = xres.color15, bg = xres.bg },
         Special { fg = xres.color9 },
@@ -112,10 +140,6 @@ local walush = lush(function()
         FoldColumn { fg = xres.color14, bg = xres.bg }, --    ctermfg=14 ctermbg=242 guifg=Cyan guibg=Grey
         Folded { FoldColumn },
         WarningMsg { fg = xres.color10 }, -- WarningMsg     ctermfg=10 guifg=Red
-        DiffAdd { fg = xres.color15, bg = hsl('#002800') }, -- DiffAdd        ctermfg=0 ctermbg=4 guibg=DarkBlue
-        DiffChange { DiffAdd }, -- DiffChange     ctermfg=0 ctermbg=5 guibg=DarkMagenta
-        DiffDelete { fg = xres.color15, bg = hsl('#3f0001') }, -- DiffDelete     ctermfg=0 ctermbg=6 gui=bold guifg=Blue guibg=DarkCyan
-        DiffText { fg = DiffChange.fg, bg = hsl('#006000'), gui = 'bold' }, -- DiffText       cterm=bold ctermfg=0 ctermbg=9 gui=bold guibg=Red
         Conceal { fg = xres.color7 }, -- Conceal        ctermfg=7 ctermbg=242 guifg=LightGrey guibg=DarkGrey
         SpellBad { fg = xres.color8, bg = xres.color9 }, -- SpellBad       ctermfg=8 ctermbg=9 gui=undercurl guisp=Red
         SpellCap { bg = xres.color12.da(25), gui = 'undercurl' }, -- SpellCap       ctermbg=12 gui=undercurl guisp=Blue
@@ -137,7 +161,7 @@ local walush = lush(function()
         lCursor { fg = xres.bg, bg = xres.fg }, -- lCursor        xxx guifg=bg guibg=fg
         -- FloatShadow {}, -- FloatShadow    xxx guibg=Black blend=80
         -- FloatShadowThrough {}, -- FloatShadowThrough xxx guibg=Black blend=100
-        Error { fg = xres.color0, bg = xres.color1 }, -- Error          xxx ctermfg=0 ctermbg=1 guifg=White guibg=Red
+        Error { DiagnosticError }, -- Error          xxx ctermfg=0 ctermbg=1 guifg=White guibg=Red
         Todo { fg = xres.color14, bg = xres.color8 }, -- Todo           xxx ctermfg=15 ctermbg=8 guifg=Blue guibg=Yellow
         Number { fg = xres.color12 }, -- Number         xxx ctermfg=12
         Float { fg = xres.color14 }, -- Float          xxx ctermfg=14 guifg=#88AAEE
@@ -146,13 +170,39 @@ local walush = lush(function()
         Typedef { fg = xres.color10, bg = xres.color8 }, -- Typedef        xxx ctermfg=10 ctermbg=8 gui=italic guifg=White guibg=Blue
         MatchParen { fg = xres.color12, bg = xres.color8 }, -- MatchParen     xxx ctermfg=12 ctermbg=8 guibg=DarkCyan
         Underlined { fg = xres.color12, gui = 'underline' }, -- Underlined     xxx cterm=underline ctermfg=12 gui=underline guifg=#80a0ff
-        Ignore { fg = xres.color0 }, -- Ignore         xxx ctermfg=0 guifg=bg
+        Ignore { fg = xres.color0.lighten(15) }, -- Ignore         xxx ctermfg=0 guifg=bg
         User1 { fg = xres.color15, bg = xres.color6 }, -- User1          xxx ctermfg=15 ctermbg=6
         User2 { fg = xres.color15, bg = xres.color8 }, -- User2          xxx ctermfg=15 ctermbg=8
         StatusLineTerm { fg = xres.color0 }, -- StatusLineTerm xxx ctermfg=0
         StatusLineTermNC { fg = xres.color15, bg = xres.color8 }, -- StatusLineTermNC xxx ctermfg=15 ctermbg=8
         YCMWarningSection { fg = xres.color0, bg = xres.color4 }, -- YCMWarningSection xxx ctermfg=0 ctermbg=4
         debugPC {}, -- debugPC {}, -- debugPC        xxx cleared
+
+        -- Gitsigns
+        GitSignsDelete { DiffDelete }, -- GitSignsDelete xxx links to DiffDelete
+        GitSignsDeleteNr { GitSignsDelete }, -- GitSignsDeleteNr xxx links to GitSignsDelete
+        GitSignsAdd { DiffAdd }, -- GitSignsAdd    xxx links to DiffAdd
+        GitSignsAddNr { GitSignsAdd }, -- GitSignsAddNr  xxx links to GitSignsAdd
+        GitSignsCurrentLineBlame { NonText }, -- GitSignsCurrentLineBlame xxx links to NonText
+
+        -- diff
+        diffOnly { Constant }, -- diffOnly       xxx links to Constant
+        diffIdentical { Constant }, -- diffIdentical  xxx links to Constant
+        diffDiffer { Constant }, -- diffDiffer     xxx links to Constant
+        diffBDiffer { Constant }, -- diffBDiffer    xxx links to Constant
+        diffIsA { Constant }, -- diffIsA        xxx links to Constant
+        diffNoEOL { Constant }, -- diffNoEOL      xxx links to Constant
+        diffCommon { Constant }, -- diffCommon     xxx links to Constant
+        diffRemoved { DiffDelete }, -- diffRemoved    xxx links to Special
+        diffAdded { DiffAdd }, -- diffAdded      xxx links to Identifier
+        diffChanged { DiffChange }, -- diffChanged    xxx links to PreProc
+        diffSubname { PreProc }, -- diffSubname    xxx links to PreProc
+        diffLine { Statement }, -- diffLine       xxx links to Statement
+        diffFile { Type }, -- diffFile       xxx links to Type
+        diffOldFile { fg = DiffDelete.bg.lighten(20) }, -- diffOldFile    xxx links to diffFile
+        diffNewFile { fg = DiffAdd.bg.lighten(20) }, -- diffNewFile    xxx links to diffFile
+        diffIndexLine { PreProc }, -- diffIndexLine  xxx links to PreProc
+        diffComment { Comment }, -- diffComment    xxx links to Comment
 
         -- Nvim groups
         NvimString {String},
@@ -289,28 +339,6 @@ local walush = lush(function()
         NvimInvalidSpacing { ErrorMsg }, -- NvimInvalidSpacing xxx links to ErrorMsg
         NvimDoubleQuotedUnknownEscape { NvimInvalidValue }, -- NvimDoubleQuotedUnknownEscape xxx links to NvimInvalidValue
 
-        -- Diagnostics
-        DiagnosticError { fg = xres.color1 }, -- DiagnosticError xxx ctermfg=1 guifg=Red
-        DiagnosticWarn { fg = xres.color3 }, -- DiagnosticWarn xxx ctermfg=3 guifg=Orange
-        DiagnosticInfo { fg = xres.color4 }, -- DiagnosticInfo xxx ctermfg=4 guifg=LightBlue
-        DiagnosticHint { fg = xres.color7 }, -- DiagnosticHint xxx ctermfg=7 guifg=LightGrey
-        DiagnosticUnderlineError { gui = 'underline' }, -- DiagnosticUnderlineError xxx cterm=underline gui=underline guisp=Red
-        DiagnosticUnderlineWarn { gui = 'underline' }, -- DiagnosticUnderlineWarn xxx cterm=underline gui=underline guisp=Orange
-        DiagnosticUnderlineInfo { gui = 'underline' }, -- DiagnosticUnderlineInfo xxx cterm=underline gui=underline guisp=LightBlue
-        DiagnosticUnderlineHint { gui = 'underline' }, -- DiagnosticUnderlineHint xxx cterm=underline gui=underline guisp=LightGrey
-        DiagnosticVirtualTextError { DiagnosticError }, -- DiagnosticVirtualTextError xxx links to DiagnosticError
-        DiagnosticVirtualTextWarn { DiagnosticWarn }, -- DiagnosticVirtualTextWarn xxx links to DiagnosticWarn
-        DiagnosticVirtualTextInfo { DiagnosticInfo }, -- DiagnosticVirtualTextInfo xxx links to DiagnosticInfo
-        DiagnosticVirtualTextHint { DiagnosticHint }, -- DiagnosticVirtualTextHint xxx links to DiagnosticHint
-        DiagnosticFloatingError { DiagnosticError }, -- DiagnosticFloatingError xxx links to DiagnosticError
-        DiagnosticFloatingWarn { DiagnosticWarn }, -- DiagnosticFloatingWarn xxx links to DiagnosticWarn
-        DiagnosticFloatingInfo { DiagnosticInfo }, -- DiagnosticFloatingInfo xxx links to DiagnosticInfo
-        DiagnosticFloatingHint { DiagnosticHint }, -- DiagnosticFloatingHint xxx links to DiagnosticHint
-        DiagnosticSignError { DiagnosticError }, -- DiagnosticSignError xxx links to DiagnosticError
-        DiagnosticSignWarn { DiagnosticWarn }, -- DiagnosticSignWarn xxx links to DiagnosticWarn
-        DiagnosticSignInfo { DiagnosticInfo }, -- DiagnosticSignInfo xxx links to DiagnosticInfo
-        DiagnosticSignHint { DiagnosticHint }, -- DiagnosticSignHint xxx links to DiagnosticHint
-
         ElCommand { Constant }, -- ElCommand      xxx links to Constant
         ElCommandCV { StatusLine }, -- ElCommandCV    xxx links to StatusLine
         ElCommandEx { StatusLine }, -- ElCommandEx    xxx links to StatusLine
@@ -369,6 +397,82 @@ local walush = lush(function()
         -- DapUIBreakpointsInfo xxx guifg=#A9FF68
         -- DapUIBreakpointsCurrentLine xxx gui=bold guifg=#A9FF68
         -- DapUIBreakpointsLine xxx links to DapUILineNumber
+
+        -- Nvim Tree
+        NvimTreeSpecialFile { fg = xres.color10, gui = 'bold,underline' }, -- NvimTreeSpecialFile xxx gui=bold,underline guifg=10
+        -- NvimTreeExecFile xxx gui=bold guifg=Green
+        -- NvimTreeImageFile xxx gui=bold guifg=Purple
+        -- NvimTreeIndentMarker xxx guifg=#8094b4
+        -- NvimTreeFolderIcon xxx guifg=#8094b4
+        NvimTreeGitDeleted { diffOldFile }, -- NvimTreeGitDeleted xxx guifg=13
+        NvimTreeGitNew { diffNewFile }, -- NvimTreeGitNew xxx guifg=10
+        NvimTreeGitMerge { fg = xres.color12 }, -- NvimTreeGitMerge xxx guifg=12
+        -- NvimTreeGitRenamed xxx guifg=Purple
+        NvimTreeSymlink { fg = xres.color11, gui = 'bold' }, -- NvimTreeSymlink xxx gui=bold guifg=11
+        NvimTreeRootFolder { fg = xres.color7},-- xxx guifg=Purple
+        -- NvimTreeOpenedFile xxx gui=bold guifg=Green
+        NvimTreeGitDirty { fg = xres.color13 }, -- NvimTreeGitDirty xxx guifg=13
+        -- NvimTreeGitStaged xxx guifg=Green
+        -- NvimTreeWindowPicker xxx gui=bold guifg=#ededed guibg=#4493c8
+        NvimTreeSignColumn { NvimTreeNormal }, -- NvimTreeSignColumn xxx links to NvimTreeNormal
+        -- NvimTreeFileRenamed { NvimTreeGitRenamed }, -- NvimTreeFileRenamed xxx links to NvimTreeGitRenamed
+        NvimTreeFileNew { NvimTreeGitNew }, -- NvimTreeFileNew xxx links to NvimTreeGitNew
+        NvimTreeFileDeleted { NvimTreeGitDeleted }, -- NvimTreeFileDeleted xxx links to NvimTreeGitDeleted
+        -- NvimTreeFileStaged { NvimTreeGitStaged }, -- NvimTreeFileStaged xxx links to NvimTreeGitStaged
+        NvimTreeVertSplit { VertSplit }, -- NvimTreeVertSplit xxx links to VertSplit
+        NvimTreeFileMerge { NvimTreeGitMerge }, -- NvimTreeFileMerge xxx links to NvimTreeGitMerge
+        NvimTreeFolderName { Directory }, -- NvimTreeFolderName xxx links to Directory
+        NvimTreeStatusLineNC { StatusLineNC }, -- NvimTreeStatusLineNC xxx links to StatusLineNC
+        NvimTreeStatusLine { StatusLine }, -- NvimTreeStatusLine xxx links to StatusLine
+        NvimTreeCursorLine { CursorLine }, -- NvimTreeCursorLine xxx links to CursorLine
+        NvimTreeGitIgnored { Comment }, -- NvimTreeGitIgnored xxx links to Comment
+        NvimTreeEndOfBuffer { EndOfBuffer }, -- NvimTreeEndOfBuffer xxx links to EndOfBuffer
+        NvimTreeFileDirty { NvimTreeGitDirty }, -- NvimTreeFileDirty xxx links to NvimTreeGitDirty
+        NvimTreeNormalNC { NvimTreeNormal }, -- NvimTreeNormalNC xxx links to NvimTreeNormal
+        NvimTreeOpenedFolderName { Directory }, -- NvimTreeOpenedFolderName xxx links to Directory
+        NvimTreeEmptyFolderName { Directory }, -- NvimTreeEmptyFolderName xxx links to Directory
+        NvimTreeCursorColumn { CursorColumn }, -- NvimTreeCursorColumn xxx links to CursorColumn
+        NvimTreeLspDiagnosticsError { DiagnosticError }, -- NvimTreeLspDiagnosticsError xxx links to DiagnosticError
+        NvimTreeLspDiagnosticsWarning { DiagnosticWarning }, -- NvimTreeLspDiagnosticsWarning xxx links to DiagnosticWarning
+        NvimTreeLspDiagnosticsInformation { DiagnosticInfo }, -- NvimTreeLspDiagnosticsInformation xxx links to DiagnosticInfo
+        NvimTreeLspDiagnosticsHint { DiagnosticHint }, -- NvimTreeLspDiagnosticsHint xxx links to DiagnosticHint
+
+        -- Telescope
+        TelescopeSelection { fg = xres.color7, bg = xres.color8.lighten(10) }, -- TelescopeSelection xxx links to Visual
+        TelescopeSelectionCaret { TelescopeSelection }, -- TelescopeSelectionCaret xxx links to TelescopeSelection
+        TelescopeMultiSelection { Type }, -- TelescopeMultiSelection xxx links to Type
+        TelescopeNormal { Normal }, -- TelescopeNormal xxx links to Normal
+        TelescopePreviewNormal { Normal }, -- TelescopePreviewNormal xxx links to Normal
+        TelescopeBorder { TelescopeNormal }, -- TelescopeBorder xxx links to TelescopeNormal
+        TelescopePromptBorder { TelescopeBorder }, -- TelescopePromptBorder xxx links to TelescopeBorder
+        TelescopeResultsBorder { TelescopeBorder }, -- TelescopeResultsBorder xxx links to TelescopeBorder
+        TelescopePreviewBorder { TelescopeBorder }, -- TelescopePreviewBorder xxx links to TelescopeBorder
+        TelescopeMatching { Special }, -- TelescopeMatching xxx links to Special
+        TelescopePromptPrefix { Identifier }, -- TelescopePromptPrefix xxx links to Identifier
+        TelescopePreviewLine { Visual }, -- TelescopePreviewLine xxx links to Visual
+        TelescopePreviewMatch { Search }, -- TelescopePreviewMatch xxx links to Search
+        TelescopePreviewPipe { Constant }, -- TelescopePreviewPipe xxx links to Constant
+        TelescopePreviewCharDev { Constant }, -- TelescopePreviewCharDev xxx links to Constant
+        TelescopePreviewDirectory { Directory }, -- TelescopePreviewDirectory xxx links to Directory
+        TelescopePreviewBlock { Constant }, -- TelescopePreviewBlock xxx links to Constant
+        TelescopePreviewLink { Special }, -- TelescopePreviewLink xxx links to Special
+        TelescopePreviewSocket { Statement }, -- TelescopePreviewSocket xxx links to Statement
+        TelescopePreviewRead { Constant }, -- TelescopePreviewRead xxx links to Constant
+        TelescopePreviewWrite { Statement }, -- TelescopePreviewWrite xxx links to Statement
+        TelescopePreviewExecute { String }, -- TelescopePreviewExecute xxx links to String
+        TelescopePreviewHyphen { NonText }, -- TelescopePreviewHyphen xxx links to NonText
+        TelescopePreviewSticky { Keyword }, -- TelescopePreviewSticky xxx links to Keyword
+        TelescopePreviewSize { String }, -- TelescopePreviewSize xxx links to String
+        TelescopePreviewUser { Constant }, -- TelescopePreviewUser xxx links to Constant
+        TelescopePreviewGroup { Constant }, -- TelescopePreviewGroup xxx links to Constant
+        TelescopePreviewDate { Directory }, -- TelescopePreviewDate xxx links to Directory
+        TelescopePreviewMessage { TelescopePreviewNormal }, -- TelescopePreviewMessage xxx links to TelescopePreviewNormal
+        TelescopePreviewMessageFillchar { TelescopePreviewMessage }, -- TelescopePreviewMessageFillchar xxx links to TelescopePreviewMessage
+        TelescopeResultsClass { Function }, -- TelescopeResultsClass xxx links to Function
+        TelescopeResultsConstant { Constant }, -- TelescopeResultsConstant xxx links to Constant
+        TelescopeResultsField { Function }, -- TelescopeResultsField xxx links to Function
+        TelescopeResultsFunction { Function }, -- TelescopeResultsFunction xxx links to Function
+        TelescopeResultsMethod { Method }, -- TelescopeResultsMethod xxx links to Method
 
         -- Devicons
         DevIconDiff { fg = hsl('#41535b') }, -- DevIconDiff    xxx guifg=#41535b
@@ -553,107 +657,6 @@ local walush = lush(function()
         DevIconTwig { fg = hsl('#8dc149') }, -- DevIconTwig    xxx guifg=#8dc149
         DevIconTs { fg = hsl('#519aba') }, -- DevIconTs      xxx guifg=#519aba
         DevIconTsx { fg = hsl('#519aba') }, -- DevIconTsx     xxx guifg=#519aba
-
-        -- Nvim Tree
-        NvimTreeSpecialFile { fg = xres.color10, gui = 'bold,underline' }, -- NvimTreeSpecialFile xxx gui=bold,underline guifg=10
-        -- NvimTreeExecFile xxx gui=bold guifg=Green
-        -- NvimTreeImageFile xxx gui=bold guifg=Purple
-        -- NvimTreeIndentMarker xxx guifg=#8094b4
-        -- NvimTreeFolderIcon xxx guifg=#8094b4
-        NvimTreeGitDeleted { DiffDelete }, -- NvimTreeGitDeleted xxx guifg=13
-        NvimTreeGitNew { DiffAdd }, -- NvimTreeGitNew xxx guifg=10
-        NvimTreeGitMerge { fg = xres.color12 }, -- NvimTreeGitMerge xxx guifg=12
-        -- NvimTreeGitRenamed xxx guifg=Purple
-        NvimTreeSymlink { fg = xres.color11, gui = 'bold' }, -- NvimTreeSymlink xxx gui=bold guifg=11
-        -- NvimTreeRootFolder xxx guifg=Purple
-        -- NvimTreeOpenedFile xxx gui=bold guifg=Green
-        NvimTreeGitDirty { fg = xres.color13 }, -- NvimTreeGitDirty xxx guifg=13
-        -- NvimTreeGitStaged xxx guifg=Green
-        -- NvimTreeWindowPicker xxx gui=bold guifg=#ededed guibg=#4493c8
-        NvimTreeSignColumn { NvimTreeNormal }, -- NvimTreeSignColumn xxx links to NvimTreeNormal
-        -- NvimTreeFileRenamed { NvimTreeGitRenamed }, -- NvimTreeFileRenamed xxx links to NvimTreeGitRenamed
-        NvimTreeFileNew { NvimTreeGitNew }, -- NvimTreeFileNew xxx links to NvimTreeGitNew
-        NvimTreeFileDeleted { NvimTreeGitDeleted }, -- NvimTreeFileDeleted xxx links to NvimTreeGitDeleted
-        -- NvimTreeFileStaged { NvimTreeGitStaged }, -- NvimTreeFileStaged xxx links to NvimTreeGitStaged
-        NvimTreeVertSplit { VertSplit }, -- NvimTreeVertSplit xxx links to VertSplit
-        NvimTreeFileMerge { NvimTreeGitMerge }, -- NvimTreeFileMerge xxx links to NvimTreeGitMerge
-        NvimTreeFolderName { Directory }, -- NvimTreeFolderName xxx links to Directory
-        NvimTreeStatusLineNC { StatusLineNC }, -- NvimTreeStatusLineNC xxx links to StatusLineNC
-        NvimTreeStatusLine { StatusLine }, -- NvimTreeStatusLine xxx links to StatusLine
-        NvimTreeCursorLine { CursorLine }, -- NvimTreeCursorLine xxx links to CursorLine
-        NvimTreeGitIgnored { Comment }, -- NvimTreeGitIgnored xxx links to Comment
-        NvimTreeEndOfBuffer { EndOfBuffer }, -- NvimTreeEndOfBuffer xxx links to EndOfBuffer
-        NvimTreeFileDirty { NvimTreeGitDirty }, -- NvimTreeFileDirty xxx links to NvimTreeGitDirty
-        NvimTreeNormalNC { NvimTreeNormal }, -- NvimTreeNormalNC xxx links to NvimTreeNormal
-        NvimTreeOpenedFolderName { Directory }, -- NvimTreeOpenedFolderName xxx links to Directory
-        NvimTreeEmptyFolderName { Directory }, -- NvimTreeEmptyFolderName xxx links to Directory
-        NvimTreeCursorColumn { CursorColumn }, -- NvimTreeCursorColumn xxx links to CursorColumn
-        NvimTreeLspDiagnosticsError { DiagnosticError }, -- NvimTreeLspDiagnosticsError xxx links to DiagnosticError
-        NvimTreeLspDiagnosticsWarning { DiagnosticWarning }, -- NvimTreeLspDiagnosticsWarning xxx links to DiagnosticWarning
-        NvimTreeLspDiagnosticsInformation { DiagnosticInfo }, -- NvimTreeLspDiagnosticsInformation xxx links to DiagnosticInfo
-        NvimTreeLspDiagnosticsHint { DiagnosticHint }, -- NvimTreeLspDiagnosticsHint xxx links to DiagnosticHint
-
-        -- Telescope
-        TelescopeSelection { fg = xres.color7, bg = xres.color8.lighten(10) }, -- TelescopeSelection xxx links to Visual
-        TelescopeSelectionCaret { TelescopeSelection }, -- TelescopeSelectionCaret xxx links to TelescopeSelection
-        TelescopeMultiSelection { Type }, -- TelescopeMultiSelection xxx links to Type
-        TelescopeNormal { Normal }, -- TelescopeNormal xxx links to Normal
-        TelescopePreviewNormal { Normal }, -- TelescopePreviewNormal xxx links to Normal
-        TelescopeBorder { TelescopeNormal }, -- TelescopeBorder xxx links to TelescopeNormal
-        TelescopePromptBorder { TelescopeBorder }, -- TelescopePromptBorder xxx links to TelescopeBorder
-        TelescopeResultsBorder { TelescopeBorder }, -- TelescopeResultsBorder xxx links to TelescopeBorder
-        TelescopePreviewBorder { TelescopeBorder }, -- TelescopePreviewBorder xxx links to TelescopeBorder
-        TelescopeMatching { Special }, -- TelescopeMatching xxx links to Special
-        TelescopePromptPrefix { Identifier }, -- TelescopePromptPrefix xxx links to Identifier
-        TelescopePreviewLine { Visual }, -- TelescopePreviewLine xxx links to Visual
-        TelescopePreviewMatch { Search }, -- TelescopePreviewMatch xxx links to Search
-        TelescopePreviewPipe { Constant }, -- TelescopePreviewPipe xxx links to Constant
-        TelescopePreviewCharDev { Constant }, -- TelescopePreviewCharDev xxx links to Constant
-        TelescopePreviewDirectory { Directory }, -- TelescopePreviewDirectory xxx links to Directory
-        TelescopePreviewBlock { Constant }, -- TelescopePreviewBlock xxx links to Constant
-        TelescopePreviewLink { Special }, -- TelescopePreviewLink xxx links to Special
-        TelescopePreviewSocket { Statement }, -- TelescopePreviewSocket xxx links to Statement
-        TelescopePreviewRead { Constant }, -- TelescopePreviewRead xxx links to Constant
-        TelescopePreviewWrite { Statement }, -- TelescopePreviewWrite xxx links to Statement
-        TelescopePreviewExecute { String }, -- TelescopePreviewExecute xxx links to String
-        TelescopePreviewHyphen { NonText }, -- TelescopePreviewHyphen xxx links to NonText
-        TelescopePreviewSticky { Keyword }, -- TelescopePreviewSticky xxx links to Keyword
-        TelescopePreviewSize { String }, -- TelescopePreviewSize xxx links to String
-        TelescopePreviewUser { Constant }, -- TelescopePreviewUser xxx links to Constant
-        TelescopePreviewGroup { Constant }, -- TelescopePreviewGroup xxx links to Constant
-        TelescopePreviewDate { Directory }, -- TelescopePreviewDate xxx links to Directory
-        TelescopePreviewMessage { TelescopePreviewNormal }, -- TelescopePreviewMessage xxx links to TelescopePreviewNormal
-        TelescopePreviewMessageFillchar { TelescopePreviewMessage }, -- TelescopePreviewMessageFillchar xxx links to TelescopePreviewMessage
-        TelescopeResultsClass { Function }, -- TelescopeResultsClass xxx links to Function
-        TelescopeResultsConstant { Constant }, -- TelescopeResultsConstant xxx links to Constant
-        TelescopeResultsField { Function }, -- TelescopeResultsField xxx links to Function
-        TelescopeResultsFunction { Function }, -- TelescopeResultsFunction xxx links to Function
-        TelescopeResultsMethod { Method }, -- TelescopeResultsMethod xxx links to Method
-
-        -- Gitsigns
-        GitSignsDelete { DiffDelete }, -- GitSignsDelete xxx links to DiffDelete
-        GitSignsDeleteNr { GitSignsDelete }, -- GitSignsDeleteNr xxx links to GitSignsDelete
-        GitSignsAdd { DiffAdd }, -- GitSignsAdd    xxx links to DiffAdd
-        GitSignsAddNr { GitSignsAdd }, -- GitSignsAddNr  xxx links to GitSignsAdd
-        GitSignsCurrentLineBlame { NonText }, -- GitSignsCurrentLineBlame xxx links to NonText
-
-        diffOnly { Constant }, -- diffOnly       xxx links to Constant
-        diffIdentical { Constant }, -- diffIdentical  xxx links to Constant
-        diffDiffer { Constant }, -- diffDiffer     xxx links to Constant
-        diffBDiffer { Constant }, -- diffBDiffer    xxx links to Constant
-        diffIsA { Constant }, -- diffIsA        xxx links to Constant
-        diffNoEOL { Constant }, -- diffNoEOL      xxx links to Constant
-        diffCommon { Constant }, -- diffCommon     xxx links to Constant
-        diffRemoved { DiffDelete }, -- diffRemoved    xxx links to Special
-        diffAdded { DiffAdd }, -- diffAdded      xxx links to Identifier
-        diffChanged { DiffChange }, -- diffChanged    xxx links to PreProc
-        diffSubname { PreProc }, -- diffSubname    xxx links to PreProc
-        diffLine { Statement }, -- diffLine       xxx links to Statement
-        diffFile { Type }, -- diffFile       xxx links to Type
-        diffOldFile { fg = DiffDelete.bg.lighten(40) }, -- diffOldFile    xxx links to diffFile
-        diffNewFile { fg = DiffAdd.bg.lighten(40) }, -- diffNewFile    xxx links to diffFile
-        diffIndexLine { PreProc }, -- diffIndexLine  xxx links to PreProc
-        diffComment { Comment }, -- diffComment    xxx links to Comment
     }
 end)
 
