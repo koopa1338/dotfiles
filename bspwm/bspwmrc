@@ -17,6 +17,7 @@ fork_once sxhkd
 fork_once volumeicon &
 fork_once greenclip daemon
 fork_once dockd --daemon &
+fork_once picom --config ~/.config/picom/picom.conf &
 
 dunst_launch &
 xset r rate 300 65 &
