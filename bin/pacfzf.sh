@@ -8,5 +8,5 @@
 
 pacman -Slq > "$CACHE"
 curl --fail --silent "$AUR_PKG_URL" | gunzip --stdout | sed 1d >> "$CACHE"
-cat $CACHE | fzf --color=16 --prompt='packages: ' --height=35 --ansi --preview='yay -Si {}' --preview-window=right:wrap --layout=reverse > $CACHEHIST
-yay -S $(cat $CACHEHIST)
+cat $CACHE | fzf --color=16 --prompt='packages: ' --height=35 --ansi --preview='paru -Si {}' --preview-window=right:wrap --layout=reverse > $CACHEHIST
+paru -S $(cat $CACHEHIST)
