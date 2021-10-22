@@ -48,7 +48,7 @@ font-1 = Monapo:size=14;0
 font-2 = Noto Mono for Powerline:pixelsize=14;1
 
 modules-left = bspwm
-modules-center = alsa
+modules-center = pulseaudio-control
 modules-right = battery temperature memory date
 
 tray-position = right
@@ -277,6 +277,22 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.primary}
 
 label = %time%  %date%
+
+[module/pulseaudio-control]
+type = custom/script
+tail = true
+label=%output%
+format-underline = ${colors.blue}
+
+;    --sink-nickname "bluez_sink.34_75_63_DB_90_2B.a2dp_sink: 🎧"
+exec = pulseaudio-control --icons-volume " , , " --icon-muted " " --sink-nicknames-from "device.description" --sink-nickname "alsa_output.pci-0000_04_00.6.analog-stereo:Analog Stereo" listen
+click-right = exec pavucontrol &
+click-left = pulseaudio-control togmute
+click-middle = pulseaudio-control next-sink
+scroll-up = pulseaudio-control --volume-max 100 --volume-step 5 up
+scroll-down = pulseaudio-control --volume-max 100 --volume-step 5 down
+label-padding = 2
+label-foreground = ${colors.foreground}
 
 [module/alsa]
 type = internal/alsa
