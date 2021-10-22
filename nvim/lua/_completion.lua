@@ -46,13 +46,17 @@ cmp.setup({
     formatting = {
         format = lspkind.cmp_format({symbol_map = cmp_kinds}),
     },
+    experimental = {
+        native_menu = false,
+        ghost_text = true,
+    },
     mapping = {
         ["<C-c>"] = cmp.mapping.close(),
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<cr>'] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
+            behavior = cmp.ConfirmBehavior.Insert,
             select = true
         },
         ['<Tab>'] = cmp.mapping(function(fallback)
