@@ -25,7 +25,7 @@ xset -b &
 xset r rate 300 65 &
 numlockx &
 nm-applet --sm-disable &
-setxkbmap -model pc105 -layout de,us -variant nodeadkeys -option compose:rctrl,grp:alt_shift_toggle
+setxkbmap -model pc105 -layout de -variant nodeadkeys -option compose:rctrl,grp:alt_shift_toggle &
 
 dunst_launch &
 polybar_launch &
