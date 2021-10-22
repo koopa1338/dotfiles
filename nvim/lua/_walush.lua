@@ -178,13 +178,6 @@ local walush = lush(function()
         YCMWarningSection    { fg = xres.color0, bg = xres.color4 },                           -- YCMWarningSection    xxx ctermfg=0 ctermbg=4
         debugPC              { },                                                              -- debugPC                                                                                                                 { }, -- debugPC        xxx cleared
 
-        -- Gitsigns
-        GitSignsDelete           { DiffDelete },     -- GitSignsDelete           xxx links to DiffDelete
-        GitSignsDeleteNr         { GitSignsDelete }, -- GitSignsDeleteNr         xxx links to GitSignsDelete
-        GitSignsAdd              { DiffAdd },        -- GitSignsAdd              xxx links to DiffAdd
-        GitSignsAddNr            { GitSignsAdd },    -- GitSignsAddNr            xxx links to GitSignsAdd
-        GitSignsCurrentLineBlame { NonText },        -- GitSignsCurrentLineBlame xxx links to NonText
-
         -- diff
         diffOnly      { Constant },                       -- diffOnly       xxx links to Constant
         diffIdentical { Constant },                       -- diffIdentical  xxx links to Constant
@@ -203,6 +196,13 @@ local walush = lush(function()
         diffNewFile   { fg = DiffAdd.bg.lighten(20) },    -- diffNewFile    xxx links to diffFile
         diffIndexLine { PreProc },                        -- diffIndexLine  xxx links to PreProc
         diffComment   { Comment },                        -- diffComment    xxx links to Comment
+
+        -- Gitsigns
+        GitSignsDelete           { fg = diffOldFile.fg.lighten(30) }, -- GitSignsDelete           xxx links to DiffDelete
+        GitSignsDeleteNr         { fg = diffOldFile.fg.lighten(30) }, -- GitSignsDeleteNr         xxx links to GitSignsDelete
+        GitSignsAdd              { fg = diffNewFile.fg.lighten(15) }, -- GitSignsAdd              xxx links to DiffAdd
+        GitSignsAddNr            { fg = diffNewFile.fg.lighten(15) }, -- GitSignsAddNr            xxx links to GitSignsAdd
+        GitSignsCurrentLineBlame { fg = NonText.fg.lighten(15) },                                           -- GitSignsCurrentLineBlame xxx links to NonText
 
         -- Nvim groups
         NvimString                             { String},
