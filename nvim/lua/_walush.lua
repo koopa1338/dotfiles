@@ -176,7 +176,7 @@ local walush = lush(function()
         StatusLineTerm       { fg = xres.color0 },                                             -- StatusLineTerm       xxx ctermfg=0
         StatusLineTermNC     { fg = xres.color15, bg = xres.color8 },                          -- StatusLineTermNC     xxx ctermfg=15 ctermbg=8
         YCMWarningSection    { fg = xres.color0, bg = xres.color4 },                           -- YCMWarningSection    xxx ctermfg=0 ctermbg=4
-        debugPC              { },                                                              -- debugPC                                                                                                                 { }, -- debugPC        xxx cleared
+        debugPC              { },                                                              --  debugPC             xxx cleared
 
         -- diff
         diffOnly      { Constant },                       -- diffOnly       xxx links to Constant
@@ -202,7 +202,7 @@ local walush = lush(function()
         GitSignsDeleteNr         { fg = diffOldFile.fg.lighten(30) }, -- GitSignsDeleteNr         xxx links to GitSignsDelete
         GitSignsAdd              { fg = diffNewFile.fg.lighten(15) }, -- GitSignsAdd              xxx links to DiffAdd
         GitSignsAddNr            { fg = diffNewFile.fg.lighten(15) }, -- GitSignsAddNr            xxx links to GitSignsAdd
-        GitSignsCurrentLineBlame { fg = NonText.fg.lighten(15) },                                           -- GitSignsCurrentLineBlame xxx links to NonText
+        GitSignsCurrentLineBlame { fg = NonText.fg.lighten(15) },     -- GitSignsCurrentLineBlame xxx links to NonText
 
         -- Nvim groups
         NvimString                             { String},
@@ -407,8 +407,8 @@ local walush = lush(function()
         -- NvimTreeOpenedFile xxx gui=bold guifg=Green
         -- NvimTreeGitStaged xxx guifg=Green
         -- NvimTreeWindowPicker xxx gui=bold guifg=#ededed guibg=#4493c8
-        -- NvimTreeFileRenamed { NvimTreeGitRenamed }, -- NvimTreeFileRenamed xxx links to NvimTreeGitRenamed
-        -- NvimTreeFileStaged { NvimTreeGitStaged }, -- NvimTreeFileStaged xxx links to NvimTreeGitStaged
+        -- NvimTreeFileRenamed xxx links to NvimTreeGitRenamed
+        -- NvimTreeFileStaged xxx links to NvimTreeGitStaged
         NvimTreeSpecialFile               { fg = xres.color10, gui = 'bold,underline' }, -- NvimTreeSpecialFile               xxx gui=bold,underline guifg=10
         NvimTreeGitDeleted                { diffOldFile },                               -- NvimTreeGitDeleted                xxx guifg=13
         NvimTreeGitNew                    { diffNewFile },                               -- NvimTreeGitNew                    xxx guifg=10
