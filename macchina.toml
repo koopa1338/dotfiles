@@ -21,10 +21,10 @@ no_box = true
 no_ascii = false 
 
 # Displays a palette of your active colorscheme
-palette = true 
+palette = "Full" 
 
 # Turns data into bars for specific readouts 
-bar = true
+bar = false
 
 # Prefer small ASCII variant.
 # Conflicts with: no_ascii
@@ -47,7 +47,7 @@ random_sep_color = false
 #   - Yellow
 #   - Red
 #   - Magenta
-color = "Blue"
+#color = "Blue"
 
 # Specify a color for the separator.
 # Conflicts with: no_color
@@ -60,7 +60,7 @@ color = "Blue"
 #   - Yellow
 #   - Red
 #   - Magenta
-separator_color = "Blue"
+# separator_color = "Blue"
 
 # Shorten the uptime format
 short_uptime = true 
@@ -117,7 +117,7 @@ theme = "Boron"
 #   - Battery
 # Example:
 #   hide = ["Battery", "Memory", ...]
-hide = ["LocalIP", "Battery", "Host"]
+# hide = ["LocalIP", "Battery", "Host"]
 
 # Displays only the specified readouts.
 # Conflicts with: hide 
