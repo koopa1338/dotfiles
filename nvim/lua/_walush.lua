@@ -198,11 +198,13 @@ local walush = lush(function()
         diffComment   { Comment },                        -- diffComment    xxx links to Comment
 
         -- Gitsigns
-        GitSignsDelete           { fg = diffOldFile.fg.lighten(30) }, -- GitSignsDelete           xxx links to DiffDelete
-        GitSignsDeleteNr         { fg = diffOldFile.fg.lighten(30) }, -- GitSignsDeleteNr         xxx links to GitSignsDelete
-        GitSignsAdd              { fg = diffNewFile.fg.lighten(15) }, -- GitSignsAdd              xxx links to DiffAdd
-        GitSignsAddNr            { fg = diffNewFile.fg.lighten(15) }, -- GitSignsAddNr            xxx links to GitSignsAdd
-        GitSignsCurrentLineBlame { fg = NonText.fg.lighten(15) },     -- GitSignsCurrentLineBlame xxx links to NonText
+        GitSignsDelete           { fg = diffOldFile.fg.lighten(30) },         -- GitSignsDelete           xxx links to DiffDelete
+        GitSignsDeleteNr         { fg = GitSignsDelete.fg },                  -- GitSignsDeleteNr         xxx links to GitSignsDelete
+        GitSignsAdd              { fg = diffNewFile.fg.lighten(15) },         -- GitSignsAdd              xxx links to DiffAdd
+        GitSignsAddNr            { fg = GitSignsAdd.fg },                     -- GitSignsAddNr            xxx links to GitSignsAdd
+        GitSignsChange           { fg = GitSignsAdd.fg.ro(300).lighten(10) }, -- GitSignsAdd              xxx links to DiffAdd
+        GitSignsChangeNr         { fg = GitSignsChange.fg },                  -- GitSignsAddNr            xxx links to GitSignsAdd
+        GitSignsCurrentLineBlame { fg = NonText.fg.lighten(15) },             -- GitSignsCurrentLineBlame xxx links to NonText
 
         -- Nvim groups
         NvimString                             { String},
