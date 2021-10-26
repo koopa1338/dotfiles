@@ -9,6 +9,7 @@ set fish_color_end normal
 # disable prompt modifier by virtuelenv
 set --export VIRTUAL_ENV_DISABLE_PROMPT 'True'
 set --export FZF_DEFAULT_COMMAND 'fd -t f'
+set --export GIT_ASKPASS '/usr/lib/ssh/gnome-ssh-askpass3'
 # Aliases
 alias v="nvim"
 alias vi="nvim"
