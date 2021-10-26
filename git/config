@@ -43,7 +43,7 @@
     stl = stash list
     stp = stash pop
     sta = stash apply
-    sth = stash
+    stv = stash save
     tags = tag -n1 --list
     unpub = !git push origin :$(git branch --show-current)
 
