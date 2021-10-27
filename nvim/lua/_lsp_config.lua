@@ -67,34 +67,16 @@ table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
 local servers = {
+    -- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
+    bashls = {},
     clangd = {
         filetypes = { "c", "cc", "cpp", "objc", "objcpp" }
     },
-    bashls = {},
-    vimls = {},
-    ocamlls = {
-        root_dir = nvim_lsp.util.root_pattern(".merlin", "package.json") or nvim_lsp.util.find_git_root
-    },
-    yamlls = {},
-    tsserver = {
-        cmd = { "typescript-language-server", "--stdio" },
-        root_dir = nvim_lsp.util.find_git_root or nvim_lsp.util.find_node_modules_root
-    },
-    jsonls = {
-        cmd = { "json-languageserver", "--stdio" }
-    },
-    jdtls = {
-        filetypes = { "java" },
-        cmd = { "jdtls" },
-        root_dir = nvim_lsp.util.find_git_root
-    },
-    texlab = {
-        cmd = { "texlab" },
+    cmake = {},
+    cssls = {
+        cmd = { "css-languageserver", "--stdio" },
     },
     dockerls = {},
-    rust_analyzer = {
-        root_dir = nvim_lsp.util.root_pattern("Cargo.toml", "rust-project.json") or nvim_lsp.util.find_git_root
-    },
     gopls = {
         cmd = {"gopls", "serve"},
         settings = {
@@ -106,6 +88,10 @@ local servers = {
             },
         }
     },
+    graphql = {},
+    html = {
+        cmd = {"html-languageserver", "--stdio"},
+    },
     jedi_language_server = {
         root_dir = nvim_lsp.util.find_git_root,
         settings = {
@@ -114,8 +100,19 @@ local servers = {
             }
         }
     },
-    html = {
-        cmd = {"html-languageserver", "--stdio"},
+    jdtls = {
+        filetypes = { "java" },
+        cmd = { "jdtls" },
+        root_dir = nvim_lsp.util.find_git_root
+    },
+    jsonls = {
+        cmd = { "json-languageserver", "--stdio" }
+    },
+    ocamlls = {
+        root_dir = nvim_lsp.util.root_pattern(".merlin", "package.json") or nvim_lsp.util.find_git_root
+    },
+    rust_analyzer = {
+        root_dir = nvim_lsp.util.root_pattern("Cargo.toml", "rust-project.json") or nvim_lsp.util.find_git_root
     },
     sumneko_lua = {
         cmd = { "lua-language-server" },
@@ -142,9 +139,15 @@ local servers = {
             }
         }
     },
-    cssls = {
-        cmd = { "css-languageserver", "--stdio" },
+    texlab = {
+        cmd = { "texlab" },
     },
+    tsserver = {
+        cmd = { "typescript-language-server", "--stdio" },
+        root_dir = nvim_lsp.util.find_git_root or nvim_lsp.util.find_node_modules_root
+    },
+    vimls = {},
+    yamlls = {},
 }
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
