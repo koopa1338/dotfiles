@@ -11,6 +11,7 @@ map("n", "<Leader>gL", ":GV<CR>", {silent = true})
 map("n", "<Leader>gs", ":G<CR>", {silent = true})
 map("n", "<Leader>gD", ":Gdiff<CR>", {silent = true})
 map("n", "<Leader>gp", ":Git push<CR>", {silent = true})
+map("n", "<Leader>gP", ":Git push --force-with-lease<CR>", {silent = true})
 map("n", "<Leader>gf", ":diffget //2<CR>", {silent = true})
 map("n", "<Leader>gj", ":diffget //3<CR>", {silent = true})
 
@@ -54,3 +55,8 @@ map("n", "<leader>gd", ":lua require('gitsigns').preview_hunk()<CR>", {silent = 
 map("n", "<leader>g-", ":lua require('gitsigns').undo_stage_hunk()<CR>", {silent = true})
 map("n", "<leader>g+", ":lua require('gitsigns').stage_hunk()<CR>", {silent = true})
 map("n", "<leader>gu", ":lua require('gitsigns').reset_hunk()<CR>", {silent = true})
+
+
+vim.cmd [[
+    command! Diffwin windo diffthis
+]]
