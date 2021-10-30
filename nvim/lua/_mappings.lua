@@ -14,10 +14,10 @@ map("n", "<leader>BW", ":.+,$bwipeout<CR>", {silent = true, noremap = false})
 
 -- windows
 map("n", "<leader>wo", ":only<CR>", {silent= true, noremap = false})
-map("n", "<leader>wss", ":vsplit<CR>", {silent= true, noremap = false})
 map("n", "<leader>wsx", ":split<CR>", {silent= true, noremap = false})
-map("n", "<leader>wsn", ":new<CR>", {silent= true, noremap = false})
-map("n", "<leader>wvn", ":vnew<CR>", {silent= true, noremap = false})
+map("n", "<leader>wsv", ":vsplit<CR>", {silent= true, noremap = false})
+map("n", "<leader>wnx", ":new<CR>", {silent= true, noremap = false})
+map("n", "<leader>wnv", ":vnew<CR>", {silent= true, noremap = false})
 map("n", "<leader>wq", ":close<CR>", {silent= true, noremap = false})
 map("", "<C-j>", ":wincmd j<CR>", {silent= true})
 map("", "<C-k>", ":wincmd k<CR>", {silent= true})
