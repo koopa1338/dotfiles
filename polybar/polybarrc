@@ -379,6 +379,7 @@ ramp-foreground = ${colors.foreground-alt}
 
 [settings]
 screenchange-reload = true
+pseudo-transparency = false
 
 [global/wm]
 margin-top = 5
