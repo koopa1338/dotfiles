@@ -170,8 +170,10 @@ vnoremap w :view<cr>gv
 
 " Mappings for faster renaming
 nnoremap I cw<c-a>
-nnoremap cc cw<c-u>
+nnoremap CC cw<c-u>
+nnoremap cc cW<c-u>
 nnoremap A cw
+nnoremap cw cW
 
 " Open editor to edit vifmrc and apply settings after returning to vifm
 nnoremap ,c :write | edit $MYVIFMRC | restart<cr>
