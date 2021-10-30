@@ -64,5 +64,6 @@ bspc rule -a Seiteninformation* state=floating
 bspc rule -a Yad state=floating center=true
 bspc rule -a TeamViewer state=floating 
 bspc rule -a Wpg state=floating center=true
+bspc rule -a Zathura state=tiled
 
 ~/.config/bspwm/bspwm_colors.sh &
