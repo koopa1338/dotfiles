@@ -1,5 +1,5 @@
 local map = require('utils').map
-local g = vim.g
+local g, cmd = vim.g, vim.cmd
 
 -- git
 g.git_messenger_no_default_mappings = 1
@@ -57,6 +57,6 @@ map("n", "<leader>g+", ":lua require('gitsigns').stage_hunk()<CR>", {silent = tr
 map("n", "<leader>gu", ":lua require('gitsigns').reset_hunk()<CR>", {silent = true})
 
 
-vim.cmd [[
+cmd [[
     command! Diffwin windo diffthis
 ]]

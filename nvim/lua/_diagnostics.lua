@@ -1,5 +1,4 @@
-local sign_define = vim.fn.sign_define
-local g = vim.g
+local sign_define, g = vim.fn.sign_define, vim.g
 
 g.diagnostic_enable_virtual_text = 1
 g.diagnostic_enable_underline = 0

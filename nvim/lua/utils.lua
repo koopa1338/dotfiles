@@ -1,8 +1,9 @@
+local api, cmd = vim.api, vim.cmd
 local M = {}
 
-local buf_keymap, keymap = vim.api.nvim_buf_set_keymap, vim.api.nvim_set_keymap
-local set_width, get_width = vim.api.nvim_win_set_width, vim.api.nvim_win_get_width
-local set_height, get_height = vim.api.nvim_win_set_height, vim.api.nvim_win_get_height
+local buf_keymap, keymap = api.nvim_buf_set_keymap, api.nvim_set_keymap
+local set_width, get_width = api.nvim_win_set_width, api.nvim_win_get_width
+local set_height, get_height = api.nvim_win_set_height, api.nvim_win_get_height
 
 -- Key mapping
 function M.map(mode, key, result, opts)
@@ -33,8 +34,8 @@ function M.zoom_toggle()
     else
         width = get_width(0)
         height = get_height(0)
-        vim.cmd("resize")
-        vim.cmd("vertical resize")
+        cmd("resize")
+        cmd("vertical resize")
         zoomed_lua = true
     end
 end

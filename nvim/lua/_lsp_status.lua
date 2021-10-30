@@ -1,4 +1,5 @@
 local nvim_status = require("lsp-status")
+local cmd = vim.cmd
 
 local status = {}
 status.capabilities = nvim_status.capabilities
@@ -19,9 +20,9 @@ end
 status.on_attach = function(client)
     nvim_status.on_attach(client)
 
-    vim.cmd [[augroup dev_lsp_status]]
-    vim.cmd [[  autocmd CursorHold,BufEnter <buffer> lua require('lsp-status').update_current_function()]]
-    vim.cmd [[augroup END]]
+    cmd [[augroup dev_lsp_status]]
+    cmd [[  autocmd CursorHold,BufEnter <buffer> lua require('lsp-status').update_current_function()]]
+    cmd [[augroup END]]
 end
 
 return status

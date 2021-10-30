@@ -2,10 +2,11 @@ local nvim_lsp = require('lspconfig')
 local status = require("_lsp_status")
 local path = nvim_lsp.util.path
 local map = require('utils').map
+local fn, bo, env = vim.fn, vim.bo, vim.env
 
 local function get_python_path()
     -- Use activated virtualenv.
-    if vim.env.VIRTUAL_ENV then
+    if env.VIRTUAL_ENV then
         return path.join(vim.env.VIRTUAL_ENV, 'bin', 'python')
     end
 
@@ -17,7 +18,7 @@ local function get_python_path()
     -- end
 
     -- Fallback to system Python.
-    return vim.fn.exepath('python3') or vim.fn.exepath('python') or 'python'
+    return fn.exepath('python3') or fn.exepath('python') or 'python'
 end
 
 status.activate()
@@ -27,7 +28,7 @@ local opts = {silent = true}
 local custom_attach = function(client)
 
     status.on_attach(client)
-    vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"
+    bo.omnifunc = "v:lua.vim.lsp.omnifunc"
 
     if client.resolved_capabilities.declaration then
         map('n', '<leader>lD', ':lua vim.lsp.buf.declaration()<CR>', opts)
@@ -132,8 +133,8 @@ local servers = {
                 },
                 workspace = {
                     library = {
-                        [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                        [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+                        [fn.expand("$VIMRUNTIME/lua")] = true,
+                        [fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
                     }
                 }
             }

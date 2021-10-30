@@ -2,9 +2,7 @@ require('impatient')
 require('plugins')
 require('packer_compiled')
 
-local g, v, cmd, fn = vim.g, vim.v, vim.cmd, vim.fn
-local o = vim.opt
-local og = vim.opt_global
+local g, v, cmd, fn, o, og = vim.g, vim.v, vim.cmd, vim.fn, vim.opt, vim.opt_global
 
 -- encoding
 og.encoding = 'utf-8'
@@ -38,7 +36,7 @@ o.hidden = true
 o.confirm = true
 o.signcolumn = 'yes'
 o.path = o.path + '**'
-o.undodir = vim.fn.expand('~/.config/nvim/undodir')
+o.undodir = fn.expand('~/.config/nvim/undodir')
 o.undofile = true
 o.inccommand = 'split'
 
