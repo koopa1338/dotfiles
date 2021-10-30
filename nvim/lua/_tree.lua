@@ -3,13 +3,11 @@ local g = vim.g
 
 g.nvim_tree_git_hl = 1
 g.nvim_tree_indent_markers = 1
-g.nvim_tree_hide_dotfiles = 1
 g.nvim_tree_show_icons = {
     git = 1,
     folders = 1,
     files = 1,
 }
-g.nvim_tree_ignore = {'.git', 'node_modules', '.cache'}
 g.nvim_tree_icons = {
     git = {
         unstaged = 'ﳺ',
@@ -24,6 +22,8 @@ map('n', '<C-n>', "<cmd>NvimTreeToggle<CR>", { silent = true })
 local tree_cb = require('nvim-tree.config').nvim_tree_callback
 local tree = require('nvim-tree')
 tree.setup({
+    nvim_tree_ignore = {'.git', 'node_modules', '.cache'},
+    nvim_tree_hide_dotfiles = true,
     disable_netrw = true,
     hijack_netrw = true,
     open_on_setup = false,
