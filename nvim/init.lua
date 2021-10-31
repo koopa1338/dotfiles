@@ -1,12 +1,12 @@
-require('impatient')
-require('plugins')
-require('packer_compiled')
+require "impatient"
+require "plugins"
+require "packer_compiled"
 
 local g, v, cmd, fn, o, og = vim.g, vim.v, vim.cmd, vim.fn, vim.opt, vim.opt_global
 
 -- encoding
-og.encoding = 'utf-8'
-og.fileencoding = 'utf-8'
+og.encoding = "utf-8"
+og.fileencoding = "utf-8"
 
 -- general settings
 cmd [[
@@ -17,34 +17,34 @@ cmd [[
 ]]
 
 -- globals
-g.mapleader = ' '
+g.mapleader = " "
 g.mousehide = true
 og.termguicolors = true
 
 o.timeout = false
 o.ttimeout = false
-o.backspace = { 'indent', 'eol', 'start' }
+o.backspace = { "indent", "eol", "start" }
 o.showmatch = true
-o.whichwrap = 'b,s,h,l,<,>,<,>'
+o.whichwrap = "b,s,h,l,<,>,<,>"
 o.scrolljump = 10
 o.scrolloff = 5
-o.mouse = 'a'
+o.mouse = "a"
 o.modeline = true
 o.updatetime = 100
 o.cmdheight = 2
 o.hidden = true
 o.confirm = true
-o.signcolumn = 'yes'
-o.path = o.path + '**'
-o.undodir = fn.expand('~/.config/nvim/undodir')
+o.signcolumn = "yes"
+o.path = o.path + "**"
+o.undodir = fn.expand "~/.config/nvim/undodir"
 o.undofile = true
-o.inccommand = 'split'
+o.inccommand = "split"
 
 -- More natural splitting
 o.splitbelow = true
 o.splitright = true
 
-o.clipboard = 'unnamedplus'
+o.clipboard = "unnamedplus"
 o.formatoptions = o.formatoptions
   - "a" -- Auto formatting is BAD.
   - "t" -- Don't auto format my code. I got linters for that.
@@ -56,7 +56,7 @@ o.formatoptions = o.formatoptions
   + "j" -- Auto-remove comments if possible.
   - "2" -- I'm not in gradeschool anymore
 o.swapfile = false
-o.spelllang = { 'de_de', 'en_us' }
+o.spelllang = { "de_de", "en_us" }
 o.backup = false
 o.writebackup = false
 
@@ -73,12 +73,12 @@ o.smartcase = true
 
 -- wildmenu
 o.wildmenu = true
-o.wildmode = { 'longest:full', 'full' }
-o.wildoptions = 'pum'
-o.completeopt = { 'menuone', 'noinsert', 'noselect' }
-o.cpoptions = o.cpoptions + 'n'
+o.wildmode = { "longest:full", "full" }
+o.wildoptions = "pum"
+o.completeopt = { "menuone", "noinsert", "noselect" }
+o.cpoptions = o.cpoptions + "n"
 o.infercase = false
-o.shortmess = o.shortmess + 'c'
+o.shortmess = o.shortmess + "c"
 
 -- formatting
 o.wrap = true
@@ -86,15 +86,15 @@ o.autoindent = true
 o.shiftwidth = 4
 o.expandtab = true
 o.tabstop = 4
-o.softtabstop =4
+o.softtabstop = 4
 o.joinspaces = false
 o.splitright = true
 o.splitbelow = true
 o.laststatus = 2
-o.comments = 'sl:/*,mb:*,elx:*/'
+o.comments = "sl:/*,mb:*,elx:*/"
 o.linebreak = true
 o.breakindent = true
-o.breakindentopt = 'shift:2'
+o.breakindentopt = "shift:2"
 
 -- Plugin settings
 
@@ -108,17 +108,17 @@ g.loaded_netrwPlugin = 1
 g.tex_flavor = "latex"
 
 -- luasnip
-g.snippets = 'luasnip'
+g.snippets = "luasnip"
 
 if v.version > 701 then
-    cmd [[
+  cmd [[
         autocmd Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|CHANGED\|DONE\|XXX\|BUG\|HACK\)')
         autocmd Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\|NOTICE\|REVIEW\)')
     ]]
 end
 
-if fn.has('windows') then
-    o.fillchars = 'vert:┃,eob:￭'
+if fn.has "windows" then
+  o.fillchars = "vert:┃,eob:￭"
 end
 
 cmd [[
@@ -145,15 +145,15 @@ cmd [[
     endfunction
 ]]
 
-require('_mappings')
-require('_lsp_config')
-require('_lsp_status')
-require('_diagnostics')
-require('_treesitter')
-require('_telescope')
-require('_express_line')
-require('_tree')
-require('_startify')
-require('_git')
-require('_completion')
-require('_walush')
+require "_mappings"
+require "_lsp_config"
+require "_lsp_status"
+require "_diagnostics"
+require "_treesitter"
+require "_telescope"
+require "_express_line"
+require "_tree"
+require "_startify"
+require "_git"
+require "_completion"
+require "_walush"
