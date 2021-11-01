@@ -11,7 +11,7 @@ super + {d,s,w}
 	rofi -show {run,ssh,window}
 
 super + e
-    kaomoji.sh
+    kaomoji
 
 super + c
     rofi -modi "clipboard:greenclip print" -show clipboard
