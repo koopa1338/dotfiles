@@ -39,13 +39,12 @@
     pl = pull --all
     plc = pull
     pln = pl --rebase --no-autostash
-    pub = !git push -u origin $(git branch --show-current)
+    pub = push -u origin HEAD
     stl = stash list
     stp = stash pop
     sta = stash apply
     stv = stash save
     tags = tag -n1 --list
-    unpub = !git push origin :$(git branch --show-current)
 
 [color]
     diff = auto
