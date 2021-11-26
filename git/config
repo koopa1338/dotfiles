@@ -17,7 +17,7 @@
 	f = fetch --all -v
 	fp = f -p -t -P -v
 	ll = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
-	lsa = !git ll --all
+	lsa = ll --all
 	p = push
 	pf = p --force-with-lease
 	rb = rebase
