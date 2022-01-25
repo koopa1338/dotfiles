@@ -164,7 +164,7 @@ super + minus
 #
 # dunst
 #
-ctrl + {_,shift + } space
+ctrl + {_,alt + } space
     dunstctl {close, close-all}
 
 ctrl + shift + period
