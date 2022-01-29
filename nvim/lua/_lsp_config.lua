@@ -58,6 +58,7 @@ local custom_attach = function(client)
   map("n", "<leader>ll", ":lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
   map("n", "<leader>lj", ":lua vim.lsp.diagnostic.goto_next()<CR>", opts)
   map("n", "<leader>lk", ":lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
+  map("n", "K", ":lua vim.lsp.buf.hover()<CR>", opts)
 end
 
 -- Make runtime files discoverable to the server
