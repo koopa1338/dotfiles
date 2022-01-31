@@ -123,9 +123,10 @@ end
 
 cmd [[
     augroup NumberToggle
+        let blacklist = ['DiffviewFiles', 'NvimTree']
         autocmd!
-        autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-        autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+        autocmd BufEnter,FocusGained,InsertLeave * if index(blacklist, &ft) < 0 | set relativenumber
+        autocmd BufLeave,FocusLost,InsertEnter * if index(blacklist, &ft) < 0 | set norelativenumber
     augroup END
 
     autocmd VimResized * wincmd =
