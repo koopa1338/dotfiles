@@ -8,8 +8,8 @@ g.git_messenger_always_into_popup = 1
 map("n", "<Leader>gm", "<Plug>(git-messenger)", { silent = true })
 map("n", "<Leader>gl", ":Gclog<CR>", { silent = true })
 map("n", "<Leader>gL", ":GV<CR>", { silent = true })
-map("n", "<Leader>gs", ":G<CR>", { silent = true })
-map("n", "<Leader>gD", ":Gdiff<CR>", { silent = true })
+map("n", "<Leader>gs", ":Neogit<CR>", { silent = true })
+map("n", "<Leader>gD", ":DiffvewOpen<CR>", { silent = true })
 map("n", "<Leader>gp", ":Git push<CR>", { silent = true })
 map("n", "<Leader>gP", ":Git push --force-with-lease<CR>", { silent = true })
 map("n", "<Leader>gf", ":diffget //2<CR>", { silent = true })
@@ -224,7 +224,7 @@ neogit.setup {
     -- modify status buffer mappings
     status = {
       -- Adds a mapping with "B" as key that does the "BranchPopup" command
-      ["B"] = "BranchPopup",
+      -- ["B"] = "BranchPopup",
     },
   },
 }
