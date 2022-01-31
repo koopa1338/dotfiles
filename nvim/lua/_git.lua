@@ -22,7 +22,12 @@ require("gitsigns").setup {
     change = { hl = "GitSignsChange", text = "勒", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
     delete = { hl = "GitSignsDelete", text = "🢑", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
     topdelete = { hl = "GitSignsDelete", text = "🢓", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-    changedelete = { hl = "GitSignsChange", text = "ﳺ", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+    changedelete = {
+      hl = "GitSignsChange",
+      text = "ﳺ",
+      numhl = "GitSignsChangeNr",
+      linehl = "GitSignsChangeLn",
+    },
   },
   numhl = true,
   linehl = false,
