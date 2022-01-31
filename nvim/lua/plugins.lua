@@ -109,6 +109,7 @@ return require("packer").startup {
         "nvim-lua/plenary.nvim",
       },
     }
+    use "mkitt/tabline.vim"
     use "kyazdani42/nvim-web-devicons"
     use "kyazdani42/nvim-tree.lua"
 

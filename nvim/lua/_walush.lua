@@ -145,9 +145,6 @@ local walush = lush(function()
     SpellCap { bg = xres.color12.da(25), gui = "undercurl" }, -- SpellCap             xxx ctermbg=12 gui=undercurl guisp=Blue
     SpellRare { bg = xres.color13.da(55), gui = "undercurl" }, -- SpellRare            xxx ctermbg=13 gui=undercurl guisp=Magenta
     SpellLocal { bg = xres.color8, gui = "undercurl" }, -- SpellLocal           xxx ctermbg=14 gui=undercurl guisp=Cyan
-    TabLine { fg = xres.color15, bg = xres.color8, gui = "underline" }, -- TabLine              xxx ctermfg=15 ctermbg=8 gui=underline guibg=DarkGrey
-    TabLineSel { fg = xres.color0, bg = xres.color8.lighten(40), gui = "bold" }, -- TabLineSel           xxx ctermfg=0 ctermbg=14 gui=bold
-    TabLineFill { fg = xres.color8, bg = xres.color15 }, -- TabLineFill          xxx ctermfg=15 ctermbg=8 gui=reverse
     CursorColumn {}, -- CursorColumn         xxx ctermbg=242 guibg=Grey40
     CursorLine { bg = xres.color0 }, -- CursorLine           xxx ctermbg=0 guibg=Grey40
     ColorColumn { bg = xres.color1 }, -- ColorColumn          xxx ctermbg=1 guibg=DarkRed
@@ -659,6 +656,11 @@ local walush = lush(function()
     DevIconTwig { fg = hsl "#8dc149" }, -- DevIconTwig                xxx guifg=#8dc149
     DevIconTs { fg = hsl "#519aba" }, -- DevIconTs                  xxx guifg=#519aba
     DevIconTsx { fg = hsl "#519aba" }, -- DevIconTsx                 xxx guifg=#519aba
+
+    TabLine { ElNormal }, -- TabLine              xxx ctermfg=15 ctermbg=8 gui=underline guibg=DarkGrey
+    TabLineSel { ElInsert }, -- TabLineSel           xxx ctermfg=0 ctermbg=14 gui=bold
+    TabLineFill { ElNormal }, -- TabLineFill          xxx ctermfg=15 ctermbg=8 gui=reverse
+
   }
 end)
 
