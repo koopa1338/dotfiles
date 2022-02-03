@@ -146,6 +146,7 @@ cmd [[
     endfunction
 ]]
 
+require "_zen"
 require "_mappings"
 require "_lsp_config"
 require "_lsp_status"

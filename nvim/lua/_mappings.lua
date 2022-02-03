@@ -28,7 +28,9 @@ map("", "<leader><C-k>", ":wincmd K<CR>", { silent = true })
 map("", "<leader><C-h>", ":wincmd H<CR>", { silent = true })
 map("", "<leader><C-l>", ":wincmd L<CR>", { silent = true })
 
-map("n", "<Leader>z", ":lua require('utils').zoom_toggle()<CR>", { silent = true })
+map("n", "<Leader>z", ":TZFocus<CR>", { silent = true })
+map("n", "<Leader>Z", ":TZAtaraxis<CR>", { silent = true })
+
 map("x", "@", ":<C-u>call ExecuteMacroOverVisualRange()<CR>", {})
 
 map("n", "<C-s>", ":w<CR>", { noremap = false })

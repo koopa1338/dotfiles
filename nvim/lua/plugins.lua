@@ -32,6 +32,8 @@ return require("packer").startup {
         }
       end,
     }
+    -- Zen modes
+    use "Pocco81/TrueZen.nvim"
 
     -- movement and search
     use "junegunn/vim-slash"
