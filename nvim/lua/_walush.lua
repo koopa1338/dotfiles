@@ -660,7 +660,6 @@ local walush = lush(function()
     TabLine { ElNormal }, -- TabLine              xxx ctermfg=15 ctermbg=8 gui=underline guibg=DarkGrey
     TabLineSel { ElInsert }, -- TabLineSel           xxx ctermfg=0 ctermbg=14 gui=bold
     TabLineFill { ElNormal }, -- TabLineFill          xxx ctermfg=15 ctermbg=8 gui=reverse
-
   }
 end)
 

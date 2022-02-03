@@ -91,7 +91,7 @@ local servers = {
   graphql = {},
   html = {
     cmd = { "html-languageserver", "--stdio" },
-    root_dir = nvim_lsp.util.root_pattern("index.html") or nvim_lsp.util.find_git_root,
+    root_dir = nvim_lsp.util.root_pattern "index.html" or nvim_lsp.util.find_git_root,
   },
   jedi_language_server = {
     root_dir = nvim_lsp.util.find_git_root,
