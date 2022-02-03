@@ -46,8 +46,7 @@ telescope.load_extension "notify"
 
 map("n", "<leader>fg", ":Telescope git_files theme=get_dropdown<CR>", { silent = true })
 map("n", "<leader>ff", ":Telescope fd theme=get_ivy<CR>", { silent = true })
-map("n", "<leader>fF", ":Telescope fd theme=get_ivy hidden=true no_ignore=true<CR>", { silent = true })
-map("n", "<leader>FF", ":Telescope file_browser hidden=true<CR>", { silent = true })
+map("n", "<leader>FF", ":Telescope fd theme=get_ivy hidden=true no_ignore=true<CR>", { silent = true })
 map("n", "<leader>fr", ":Telescope live_grep<CR>", { silent = true })
 map("v", "<leader>f*", ":Telescope grep_string<CR>", { silent = true })
 map("n", "<leader>f*", ":Telescope grep_string<CR>", { silent = true })
