@@ -660,6 +660,27 @@ local walush = lush(function()
     TabLine { ElNormal }, -- TabLine              xxx ctermfg=15 ctermbg=8 gui=underline guibg=DarkGrey
     TabLineSel { ElInsert }, -- TabLineSel           xxx ctermfg=0 ctermbg=14 gui=bold
     TabLineFill { ElNormal }, -- TabLineFill          xxx ctermfg=15 ctermbg=8 gui=reverse
+
+    NotifyERRORBorder { fg = hsl "#8A1F1F" },
+    NotifyWARNBorder { fg = hsl "#79491D" },
+    NotifyINFOBorder { fg = hsl "#4F6752" },
+    NotifyDEBUGBorder { fg = hsl "#8B8B8B" },
+    NotifyTRACEBorder { fg = hsl "#4F3552" },
+    NotifyERRORIcon { fg = hsl "#F70067" },
+    NotifyWARNIcon { fg = hsl "#F79000" },
+    NotifyINFOIcon { fg = hsl "#A9FF68" },
+    NotifyDEBUGIcon { fg = hsl "#8B8B8B" },
+    NotifyTRACEIcon { fg = hsl "#D484FF" },
+    NotifyERRORTitle  { fg = hsl "#F70067" },
+    NotifyWARNTitle { fg = hsl "#F79000" },
+    NotifyINFOTitle { fg = hsl "#A9FF68" },
+    NotifyDEBUGTitle  { fg = hsl "#8B8B8B" },
+    NotifyTRACETitle  { fg = hsl "#D484FF" },
+    NotifyERRORBody { Normal },
+    NotifyWARNBody { Normal },
+    NotifyINFOBody { Normal },
+    NotifyDEBUGBody { Normal },
+    NotifyTRACEBody { Normal },
   }
 end)
 

@@ -114,6 +114,13 @@ return require("packer").startup {
     use "mkitt/tabline.vim"
     use "kyazdani42/nvim-web-devicons"
     use "kyazdani42/nvim-tree.lua"
+    use {
+        "rcarriga/nvim-notify",
+        config = function()
+          require("notify").setup { stages = "static" }
+          vim.notify = require "notify"
+        end,
+      }
 
     -- version control
     use "junegunn/gv.vim"
