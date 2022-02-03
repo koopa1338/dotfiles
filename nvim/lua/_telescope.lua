@@ -1,8 +1,9 @@
 local map = require("utils").map
 local actions = require "telescope.actions"
 local previewers = require "telescope.previewers"
+local telescope = require "telescope"
 
-require("telescope").setup {
+telescope.setup {
   defaults = {
     file_previewer = previewers.vim_buffer_cat.new,
     grep_previewer = previewers.vim_buffer_vimgrep.new,
@@ -39,8 +40,9 @@ require("telescope").setup {
 }
 
 -- loading extensions
-require("telescope").load_extension "project"
-require("telescope").load_extension "fzf"
+telescope.load_extension "project"
+telescope.load_extension "fzf"
+telescope.load_extension "notify"
 
 map("n", "<leader>fg", ":Telescope git_files theme=get_dropdown<CR>", { silent = true })
 map("n", "<leader>ff", ":Telescope fd theme=get_ivy<CR>", { silent = true })
@@ -67,6 +69,7 @@ map("n", "<leader>lti", ":Telescope lsp_implementations<CR>", { silent = true })
 
 map("n", "<leader><leader>q", ":Telescope quickfix layout_strategy=vertical<CR>", { silent = true })
 map("n", "<leader><leader>l", ":Telescope loclist layout_strategy=vertical<CR>", { silent = true })
+map("n", "<leader><leader>n", ":Telescope notify theme=get_dropdown<CR>", { silent = true })
 
 map("n", "<leader>tm", ":Telescope man_pages layout_strategy=vertical<CR>", { silent = true })
 map("n", "<leader>tk", ":Telescope keymaps<CR>", { silent = true })
