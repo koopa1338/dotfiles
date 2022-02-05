@@ -25,6 +25,6 @@ case $1 in
         full
 	;;
     selection)
-        flameshot gui -p $SCREENSHOTS_DIR
+        flameshot gui
 	;;
 esac
