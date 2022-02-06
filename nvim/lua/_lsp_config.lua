@@ -56,8 +56,8 @@ local custom_attach = function(client)
   map("n", "<leader>lci", ":lua vim.lsp.buf.incoming_calls()<CR>", opts)
   map("n", "<leader>lco", ":lua vim.lsp.buf.outgoing_calls()<CR>", opts)
   map("n", "<leader>ll", ":lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
-  map("n", "<leader>lj", ":lua vim.lsp.diagnostic.goto_next()<CR>", opts)
-  map("n", "<leader>lk", ":lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
+  map("n", "<leader>lj", ":lua vim.diagnostic.get_next()<CR>", opts)
+  map("n", "<leader>lk", ":lua vim.diagnostic.get_prev()<CR>", opts)
   map("n", "K", ":lua vim.lsp.buf.hover()<CR>", opts)
 end
 
