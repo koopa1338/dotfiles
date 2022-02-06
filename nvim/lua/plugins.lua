@@ -32,6 +32,7 @@ return require("packer").startup {
         }
       end,
     }
+    use "haringsrob/nvim_context_vt"
     -- Zen modes
     use "Pocco81/TrueZen.nvim"
 
