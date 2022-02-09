@@ -4,6 +4,8 @@ require "packer_compiled"
 
 local g, v, cmd, fn, o, og = vim.g, vim.v, vim.cmd, vim.fn, vim.opt, vim.opt_global
 
+g.did_load_filetypes = 1
+
 -- encoding
 og.encoding = "utf-8"
 og.fileencoding = "utf-8"
