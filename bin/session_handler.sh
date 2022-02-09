@@ -1,7 +1,6 @@
 #!/bin/bash
 
 case $(wmctrl -m | grep Name) in
-*i3) cmd="i3-msg exit" ;;
 *bspwm) cmd="bspc quit" ;;
 *LG3D) cmd="bspc quit" ;;
 *) exit 1 ;;
