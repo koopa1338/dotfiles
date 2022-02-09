@@ -71,7 +71,6 @@ return require("packer").startup {
       end,
     }
     use "windwp/nvim-ts-autotag"
-    use "matze/vim-move"
     use "godlygeek/tabular"
 
     -- syntax and languages
