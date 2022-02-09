@@ -60,7 +60,6 @@ cmp.setup {
     },
     ["<M-j>"] = cmp.mapping(function(fallback)
       if luasnip.expand_or_jumpable() then
-                print("JUMPABLE!")
         luasnip.expand_or_jump()
       else
         fallback()
