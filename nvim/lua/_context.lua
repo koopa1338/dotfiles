@@ -1,5 +1,5 @@
-require('nvim_context_vt').setup({
+require("nvim_context_vt").setup {
   -- Override default virtual text prefix
   -- Default: '-->'
-  prefix = '',
-})
+  prefix = "",
+}

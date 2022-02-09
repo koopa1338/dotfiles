@@ -26,10 +26,10 @@ return require("packer").startup {
     -- editing
     use "tpope/vim-surround"
     use {
-        'numToStr/Comment.nvim',
-        config = function()
-            require('Comment').setup()
-        end
+      "numToStr/Comment.nvim",
+      config = function()
+        require("Comment").setup()
+      end,
     }
     use "haringsrob/nvim_context_vt"
     -- Zen modes
