@@ -49,7 +49,7 @@ font-2 = Noto Mono for Powerline:pixelsize=14;1
 
 modules-left = bspwm
 modules-center = pulseaudio-control
-modules-right = battery temperature memory date
+modules-right = battery temperature memory date lock logout reboot poweroff
 
 tray-position = right
 tray-padding = 1
@@ -94,6 +94,50 @@ wm-restack = bspwm
 
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
+
+[module/lock]
+type = custom/text
+
+; Label
+content            = 
+; content-foreground = ${colors.foreground}
+content-padding    = 0
+
+; Mouse click
+click-left = betterlockscreen -l dimblur
+
+[module/logout]
+type = custom/text
+
+; Label
+content            = 
+; content-foreground = ${colors.foreground}
+content-padding    = 0
+
+; Mouse click
+click-left = bspc quit
+
+[module/reboot]
+type = custom/text
+
+; Label
+content            = 勒
+; content-foreground = ${colors.foreground}
+content-padding    = 0
+
+; Mouse click
+click-left = reboot now
+
+[module/poweroff]
+type = custom/text
+
+; Label
+content            = 
+; content-foreground = ${colors.red}
+content-padding    = 0
+
+; Mouse click
+click-left = poweroff
 
 [module/filesystem]
 type = internal/fs

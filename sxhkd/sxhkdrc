@@ -61,9 +61,9 @@ super + XF86MonBrightness{Down,Up}
 # bspwm hotkeys
 #
 
-# quit/restart bspwm
-super + shift + {e,r}
-	{session_handler,bspc wm -r}
+# restart bspwm
+super + shift + r
+	bspc wm -r
 
 # close and kill
 super + {_,shift + }q
