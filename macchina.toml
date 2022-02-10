@@ -1,13 +1,3 @@
-# Disables ASCII art
-no_ascii = false 
-
-# Displays a palette of your active colorscheme
-palette = "Full" 
-
-# Prefer small ASCII variant.
-# Conflicts with: no_ascii
-small_ascii = true 
-
 # Shorten the uptime format
 long_uptime = false 
 
