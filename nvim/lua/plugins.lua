@@ -125,6 +125,7 @@ return require("packer").startup {
         vim.notify = require "notify"
       end,
     }
+    use "stevearc/dressing.nvim"
 
     -- version control
     use "junegunn/gv.vim"
