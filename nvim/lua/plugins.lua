@@ -129,7 +129,6 @@ return require("packer").startup {
 
     -- version control
     use "junegunn/gv.vim"
-    use "tpope/vim-fugitive"
     use "rhysd/git-messenger.vim"
     use {
       "lewis6991/gitsigns.nvim",
