@@ -120,7 +120,7 @@ if v.version > 701 then
 end
 
 if fn.has "windows" then
-  o.fillchars = "vert:┃,eob:￭"
+  o.fillchars = "vert:┃,eob:￭,diff:☷"
 end
 
 cmd [[
