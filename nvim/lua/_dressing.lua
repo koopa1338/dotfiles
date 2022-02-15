@@ -13,4 +13,3 @@ require("dressing").setup {
     winblend = 0,
   },
 }
-
