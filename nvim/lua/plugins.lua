@@ -77,6 +77,7 @@ return require("packer").startup {
     use { "lervag/vimtex", ft = { "tex" } }
     use "neovim/nvim-lspconfig"
     use "wbthomason/lsp-status.nvim"
+    use "j-hui/fidget.nvim"
     use {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",

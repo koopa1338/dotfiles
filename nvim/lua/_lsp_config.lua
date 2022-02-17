@@ -1,5 +1,6 @@
 local nvim_lsp = require "lspconfig"
 local status = require "_lsp_status"
+local nvim_status = require "lsp-status"
 local path = nvim_lsp.util.path
 local map = require("utils").map
 local fn, bo, env = vim.fn, vim.bo, vim.env
@@ -28,30 +29,32 @@ local opts = { silent = true }
 local custom_attach = function(client)
   status.on_attach(client)
   bo.omnifunc = "v:lua.vim.lsp.omnifunc"
+  local capabilities = client.resolved_capabilities
 
-  if client.resolved_capabilities.declaration then
+  if capabilities.declaration then
     map("n", "<leader>lD", ":lua vim.lsp.buf.declaration()<CR>", opts)
   end
 
-  if client.resolved_capabilities.goto_definition then
+  if capabilities.goto_definition then
     map("n", "<leader>ld", ":lua vim.lsp.buf.definition()<CR>", opts)
   end
 
-  if client.resolved_capabilities.type_definition then
+  if capabilities.type_definition then
     map("n", "<leader>lt", ":lua vim.lsp.buf.type_definition()<CR>", opts)
   end
 
-  if client.resolved_capabilities.rename then
+  if capabilities.rename then
     map("n", "<leader>lr", ":lua vim.lsp.buf.rename()<CR>", opts)
   end
 
-  if client.resolved_capabilities.document_formatting then
+  if capabilities.document_formatting then
     map("n", "<leader>lf", ":lua vim.lsp.buf.formatting({})<CR>", opts)
   end
 
-  if client.resolved_capabilities.signature_help then
+  if capabilities.signature_help then
     map("n", "<leader>ls", ":lua vim.lsp.buf.signature_help()<CR>", opts)
   end
+
 
   map("n", "<leader>lci", ":lua vim.lsp.buf.incoming_calls()<CR>", opts)
   map("n", "<leader>lco", ":lua vim.lsp.buf.outgoing_calls()<CR>", opts)
@@ -59,6 +62,28 @@ local custom_attach = function(client)
   map("n", "<leader>lj", ":lua vim.diagnostic.get_next()<CR>", opts)
   map("n", "<leader>lk", ":lua vim.diagnostic.get_prev()<CR>", opts)
   map("n", "K", ":lua vim.lsp.buf.hover()<CR>", opts)
+
+  -- Set autocommands conditional on server_capabilities
+  if capabilities.document_highlight then
+    vim.cmd [[
+      augroup lsp_document_highlight
+        autocmd! * <buffer>
+        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+      augroup END
+    ]]
+  end
+
+  if capabilities.code_lens then
+    vim.cmd [[
+      augroup lsp_document_codelens
+        au! * <buffer>
+        autocmd BufEnter ++once         <buffer> lua require"vim.lsp.codelens".refresh()
+        autocmd BufWritePost,CursorHold <buffer> lua require"vim.lsp.codelens".refresh()
+      augroup END
+    ]]
+  end
+
 end
 
 -- Make runtime files discoverable to the server
@@ -151,12 +176,15 @@ local servers = {
   yamlls = {},
 }
 
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-capabilities = vim.tbl_extend("keep", capabilities, status.capabilities)
+
+local updated_capabilities = vim.lsp.protocol.make_client_capabilities()
+updated_capabilities = vim.tbl_deep_extend("keep", updated_capabilities, nvim_status.capabilities)
+updated_capabilities.textDocument.codeLens = { dynamicRegistration = false }
+updated_capabilities = require("cmp_nvim_lsp").update_capabilities(updated_capabilities)
 
 for server, config in pairs(servers) do
   config.on_attach = custom_attach
-  config.capabilities = capabilities
+  config.capabilities = updated_capabilities
   nvim_lsp[server].setup(config)
 end
 
