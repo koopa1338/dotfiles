@@ -121,8 +121,9 @@ return require("packer").startup {
     use {
       "rcarriga/nvim-notify",
       config = function()
-        require("notify").setup { stages = "slide" }
-        vim.notify = require "notify"
+        local notify = require "notify"
+        notify.setup { stages = "slide" }
+        vim.notify = notify
       end,
     }
     use "stevearc/dressing.nvim"
