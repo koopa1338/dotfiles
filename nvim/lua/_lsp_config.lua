@@ -55,7 +55,6 @@ local custom_attach = function(client)
     map("n", "<leader>ls", ":lua vim.lsp.buf.signature_help()<CR>", opts)
   end
 
-
   map("n", "<leader>lci", ":lua vim.lsp.buf.incoming_calls()<CR>", opts)
   map("n", "<leader>lco", ":lua vim.lsp.buf.outgoing_calls()<CR>", opts)
   map("n", "<leader>ll", ":lua vim.diagnostic.open_float({scope='l', source='if_many'})<CR>", opts)
@@ -83,7 +82,6 @@ local custom_attach = function(client)
       augroup END
     ]]
   end
-
 end
 
 -- Make runtime files discoverable to the server
@@ -175,7 +173,6 @@ local servers = {
   vimls = {},
   yamlls = {},
 }
-
 
 local updated_capabilities = vim.lsp.protocol.make_client_capabilities()
 updated_capabilities = vim.tbl_deep_extend("keep", updated_capabilities, nvim_status.capabilities)
