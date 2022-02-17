@@ -79,13 +79,13 @@ return require("packer").startup {
     use "wbthomason/lsp-status.nvim"
     use {
       "folke/trouble.nvim",
-      cmd = "LspTrouble", -- lazy load on command LspTrouble
+      requires = "kyazdani42/nvim-web-devicons",
       config = function()
         require("trouble").setup {
           auto_preview = false,
           auto_fold = true,
           auto_close = true,
-          use_lsp_diagnostic_signs = true,
+          use_diagnostic_signs = true,
         }
       end,
     }
