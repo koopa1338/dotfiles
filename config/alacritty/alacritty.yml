@@ -1,0 +1,49 @@
+env:
+    TERM: xterm-256color
+import:
+    - ~/.config/alacritty/colors.yml
+window:
+    columns: 0
+    lines: 0
+    padding:
+        x: 4
+        y: 4
+    decorations: none
+    dynamic_title: true
+scrolling:
+    multiplier: 1
+font:
+    normal:
+        family: Inconsolata Nerd Font
+        style: Medium
+    bold:
+        family: Inconsolata Nerd Font
+        style: Bold
+    italic:
+        family: Inconsolata Nerd Font
+        style: Italic
+    size: 10.0
+    offset:
+        x: 0
+        y: 0
+    glyph_offset:
+        x: 0
+        y: 0
+    scale_with_dpi: false
+    use_thin_strokes: false
+selection:
+    semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+    save_to_clipboard: true
+mouse_bindings:
+    - { mouse: Middle, action: PasteSelection }
+mouse:
+    double_click: { threshold: 300 }
+    triple_click: { threshold: 300 }
+    faux_scrolling_lines: 1
+    hide_when_typing: false
+cursor:
+    style: Block
+    unfocused_hollow: true
+live_config_reload: true
+shell:
+    program: /bin/fish

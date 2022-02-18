@@ -92,7 +92,7 @@
     file-modified-label = modified:
 
 [include]
-    path = ~/dotfiles/git/user
+    path = ~/.config/git/user
 
 [init]
 	templatedir = ~/.config/git/git-templates
