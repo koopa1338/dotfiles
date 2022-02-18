@@ -25,3 +25,27 @@ current_shell = true
 # in $XDG_DATA_HOME/macchina/themes
 # and set theme = "foobar" (case-sensitive)
 theme = "Dracula"
+
+# Displays only the specified readouts.
+# Accepted values (case-sensitive):
+#   - Host
+#   - Machine
+#   - Kernel
+#   - Distribution
+#   - OperatingSystem
+#   - DesktopEnvironment
+#   - WindowManager
+#   - Resolution
+#   - Backlight
+#   - Packages
+#   - LocalIP
+#   - Terminal
+#   - Shell
+#   - Uptime
+#   - Processor
+#   - ProcessorLoad
+#   - Memory
+#   - Battery
+# Example:
+ show = ["Host", "OperatingSystem", "Kernel", "DesktopEnvironment", "Distribution", "Terminal", "Shell", "Packages", "Uptime", "Machine", "Resolution", "Processor", "ProcessorLoad", "Memory"]
+
