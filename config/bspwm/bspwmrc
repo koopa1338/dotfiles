@@ -38,7 +38,7 @@ fcitx &
 wmname LG3D
  
 # setting up workspaces
-python ~/dotfiles/bspwm/workspaces.py
+python ~/.config/bspwm/workspaces.py
 
 bspc config top_monocle_padding 0
 bspc config top_padding 30
