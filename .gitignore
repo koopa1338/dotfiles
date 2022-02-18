@@ -4,3 +4,4 @@ config/nvim/plugin/packer_compiled.vim
 config/nvim/plugin/packer_compiled.lua
 config/nvim/lua/packer_compiled.lua
 config/git/user
+config/macchina/themes

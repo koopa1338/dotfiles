@@ -24,4 +24,4 @@ current_shell = true
 # To set 'foobar' as a theme, place foobar.json 
 # in $XDG_DATA_HOME/macchina/themes
 # and set theme = "foobar" (case-sensitive)
-theme = "Boron"
+theme = "Dracula"
