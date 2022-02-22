@@ -14,8 +14,6 @@ og.fileencoding = "utf-8"
 cmd [[
     filetype plugin indent on
     syntax enable
-
-    command! -range=% Jsonfmt <line1>,<line2>!jql .
 ]]
 
 -- globals

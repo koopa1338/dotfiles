@@ -130,7 +130,7 @@ local servers = {
     root_dir = nvim_lsp.util.root_pattern("mvnw", "gradlew", "pom.xml", "build.gradle") or nvim_lsp.util.find_git_root,
   },
   jsonls = {
-    cmd = { "json-languageserver", "--stdio" },
+    cmd = { "vscode-json-language-server", "--stdio" },
   },
   ocamlls = {
     root_dir = nvim_lsp.util.root_pattern(".merlin", "package.json") or nvim_lsp.util.find_git_root,
