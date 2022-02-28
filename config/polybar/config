@@ -329,7 +329,7 @@ label=%output%
 format-underline = ${colors.blue}
 
 ;    --sink-nickname "bluez_sink.34_75_63_DB_90_2B.a2dp_sink: 🎧"
-exec = pulseaudio-control --icons-volume " , , " --icon-muted " " --sink-nicknames-from "device.description" --sink-nickname "alsa_output.pci-0000_04_00.6.analog-stereo:Analog Stereo" listen
+exec = pulseaudio-control --icons-volume " , , " --icon-muted " " --sink-nicknames-from "node.nick" listen
 click-right = exec pavucontrol &
 click-left = pulseaudio-control togmute
 click-middle = pulseaudio-control next-sink
