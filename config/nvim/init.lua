@@ -123,7 +123,7 @@ end
 
 cmd [[
     augroup NumberToggle
-        let blacklist = ['DiffviewFiles', 'NvimTree']
+        let blacklist = ['DiffviewFiles', 'NvimTree', 'DressingInput']
         autocmd!
         autocmd BufEnter,FocusGained,InsertLeave * if index(blacklist, &ft) < 0 | set relativenumber
         autocmd BufLeave,FocusLost,InsertEnter * if index(blacklist, &ft) < 0 | set norelativenumber
