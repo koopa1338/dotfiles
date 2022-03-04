@@ -44,13 +44,13 @@ telescope.load_extension "project"
 telescope.load_extension "fzf"
 telescope.load_extension "notify"
 
-map("n", "<leader>fg", ":Telescope git_files theme=get_dropdown<CR>", { silent = true })
+map("n", "<leader>fg", ":Telescope git_files theme=get_ivy<CR>", { silent = true })
 map("n", "<leader>ff", ":Telescope fd theme=get_ivy hidden=true<CR>", { silent = true })
 map("n", "<leader>FF", ":Telescope fd theme=get_ivy hidden=true no_ignore=true<CR>", { silent = true })
 map("n", "<leader>fr", ":Telescope live_grep<CR>", { silent = true })
 map("v", "<leader>f*", ":Telescope grep_string<CR>", { silent = true })
 map("n", "<leader>f*", ":Telescope grep_string<CR>", { silent = true })
-map("n", "<leader>fR", ":Telescope registers<CR>", { silent = true })
+map("n", "<leader>fR", ":Telescope registers theme=get_ivy<CR>", { silent = true })
 map("n", "<leader>bb", ":Telescope buffers theme=get_ivy<CR>", { silent = true })
 map("n", "<leader>fb", ":Telescope current_buffer_fuzzy_find previewer=false<CR>", { silent = true })
 map("n", "<leader>fe", ":Telescope treesitter<CR>", { silent = true })
@@ -68,7 +68,7 @@ map("n", "<leader>lti", ":Telescope lsp_implementations<CR>", { silent = true })
 
 map("n", "<leader><leader>q", ":Telescope quickfix layout_strategy=vertical<CR>", { silent = true })
 map("n", "<leader><leader>l", ":Telescope loclist layout_strategy=vertical<CR>", { silent = true })
-map("n", "<leader><leader>n", ":Telescope notify theme=get_dropdown<CR>", { silent = true })
+map("n", "<leader><leader>n", ":Telescope notify layout_strategy=vertical<CR>", { silent = true })
 
 map("n", "<leader>tm", ":Telescope man_pages layout_strategy=vertical<CR>", { silent = true })
 map("n", "<leader>tk", ":Telescope keymaps<CR>", { silent = true })
