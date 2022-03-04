@@ -5,3 +5,5 @@ config/nvim/plugin/packer_compiled.lua
 config/nvim/lua/packer_compiled.lua
 config/git/user
 config/macchina/themes
+config/bspwm/bspwm_colors.sh
+config/dunst/dunstrc
