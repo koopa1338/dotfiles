@@ -3,8 +3,9 @@
 RED='\033[00;31m'
 YELLOW='\033[00;33m'
 BLUE='\033[00;34m'
+RESET='\033[0m'
 
-FORBIDDEN=( '@nocheckin' '//nocheckin' '^[<>|=]{7,}' '#nocheckin' )
+FORBIDDEN=( '@nocheckin' '//nocheckin' '// nockeckin' '#nocheckin' '^[<>|=]{7,}' )
 FOUND=''
 
 for j in "${FORBIDDEN[@]}"
@@ -17,7 +18,7 @@ do
 
     if echo `git show :$i` | rg -q -e "$j"; then
 
-      FOUND+="${BLUE}$i ${RED}contains nocheckin or merge/rebase symbols\n"
+      FOUND+="${BLUE}$i ${RED}contains nocheckin or merge/rebase symbols\n${RESET}"
 
     fi
   done
