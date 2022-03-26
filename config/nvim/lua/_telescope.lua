@@ -35,6 +35,7 @@ telescope.setup {
       base_dirs = {
         { "~/Projects", max_depth = 3 },
       },
+      hidden_files = true,
     },
   },
 }
