@@ -37,14 +37,13 @@
     ds = d --staged
     dst = d --stat
     pl = pull --all
-    plc = pull
     pln = pl --rebase --no-autostash
     pub = push -u origin HEAD
     stl = stash list
     stp = stash pop
     sta = stash apply
     stv = stash save
-    tags = tag -n1 --list
+    tags = tag -n1
 
 [color]
     diff = auto
