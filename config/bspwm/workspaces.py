@@ -2,9 +2,10 @@
 from screeninfo import get_monitors
 import os
 
+ws_names = ["一","ニ","三","四","五","六","七","八","九","十"]
+subscript = str.maketrans("0123456789", "⁰¹²³⁴⁵⁶⁷⁸⁹")
+
 def set_monitor_workspaces():
-    ws_names = ["一","ニ","三","四","五","六","七","八","九","十"]
-    subscript = str.maketrans("0123456789", "⁰¹²³⁴⁵⁶⁷⁸⁹")
     for i, m in enumerate(get_monitors()):
         pre = ""
         if i > 0:
