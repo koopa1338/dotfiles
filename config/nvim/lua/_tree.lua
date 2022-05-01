@@ -2,7 +2,7 @@ local map = require("utils").map
 local g = vim.g
 
 g.nvim_tree_git_hl = 1
-g.nvim_tree_indent_markers = 1
+-- g.nvim_tree_indent_markers = 1
 g.nvim_tree_show_icons = {
   git = 1,
   folders = 1,
@@ -22,18 +22,18 @@ map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { silent = true })
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 local tree = require "nvim-tree"
 tree.setup {
-  nvim_tree_ignore = { ".git", "node_modules", ".cache" },
-  nvim_tree_hide_dotfiles = true,
+  -- nvim_tree_ignore = { ".git", "node_modules", ".cache" },
+  -- nvim_tree_hide_dotfiles = true,
   disable_netrw = true,
   hijack_netrw = true,
   open_on_setup = false,
   ignore_ft_on_setup = { "startify" },
-  auto_close = true,
+  -- auto_close = true,
   open_on_tab = false,
-  update_to_buf_dir = {
-    enable = true,
-    auto_open = true,
-  },
+  -- update_to_buf_dir = {
+  --   enable = true,
+  --   auto_open = true,
+  -- },
   hijack_cursor = false,
   update_cwd = true,
   diagnostics = {
@@ -50,13 +50,23 @@ tree.setup {
     update_cwd = false,
     ignore_list = {},
   },
+  filters = {
+    dotfiles = false,
+    custom = {".git", "node_modules", ".cache" },
+    exclude = {},
+  },
+  git = {
+    enable = true,
+    ignore = true,
+    timeout = 400,
+  },
   system_open = {
     cmd = nil,
     args = {},
   },
   view = {
     width = 40,
-    auto_resize = true,
+    -- auto_resize = true,
     side = "left",
     mappings = {
       custom_only = false,
