@@ -29,7 +29,7 @@ local opts = { silent = true }
 local custom_attach = function(client)
   status.on_attach(client)
   bo.omnifunc = "v:lua.vim.lsp.omnifunc"
-  local capabilities = client.resolved_capabilities
+  local capabilities = client.server_capabilities
 
   if capabilities.declaration then
     map("n", "<leader>lD", ":lua vim.lsp.buf.declaration()<CR>", opts)
