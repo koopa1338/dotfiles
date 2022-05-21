@@ -15,7 +15,7 @@
 	cmm = cm -m
 	co = checkout
 	f = fetch --all -v
-	fp = f -p -t -P -v
+	fp = f -p -t -P
 	ll = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
 	lsa = ll --all
 	p = push
@@ -36,7 +36,7 @@
     dc = d --cached
     ds = d --staged
     dst = d --stat
-    pl = pull --all
+    pl = pull --rebase
     pln = pl --rebase --no-autostash
     pub = push -u origin HEAD
     stl = stash list
