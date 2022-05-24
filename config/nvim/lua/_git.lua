@@ -5,7 +5,7 @@ local g, cmd = vim.g, vim.cmd
 g.git_messenger_no_default_mappings = 1
 g.git_messenger_always_into_popup = 1
 
-map("n", "<Leader>gm", ":GitMessenger", { silent = true })
+map("n", "<Leader>gm", ":GitMessenger<CR>", { silent = true })
 map("n", "<Leader>gs", ":Neogit<CR>", { silent = true })
 map("n", "<Leader>gD", ":DiffviewOpen<CR>", { silent = true })
 map("n", "<Leader>gf", ":diffget //2<CR>", { silent = true })
