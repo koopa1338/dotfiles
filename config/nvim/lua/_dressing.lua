@@ -14,4 +14,7 @@ require("dressing").setup {
       return conf
     end,
   },
+  select = {
+    enabled = false,
+  }
 }
