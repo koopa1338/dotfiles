@@ -29,30 +29,36 @@ local opts = { silent = true }
 local custom_attach = function(client)
   status.on_attach(client)
   bo.omnifunc = "v:lua.vim.lsp.omnifunc"
-  local capabilities = client.server_capabilities
+  local capabilities = vim.lsp.protocol.resolve_capabilities(client.config.capabilities)
 
   if capabilities.declaration then
     map("n", "<leader>lD", ":lua vim.lsp.buf.declaration()<CR>", opts)
   end
 
-  if capabilities.goto_definition then
+  if capabilities.definition then
     map("n", "<leader>ld", ":lua vim.lsp.buf.definition()<CR>", opts)
   end
 
-  if capabilities.type_definition then
-    map("n", "<leader>lt", ":lua vim.lsp.buf.type_definition()<CR>", opts)
+  if capabilities.typeDefinition then
+    map("n", "<leader>lT", ":lua vim.lsp.buf.type_definition()<CR>", opts)
   end
 
   if capabilities.rename then
     map("n", "<leader>lr", ":lua vim.lsp.buf.rename()<CR>", opts)
   end
 
-  if capabilities.document_formatting then
-    map("n", "<leader>lf", ":lua vim.lsp.buf.formatting({})<CR>", opts)
+  -- NOTE: cannot check in capabilities currently?
+  -- if capabilities.document_formatting then
+    map("n", "<leader>lf", ":lua vim.lsp.buf.format({async = true})<CR>", opts)
+  -- end
+
+  if capabilities.signatureHelp then
+    map("n", "<leader>ls", ":lua vim.lsp.buf.signature_help()<CR>", opts)
   end
 
-  if capabilities.signature_help then
-    map("n", "<leader>ls", ":lua vim.lsp.buf.signature_help()<CR>", opts)
+  if capabilities.codeAction then
+    map("n", "<leader>lca", ":lua vim.lsp.buf.code_action()<CR>", opts)
+    map("v", "<leader>lcA", ":lua vim.lsp.buf.range_code_action()<CR>", opts)
   end
 
   map("n", "<leader>lci", ":lua vim.lsp.buf.incoming_calls()<CR>", opts)

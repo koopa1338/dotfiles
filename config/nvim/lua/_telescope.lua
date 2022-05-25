@@ -79,7 +79,6 @@ map("n", "<leader>fp", ":Telescope project display_type=full<CR>", { silent = tr
 -- lsp bindings
 map("n", "<leader>lts", ":Telescope lsp_document_symbols<CR>", { silent = true })
 map("n", "<leader>ltS", ":Telescope lsp_workspace_symbols<CR>", { silent = true })
-map("n", "<leader>ltc", ":Telescope lsp_code_actions theme=get_cursor<CR>", { silent = true })
 map("n", "<leader>ltr", ":Telescope lsp_references<CR>", { silent = true })
 map("n", "<leader>ltd", ":Telescope diagnostics bufnr=0<CR>", { silent = true })
 map("n", "<leader>ltD", ":Telescope diagnostics<CR>", { silent = true })
