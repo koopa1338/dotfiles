@@ -77,12 +77,8 @@ map("n", "<leader>fm", ":Telescope marks theme=get_ivy<CR>", { silent = true })
 map("n", "<leader>fp", ":Telescope project display_type=full<CR>", { silent = true })
 
 -- lsp bindings
-map("n", "<leader>lts", ":Telescope lsp_document_symbols<CR>", { silent = true })
-map("n", "<leader>ltS", ":Telescope lsp_workspace_symbols<CR>", { silent = true })
-map("n", "<leader>ltr", ":Telescope lsp_references<CR>", { silent = true })
 map("n", "<leader>ltd", ":Telescope diagnostics bufnr=0<CR>", { silent = true })
 map("n", "<leader>ltD", ":Telescope diagnostics<CR>", { silent = true })
-map("n", "<leader>lti", ":Telescope lsp_implementations<CR>", { silent = true })
 
 map("n", "<leader><leader>q", ":Telescope quickfix layout_strategy=vertical<CR>", { silent = true })
 map("n", "<leader><leader>l", ":Telescope loclist layout_strategy=vertical<CR>", { silent = true })

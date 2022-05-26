@@ -1,6 +1,6 @@
 local nvim_lsp = require "lspconfig"
 local status = require "_lsp_status"
-local nvim_status = require "lsp-status"
+-- local nvim_status = require "lsp-status"
 local path = nvim_lsp.util.path
 local map = require("utils").map
 local fn, bo, env = vim.fn, vim.bo, vim.env
@@ -29,47 +29,43 @@ local opts = { silent = true }
 local custom_attach = function(client)
   status.on_attach(client)
   bo.omnifunc = "v:lua.vim.lsp.omnifunc"
-  local capabilities = vim.lsp.protocol.resolve_capabilities(client.config.capabilities)
+  local capabilities = client.server_capabilities
 
-  if capabilities.declaration then
+  if capabilities.declarationProvider then
     map("n", "<leader>lD", ":lua vim.lsp.buf.declaration()<CR>", opts)
   end
 
-  if capabilities.definition then
+  if capabilities.definitionProvider then
     map("n", "<leader>ld", ":lua vim.lsp.buf.definition()<CR>", opts)
   end
 
-  if capabilities.typeDefinition then
+  if capabilities.typeDefinitionProvider then
     map("n", "<leader>lT", ":lua vim.lsp.buf.type_definition()<CR>", opts)
   end
 
-  if capabilities.rename then
+  if capabilities.renameProvider then
     map("n", "<leader>lr", ":lua vim.lsp.buf.rename()<CR>", opts)
   end
 
-  -- NOTE: cannot check in capabilities currently?
-  -- if capabilities.document_formatting then
+  if capabilities.documentFormattingProvider then
     map("n", "<leader>lf", ":lua vim.lsp.buf.format({async = true})<CR>", opts)
-  -- end
+  end
 
-  if capabilities.signatureHelp then
+  if capabilities.signatureHelpProvider then
     map("n", "<leader>ls", ":lua vim.lsp.buf.signature_help()<CR>", opts)
   end
 
-  if capabilities.codeAction then
+  if capabilities.codeActionProvider then
     map("n", "<leader>lca", ":lua vim.lsp.buf.code_action()<CR>", opts)
     map("v", "<leader>lcA", ":lua vim.lsp.buf.range_code_action()<CR>", opts)
   end
 
-  map("n", "<leader>lci", ":lua vim.lsp.buf.incoming_calls()<CR>", opts)
-  map("n", "<leader>lco", ":lua vim.lsp.buf.outgoing_calls()<CR>", opts)
-  map("n", "<leader>ll", ":lua vim.diagnostic.open_float({scope='l', source='if_many'})<CR>", opts)
-  map("n", "<leader>lj", ":lua vim.diagnostic.get_next()<CR>", opts)
-  map("n", "<leader>lk", ":lua vim.diagnostic.get_prev()<CR>", opts)
-  map("n", "K", ":lua vim.lsp.buf.hover()<CR>", opts)
+  if capabilities.hoverProvider then
+    map("n", "K", ":lua vim.lsp.buf.hover()<CR>", opts)
+  end
 
   -- Set autocommands conditional on server_capabilities
-  if capabilities.document_highlight then
+  if capabilities.documentHighlightProvider then
     vim.cmd [[
       augroup lsp_document_highlight
         autocmd! * <buffer>
@@ -79,7 +75,7 @@ local custom_attach = function(client)
     ]]
   end
 
-  if capabilities.code_lens then
+  if capabilities.codeLensProvider then
     vim.cmd [[
       augroup lsp_document_codelens
         au! * <buffer>
@@ -88,6 +84,29 @@ local custom_attach = function(client)
       augroup END
     ]]
   end
+
+  if capabilities.documentSymbolProvider then
+    map("n", "<leader>lts", ":Telescope lsp_document_symbols<CR>", { silent = true })
+  end
+
+  if capabilities.workspaceSymbolProvider then
+    map("n", "<leader>ltS", ":Telescope lsp_workspace_symbols<CR>", { silent = true })
+  end
+
+  if capabilities.referencesProvider then
+    map("n", "<leader>ltr", ":Telescope lsp_references<CR>", { silent = true })
+  end
+
+  if capabilities.implementationProvider then
+    map("n", "<leader>lti", ":Telescope lsp_implementations<CR>", { silent = true })
+  end
+
+  map("n", "<leader>lci", ":lua vim.lsp.buf.incoming_calls()<CR>", opts)
+  map("n", "<leader>lco", ":lua vim.lsp.buf.outgoing_calls()<CR>", opts)
+  map("n", "<leader>ll", ":lua vim.diagnostic.open_float({scope='l', source='if_many'})<CR>", opts)
+  map("n", "<leader>lj", ":lua vim.diagnostic.get_next()<CR>", opts)
+  map("n", "<leader>lk", ":lua vim.diagnostic.get_prev()<CR>", opts)
+
 end
 
 -- Make runtime files discoverable to the server
@@ -180,14 +199,14 @@ local servers = {
   yamlls = {},
 }
 
-local updated_capabilities = vim.lsp.protocol.make_client_capabilities()
-updated_capabilities = vim.tbl_deep_extend("keep", updated_capabilities, nvim_status.capabilities)
-updated_capabilities.textDocument.codeLens = { dynamicRegistration = false }
-updated_capabilities = require("cmp_nvim_lsp").update_capabilities(updated_capabilities)
+-- TODO: test if this is needed or do we get all capabilities from the server directly?
+-- local updated_capabilities = vim.lsp.protocol.make_client_capabilities()
+-- updated_capabilities = vim.tbl_deep_extend("keep", updated_capabilities, nvim_status.capabilities)
+-- updated_capabilities = require("cmp_nvim_lsp").update_capabilities(updated_capabilities)
 
 for server, config in pairs(servers) do
   config.on_attach = custom_attach
-  config.capabilities = updated_capabilities
+  -- config.capabilities = updated_capabilities
   nvim_lsp[server].setup(config)
 end
 
