@@ -66,23 +66,27 @@ local custom_attach = function(client)
 
   -- Set autocommands conditional on server_capabilities
   if capabilities.documentHighlightProvider then
-    vim.cmd [[
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]]
+    local lsp_highlight_au = vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
+    vim.api.nvim_create_autocmd(
+      { "CursorHold" },
+      { group = lsp_highlight_au, command = "lua vim.lsp.buf.document_highlight()" }
+    )
+    vim.api.nvim_create_autocmd(
+      { "CursorMoved" },
+      { group = lsp_highlight_au, command = "lua vim.lsp.buf.clear_references()" }
+    )
   end
 
   if capabilities.codeLensProvider then
-    vim.cmd [[
-      augroup lsp_document_codelens
-        au! * <buffer>
-        autocmd BufEnter ++once         <buffer> lua require"vim.lsp.codelens".refresh()
-        autocmd BufWritePost,CursorHold <buffer> lua require"vim.lsp.codelens".refresh()
-      augroup END
-    ]]
+    local lsp_codelens_au = vim.api.nvim_create_augroup("lsp_document_codelens", { clear = true })
+    vim.api.nvim_create_autocmd(
+      { "BufEnter" },
+      { group = lsp_codelens_au, once = true, command = "lua vim.lsp.codelens.refresh()" }
+    )
+    vim.api.nvim_create_autocmd(
+      { "BufWritePost", "CursorHold" },
+      { group = lsp_codelens_au, command = "lua vim.lsp.codelens.refresh()" }
+    )
   end
 
   if capabilities.documentSymbolProvider then
