@@ -59,7 +59,7 @@ return require("packer").startup {
       "nvim-telescope/telescope-fzf-native.nvim",
       run = "make",
     }
-    use {"nvim-telescope/telescope-ui-select.nvim" }
+    use { "nvim-telescope/telescope-ui-select.nvim" }
 
     use "mhinz/vim-startify"
 

@@ -110,7 +110,6 @@ local custom_attach = function(client)
   map("n", "<leader>ll", ":lua vim.diagnostic.open_float({scope='l', source='if_many'})<CR>", opts)
   map("n", "<leader>lj", ":lua vim.diagnostic.get_next()<CR>", opts)
   map("n", "<leader>lk", ":lua vim.diagnostic.get_prev()<CR>", opts)
-
 end
 
 -- Make runtime files discoverable to the server

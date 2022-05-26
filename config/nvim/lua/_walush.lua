@@ -2,7 +2,7 @@ local lush = require "lush"
 local hsl = lush.hsl
 
 -- set font for gui mode
-vim.opt.guifont = 'Inconsolata Nerd Font:h10'
+vim.opt.guifont = "Inconsolata Nerd Font:h10"
 
 local function get_xresources_color(color_name)
   local command = io.popen("xrdb -query | grep " .. color_name .. " -m 1 | cut -f 2")

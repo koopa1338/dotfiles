@@ -38,7 +38,7 @@ telescope.setup {
       hidden_files = true,
     },
     ["ui-select"] = {
-      require("telescope.themes").get_cursor{}
+      require("telescope.themes").get_cursor {},
 
       -- pseudo code / specification for writing custom displays, like the one
       -- for "codeactions"
@@ -53,7 +53,7 @@ telescope.setup {
       --      do the following
       --   codeactions = false,
       -- }
-    }
+    },
   },
 }
 
