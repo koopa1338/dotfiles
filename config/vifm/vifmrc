@@ -190,3 +190,7 @@ nnoremap yf :!echo -n %c:p | xclip -selection clipboard %i<cr>:echo expand('%"c:
 
 " yank current filename without path into the clipboard
 nnoremap yn :!echo -n %c | xclip -selection clipboard %i<cr>:echo expand('%"c') "is yanked to clipboard"<cr>
+
+" bookmarks
+nnoremap bm :bmarks<cr>
+nnoremap bg :bmgo<space>
