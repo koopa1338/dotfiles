@@ -1,21 +1,4 @@
 local map = require("utils").map
-local g = vim.g
-
-g.nvim_tree_git_hl = 1
--- g.nvim_tree_indent_markers = 1
-g.nvim_tree_show_icons = {
-  git = 1,
-  folders = 1,
-  files = 1,
-}
-g.nvim_tree_icons = {
-  git = {
-    unstaged = "ﳺ",
-    staged = "",
-    unmerged = "🗲",
-    untracked = "✸",
-  },
-}
 
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { silent = true })
 
@@ -24,6 +7,26 @@ local tree = require "nvim-tree"
 tree.setup {
   -- nvim_tree_ignore = { ".git", "node_modules", ".cache" },
   -- nvim_tree_hide_dotfiles = true,
+  --
+  renderer = {
+    highlight_git = true,
+    icons = {
+      webdev_colors = true,
+      show = {
+        file = true,
+        folder = true,
+        git = true,
+      },
+      glyphs = {
+        git = {
+          unstaged = "ﳺ",
+          staged = "",
+          unmerged = "🗲",
+          untracked = "✸",
+        },
+      },
+    },
+  },
   disable_netrw = true,
   hijack_netrw = true,
   open_on_setup = false,
