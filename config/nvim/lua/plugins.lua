@@ -155,6 +155,13 @@ return require("packer").startup {
         "mfussenegger/nvim-dap",
       },
     }
+
+    use {
+      "kristijanhusak/vim-dadbod-ui",
+      requires = {
+        "tpope/vim-dadbod",
+      },
+    }
   end,
   config = {
     -- Move to lua dir so impatient.nvim can cache it
