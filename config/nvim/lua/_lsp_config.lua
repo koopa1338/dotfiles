@@ -207,6 +207,3 @@ for server, config in pairs(servers) do
   -- config.capabilities = updated_capabilities
   nvim_lsp[server].setup(config)
 end
-
--- setting up debugger
-require("dapui").setup()

@@ -149,6 +149,7 @@ cmd [[
 require "_zen"
 require "_mappings"
 require "_lsp_config"
+require "_dap"
 require "_lsp_status"
 require "_diagnostics"
 require "_treesitter"
