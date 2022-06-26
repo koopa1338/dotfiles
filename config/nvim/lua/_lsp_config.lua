@@ -202,11 +202,6 @@ local servers = {
   yamlls = {},
 }
 
--- TODO: test if this is needed or do we get all capabilities from the server directly?
--- local updated_capabilities = vim.lsp.protocol.make_client_capabilities()
--- updated_capabilities = vim.tbl_deep_extend("keep", updated_capabilities, nvim_status.capabilities)
--- updated_capabilities = require("cmp_nvim_lsp").update_capabilities(updated_capabilities)
-
 for server, config in pairs(servers) do
   config.on_attach = custom_attach
   -- config.capabilities = updated_capabilities
