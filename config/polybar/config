@@ -326,13 +326,13 @@ label = %time%  %date%
 type = custom/script
 tail = true
 label=%output%
-format-underline = ${colors.blue}
+format-underline = ${colors.primary}
 
 ;    --sink-nickname "bluez_sink.34_75_63_DB_90_2B.a2dp_sink: 🎧"
 exec = pulseaudio-control --icons-volume " , , " --icon-muted " " --node-nicknames-from "node.nick" listen
 click-right = exec pavucontrol &
 click-left = pulseaudio-control togmute
-click-middle = pulseaudio-control next-sink
+click-middle = pulseaudio-control next-node
 scroll-up = pulseaudio-control --volume-max 100 --volume-step 5 up
 scroll-down = pulseaudio-control --volume-max 100 --volume-step 5 down
 label-padding = 2
