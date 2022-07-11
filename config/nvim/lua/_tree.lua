@@ -5,9 +5,6 @@ map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { silent = true })
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 local tree = require "nvim-tree"
 tree.setup {
-  -- nvim_tree_ignore = { ".git", "node_modules", ".cache" },
-  -- nvim_tree_hide_dotfiles = true,
-  --
   renderer = {
     highlight_git = true,
     icons = {
@@ -28,15 +25,9 @@ tree.setup {
     },
   },
   disable_netrw = true,
-  hijack_netrw = true,
   open_on_setup = false,
   ignore_ft_on_setup = { "startify" },
-  -- auto_close = true,
   open_on_tab = false,
-  -- update_to_buf_dir = {
-  --   enable = true,
-  --   auto_open = true,
-  -- },
   hijack_cursor = false,
   update_cwd = true,
   diagnostics = {
@@ -54,7 +45,7 @@ tree.setup {
     ignore_list = {},
   },
   filters = {
-    dotfiles = false,
+    dotfiles = true,
     custom = { ".git", "node_modules", ".cache" },
     exclude = {},
   },
@@ -69,7 +60,6 @@ tree.setup {
   },
   view = {
     width = 40,
-    -- auto_resize = true,
     side = "left",
     mappings = {
       custom_only = false,
