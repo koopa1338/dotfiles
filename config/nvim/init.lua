@@ -39,6 +39,7 @@ o.path = o.path + "**"
 o.undodir = fn.expand "~/.config/nvim/undodir"
 o.undofile = true
 o.inccommand = "split"
+o.winbar = "%=%m %f"
 
 -- More natural splitting
 o.splitbelow = true

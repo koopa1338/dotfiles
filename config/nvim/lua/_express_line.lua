@@ -32,11 +32,7 @@ require("el").setup {
       git_branch(window, buffer),
       sections.split,
       file_icon(window, buffer),
-      builtin.shortened_file,
-      sections.collapse_builtin {
-        " ",
-        builtin.modified_flag,
-      },
+      builtin.tail_file,
       sections.split,
       lsp_statusline.segment,
       git_changes(window, buffer),
