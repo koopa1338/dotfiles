@@ -57,7 +57,7 @@ local custom_attach = function(client)
 
   if capabilities.codeActionProvider then
     map("n", "<leader>lca", ":lua vim.lsp.buf.code_action()<CR>", opts)
-    map("v", "<leader>lcA", ":lua vim.lsp.buf.range_code_action()<CR>", opts)
+    map("v", "<leader>lca", ":lua vim.lsp.buf.range_code_action()<CR>", opts)
   end
 
   if capabilities.hoverProvider then
