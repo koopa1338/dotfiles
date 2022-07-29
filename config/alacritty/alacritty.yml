@@ -30,7 +30,6 @@ font:
         x: 0
         y: 0
     scale_with_dpi: false
-    use_thin_strokes: false
 selection:
     semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
     save_to_clipboard: true
