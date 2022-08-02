@@ -27,7 +27,6 @@ status.activate()
 -- lsp config
 local opts = { silent = true }
 local custom_attach = function(client)
-  status.on_attach(client)
   bo.omnifunc = "v:lua.vim.lsp.omnifunc"
   local capabilities = client.server_capabilities
 
@@ -91,6 +90,7 @@ local custom_attach = function(client)
 
   if capabilities.documentSymbolProvider then
     map("n", "<leader>lts", ":Telescope lsp_document_symbols<CR>", { silent = true })
+    status.on_attach(client)
   end
 
   if capabilities.workspaceSymbolProvider then
