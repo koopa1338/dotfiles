@@ -125,7 +125,7 @@ local servers = {
   },
   cmake = {},
   cssls = {
-    cmd = { "css-languageserver", "--stdio" },
+    cmd = { "vscode-css-language-server", "--stdio" },
   },
   dockerls = {},
   gopls = {
@@ -141,7 +141,7 @@ local servers = {
   },
   graphql = {},
   html = {
-    cmd = { "html-languageserver", "--stdio" },
+    cmd = { "vscode-html-language-server", "--stdio" },
     root_dir = nvim_lsp.util.root_pattern "index.html" or nvim_lsp.util.find_git_root,
   },
   jedi_language_server = {
