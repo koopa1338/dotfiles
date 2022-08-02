@@ -78,6 +78,7 @@ return require("packer").startup {
     use { "lervag/vimtex", ft = { "tex" } }
     use "neovim/nvim-lspconfig"
     use "wbthomason/lsp-status.nvim"
+    use "williamboman/mason.nvim"
     use "j-hui/fidget.nvim"
     use {
       "folke/trouble.nvim",
