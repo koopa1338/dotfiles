@@ -1,4 +1,4 @@
-local utils = require("utils")
+local utils = require "utils"
 local api, bo, wo = vim.api, vim.bo, vim.wo
 
 local numbertoggle = api.nvim_create_augroup("NumberToggle", { clear = true })
@@ -15,7 +15,7 @@ api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
     if ft == "notify" then
       wo.wrap = true
     end
-  end
+  end,
 })
 
 api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
@@ -29,7 +29,7 @@ api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
     if ft == "notify" then
       wo.wrap = false
     end
-  end
+  end,
 })
 
 api.nvim_create_autocmd({ "FileType" }, {
@@ -37,21 +37,20 @@ api.nvim_create_autocmd({ "FileType" }, {
   callback = function()
     wo.rnu = false
     wo.nu = false
-  end
+  end,
 })
 
 api.nvim_create_autocmd({ "VimResized" }, {
   pattern = { "*" },
-  command = "wincmd ="
+  command = "wincmd =",
 })
 
 api.nvim_create_autocmd({ "TextYankPost" }, {
   pattern = { "*" },
   callback = function()
-    vim.highlight.on_yank({ higroup = "Substitute", timeout = 200, on_macro = true })
-  end
+    vim.highlight.on_yank { higroup = "Substitute", timeout = 200, on_macro = true }
+  end,
 })
-
 
 api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "help" },
@@ -59,16 +58,15 @@ api.nvim_create_autocmd({ "FileType" }, {
     local opts = { silent = true, noremap = false, buffer = true }
     utils.map("n", "<CR>", "<C-]>", opts)
     utils.map("n", "<BS>", "<C-T>", opts)
-    vim.cmd("wincmd L")
-
-  end
+    vim.cmd "wincmd L"
+  end,
 })
 
 api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "qf" },
   callback = function()
     bo.buflisted = false
-  end
+  end,
 })
 
 api.nvim_create_autocmd({ "FileType" }, {
@@ -76,12 +74,12 @@ api.nvim_create_autocmd({ "FileType" }, {
   callback = function()
     local opts = { silent = true, noremap = false, buffer = true }
     utils.map("n", "q", "<cmd>q<CR>", opts)
-  end
+  end,
 })
 
 api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "lua" },
   callback = function()
     vim.opt.shiftwidth = 2
-  end
+  end,
 })
