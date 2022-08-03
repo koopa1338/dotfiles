@@ -77,6 +77,7 @@ local custom_attach = function(client)
   end
 
   if capabilities.codeLensProvider then
+    map("n", "<leader>K", ":lua vim.lsp.codelens.run()<CR>", opts)
     local lsp_codelens_au = vim.api.nvim_create_augroup("lsp_document_codelens", { clear = true })
     vim.api.nvim_create_autocmd(
       { "BufEnter" },

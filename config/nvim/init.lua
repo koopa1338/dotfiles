@@ -2,7 +2,7 @@ require "impatient"
 require "plugins"
 require "packer_compiled"
 
-local g, v, cmd, fn, o, og = vim.g, vim.v, vim.cmd, vim.fn, vim.opt, vim.opt_global
+local g, cmd, fn, o, og = vim.g, vim.cmd, vim.fn, vim.opt, vim.opt_global
 
 g.did_load_filetypes = 1
 
@@ -111,42 +111,11 @@ g.tex_flavor = "latex"
 -- luasnip
 g.snippets = "luasnip"
 
-if v.version > 701 then
-  cmd [[
-        autocmd Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|CHANGED\|DONE\|XXX\|BUG\|HACK\)')
-        autocmd Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\|NOTICE\|REVIEW\)')
-    ]]
-end
-
 if fn.has "windows" then
   o.fillchars = "vert:┃,eob:￭,diff:☷"
 end
 
-cmd [[
-    augroup NumberToggle
-        let blacklist = ['DiffviewFiles', 'NvimTree', 'DressingInput']
-        autocmd!
-        autocmd BufEnter,FocusGained,InsertLeave * if index(blacklist, &ft) < 0 | set relativenumber
-        autocmd BufLeave,FocusLost,InsertEnter * if index(blacklist, &ft) < 0 | set norelativenumber
-    augroup END
-
-    autocmd VimResized * wincmd =
-
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank({ higroup = Substitute, timeout = 200, on_macro = true})
-
-    autocmd FileType help wincmd L
-    autocmd FileType fugitive wincmd H
-    autocmd FileType qf set nobuflisted
-]]
-
--- TODO: port to lua
-cmd [[
-    function! ExecuteMacroOverVisualRange()
-        echo "@".getcmdline()
-        execute ":'<,'>normal @".nr2char(getchar())
-    endfunction
-]]
-
+require "_autocmds"
 require "_zen"
 require "_mappings"
 require "_lsp_config"

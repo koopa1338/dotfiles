@@ -35,8 +35,6 @@ map("", "<leader><C-l>", ":wincmd L<CR>", { silent = true })
 map("n", "<Leader>z", ":TZFocus<CR>", { silent = true })
 map("n", "<Leader>Z", ":TZAtaraxis<CR>", { silent = true })
 
-map("x", "@", ":<C-u>call ExecuteMacroOverVisualRange()<CR>", {})
-
 map("n", "<C-s>", ":w<CR>", { noremap = false })
 map("i", "<C-s>", "<Esc>:w<CR>", { noremap = false })
 map("t", "<Esc><Esc>", "<C-\\><C-n>", {})
