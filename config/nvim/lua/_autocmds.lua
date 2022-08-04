@@ -6,7 +6,6 @@ local blacklist = { "DiffviewFiles", "NvimTree", "DressingInput", "notify" }
 
 api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
   group = numbertoggle,
-  pattern = { "*" },
   callback = function()
     local ft = bo.filetype
     if not utils.has_value(blacklist, ft) then
@@ -20,7 +19,6 @@ api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
 
 api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
   group = numbertoggle,
-  pattern = { "*" },
   callback = function()
     local ft = bo.filetype
     if not utils.has_value(blacklist, ft) then
@@ -32,16 +30,7 @@ api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
   end,
 })
 
-api.nvim_create_autocmd({ "FileType" }, {
-  pattern = blacklist,
-  callback = function()
-    wo.rnu = false
-    wo.nu = false
-  end,
-})
-
 api.nvim_create_autocmd({ "VimResized" }, {
-  pattern = { "*" },
   command = "wincmd =",
 })
 
@@ -52,7 +41,20 @@ api.nvim_create_autocmd({ "TextYankPost" }, {
   end,
 })
 
+
+local filetypes = api.nvim_create_augroup("FileTypes", { clear = true })
+
 api.nvim_create_autocmd({ "FileType" }, {
+  group = filetypes,
+  pattern = blacklist,
+  callback = function()
+    wo.rnu = false
+    wo.nu = false
+  end,
+})
+
+api.nvim_create_autocmd({ "FileType" }, {
+  group = filetypes,
   pattern = { "help" },
   callback = function()
     local opts = { silent = true, noremap = false, buffer = true }
@@ -63,6 +65,7 @@ api.nvim_create_autocmd({ "FileType" }, {
 })
 
 api.nvim_create_autocmd({ "FileType" }, {
+  group = filetypes,
   pattern = { "qf" },
   callback = function()
     bo.buflisted = false
@@ -70,6 +73,7 @@ api.nvim_create_autocmd({ "FileType" }, {
 })
 
 api.nvim_create_autocmd({ "FileType" }, {
+  group = filetypes,
   pattern = { "qf", "help", "lspinfo", "notify" },
   callback = function()
     local opts = { silent = true, noremap = false, buffer = true }
@@ -78,6 +82,7 @@ api.nvim_create_autocmd({ "FileType" }, {
 })
 
 api.nvim_create_autocmd({ "FileType" }, {
+  group = filetypes,
   pattern = { "lua" },
   callback = function()
     vim.opt.shiftwidth = 2
