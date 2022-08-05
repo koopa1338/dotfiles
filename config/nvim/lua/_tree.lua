@@ -1,6 +1,6 @@
-local map = require("utils").map
+-- local map = require("utils").map
 
-map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { silent = true })
+Map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { silent = true })
 
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 local tree = require "nvim-tree"

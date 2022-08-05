@@ -115,6 +115,8 @@ if fn.has "windows" then
   o.fillchars = "vert:┃,eob:￭,diff:☷"
 end
 
+-- global utils
+require "utils"
 require "_autocmds"
 require "_zen"
 require "_mappings"

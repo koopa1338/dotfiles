@@ -2,7 +2,6 @@ local nvim_lsp = require "lspconfig"
 local status = require "_lsp_status"
 -- local nvim_status = require "lsp-status"
 local path = nvim_lsp.util.path
-local map = require("utils").map
 local fn, bo, env = vim.fn, vim.bo, vim.env
 
 local function get_python_path()
@@ -31,36 +30,36 @@ local custom_attach = function(client)
   local capabilities = client.server_capabilities
 
   if capabilities.declarationProvider then
-    map("n", "<leader>lD", ":lua vim.lsp.buf.declaration()<CR>", opts)
+    Map("n", "<leader>lD", ":lua vim.lsp.buf.declaration()<CR>", opts)
   end
 
   if capabilities.definitionProvider then
-    map("n", "<leader>ld", ":lua vim.lsp.buf.definition()<CR>", opts)
+    Map("n", "<leader>ld", ":lua vim.lsp.buf.definition()<CR>", opts)
   end
 
   if capabilities.typeDefinitionProvider then
-    map("n", "<leader>lT", ":lua vim.lsp.buf.type_definition()<CR>", opts)
+    Map("n", "<leader>lT", ":lua vim.lsp.buf.type_definition()<CR>", opts)
   end
 
   if capabilities.renameProvider then
-    map("n", "<leader>lr", ":lua vim.lsp.buf.rename()<CR>", opts)
+    Map("n", "<leader>lr", ":lua vim.lsp.buf.rename()<CR>", opts)
   end
 
   if capabilities.documentFormattingProvider then
-    map("n", "<leader>lf", ":lua vim.lsp.buf.format({async = true})<CR>", opts)
+    Map("n", "<leader>lf", ":lua vim.lsp.buf.format({async = true})<CR>", opts)
   end
 
   if capabilities.signatureHelpProvider then
-    map("n", "<leader>ls", ":lua vim.lsp.buf.signature_help()<CR>", opts)
+    Map("n", "<leader>ls", ":lua vim.lsp.buf.signature_help()<CR>", opts)
   end
 
   if capabilities.codeActionProvider then
-    map("n", "<leader>lca", ":lua vim.lsp.buf.code_action()<CR>", opts)
-    map("v", "<leader>lca", ":lua vim.lsp.buf.range_code_action()<CR>", opts)
+    Map("n", "<leader>lca", ":lua vim.lsp.buf.code_action()<CR>", opts)
+    Map("v", "<leader>lca", ":lua vim.lsp.buf.range_code_action()<CR>", opts)
   end
 
   if capabilities.hoverProvider then
-    map("n", "K", ":lua vim.lsp.buf.hover()<CR>", opts)
+    Map("n", "K", ":lua vim.lsp.buf.hover()<CR>", opts)
   end
 
   -- Set autocommands conditional on server_capabilities
@@ -76,41 +75,41 @@ local custom_attach = function(client)
     )
   end
 
-  if capabilities.codeLensProvider then
-    map("n", "<leader>K", ":lua vim.lsp.codelens.run()<CR>", opts)
-    local lsp_codelens_au = vim.api.nvim_create_augroup("lsp_document_codelens", { clear = true })
-    vim.api.nvim_create_autocmd(
-      { "BufEnter" },
-      { group = lsp_codelens_au, once = true, command = "lua vim.lsp.codelens.refresh()" }
-    )
-    vim.api.nvim_create_autocmd(
-      { "BufWritePost", "CursorHold" },
-      { group = lsp_codelens_au, command = "lua vim.lsp.codelens.refresh()" }
-    )
-  end
+  -- if capabilities.codeLensProvider then
+  --   Map("n", "<leader>K", ":lua vim.lsp.codelens.run()<CR>", opts)
+  --   local lsp_codelens_au = vim.api.nvim_create_augroup("lsp_document_codelens", { clear = true })
+  --   vim.api.nvim_create_autocmd(
+  --     { "BufEnter" },
+  --     { group = lsp_codelens_au, once = true, command = "lua vim.lsp.codelens.refresh()" }
+  --   )
+  --   vim.api.nvim_create_autocmd(
+  --     { "BufWritePost", "CursorHold" },
+  --     { group = lsp_codelens_au, command = "lua vim.lsp.codelens.refresh()" }
+  --   )
+  -- end
 
   if capabilities.documentSymbolProvider then
-    map("n", "<leader>lts", ":Telescope lsp_document_symbols<CR>", { silent = true })
+    Map("n", "<leader>lts", ":Telescope lsp_document_symbols<CR>", { silent = true })
     status.on_attach(client)
   end
 
   if capabilities.workspaceSymbolProvider then
-    map("n", "<leader>ltS", ":Telescope lsp_workspace_symbols<CR>", { silent = true })
+    Map("n", "<leader>ltS", ":Telescope lsp_workspace_symbols<CR>", { silent = true })
   end
 
   if capabilities.referencesProvider then
-    map("n", "<leader>ltr", ":Telescope lsp_references<CR>", { silent = true })
+    Map("n", "<leader>ltr", ":Telescope lsp_references<CR>", { silent = true })
   end
 
   if capabilities.implementationProvider then
-    map("n", "<leader>lti", ":Telescope lsp_implementations<CR>", { silent = true })
+    Map("n", "<leader>lti", ":Telescope lsp_implementations<CR>", { silent = true })
   end
 
-  map("n", "<leader>lci", ":lua vim.lsp.buf.incoming_calls()<CR>", opts)
-  map("n", "<leader>lco", ":lua vim.lsp.buf.outgoing_calls()<CR>", opts)
-  map("n", "<leader>ll", ":lua vim.diagnostic.open_float({scope='l', source='if_many'})<CR>", opts)
-  map("n", "<leader>lj", ":lua vim.diagnostic.get_next()<CR>", opts)
-  map("n", "<leader>lk", ":lua vim.diagnostic.get_prev()<CR>", opts)
+  Map("n", "<leader>lci", ":lua vim.lsp.buf.incoming_calls()<CR>", opts)
+  Map("n", "<leader>lco", ":lua vim.lsp.buf.outgoing_calls()<CR>", opts)
+  Map("n", "<leader>ll", ":lua vim.diagnostic.open_float({scope='l', source='if_many'})<CR>", opts)
+  Map("n", "<leader>lj", ":lua vim.diagnostic.get_next()<CR>", opts)
+  Map("n", "<leader>lk", ":lua vim.diagnostic.get_prev()<CR>", opts)
 end
 
 -- Make runtime files discoverable to the server

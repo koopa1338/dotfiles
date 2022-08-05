@@ -1,15 +1,14 @@
-local map = require("utils").map
 local g, cmd = vim.g, vim.cmd
 
 -- git
 g.git_messenger_no_default_mappings = 1
 g.git_messenger_always_into_popup = 1
 
-map("n", "<Leader>gm", ":GitMessenger<CR>", { silent = true })
-map("n", "<Leader>gs", ":Neogit<CR>", { silent = true })
-map("n", "<Leader>gD", ":DiffviewOpen<CR>", { silent = true })
-map("n", "<Leader>gf", ":diffget //2<CR>", { silent = true })
-map("n", "<Leader>gj", ":diffget //3<CR>", { silent = true })
+Map("n", "<Leader>gm", ":GitMessenger<CR>", { silent = true })
+Map("n", "<Leader>gs", ":Neogit<CR>", { silent = true })
+Map("n", "<Leader>gD", ":DiffviewOpen<CR>", { silent = true })
+Map("n", "<Leader>gf", ":diffget //2<CR>", { silent = true })
+Map("n", "<Leader>gj", ":diffget //3<CR>", { silent = true })
 
 -- git signs
 require("gitsigns").setup {
@@ -49,12 +48,12 @@ require("gitsigns").setup {
   },
 }
 
-map("n", "<leader>gB", ":lua require('gitsigns').blame_line()<CR>", { silent = true })
-map("n", "<leader>gb", ":lua require('gitsigns').toggle_current_line_blame()<CR>", { silent = true })
-map("n", "<leader>gd", ":lua require('gitsigns').preview_hunk()<CR>", { silent = true })
-map("n", "<leader>g-", ":lua require('gitsigns').undo_stage_hunk()<CR>", { silent = true })
-map("n", "<leader>g+", ":lua require('gitsigns').stage_hunk()<CR>", { silent = true })
-map("n", "<leader>gu", ":lua require('gitsigns').reset_hunk()<CR>", { silent = true })
+Map("n", "<leader>gB", ":lua require('gitsigns').blame_line()<CR>", { silent = true })
+Map("n", "<leader>gb", ":lua require('gitsigns').toggle_current_line_blame()<CR>", { silent = true })
+Map("n", "<leader>gd", ":lua require('gitsigns').preview_hunk()<CR>", { silent = true })
+Map("n", "<leader>g-", ":lua require('gitsigns').undo_stage_hunk()<CR>", { silent = true })
+Map("n", "<leader>g+", ":lua require('gitsigns').stage_hunk()<CR>", { silent = true })
+Map("n", "<leader>gu", ":lua require('gitsigns').reset_hunk()<CR>", { silent = true })
 
 cmd [[
     command! Diffwin windo diffthis

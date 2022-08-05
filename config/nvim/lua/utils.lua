@@ -1,10 +1,9 @@
 local api = vim.api
-local M = {}
-
 local buf_keymap, keymap = api.nvim_buf_set_keymap, api.nvim_set_keymap
+local reloader = require("plenary.reload")
 
 -- Key mapping
-function M.map(mode, key, result, opts)
+Map = function(mode, key, result, opts)
   local opts_or_defaults = {
     noremap = opts.noremap or true,
     silent = opts.silent or false,
@@ -19,7 +18,7 @@ function M.map(mode, key, result, opts)
   end
 end
 
-function M.has_value(tab, val)
+Contains = function(tab, val)
   for _, value in ipairs(tab) do
     if value == val then
       return true
@@ -29,4 +28,14 @@ function M.has_value(tab, val)
   return false
 end
 
-return M
+
+
+P = function(arg)
+    print(vim.inspect(arg))
+    return arg
+  end
+
+R = function(name)
+  reloader.reload_module(name)
+  return require(name)
+end

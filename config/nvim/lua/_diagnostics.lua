@@ -1,4 +1,4 @@
-local sign_define, g, map = vim.fn.sign_define, vim.g, require("utils").map
+local sign_define, g = vim.fn.sign_define, vim.g
 
 g.diagnostic_enable_virtual_text = 1
 g.diagnostic_enable_underline = 0
@@ -10,4 +10,4 @@ sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" 
 sign_define("DiagnosticSignInfo", { text = "כֿ", texthl = "DiagnosticSignInfo" })
 sign_define("DiagnosticSignHint", { text = "➤", texthl = "DiagnosticSignHint" })
 
-map("n", "<leader>D", ":Trouble<CR>", { silent = true })
+Map("n", "<leader>D", ":Trouble<CR>", { silent = true })

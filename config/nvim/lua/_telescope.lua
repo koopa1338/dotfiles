@@ -1,4 +1,3 @@
-local map = require("utils").map
 local actions = require "telescope.actions"
 local previewers = require "telescope.previewers"
 local telescope = require "telescope"
@@ -63,27 +62,27 @@ telescope.load_extension "fzf"
 telescope.load_extension "notify"
 telescope.load_extension "ui-select"
 
-map("n", "<leader>fg", ":Telescope git_files theme=get_ivy<CR>", { silent = true })
-map("n", "<leader>ff", ":Telescope fd theme=get_ivy hidden=true<CR>", { silent = true })
-map("n", "<leader>FF", ":Telescope fd theme=get_ivy hidden=true no_ignore=true<CR>", { silent = true })
-map("n", "<leader>fr", ":Telescope live_grep<CR>", { silent = true })
-map("v", "<leader>f*", ":Telescope grep_string<CR>", { silent = true })
-map("n", "<leader>f*", ":Telescope grep_string<CR>", { silent = true })
-map("n", "<leader>fR", ":Telescope registers theme=get_ivy<CR>", { silent = true })
-map("n", "<leader>bb", ":Telescope buffers theme=get_ivy<CR>", { silent = true })
-map("n", "<leader>fb", ":Telescope current_buffer_fuzzy_find previewer=false<CR>", { silent = true })
-map("n", "<leader>fe", ":Telescope treesitter<CR>", { silent = true })
-map("n", "<leader>fm", ":Telescope marks theme=get_ivy<CR>", { silent = true })
-map("n", "<leader>fp", ":Telescope project display_type=full<CR>", { silent = true })
+Map("n", "<leader>fg", ":Telescope git_files theme=get_ivy<CR>", { silent = true })
+Map("n", "<leader>ff", ":Telescope fd theme=get_ivy hidden=true<CR>", { silent = true })
+Map("n", "<leader>FF", ":Telescope fd theme=get_ivy hidden=true no_ignore=true<CR>", { silent = true })
+Map("n", "<leader>fr", ":Telescope live_grep<CR>", { silent = true })
+Map("v", "<leader>f*", ":Telescope grep_string<CR>", { silent = true })
+Map("n", "<leader>f*", ":Telescope grep_string<CR>", { silent = true })
+Map("n", "<leader>fR", ":Telescope registers theme=get_ivy<CR>", { silent = true })
+Map("n", "<leader>bb", ":Telescope buffers theme=get_ivy<CR>", { silent = true })
+Map("n", "<leader>fb", ":Telescope current_buffer_fuzzy_find previewer=false<CR>", { silent = true })
+Map("n", "<leader>fe", ":Telescope treesitter<CR>", { silent = true })
+Map("n", "<leader>fm", ":Telescope marks theme=get_ivy<CR>", { silent = true })
+Map("n", "<leader>fp", ":Telescope project display_type=full<CR>", { silent = true })
 
 -- lsp bindings
-map("n", "<leader>ltd", ":Telescope diagnostics bufnr=0<CR>", { silent = true })
-map("n", "<leader>ltD", ":Telescope diagnostics<CR>", { silent = true })
+Map("n", "<leader>ltd", ":Telescope diagnostics bufnr=0<CR>", { silent = true })
+Map("n", "<leader>ltD", ":Telescope diagnostics<CR>", { silent = true })
 
-map("n", "<leader><leader>q", ":Telescope quickfix layout_strategy=vertical<CR>", { silent = true })
-map("n", "<leader><leader>l", ":Telescope loclist layout_strategy=vertical<CR>", { silent = true })
-map("n", "<leader><leader>n", ":Telescope notify layout_strategy=vertical<CR>", { silent = true })
-map("n", "<leader><leader>N", ":lua require'notify'.dismiss()<CR>", { silent = true })
+Map("n", "<leader><leader>q", ":Telescope quickfix layout_strategy=vertical<CR>", { silent = true })
+Map("n", "<leader><leader>l", ":Telescope loclist layout_strategy=vertical<CR>", { silent = true })
+Map("n", "<leader><leader>n", ":Telescope notify layout_strategy=vertical<CR>", { silent = true })
+Map("n", "<leader><leader>N", ":lua require'notify'.dismiss()<CR>", { silent = true })
 
-map("n", "<leader>tm", ":Telescope man_pages layout_strategy=vertical<CR>", { silent = true })
-map("n", "<leader>tk", ":Telescope keymaps<CR>", { silent = true })
+Map("n", "<leader>tm", ":Telescope man_pages layout_strategy=vertical<CR>", { silent = true })
+Map("n", "<leader>tk", ":Telescope keymaps<CR>", { silent = true })

@@ -1,4 +1,3 @@
-local utils = require "utils"
 local api, bo, wo = vim.api, vim.bo, vim.wo
 
 local numbertoggle = api.nvim_create_augroup("NumberToggle", { clear = true })
@@ -8,7 +7,7 @@ api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
   group = numbertoggle,
   callback = function()
     local ft = bo.filetype
-    if not utils.has_value(blacklist, ft) then
+    if not Contains(blacklist, ft) then
       wo.rnu = true
     end
     if ft == "notify" then
@@ -21,7 +20,7 @@ api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
   group = numbertoggle,
   callback = function()
     local ft = bo.filetype
-    if not utils.has_value(blacklist, ft) then
+    if not Contains(blacklist, ft) then
       wo.rnu = false
     end
     if ft == "notify" then
@@ -58,8 +57,8 @@ api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "help" },
   callback = function()
     local opts = { silent = true, noremap = false, buffer = true }
-    utils.map("n", "<CR>", "<C-]>", opts)
-    utils.map("n", "<BS>", "<C-T>", opts)
+    Map("n", "<CR>", "<C-]>", opts)
+    Map("n", "<BS>", "<C-T>", opts)
     vim.cmd "wincmd L"
   end,
 })
@@ -77,7 +76,7 @@ api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "qf", "help", "lspinfo", "notify" },
   callback = function()
     local opts = { silent = true, noremap = false, buffer = true }
-    utils.map("n", "q", "<cmd>q<CR>", opts)
+    Map("n", "q", "<cmd>q<CR>", opts)
   end,
 })
 
