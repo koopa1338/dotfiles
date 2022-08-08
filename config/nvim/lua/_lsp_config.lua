@@ -30,36 +30,36 @@ local custom_attach = function(client)
   local capabilities = client.server_capabilities
 
   if capabilities.declarationProvider then
-    Map("n", "<leader>lD", ":lua vim.lsp.buf.declaration()<CR>", opts)
+    Map("n", "<leader>lD", vim.lsp.buf.declaration, opts)
   end
 
   if capabilities.definitionProvider then
-    Map("n", "<leader>ld", ":lua vim.lsp.buf.definition()<CR>", opts)
+    Map("n", "<leader>ld", vim.lsp.buf.definition, opts)
   end
 
   if capabilities.typeDefinitionProvider then
-    Map("n", "<leader>lT", ":lua vim.lsp.buf.type_definition()<CR>", opts)
+    Map("n", "<leader>lT", vim.lsp.buf.type_definition, opts)
   end
 
   if capabilities.renameProvider then
-    Map("n", "<leader>lr", ":lua vim.lsp.buf.rename()<CR>", opts)
+    Map("n", "<leader>lr", vim.lsp.buf.rename, opts)
   end
 
   if capabilities.documentFormattingProvider then
-    Map("n", "<leader>lf", ":lua vim.lsp.buf.format({async = true})<CR>", opts)
+    Map("n", "<leader>lf", function() vim.lsp.buf.format({async = true}) end, opts)
   end
 
   if capabilities.signatureHelpProvider then
-    Map("n", "<leader>ls", ":lua vim.lsp.buf.signature_help()<CR>", opts)
+    Map("n", "<leader>ls", vim.lsp.buf.signature_help, opts)
   end
 
   if capabilities.codeActionProvider then
-    Map("n", "<leader>lca", ":lua vim.lsp.buf.code_action()<CR>", opts)
-    Map("v", "<leader>lca", ":lua vim.lsp.buf.range_code_action()<CR>", opts)
+    Map("n", "<leader>lca", vim.lsp.buf.code_action, opts)
+    Map("v", "<leader>lca", vim.lsp.buf.range_code_action, opts)
   end
 
   if capabilities.hoverProvider then
-    Map("n", "K", ":lua vim.lsp.buf.hover()<CR>", opts)
+    Map("n", "K", vim.lsp.buf.hover, opts)
   end
 
   -- Set autocommands conditional on server_capabilities
@@ -67,24 +67,24 @@ local custom_attach = function(client)
     local lsp_highlight_au = vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
     vim.api.nvim_create_autocmd(
       { "CursorHold" },
-      { group = lsp_highlight_au, command = "lua vim.lsp.buf.document_highlight()" }
+      { group = lsp_highlight_au, callback = vim.lsp.buf.document_highlight }
     )
     vim.api.nvim_create_autocmd(
       { "CursorMoved" },
-      { group = lsp_highlight_au, command = "lua vim.lsp.buf.clear_references()" }
+      { group = lsp_highlight_au, callback = vim.lsp.buf.clear_references }
     )
   end
 
   -- if capabilities.codeLensProvider then
-  --   Map("n", "<leader>K", ":lua vim.lsp.codelens.run()<CR>", opts)
+  --   Map("n", "<leader>K", vim.lsp.codelens.run, opts)
   --   local lsp_codelens_au = vim.api.nvim_create_augroup("lsp_document_codelens", { clear = true })
   --   vim.api.nvim_create_autocmd(
   --     { "BufEnter" },
-  --     { group = lsp_codelens_au, once = true, command = "lua vim.lsp.codelens.refresh()" }
+  --     { group = lsp_codelens_au, once = true, callback = vim.lsp.codelens.refresh }
   --   )
   --   vim.api.nvim_create_autocmd(
   --     { "BufWritePost", "CursorHold" },
-  --     { group = lsp_codelens_au, command = "lua vim.lsp.codelens.refresh()" }
+  --     { group = lsp_codelens_au, callback = vim.lsp.codelens.refresh }
   --   )
   -- end
 
@@ -105,11 +105,11 @@ local custom_attach = function(client)
     Map("n", "<leader>lti", ":Telescope lsp_implementations<CR>", { silent = true })
   end
 
-  Map("n", "<leader>lci", ":lua vim.lsp.buf.incoming_calls()<CR>", opts)
-  Map("n", "<leader>lco", ":lua vim.lsp.buf.outgoing_calls()<CR>", opts)
-  Map("n", "<leader>ll", ":lua vim.diagnostic.open_float({scope='l', source='if_many'})<CR>", opts)
-  Map("n", "<leader>lj", ":lua vim.diagnostic.get_next()<CR>", opts)
-  Map("n", "<leader>lk", ":lua vim.diagnostic.get_prev()<CR>", opts)
+  Map("n", "<leader>lci", vim.lsp.buf.incoming_calls, opts)
+  Map("n", "<leader>lco", vim.lsp.buf.outgoing_calls, opts)
+  Map("n", "<leader>ll", function() vim.diagnostic.open_float({scope='l', source='if_many'}) end, opts)
+  Map("n", "<leader>lj", vim.diagnostic.get_next, opts)
+  Map("n", "<leader>lk", vim.diagnostic.get_prev, opts)
 end
 
 -- Make runtime files discoverable to the server

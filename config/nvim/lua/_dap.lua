@@ -1,11 +1,11 @@
-Map("n", "<F4>", ":lua require'dap'.toggle_breakpoint()<CR>", { silent = true })
-Map("n", "<F5>", ":lua require'dap'.continue()<CR>", { silent = true })
-Map("n", "<F9>", ":lua require'dap'.step_over()<CR>", { silent = true })
-Map("n", "<F10>", ":lua require'dap'.step_into()<CR>", { silent = true })
-Map("n", "<F11>", ":lua require'dap'.step_out()<CR>", { silent = true })
-Map("n", "<F12>", ":lua require'dap'.repl.open()<CR>", { silent = true })
-
 local dap, dapui = require "dap", require "dapui"
+Map("n", "<F4>", dap.toggle_breakpoint, { silent = true })
+Map("n", "<F5>", dap.continue, { silent = true })
+Map("n", "<F9>", dap.step_over, { silent = true })
+Map("n", "<F10>", dap.step_into, { silent = true })
+Map("n", "<F11>", dap.step_out, { silent = true })
+Map("n", "<F12>", dap.repl.open, { silent = true })
+
 -- TODO: setup configurations for debug options
 -- dap.configuration.rust = {}
 

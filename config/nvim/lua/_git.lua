@@ -10,8 +10,10 @@ Map("n", "<Leader>gD", ":DiffviewOpen<CR>", { silent = true })
 Map("n", "<Leader>gf", ":diffget //2<CR>", { silent = true })
 Map("n", "<Leader>gj", ":diffget //3<CR>", { silent = true })
 
+local gitsigns = require("gitsigns")
+
 -- git signs
-require("gitsigns").setup {
+gitsigns.setup {
   signs = {
     add = { hl = "GitSignsAdd", text = "", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
     change = { hl = "GitSignsChange", text = "勒", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
@@ -48,12 +50,12 @@ require("gitsigns").setup {
   },
 }
 
-Map("n", "<leader>gB", ":lua require('gitsigns').blame_line()<CR>", { silent = true })
-Map("n", "<leader>gb", ":lua require('gitsigns').toggle_current_line_blame()<CR>", { silent = true })
-Map("n", "<leader>gd", ":lua require('gitsigns').preview_hunk()<CR>", { silent = true })
-Map("n", "<leader>g-", ":lua require('gitsigns').undo_stage_hunk()<CR>", { silent = true })
-Map("n", "<leader>g+", ":lua require('gitsigns').stage_hunk()<CR>", { silent = true })
-Map("n", "<leader>gu", ":lua require('gitsigns').reset_hunk()<CR>", { silent = true })
+Map("n", "<leader>gB", gitsigns.blame_line, { silent = true })
+Map("n", "<leader>gb", gitsigns.toggle_current_line_blame, { silent = true })
+Map("n", "<leader>gd", gitsigns.preview_hunk, { silent = true })
+Map("n", "<leader>g-", gitsigns.undo_stage_hunk, { silent = true })
+Map("n", "<leader>g+", gitsigns.stage_hunk, { silent = true })
+Map("n", "<leader>gu", gitsigns.reset_hunk, { silent = true })
 
 cmd [[
     command! Diffwin windo diffthis

@@ -56,7 +56,7 @@ api.nvim_create_autocmd({ "FileType" }, {
   group = filetypes,
   pattern = { "help" },
   callback = function()
-    local opts = { silent = true, noremap = false, buffer = true }
+    local opts = { silent = true, remap = false, buffer = 0 }
     Map("n", "<CR>", "<C-]>", opts)
     Map("n", "<BS>", "<C-T>", opts)
     vim.cmd "wincmd L"
@@ -75,7 +75,7 @@ api.nvim_create_autocmd({ "FileType" }, {
   group = filetypes,
   pattern = { "qf", "help", "lspinfo", "notify" },
   callback = function()
-    local opts = { silent = true, noremap = false, buffer = true }
+    local opts = { silent = true, remap = false, buffer = 0 }
     Map("n", "q", "<cmd>q<CR>", opts)
   end,
 })
