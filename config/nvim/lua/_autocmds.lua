@@ -73,7 +73,7 @@ api.nvim_create_autocmd({ "FileType" }, {
 
 api.nvim_create_autocmd({ "FileType" }, {
   group = filetypes,
-  pattern = { "qf", "help", "lspinfo", "notify" },
+  pattern = { "qf", "help", "lspinfo", "notify", "checkhealth" },
   callback = function()
     local opts = { silent = true, remap = false, buffer = 0 }
     Map("n", "q", "<cmd>q<CR>", opts)
