@@ -4,6 +4,7 @@ require "packer_compiled"
 
 local g, cmd, fn, o, og = vim.g, vim.cmd, vim.fn, vim.opt, vim.opt_global
 
+-- do not source filetype.vim as we use filetype.nvim plugin
 g.did_load_filetypes = 1
 
 -- encoding

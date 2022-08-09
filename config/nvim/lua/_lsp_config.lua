@@ -200,6 +200,7 @@ local servers = {
   },
   vimls = {},
   yamlls = {},
+  wgsl_analyzer = {},
 }
 
 for server, config in pairs(servers) do
