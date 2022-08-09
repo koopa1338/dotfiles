@@ -119,6 +119,7 @@ table.insert(runtime_path, "lua/?/init.lua")
 
 local servers = {
   -- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
+  ansiblels = {},
   bashls = {},
   clangd = {
     filetypes = { "c", "cc", "cpp", "objc", "objcpp" },
@@ -144,6 +145,11 @@ local servers = {
     cmd = { "vscode-html-language-server", "--stdio" },
     root_dir = nvim_lsp.util.root_pattern "index.html" or nvim_lsp.util.find_git_root,
   },
+  jdtls = {
+    filetypes = { "java" },
+    cmd = { "jdtls" },
+    root_dir = nvim_lsp.util.root_pattern("mvnw", "gradlew", "pom.xml", "build.gradle") or nvim_lsp.util.find_git_root,
+  },
   jedi_language_server = {
     root_dir = nvim_lsp.util.find_git_root,
     settings = {
@@ -152,14 +158,10 @@ local servers = {
       },
     },
   },
-  jdtls = {
-    filetypes = { "java" },
-    cmd = { "jdtls" },
-    root_dir = nvim_lsp.util.root_pattern("mvnw", "gradlew", "pom.xml", "build.gradle") or nvim_lsp.util.find_git_root,
-  },
   jsonls = {
     cmd = { "vscode-json-language-server", "--stdio" },
   },
+  kotlin_language_server = {},
   ocamlls = {
     root_dir = nvim_lsp.util.root_pattern(".merlin", "package.json") or nvim_lsp.util.find_git_root,
   },
@@ -191,6 +193,8 @@ local servers = {
       },
     },
   },
+  svelte = {},
+  tailwindcss = {},
   texlab = {
     cmd = { "texlab" },
   },
@@ -199,8 +203,10 @@ local servers = {
     root_dir = nvim_lsp.util.find_git_root or nvim_lsp.util.find_node_modules_root,
   },
   vimls = {},
-  yamlls = {},
+  vuels = {},
   wgsl_analyzer = {},
+  yamlls = {},
+  zls = {},
 }
 
 for server, config in pairs(servers) do
