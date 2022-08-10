@@ -18,7 +18,6 @@ return require("packer").startup {
     -- Packer
     use "wbthomason/packer.nvim"
     use "lewis6991/impatient.nvim"
-    use "nathom/filetype.nvim"
 
     -- libs
     use "tpope/vim-repeat"
