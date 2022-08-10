@@ -1,7 +1,7 @@
 local api, bo, wo = vim.api, vim.bo, vim.wo
 
 local numbertoggle = api.nvim_create_augroup("NumberToggle", { clear = true })
-local blacklist = { "DiffviewFiles", "NvimTree", "DressingInput", "notify", "mason.nvim" }
+local blacklist = { "DiffviewFiles", "NvimTree", "DressingInput", "notify", "mason.nvim", "help" }
 
 api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
   group = numbertoggle,
@@ -60,6 +60,7 @@ api.nvim_create_autocmd({ "FileType" }, {
     Map("n", "<CR>", "<C-]>", opts)
     Map("n", "<BS>", "<C-T>", opts)
     vim.cmd "wincmd L"
+    wo.nu = true
   end,
 })
 
