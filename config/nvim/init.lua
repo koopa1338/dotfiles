@@ -5,8 +5,8 @@ require "packer_compiled"
 local g, cmd, fn, o, og = vim.g, vim.cmd, vim.fn, vim.opt, vim.opt_global
 
 -- only use filetype.lua, see https://neovim.io/news/2022/04 section filetype
-g.do_filetype_lua = 1
-g.did_load_filetypes = 0
+g.do_filetype_lua = true
+g.did_load_filetypes = false
 
 -- encoding
 og.encoding = "utf-8"
