@@ -82,7 +82,7 @@ Map("n", "<leader>ltD", ":Telescope diagnostics<CR>", { silent = true })
 Map("n", "<leader><leader>q", ":Telescope quickfix layout_strategy=vertical<CR>", { silent = true })
 Map("n", "<leader><leader>l", ":Telescope loclist layout_strategy=vertical<CR>", { silent = true })
 Map("n", "<leader><leader>n", ":Telescope notify layout_strategy=vertical<CR>", { silent = true })
-Map("n", "<leader><leader>N", require'notify'.dismiss, { silent = true })
+Map("n", "<leader><leader>N", require("notify").dismiss, { silent = true })
 
 Map("n", "<leader>tm", ":Telescope man_pages layout_strategy=vertical<CR>", { silent = true })
 Map("n", "<leader>tk", ":Telescope keymaps<CR>", { silent = true })

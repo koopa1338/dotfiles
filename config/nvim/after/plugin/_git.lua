@@ -10,7 +10,7 @@ Map("n", "<Leader>gD", ":DiffviewOpen<CR>", { silent = true })
 Map("n", "<Leader>gf", ":diffget //2<CR>", { silent = true })
 Map("n", "<Leader>gj", ":diffget //3<CR>", { silent = true })
 
-local gitsigns = require("gitsigns")
+local gitsigns = require "gitsigns"
 
 -- git signs
 gitsigns.setup {

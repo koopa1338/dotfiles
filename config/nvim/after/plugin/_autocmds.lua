@@ -40,7 +40,6 @@ api.nvim_create_autocmd({ "TextYankPost" }, {
   end,
 })
 
-
 local filetypes = api.nvim_create_augroup("FileTypes", { clear = true })
 
 api.nvim_create_autocmd({ "FileType" }, {

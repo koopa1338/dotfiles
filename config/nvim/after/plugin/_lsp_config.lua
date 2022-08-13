@@ -42,7 +42,9 @@ local custom_attach = function(client)
   end
 
   if capabilities.documentFormattingProvider then
-    Map("n", "<leader>lf", function() vim.lsp.buf.format({async = true}) end, opts)
+    Map("n", "<leader>lf", function()
+      vim.lsp.buf.format { async = true }
+    end, opts)
   end
 
   if capabilities.signatureHelpProvider then
@@ -102,7 +104,9 @@ local custom_attach = function(client)
 
   Map("n", "<leader>lci", vim.lsp.buf.incoming_calls, opts)
   Map("n", "<leader>lco", vim.lsp.buf.outgoing_calls, opts)
-  Map("n", "<leader>ll", function() vim.diagnostic.open_float({scope='l', source='if_many'}) end, opts)
+  Map("n", "<leader>ll", function()
+    vim.diagnostic.open_float { scope = "l", source = "if_many" }
+  end, opts)
   Map("n", "<leader>lj", vim.diagnostic.get_next, opts)
   Map("n", "<leader>lk", vim.diagnostic.get_prev, opts)
 end

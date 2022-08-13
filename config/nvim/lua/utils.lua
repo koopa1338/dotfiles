@@ -1,4 +1,4 @@
-local reloader = require("plenary.reload")
+local reloader = require "plenary.reload"
 
 -- Key mapping
 Map = function(mode, lhs, rhs, opts)
@@ -24,12 +24,10 @@ Contains = function(tab, val)
   return false
 end
 
-
-
 P = function(arg)
-    print(vim.inspect(arg))
-    return arg
-  end
+  print(vim.inspect(arg))
+  return arg
+end
 
 R = function(name)
   reloader.reload_module(name)
