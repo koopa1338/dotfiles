@@ -33,6 +33,8 @@ font:
 selection:
     semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
     save_to_clipboard: true
+key_bindings:
+  - { key: N,   mods: Control|Shift, action: SpawnNewInstance }
 mouse_bindings:
     - { mouse: Middle, action: PasteSelection }
 mouse:
