@@ -76,7 +76,7 @@ return require("packer").startup {
     -- syntax and languages
     use { "lervag/vimtex", ft = { "tex" } }
     use "neovim/nvim-lspconfig"
-    use "wbthomason/lsp-status.nvim"
+    -- use "wbthomason/lsp-status.nvim"
     use "williamboman/mason.nvim"
     use "j-hui/fidget.nvim"
     use {

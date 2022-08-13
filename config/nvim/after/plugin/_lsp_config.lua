@@ -1,6 +1,4 @@
 local nvim_lsp = require "lspconfig"
-local status = require "_lsp_status"
--- local nvim_status = require "lsp-status"
 local path = nvim_lsp.util.path
 local fn, bo, env = vim.fn, vim.bo, vim.env
 
@@ -20,8 +18,6 @@ local function get_python_path()
   -- Fallback to system Python.
   return fn.exepath "python3" or fn.exepath "python" or "python"
 end
-
-status.activate()
 
 -- lsp config
 local opts = { silent = true }
@@ -90,7 +86,6 @@ local custom_attach = function(client)
 
   if capabilities.documentSymbolProvider then
     Map("n", "<leader>lts", ":Telescope lsp_document_symbols<CR>", { silent = true })
-    status.on_attach(client)
   end
 
   if capabilities.workspaceSymbolProvider then

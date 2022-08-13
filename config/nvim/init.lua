@@ -1,6 +1,7 @@
 require "impatient"
 require "plugins"
 require "packer_compiled"
+require "utils"
 
 local g, cmd, fn, o, og = vim.g, vim.cmd, vim.fn, vim.opt, vim.opt_global
 
@@ -12,7 +13,7 @@ g.did_load_filetypes = false
 og.encoding = "utf-8"
 og.fileencoding = "utf-8"
 
--- general settings
+-- general settingsinit
 cmd [[
     filetype plugin indent on
     syntax enable
@@ -118,22 +119,3 @@ if fn.has "windows" then
 end
 
 -- global utils
-require "utils"
-require "_autocmds"
-require "_zen"
-require "_mappings"
-require "_lsp_config"
-require "_dap"
-require "_lsp_status"
-require "_diagnostics"
-require "_treesitter"
-require "_telescope"
-require "_express_line"
-require "_tree"
-require "_startify"
-require "_git"
-require "_completion"
-require "_walush"
-require "_context"
-require "_dressing"
-require "_mason"
