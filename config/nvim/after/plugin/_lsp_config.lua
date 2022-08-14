@@ -161,6 +161,7 @@ local servers = {
     cmd = { "vscode-json-language-server", "--stdio" },
   },
   kotlin_language_server = {},
+  metals = {},
   ocamlls = {
     root_dir = nvim_lsp.util.root_pattern(".merlin", "package.json") or nvim_lsp.util.find_git_root,
   },
