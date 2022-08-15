@@ -1,7 +1,7 @@
 local api, bo, wo = vim.api, vim.bo, vim.wo
 
 local numbertoggle = api.nvim_create_augroup("NumberToggle", { clear = true })
-local blacklist = { 
+local blacklist = {
   "DiffviewFiles",
   "NvimTree",
   "DressingInput",

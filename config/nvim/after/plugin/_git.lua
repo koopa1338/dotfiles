@@ -1,4 +1,4 @@
-local g, cmd = vim.g, vim.cmd
+local g, cmd, sign_get = vim.g, vim.cmd, vim.fn.sign_getdefined
 
 -- git
 g.git_messenger_no_default_mappings = 1
@@ -15,16 +15,11 @@ local gitsigns = require "gitsigns"
 -- git signs
 gitsigns.setup {
   signs = {
-    add = { hl = "GitSignsAdd", text = "", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-    change = { hl = "GitSignsChange", text = "勒", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-    delete = { hl = "GitSignsDelete", text = "🢑", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-    topdelete = { hl = "GitSignsDelete", text = "🢓", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-    changedelete = {
-      hl = "GitSignsChange",
-      text = "ﳺ",
-      numhl = "GitSignsChangeNr",
-      linehl = "GitSignsChangeLn",
-    },
+    add = sign_get("GitSignsLineColAdd")[1],
+    change = sign_get("GitSignsLineColChange")[1],
+    delete = sign_get("GitSignsLineColDelete")[1],
+    topdelete = sign_get("GitSignsLineColTopdelete")[1],
+    changedelete = sign_get("GitSignsLineColChangedelete")[1],
   },
   numhl = true,
   linehl = false,

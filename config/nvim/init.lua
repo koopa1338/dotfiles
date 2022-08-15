@@ -2,6 +2,7 @@ require "impatient"
 require "plugins"
 require "packer_compiled"
 require "utils"
+require "signs"
 
 local g, cmd, fn, o, og = vim.g, vim.cmd, vim.fn, vim.opt, vim.opt_global
 

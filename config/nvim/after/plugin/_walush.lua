@@ -6,7 +6,10 @@ vim.opt.guifont = "Inconsolata Nerd Font:h10"
 
 local function get_xresources_color(color_name)
   local command = io.popen("xrdb -query | grep " .. color_name .. " -m 1 | cut -f 2")
-  local color = command:read "*l"
+  local color = nil
+  if command then
+    color = command:read "*l"
+  end
   return color
 end
 
