@@ -50,8 +50,8 @@ Map("n", "<M-i>", ":cp<CR>", {})
 Map("n", "Y", "y$", {})
 
 -- Reselect visual block after indent
-Map("x", "<", "<gv", {})
-Map("x", ">", ">gv", {})
+Map("v", "<", "<gv", {})
+Map("v", ">", ">gv", {})
 
 -- search for multiple words seperated by |
 -- Example /\vtest|live highlights test and live
