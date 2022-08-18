@@ -10,6 +10,10 @@ Map("n", "<Leader>gD", ":DiffviewOpen<CR>", { silent = true })
 Map("n", "<Leader>gf", ":diffget //2<CR>", { silent = true })
 Map("n", "<Leader>gj", ":diffget //3<CR>", { silent = true })
 
+if not pcall(require, "gitsigns") then
+  return
+end
+
 local gitsigns = require "gitsigns"
 
 -- git signs
@@ -55,6 +59,10 @@ Map("n", "<leader>gu", gitsigns.reset_hunk, { silent = true })
 cmd [[
     command! Diffwin windo diffthis
 ]]
+
+if not pcall(require, "diffview") then
+  return
+end
 
 local cb = require("diffview.config").diffview_callback
 
@@ -175,6 +183,11 @@ require("diffview").setup {
     },
   },
 }
+
+
+if not pcall(require, "neogit") then
+  return
+end
 
 local neogit = require "neogit"
 
