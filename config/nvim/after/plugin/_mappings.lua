@@ -38,10 +38,10 @@ Map("i", "<C-s>", "<Esc>:w<CR>", { remap = false })
 Map("t", "<Esc><Esc>", "<C-\\><C-n>", {})
 
 -- movement
-Map("n", "j", "gj", {})
-Map("n", "k", "gk", {})
-Map("n", "H", "^", {})
-Map("n", "L", "$", {})
+Map({ "n", "v" }, "j", "gj", {})
+Map({ "n", "v" }, "k", "gk", {})
+Map({ "n", "v" }, "H", "^", {})
+Map({ "n", "v" }, "L", "$", {})
 
 Map("n", "<M-o>", ":cn<CR>", {})
 Map("n", "<M-i>", ":cp<CR>", {})

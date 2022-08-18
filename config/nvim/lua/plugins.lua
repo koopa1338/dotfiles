@@ -24,12 +24,7 @@ return require("packer").startup {
 
     -- editing
     use "tpope/vim-surround"
-    use {
-      "numToStr/Comment.nvim",
-      config = function()
-        require("Comment").setup()
-      end,
-    }
+    use "numToStr/Comment.nvim"
     use "haringsrob/nvim_context_vt"
     -- Zen modes
     use "Pocco81/TrueZen.nvim"
@@ -76,9 +71,7 @@ return require("packer").startup {
     -- syntax and languages
     use { "lervag/vimtex", ft = { "tex" } }
     use "neovim/nvim-lspconfig"
-    -- use "wbthomason/lsp-status.nvim"
     use "williamboman/mason.nvim"
-    use "j-hui/fidget.nvim"
     use {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
@@ -112,6 +105,10 @@ return require("packer").startup {
         "nvim-lua/plenary.nvim",
       },
     }
+    -- use {
+    --   'glepnir/galaxyline.nvim',
+    --   requires = { "kyazdani42/nvim-web-devicons", opt = true }
+    -- }
     use {
       "alvarosevilla95/luatab.nvim",
       config = function()
