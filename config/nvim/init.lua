@@ -1,6 +1,10 @@
-require "impatient"
+if pcall(require, "impatient") then
+  require "impatient"
+end
 require "plugins"
-require "packer_compiled"
+if pcall(require, "packer_compiled") then
+  require "packer_compiled"
+end
 require "utils"
 require "signs"
 
