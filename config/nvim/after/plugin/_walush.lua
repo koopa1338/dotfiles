@@ -18,8 +18,8 @@ local function get_xresources_color(color_name)
 end
 
 local xres = {
-  fg = get_xresources_color "foreground" or "#1d1f21",
-  bg = get_xresources_color "background" or "#c5c8c6",
+  fg = get_xresources_color "foreground" or "#c5c8c6",
+  bg = get_xresources_color "background" or "#1d1f21",
   color0 = get_xresources_color "color0" or "#282a2e",
   color1 = get_xresources_color "color1" or "#a54242",
   color2 = get_xresources_color "color2" or "#8c9440",
