@@ -1,3 +1,7 @@
+if not pcall(require, "lush") then
+  return
+end
+
 local lush = require "lush"
 local hsl = lush.hsl
 
@@ -14,24 +18,24 @@ local function get_xresources_color(color_name)
 end
 
 local xres = {
-  fg = get_xresources_color "foreground",
-  bg = get_xresources_color "background",
-  color0 = get_xresources_color "color0",
-  color1 = get_xresources_color "color1",
-  color2 = get_xresources_color "color2",
-  color3 = get_xresources_color "color3",
-  color4 = get_xresources_color "color4",
-  color5 = get_xresources_color "color5",
-  color6 = get_xresources_color "color6",
-  color7 = get_xresources_color "color7",
-  color8 = get_xresources_color "color8",
-  color9 = get_xresources_color "color9",
-  color10 = get_xresources_color "color10",
-  color11 = get_xresources_color "color11",
-  color12 = get_xresources_color "color12",
-  color13 = get_xresources_color "color13",
-  color14 = get_xresources_color "color14",
-  color15 = get_xresources_color "color15",
+  fg = get_xresources_color "foreground" or "#1d1f21",
+  bg = get_xresources_color "background" or "#c5c8c6",
+  color0 = get_xresources_color "color0" or "#282a2e",
+  color1 = get_xresources_color "color1" or "#a54242",
+  color2 = get_xresources_color "color2" or "#8c9440",
+  color3 = get_xresources_color "color3" or "#de935f",
+  color4 = get_xresources_color "color4" or "#5f819d",
+  color5 = get_xresources_color "color5" or "#85678f",
+  color6 = get_xresources_color "color6" or "#5e8d87",
+  color7 = get_xresources_color "color7" or "#707880",
+  color8 = get_xresources_color "color8" or "#373b41",
+  color9 = get_xresources_color "color9" or "#cc6666",
+  color10 = get_xresources_color "color10" or "#b5bd68",
+  color11 = get_xresources_color "color11" or "#f0c674",
+  color12 = get_xresources_color "color12" or "#81a2be",
+  color13 = get_xresources_color "color13" or "#b294bb",
+  color14 = get_xresources_color "color14" or "#8abeb7",
+  color15 = get_xresources_color "color15" or "#c5c8c6",
 }
 
 for name, color in pairs(xres) do

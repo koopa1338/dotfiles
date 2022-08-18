@@ -1,3 +1,7 @@
+if not pcall(require, "telescope") then
+  return
+end
+
 local actions = require "telescope.actions"
 local previewers = require "telescope.previewers"
 local telescope = require "telescope"
@@ -81,7 +85,10 @@ Map("n", "<leader>ltD", ":Telescope diagnostics<CR>", { silent = true })
 Map("n", "<leader><leader>q", ":Telescope quickfix layout_strategy=vertical<CR>", { silent = true })
 Map("n", "<leader><leader>l", ":Telescope loclist layout_strategy=vertical<CR>", { silent = true })
 Map("n", "<leader><leader>n", ":Telescope notify layout_strategy=vertical<CR>", { silent = true })
-Map("n", "<leader><leader>N", require("notify").dismiss, { silent = true })
+
+if pcall(require, "notify") then
+  Map("n", "<leader><leader>N", require("notify").dismiss, { silent = true })
+end
 
 Map("n", "<leader>tm", ":Telescope man_pages layout_strategy=vertical<CR>", { silent = true })
 Map("n", "<leader>tk", ":Telescope keymaps<CR>", { silent = true })

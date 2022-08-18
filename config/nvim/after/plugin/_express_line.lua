@@ -1,3 +1,7 @@
+if not pcall(require, "el") then
+  return
+end
+
 local builtin = require "el.builtin"
 local extensions = require "el.extensions"
 local sections = require "el.sections"

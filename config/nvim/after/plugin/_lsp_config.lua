@@ -1,3 +1,7 @@
+if not pcall(require, "lspconfig") then
+  return
+end
+
 local nvim_lsp = require "lspconfig"
 local path = nvim_lsp.util.path
 local fn, bo, env = vim.fn, vim.bo, vim.env

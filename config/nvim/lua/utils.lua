@@ -1,5 +1,3 @@
-local reloader = require "plenary.reload"
-
 -- Key mapping
 Map = function(mode, lhs, rhs, opts)
   local opts_or_defaults = {
@@ -33,6 +31,11 @@ P = function(arg)
   return arg
 end
 
+if not pcall(require, "plenary") then
+  return
+end
+
+local reloader = require "plenary.reload"
 R = function(name)
   reloader.reload_module(name)
   return require(name)

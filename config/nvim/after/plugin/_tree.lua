@@ -1,4 +1,6 @@
--- local map = require("utils").map
+if not pcall(require, "nvim-tree") then
+  return
+end
 
 Map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { silent = true })
 

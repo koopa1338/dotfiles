@@ -1,3 +1,7 @@
+if not pcall(require, "true-zen") then
+  return
+end
+
 local zen = require "true-zen"
 
 zen.setup {

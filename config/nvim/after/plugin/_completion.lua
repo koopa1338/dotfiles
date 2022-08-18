@@ -1,3 +1,7 @@
+if not pcall(require, "cmp") or not pcall(require, "luasnip") or not pcall(require, "lspkind") then
+  return
+end
+
 local cmp = require "cmp"
 local luasnip = require "luasnip"
 local lspkind = require "lspkind"

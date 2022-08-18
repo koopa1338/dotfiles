@@ -1,3 +1,7 @@
+if not pcall(require, "dap") or not pcall(require, "dapui") then
+  return
+end
+
 local dap, dapui = require "dap", require "dapui"
 
 Map("n", "<F4>", dap.toggle_breakpoint, { silent = true })
