@@ -4,6 +4,7 @@ local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
   Packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  vim.cmd [[ packadd packer.nvim ]]
 end
 
 local packer = api.nvim_create_augroup("Packer", { clear = true })
@@ -160,9 +161,9 @@ return require("packer").startup {
       },
     }
 
-  if Packer_bootstrap then
-    require('packer').sync()
-  end
+    if Packer_bootstrap then
+      require('packer').sync()
+    end
   end,
   config = {
     -- Move to lua dir so impatient.nvim can cache it
