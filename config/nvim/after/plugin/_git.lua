@@ -184,7 +184,6 @@ require("diffview").setup {
   },
 }
 
-
 if not pcall(require, "neogit") then
   return
 end

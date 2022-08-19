@@ -5,7 +5,7 @@ local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 local is_bootstrap = false
 if fn.empty(fn.glob(install_path)) > 0 then
   is_bootstrap = true
-  fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+  fn.execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
   vim.cmd [[ packadd packer.nvim ]]
 end
 
@@ -21,7 +21,12 @@ require("packer").startup {
     -- editing
     use "tpope/vim-surround"
     use "numToStr/Comment.nvim"
-    use "haringsrob/nvim_context_vt"
+    use {
+      "haringsrob/nvim_context_vt",
+      requires = {
+        "nvim-treesitter/nvim-treesitter",
+      },
+    }
     -- Zen modes
     use "Pocco81/TrueZen.nvim"
 
@@ -48,7 +53,7 @@ require("packer").startup {
     use {
       "nvim-telescope/telescope-fzf-native.nvim",
       run = "make",
-      cond = fn.executable "make" == 1
+      cond = fn.executable "make" == 1,
     }
     use { "nvim-telescope/telescope-ui-select.nvim" }
 
@@ -133,7 +138,7 @@ require("packer").startup {
     }
 
     if is_bootstrap then
-      local packer = require('packer')
+      local packer = require "packer"
       packer.sync()
       packer.compile()
     end
@@ -141,26 +146,25 @@ require("packer").startup {
   config = {
     -- Move to lua dir so impatient.nvim can cache it
     compile_path = fn.stdpath "config" .. "/lua/packer_compiled.lua",
-  }
+  },
 }
 
 -- You'll need to restart nvim, and then it will work.
 if is_bootstrap then
-  print '=================================='
-  print '    Plugins are being installed'
-  print '    Wait until Packer completes,'
-  print '       then restart nvim'
-  print '=================================='
+  print "=================================="
+  print "    Plugins are being installed"
+  print "    Wait until Packer completes,"
+  print "       then restart nvim"
+  print "=================================="
   return true
 end
 
-
 -- Automatically source and re-compile packer whenever you save this init.lua
-local packer = vim.api.nvim_create_augroup('Packer', { clear = true })
-api.nvim_create_autocmd('BufWritePost', {
+local packer = vim.api.nvim_create_augroup("Packer", { clear = true })
+api.nvim_create_autocmd("BufWritePost", {
   group = packer,
-  pattern = fn.expand '$MYVIMRC',
-  command = 'source <afile> | PackerCompile',
+  pattern = fn.expand "$MYVIMRC",
+  command = "source <afile> | PackerCompile",
 })
 
 -- plugins with only default configurations or configs that has to be done before configure other plugins

@@ -190,7 +190,7 @@ local servers = {
           globals = { "vim" },
         },
         workspace = {
-          library = { vim.api.nvim_get_runtime_file('', true) }
+          library = { vim.api.nvim_get_runtime_file("", true) },
         },
       },
     },
@@ -212,7 +212,7 @@ local servers = {
 }
 
 -- nvim-cmp supports additional completion capabilities
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 for server, config in pairs(servers) do
   config.on_attach = custom_attach
