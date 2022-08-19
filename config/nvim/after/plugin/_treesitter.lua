@@ -22,4 +22,28 @@ require("nvim-treesitter.configs").setup {
   autotag = {
     enable = true,
   },
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ['af'] = '@function.outer',
+        ['if'] = '@function.inner',
+        ['ac'] = '@class.outer',
+        ['ic'] = '@class.inner',
+        ['ab'] = '@block.outer',
+        ['ib'] = '@block.inner',
+      },
+    },
+    swap = {
+      enable = true,
+      swap_next = {
+        ['<leader>p'] = '@parameter.inner',
+      },
+      swap_previous = {
+        ['<leader>P'] = '@parameter.inner',
+      },
+    },
+  },
 }

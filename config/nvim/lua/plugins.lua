@@ -44,6 +44,7 @@ require("packer").startup {
     -- searching and file browsing
     use "nvim-lua/popup.nvim"
     use "nvim-treesitter/nvim-treesitter"
+    use "nvim-treesitter/nvim-treesitter-textobjects"
     use {
       "nvim-telescope/telescope-project.nvim",
       requires = {
