@@ -133,7 +133,9 @@ require("packer").startup {
     }
 
     if is_bootstrap then
-      require('packer').sync()
+      local packer = require('packer')
+      packer.sync()
+      packer.compile()
     end
   end,
   config = {
@@ -149,6 +151,7 @@ if is_bootstrap then
   print '    Wait until Packer completes,'
   print '       then restart nvim'
   print '=================================='
+  return true
 end
 
 
