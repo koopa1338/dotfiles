@@ -1,12 +1,19 @@
 if pcall(require, "impatient") then
   require "impatient"
 end
-require "plugins"
+require "utils"
+require "signs"
+
+-- When we are bootstrapping a configuration, it doesn't
+-- make sense to execute the rest of the init.lua.
+--
+local bootstrap = require "plugins"
+if bootstrap then
+  return
+end
 if pcall(require, "packer_compiled") then
   require "packer_compiled"
 end
-require "utils"
-require "signs"
 
 local g, cmd, fn, o, og = vim.g, vim.cmd, vim.fn, vim.opt, vim.opt_global
 

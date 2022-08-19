@@ -47,7 +47,7 @@ api.nvim_create_autocmd({ "VimResized" }, {
 })
 
 api.nvim_create_autocmd({ "TextYankPost" }, {
-  pattern = { "*" },
+  pattern = "*",
   callback = function()
     vim.highlight.on_yank { higroup = "Substitute", timeout = 200, on_macro = true }
   end,

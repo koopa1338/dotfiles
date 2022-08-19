@@ -1,20 +1,15 @@
 local fn, api = vim.fn, vim.api
+
 -- Install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-
+local is_bootstrap = false
 if fn.empty(fn.glob(install_path)) > 0 then
-  Packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  is_bootstrap = true
+  fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
   vim.cmd [[ packadd packer.nvim ]]
 end
 
-local packer = api.nvim_create_augroup("Packer", { clear = true })
-api.nvim_create_autocmd({ "BufWritePost" }, {
-  group = packer,
-  pattern = "init.lua",
-  command = "PackerCompile",
-})
-
-return require("packer").startup {
+require("packer").startup {
   function(use)
     -- Packer
     use "wbthomason/packer.nvim"
@@ -43,7 +38,7 @@ return require("packer").startup {
 
     -- searching and file browsing
     use "nvim-lua/popup.nvim"
-    use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+    use "nvim-treesitter/nvim-treesitter"
     use {
       "nvim-telescope/telescope-project.nvim",
       requires = {
@@ -53,6 +48,7 @@ return require("packer").startup {
     use {
       "nvim-telescope/telescope-fzf-native.nvim",
       run = "make",
+      cond = fn.executable "make" == 1
     }
     use { "nvim-telescope/telescope-ui-select.nvim" }
 
@@ -60,12 +56,7 @@ return require("packer").startup {
 
     -- text objects and motions
     use "wellle/targets.vim"
-    use {
-      "windwp/nvim-autopairs",
-      config = function()
-        require("nvim-autopairs").setup {}
-      end,
-    }
+    use "windwp/nvim-autopairs"
     use "windwp/nvim-ts-autotag"
     use "godlygeek/tabular"
 
@@ -76,14 +67,6 @@ return require("packer").startup {
     use {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
-      config = function()
-        require("trouble").setup {
-          auto_preview = false,
-          auto_fold = true,
-          auto_close = true,
-          use_diagnostic_signs = true,
-        }
-      end,
     }
     use {
       "hrsh7th/nvim-cmp",
@@ -110,22 +93,10 @@ return require("packer").startup {
     --   'glepnir/galaxyline.nvim',
     --   requires = { "kyazdani42/nvim-web-devicons", opt = true }
     -- }
-    use {
-      "alvarosevilla95/luatab.nvim",
-      config = function()
-        require("luatab").setup {}
-      end,
-    }
+    use "alvarosevilla95/luatab.nvim"
     use "kyazdani42/nvim-web-devicons"
     use "kyazdani42/nvim-tree.lua"
-    use {
-      "rcarriga/nvim-notify",
-      config = function()
-        local notify = require "notify"
-        notify.setup { stages = "slide" }
-        vim.notify = notify
-      end,
-    }
+    use "rcarriga/nvim-notify"
     use "stevearc/dressing.nvim"
 
     -- version control
@@ -161,12 +132,40 @@ return require("packer").startup {
       },
     }
 
-    if Packer_bootstrap then
+    if is_bootstrap then
       require('packer').sync()
     end
   end,
   config = {
     -- Move to lua dir so impatient.nvim can cache it
     compile_path = fn.stdpath "config" .. "/lua/packer_compiled.lua",
-  },
+  }
 }
+
+-- You'll need to restart nvim, and then it will work.
+if is_bootstrap then
+  print '=================================='
+  print '    Plugins are being installed'
+  print '    Wait until Packer completes,'
+  print '       then restart nvim'
+  print '=================================='
+end
+
+
+-- Automatically source and re-compile packer whenever you save this init.lua
+local packer = vim.api.nvim_create_augroup('Packer', { clear = true })
+api.nvim_create_autocmd('BufWritePost', {
+  group = packer,
+  pattern = fn.expand '$MYVIMRC',
+  command = 'source <afile> | PackerCompile',
+})
+
+-- plugins with only default configurations or configs that has to be done before configure other plugins
+require("nvim-autopairs").setup {}
+require("luatab").setup {}
+
+local notify = require "notify"
+notify.setup { stages = "slide" }
+vim.notify = notify
+
+return is_bootstrap

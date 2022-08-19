@@ -27,6 +27,7 @@ end
 local opts = { silent = true }
 local custom_attach = function(client)
   bo.omnifunc = "v:lua.vim.lsp.omnifunc"
+  P(client)
   local capabilities = client.server_capabilities
 
   if capabilities.declarationProvider then
@@ -189,10 +190,7 @@ local servers = {
           globals = { "vim" },
         },
         workspace = {
-          library = {
-            [fn.expand "$VIMRUNTIME/lua"] = true,
-            [fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
-          },
+          library = { vim.api.nvim_get_runtime_file('', true) }
         },
       },
     },
@@ -213,8 +211,11 @@ local servers = {
   zls = {},
 }
 
+-- nvim-cmp supports additional completion capabilities
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 for server, config in pairs(servers) do
   config.on_attach = custom_attach
-  -- config.capabilities = updated_capabilities
+  config.capabilities = capabilities
   nvim_lsp[server].setup(config)
 end
