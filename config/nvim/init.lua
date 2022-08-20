@@ -113,8 +113,10 @@ o.breakindentopt = "shift:2"
 g.titlecase_map_keys = 0
 
 -- disable netrw
-g.loaded_netrw = 1
-g.loaded_netrwPlugin = 1
+-- this is prevents spelllang files from being downloaded, see issue https://github.com/neovim/neovim/issues/7189.
+-- We can disable netrw at least in the nvim tree plugin itself.
+-- g.loaded_netrw = 1
+-- g.loaded_netrwPlugin = 1
 
 -- tex falvor
 g.tex_flavor = "latex"
