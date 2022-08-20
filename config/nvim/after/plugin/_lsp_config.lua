@@ -27,7 +27,6 @@ end
 local opts = { silent = true }
 local custom_attach = function(client)
   bo.omnifunc = "v:lua.vim.lsp.omnifunc"
-  P(client)
   local capabilities = client.server_capabilities
 
   if capabilities.declarationProvider then
