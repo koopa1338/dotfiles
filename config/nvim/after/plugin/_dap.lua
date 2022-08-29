@@ -5,14 +5,17 @@ end
 local dap, dapui = require "dap", require "dapui"
 
 Map("n", "<F4>", dap.toggle_breakpoint, { silent = true })
+-- <S-F4>
 Map("n", "<F16>", function()
   dapui.float_element("breakpoints", { enter = true })
 end, { silent = true })
+-- <C-F4>
 Map("n", "<F28>", function()
   vim.ui.input({ prompt = "Breakpoint condition: " }, function(input)
     dap.set_breakpoint(input)
   end)
 end, { silent = true })
+-- g<C-F4>
 Map("n", "g<F28>", function()
   vim.ui.input({ prompt = "Log Point message: " }, function(input)
     dap.set_breakpoint(nil, nil, input)
@@ -20,23 +23,28 @@ Map("n", "g<F28>", function()
 end, { silent = true })
 
 Map("n", "<F5>", dap.continue, { silent = true })
+-- <S-F5>
 Map("n", "<F17>", dap.pause, { silent = true })
 
 Map("n", "<F6>", function()
   dapui.float_element("stacks", { enter = true })
 end, { silent = true })
-Map("n", "<F19>", function()
+-- <S-F6>
+Map("n", "<F18>", function()
   dapui.float_element("console", { enter = true })
 end, { silent = true })
 
 Map("n", "<F9>", dap.step_over, { silent = true })
+-- <S-F9>
 Map("n", "<F21>", dap.goto_, { silent = true })
 
 Map("n", "<F10>", dap.step_into, { silent = true })
-Map("n", "<F20>", dap.step_out, { silent = true })
+-- <S-F10>
+Map("n", "<F22>", dap.step_out, { silent = true })
 
-Map("n", "<F11>", dap.up, { silent = true })
-Map("n", "<F23>", dap.down, { silent = true })
+Map("n", "<F11>", dap.down, { silent = true })
+-- <S-F11>
+Map("n", "<F23>", dap.up, { silent = true })
 
 Map("n", "<F12>", dap.repl.toggle, { silent = true })
 Map("n", "<F24>", dap.disconnect, { silent = true })
