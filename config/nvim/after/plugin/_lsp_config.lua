@@ -1,8 +1,8 @@
-if not pcall(require, "lspconfig") then
+local nvim_lsp = L "lspconfig"
+if not nvim_lsp then
   return
 end
 
-local nvim_lsp = require "lspconfig"
 local path = nvim_lsp.util.path
 local fn, bo, env = vim.fn, vim.bo, vim.env
 
@@ -210,8 +210,12 @@ local servers = {
   zls = {},
 }
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- nvim-cmp supports additional completion capabilities
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local cmp_lsp = L "cmp_nvim_lsp"
+if cmp_lsp then
+  capabilities = cmp_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+end
 
 for server, config in pairs(servers) do
   config.on_attach = custom_attach

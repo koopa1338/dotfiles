@@ -1,11 +1,11 @@
-if not pcall(require, "nvim-tree") then
+local tree = L "nvim-tree"
+if not tree then
   return
 end
 
 Map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { silent = true })
 
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
-local tree = require "nvim-tree"
 tree.setup {
   renderer = {
     highlight_git = true,

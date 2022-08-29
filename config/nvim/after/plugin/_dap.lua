@@ -1,8 +1,8 @@
-if not pcall(require, "dap") or not pcall(require, "dapui") then
+local dap, dapui = L "dap", L "dapui"
+
+if not dap or not dapui then
   return
 end
-
-local dap, dapui = require "dap", require "dapui"
 
 Map("n", "<F4>", dap.toggle_breakpoint, { silent = true })
 -- <S-F4>
@@ -103,7 +103,6 @@ dap.configurations.rust = {
     args = {},
   },
 }
-
 
 -- NOTE: sings have to be defined after requiring the plugin.
 -- This could change after the PR https://github.com/mfussenegger/nvim-dap/pull/664 is merged

@@ -1,8 +1,7 @@
-if not pcall(require, "luasnip") then
+local ls = L "luasnip"
+if not ls then
   return
 end
-
-local ls = require "luasnip"
 
 ls.config.set_config {
   history = true,

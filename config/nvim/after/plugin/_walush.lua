@@ -1,8 +1,7 @@
-if not pcall(require, "lush") then
+local lush = L "lush"
+if not lush then
   return
 end
-
-local lush = require "lush"
 local hsl = lush.hsl
 
 -- set font for gui mode

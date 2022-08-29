@@ -1,8 +1,8 @@
-local alpha = L("alpha")
+local alpha = L "alpha"
 if not alpha then
   return
 end
-local dashboard = require("alpha.themes.dashboard")
+local dashboard = require "alpha.themes.dashboard"
 
 -- Set header
 dashboard.section.header.val = {

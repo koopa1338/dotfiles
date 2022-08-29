@@ -1,11 +1,11 @@
-if not pcall(require, "Comment") then
-  return
-end
+local comment = L "Comment"
 
-require("Comment").setup {
-  mappings = {
-    basic = true,
-    extra = true,
-    extended = true,
-  },
-}
+if comment then
+  comment.setup {
+    mappings = {
+      basic = true,
+      extra = true,
+      extended = true,
+    },
+  }
+end

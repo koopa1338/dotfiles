@@ -1,8 +1,8 @@
-if not pcall(require, "nvim_context_vt") then
-  return
-end
+local context = L "nvim_context_vt"
 
-require("nvim_context_vt").setup {
-  prefix = "⟃",
-  disable_virtual_lines = true,
-}
+if context then
+  context.setup {
+    prefix = "⟃",
+    disable_virtual_lines = true,
+  }
+end

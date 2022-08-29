@@ -1,4 +1,5 @@
-if not pcall(require, "el") then
+local el = L "el"
+if not el then
   return
 end
 
@@ -27,7 +28,7 @@ local git_changes = subscribe.buf_autocmd("el_git_changes", "BufWritePost", func
   return extensions.git_changes(window, buffer)
 end)
 
-require("el").setup {
+el.setup {
   generator = function(window, buffer)
     return {
       extensions.gen_mode {

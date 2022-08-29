@@ -59,8 +59,8 @@ require("packer").startup {
     use { "nvim-telescope/telescope-ui-select.nvim" }
 
     use {
-      'goolord/alpha-nvim',
-      requires = { 'kyazdani42/nvim-web-devicons' },
+      "goolord/alpha-nvim",
+      requires = { "kyazdani42/nvim-web-devicons" },
     }
 
     -- text objects and motions
@@ -130,7 +130,8 @@ require("packer").startup {
     use {
       "rcarriga/nvim-dap-ui",
       requires = {
-        "koopa1338/nvim-dap", branch = "config-aware-signdefine"
+        "koopa1338/nvim-dap",
+        branch = "config-aware-signdefine",
       },
     }
 

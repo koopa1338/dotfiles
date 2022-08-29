@@ -1,10 +1,10 @@
-if not pcall(require, "cmp") or not pcall(require, "luasnip") or not pcall(require, "lspkind") then
+local cmp = L "cmp"
+local luasnip = L "luasnip"
+local lspkind = L "lspkind"
+
+if not cmp or not luasnip or not lspkind then
   return
 end
-
-local cmp = require "cmp"
-local luasnip = require "luasnip"
-local lspkind = require "lspkind"
 
 local cmp_kinds = {
   Text = "",

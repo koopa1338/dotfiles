@@ -38,7 +38,7 @@ L = function(module)
   return nil
 end
 
-if not L("plenary") then
+if not L "plenary" then
   return
 end
 
