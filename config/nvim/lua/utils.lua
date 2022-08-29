@@ -31,7 +31,14 @@ P = function(arg)
   return arg
 end
 
-if not pcall(require, "plenary") then
+L = function(module)
+  if pcall(require, module) then
+    return require(module)
+  end
+  return nil
+end
+
+if not L("plenary") then
   return
 end
 

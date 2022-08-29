@@ -58,7 +58,10 @@ require("packer").startup {
     }
     use { "nvim-telescope/telescope-ui-select.nvim" }
 
-    use "mhinz/vim-startify"
+    use {
+      'goolord/alpha-nvim',
+      requires = { 'kyazdani42/nvim-web-devicons' },
+    }
 
     -- text objects and motions
     use "wellle/targets.vim"
@@ -127,7 +130,7 @@ require("packer").startup {
     use {
       "rcarriga/nvim-dap-ui",
       requires = {
-        "mfussenegger/nvim-dap",
+        "koopa1338/nvim-dap", branch = "config-aware-signdefine"
       },
     }
 

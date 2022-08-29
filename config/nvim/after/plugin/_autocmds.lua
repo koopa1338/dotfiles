@@ -14,6 +14,7 @@ local blacklist = {
   "dapui_watches",
   "dapui_console",
   "dap-repl",
+  "alpha",
 }
 
 api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
