@@ -9,8 +9,8 @@ if dressing then
       anchor = "SW",
       relative = "cursor",
       border = "rounded",
-      prefer_width = 40,
-      min_width = 20,
+      prefer_width = 50,
+      min_width = 25,
       winblend = 0,
       override = function(conf)
         conf.row = 4
