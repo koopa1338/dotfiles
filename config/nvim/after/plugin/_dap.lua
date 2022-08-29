@@ -95,3 +95,11 @@ dap.configurations.rust = {
     args = {},
   },
 }
+
+
+-- NOTE: sings have to be defined after requiring the plugin.
+-- This could change after the PR https://github.com/mfussenegger/nvim-dap/pull/664 is merged
+local sign_define = vim.fn.sign_define
+sign_define("DapBreakpoint", { text = "◉", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+sign_define("DapBreakpointCondition", { text = "◍", texthl = "DiagnosticSignWarn", linehl = "", numhl = "" })
+sign_define("DapLogPoint", { text = "○", texthl = "", linehl = "DiagnosticSignInfo", numhl = "" })

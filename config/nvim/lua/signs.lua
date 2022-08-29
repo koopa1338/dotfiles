@@ -6,10 +6,12 @@ sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" 
 sign_define("DiagnosticSignInfo", { text = "כֿ", texthl = "DiagnosticSignInfo" })
 sign_define("DiagnosticSignHint", { text = "➤", texthl = "DiagnosticSignHint" })
 
+-- NOTE: sings have to be defined after requiring the plugin.
+-- This could change after the PR https://github.com/mfussenegger/nvim-dap/pull/664 is merged
 -- dap debugger
-sign_define("DapBreakpoint", { text = "◉", texthl = "", linehl = "", numhl = "" })
-sign_define("DapBreakpointCondition", { text = "◍", texthl = "", linehl = "", numhl = "" })
-sign_define("DapLogPoint", { text = "○", texthl = "", linehl = "", numhl = "" })
+-- sign_define("DapBreakpoint", { text = "◉", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+-- sign_define("DapBreakpointCondition", { text = "◍", texthl = "DiagnosticSignWarn", linehl = "", numhl = "" })
+-- sign_define("DapLogPoint", { text = "○", texthl = "", linehl = "DiagnosticSignInfo", numhl = "" })
 
 -- git
 sign_define(
