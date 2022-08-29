@@ -19,7 +19,7 @@ require("packer").startup {
     use "tpope/vim-repeat"
 
     -- editing
-    use "tpope/vim-surround"
+    use "kylechui/nvim-surround"
     use "numToStr/Comment.nvim"
     use {
       "haringsrob/nvim_context_vt",
