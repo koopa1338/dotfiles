@@ -9,5 +9,6 @@ g.startify_lists = {
 g.startify_commands = {
   { "Update Plugins", "PackerUpdate" },
   { "Update Treesitter", "TSUpdate" },
+  { "Mason", ":Mason" },
   { "Check", "checkhealth" },
 }
