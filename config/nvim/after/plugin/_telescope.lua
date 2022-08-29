@@ -90,5 +90,7 @@ if pcall(require, "notify") then
   Map("n", "<leader><leader>N", require("notify").dismiss, { silent = true })
 end
 
-Map("n", "<leader>tm", ":Telescope man_pages layout_strategy=vertical<CR>", { silent = true })
-Map("n", "<leader>tk", ":Telescope keymaps<CR>", { silent = true })
+Map("n", "<leader><leader>M", ":Telescope man_pages layout_strategy=vertical<CR>", { silent = true })
+Map("n", "<leader><leader>K", ":Telescope keymaps<CR>", { silent = true })
+Map("n", "<leader><leader>H", ":Telescope help_tags<CR>", { silent = true })
+Map("n", "<leader><leader>T", ":Telescope resume<CR>", { silent = true })
