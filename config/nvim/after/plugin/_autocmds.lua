@@ -6,7 +6,7 @@ local blacklist = {
   "NvimTree",
   "DressingInput",
   "notify",
-  "mason.nvim",
+  "mason",
   "help",
   "dapui_breakpoints",
   "dapui_scopes",
