@@ -130,8 +130,7 @@ require("packer").startup {
     use {
       "rcarriga/nvim-dap-ui",
       requires = {
-        "koopa1338/nvim-dap",
-        branch = "config-aware-signdefine",
+        "mfussenegger/nvim-dap",
       },
     }
 
