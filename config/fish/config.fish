@@ -10,6 +10,8 @@ set fish_color_end normal
 set --export VIRTUAL_ENV_DISABLE_PROMPT 'True'
 set --export FZF_DEFAULT_COMMAND 'fd -t f'
 set --export GIT_ASKPASS '/usr/lib/ssh/gnome-ssh-askpass3'
+set --export SCCACHE_DIR '/tmp/sccache'
+set --export SCCACHE_CACHE_SIZE '4G'
 # Aliases
 alias v="nvim"
 alias vi="nvim"
