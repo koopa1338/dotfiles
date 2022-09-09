@@ -30,7 +30,7 @@ setxkbmap -model pc105 -layout de -variant nodeadkeys -option compose:rctrl,grp:
 dunst_launch &
 polybar_launch &
 sleep 1.5
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+polkit-agent & # symbolic link of /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 fcitx &
 ~/.config/wpg/wp_restore.sh &
 
