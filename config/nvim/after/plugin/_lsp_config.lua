@@ -153,14 +153,6 @@ local servers = {
     cmd = { "jdtls" },
     root_dir = nvim_lsp.util.root_pattern("mvnw", "gradlew", "pom.xml", "build.gradle") or nvim_lsp.util.find_git_root,
   },
-  jedi_language_server = {
-    root_dir = nvim_lsp.util.find_git_root,
-    settings = {
-      python = {
-        pythonPath = get_python_path(),
-      },
-    },
-  },
   jsonls = {
     cmd = { "vscode-json-language-server", "--stdio" },
   },
@@ -169,6 +161,7 @@ local servers = {
   ocamlls = {
     root_dir = nvim_lsp.util.root_pattern(".merlin", "package.json") or nvim_lsp.util.find_git_root,
   },
+  pylsp = {},
   rust_analyzer = {
     root_dir = nvim_lsp.util.root_pattern("Cargo.toml", "rust-project.json") or nvim_lsp.util.find_git_root,
   },
