@@ -56,7 +56,7 @@ o.winbar = "%=%m %f"
 o.splitbelow = true
 o.splitright = true
 
-o.clipboard = "unnamedplus"
+o.clipboard = ""
 o.formatoptions = o.formatoptions
   - "a" -- Auto formatting is BAD.
   - "t" -- Don't auto format my code. I got linters for that.

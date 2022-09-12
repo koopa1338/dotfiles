@@ -46,9 +46,6 @@ Map({ "n", "v" }, "L", "$", {})
 Map("n", "<M-o>", ":cn<CR>", {})
 Map("n", "<M-i>", ":cp<CR>", {})
 
--- Yank from cursor to end of line
-Map("n", "Y", "y$", {})
-
 -- Reselect visual block after indent
 Map("v", "<", "<gv", {})
 Map("v", ">", ">gv", {})
@@ -56,5 +53,14 @@ Map("v", ">", ">gv", {})
 -- search for multiple words seperated by |
 -- Example /\vtest|live highlights test and live
 Map("n", "g/", "/\\v", {})
+
+-- yank and paste mappings
+Map("n", "gp", '"+p', { remap = false })
+Map("v", "p", '"_dP', { remap = false })
+Map("v", "gp", "p", { remap = false })
+Map("n", "gP", '"+P', { remap = false })
+Map({ "n", "v" }, "gy", '"+y', { remap = true })
+Map("n", "gY", '"+y$', { remap = false })
+Map("n", "Y", "y$", { remap = false })
 
 Map("n", "<leader><leader>m", ":Messages<CR>", { silent = true })
