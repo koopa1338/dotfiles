@@ -74,6 +74,11 @@ local walush = lush(function()
     DiagnosticSignInfo { DiagnosticInfo }, -- DiagnosticSignInfo         xxx links to DiagnosticInfo
     DiagnosticSignHint { DiagnosticHint }, -- DiagnosticSignHint         xxx links to DiagnosticHint
 
+    -- groups for lsp document highlights see `vim.lsp.buf.document_highlight`
+    LspReferenceText { bg = LineNr.fg },
+    LspReferenceRead { bg = LineNr.fg },
+    LspReferenceWrite { bg = LineNr.fg },
+
     -- General
     SpecialKey { fg = xres.color13, bg = xres.color0 },
     TermCursor { gui = "reverse" },
