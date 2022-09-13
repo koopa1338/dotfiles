@@ -85,19 +85,6 @@ local custom_attach = function(client)
     })
   end
 
-  -- if capabilities.codeLensProvider then
-  --   Map("n", "<leader>K", vim.lsp.codelens.run, opts)
-  --   local lsp_codelens_au = vim.api.nvim_create_augroup("lsp_document_codelens", { clear = true })
-  --   vim.api.nvim_create_autocmd(
-  --     { "BufEnter" },
-  --     { group = lsp_codelens_au, once = true, callback = vim.lsp.codelens.refresh }
-  --   )
-  --   vim.api.nvim_create_autocmd(
-  --     { "BufWritePost", "CursorHold" },
-  --     { group = lsp_codelens_au, callback = vim.lsp.codelens.refresh }
-  --   )
-  -- end
-
   if capabilities.documentSymbolProvider then
     Map("n", "<leader>lts", ":Telescope lsp_document_symbols<CR>", { silent = true })
   end
