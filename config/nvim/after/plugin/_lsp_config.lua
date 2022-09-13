@@ -111,11 +111,16 @@ local custom_attach = function(client)
 
   Map("n", "<leader>lci", vim.lsp.buf.incoming_calls, opts)
   Map("n", "<leader>lco", vim.lsp.buf.outgoing_calls, opts)
+  local float_opts = { scope = "l", source = "if_many" }
   Map("n", "<leader>ll", function()
-    vim.diagnostic.open_float { scope = "l", source = "if_many" }
+    vim.diagnostic.open_float(float_opts)
   end, opts)
-  Map("n", "<leader>lj", vim.diagnostic.goto_next, opts)
-  Map("n", "<leader>lk", vim.diagnostic.goto_prev, opts)
+  Map("n", "<leader>lj", function()
+    vim.diagnostic.goto_next { float = float_opts }
+  end, opts)
+  Map("n", "<leader>lk", function()
+    vim.diagnostic.goto_prev { float = float_opts }
+  end, opts)
 end
 
 -- Make runtime files discoverable to the server
