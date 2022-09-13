@@ -14,6 +14,7 @@ require("packer").startup {
     -- Packer
     use "wbthomason/packer.nvim"
     use "lewis6991/impatient.nvim"
+    -- use "folke/which-key.nvim"
 
     -- libs
     use "tpope/vim-repeat"

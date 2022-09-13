@@ -33,6 +33,10 @@ g.mousehide = true
 og.termguicolors = true
 
 o.timeout = false
+-- if we use whichkey then we need the timeout
+if L "which-key" then
+  o.timeout = true
+end
 o.ttimeout = false
 o.backspace = { "indent", "eol", "start" }
 o.showmatch = true
