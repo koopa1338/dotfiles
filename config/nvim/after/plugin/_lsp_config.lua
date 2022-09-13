@@ -61,11 +61,9 @@ local custom_attach = function(client)
   end
 
   if capabilities.hoverProvider then
-     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-       vim.lsp.handlers.hover, {
-         border = "rounded"
-       }
-     )
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+      border = "rounded",
+    })
     Map("n", "K", vim.lsp.buf.hover, opts)
   end
 
