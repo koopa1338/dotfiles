@@ -74,11 +74,6 @@ local walush = lush(function()
     DiagnosticSignInfo { DiagnosticInfo }, -- DiagnosticSignInfo         xxx links to DiagnosticInfo
     DiagnosticSignHint { DiagnosticHint }, -- DiagnosticSignHint         xxx links to DiagnosticHint
 
-    -- groups for lsp document highlights see `vim.lsp.buf.document_highlight`
-    LspReferenceText { bg = LineNr.fg },
-    LspReferenceRead { bg = LineNr.fg },
-    LspReferenceWrite { bg = LineNr.fg },
-
     -- General
     SpecialKey { fg = xres.color13, bg = xres.color0 },
     TermCursor { gui = "reverse" },
@@ -189,6 +184,15 @@ local walush = lush(function()
     StatusLineTermNC { fg = xres.color15, bg = xres.color8 }, -- StatusLineTermNC     xxx ctermfg=15 ctermbg=8
     YCMWarningSection { fg = xres.color0, bg = xres.color4 }, -- YCMWarningSection    xxx ctermfg=0 ctermbg=4
     debugPC {}, --  debugPC             xxx cleared
+
+    -- groups for lsp document highlights see `vim.lsp.buf.document_highlight`
+    LspReferenceText { bg = LineNr.fg },
+    LspReferenceRead { bg = LineNr.fg },
+    LspReferenceWrite { bg = LineNr.fg },
+    LspInfoBorder { FloatBorder },
+    LspInfoTitle { FloatTitle },
+    LspInfoList { fg = xres.color3, bg = xres.color8 },
+    LspInfoTip { fg = xres.color10, bg = xres.color8 },
 
     -- diff
     diffOnly { Constant }, -- diffOnly       xxx links to Constant

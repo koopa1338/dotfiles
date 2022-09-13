@@ -52,6 +52,9 @@ local custom_attach = function(client)
   end
 
   if capabilities.signatureHelpProvider then
+    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+      border = "rounded",
+    })
     Map("n", "<leader>ls", vim.lsp.buf.signature_help, opts)
   end
 
@@ -225,3 +228,5 @@ for server, config in pairs(servers) do
   config.capabilities = capabilities
   nvim_lsp[server].setup(config)
 end
+
+L "lspconfig.ui.windows".default_options.border = "rounded"
