@@ -70,14 +70,16 @@ local custom_attach = function(client)
   -- Set autocommands conditional on server_capabilities
   if capabilities.documentHighlightProvider then
     local lsp_highlight_au = vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
-    vim.api.nvim_create_autocmd(
-      { "CursorHold" },
-      { group = lsp_highlight_au, callback = vim.lsp.buf.document_highlight }
-    )
-    vim.api.nvim_create_autocmd(
-      { "CursorMoved" },
-      { group = lsp_highlight_au, callback = vim.lsp.buf.clear_references }
-    )
+    vim.api.nvim_create_autocmd({ "CursorHold" }, {
+      group = lsp_highlight_au,
+      buffer = 0,
+      callback = vim.lsp.buf.document_highlight,
+    })
+    vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+      group = lsp_highlight_au,
+      buffer = 0,
+      callback = vim.lsp.buf.clear_references,
+    })
   end
 
   -- if capabilities.codeLensProvider then
