@@ -106,7 +106,7 @@ local walush = lush(function()
     Substitute { Search },
     Whitespace { NonText },
     MsgSeparator { StatusLine },
-    NormalFloat { Pmenu },
+    NormalFloat { fg = Pmenu.fg, bg = xres.color0.lighten(5) },
     Label { Type },
     Operator { Type },
     StorageClass { Type },
@@ -186,9 +186,9 @@ local walush = lush(function()
     debugPC {}, --  debugPC             xxx cleared
 
     -- groups for lsp document highlights see `vim.lsp.buf.document_highlight`
-    LspReferenceText { bg = LineNr.fg },
-    LspReferenceRead { bg = LineNr.fg },
-    LspReferenceWrite { bg = LineNr.fg },
+    LspReferenceText { bg = xres.color0.lighten(10) },
+    LspReferenceRead { SpecialKey },
+    LspReferenceWrite { fg = Special.fg, bg = LspReferenceRead.bg },
     LspInfoBorder { FloatBorder },
     LspInfoTitle { FloatTitle },
     LspInfoList { fg = xres.color3, bg = xres.color8 },
