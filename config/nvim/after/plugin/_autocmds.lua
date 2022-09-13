@@ -21,8 +21,10 @@ api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
   group = numbertoggle,
   callback = function()
     local ft = bo.filetype
+    wo.nu = false
     if not Contains(blacklist, ft) then
       wo.rnu = true
+      wo.nu = true
     end
     if ft == "notify" then
       wo.wrap = true
@@ -34,8 +36,10 @@ api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
   group = numbertoggle,
   callback = function()
     local ft = bo.filetype
+    wo.nu = false
     if not Contains(blacklist, ft) then
       wo.rnu = false
+      wo.nu = true
     end
     if ft == "notify" then
       wo.wrap = false
