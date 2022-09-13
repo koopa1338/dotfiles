@@ -34,12 +34,6 @@ telescope.setup {
     prompt_prefix = "🔎  ",
   },
   extensions = {
-    project = {
-      base_dirs = {
-        { "~/Projects", max_depth = 3 },
-      },
-      hidden_files = true,
-    },
     ["ui-select"] = {
       require("telescope.themes").get_cursor {},
 
@@ -61,7 +55,6 @@ telescope.setup {
 }
 
 -- loading extensions
-telescope.load_extension "project"
 telescope.load_extension "fzf"
 telescope.load_extension "notify"
 telescope.load_extension "ui-select"
