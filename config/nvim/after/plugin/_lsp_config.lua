@@ -61,6 +61,11 @@ local custom_attach = function(client)
   end
 
   if capabilities.hoverProvider then
+     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+       vim.lsp.handlers.hover, {
+         border = "rounded"
+       }
+     )
     Map("n", "K", vim.lsp.buf.hover, opts)
   end
 
@@ -111,8 +116,8 @@ local custom_attach = function(client)
   Map("n", "<leader>ll", function()
     vim.diagnostic.open_float { scope = "l", source = "if_many" }
   end, opts)
-  Map("n", "<leader>lj", vim.diagnostic.get_next, opts)
-  Map("n", "<leader>lk", vim.diagnostic.get_prev, opts)
+  Map("n", "<leader>lj", vim.diagnostic.goto_next, opts)
+  Map("n", "<leader>lk", vim.diagnostic.goto_prev, opts)
 end
 
 -- Make runtime files discoverable to the server

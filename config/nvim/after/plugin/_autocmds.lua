@@ -1,12 +1,9 @@
 local api, bo, wo = vim.api, vim.bo, vim.wo
 
-local numbertoggle = api.nvim_create_augroup("NumberToggle", { clear = true })
 local blacklist = {
   "DiffviewFiles",
   "NvimTree",
   "DressingInput",
-  "notify",
-  "mason",
   "help",
   "dapui_breakpoints",
   "dapui_scopes",
@@ -17,6 +14,7 @@ local blacklist = {
   "alpha",
 }
 
+local numbertoggle = api.nvim_create_augroup("NumberToggle", { clear = true })
 api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
   group = numbertoggle,
   callback = function()
@@ -26,7 +24,11 @@ api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
       wo.rnu = true
       wo.nu = true
     end
-    if ft == "notify" then
+
+    local relative = vim.api.nvim_win_get_config(0).relative
+    if relative ~= "" then
+      wo.nu = false
+      wo.rnu = false
       wo.wrap = true
     end
   end,
