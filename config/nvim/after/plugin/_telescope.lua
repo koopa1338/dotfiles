@@ -69,7 +69,6 @@ Map("n", "<leader>bb", ":Telescope buffers theme=get_ivy<CR>", { silent = true }
 Map("n", "<leader>fb", ":Telescope current_buffer_fuzzy_find previewer=false<CR>", { silent = true })
 Map("n", "<leader>fe", ":Telescope treesitter<CR>", { silent = true })
 Map("n", "<leader>fm", ":Telescope marks theme=get_ivy<CR>", { silent = true })
-Map("n", "<leader>fp", ":Telescope project display_type=full<CR>", { silent = true })
 
 -- lsp bindings
 Map("n", "<leader>ltd", ":Telescope diagnostics bufnr=0<CR>", { silent = true })
