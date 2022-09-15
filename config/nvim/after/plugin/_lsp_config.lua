@@ -189,6 +189,7 @@ local servers = {
   },
   svelte = {},
   tailwindcss = {},
+  taplo = {},
   texlab = {
     cmd = { "texlab" },
   },
@@ -216,4 +217,4 @@ for server, config in pairs(servers) do
   nvim_lsp[server].setup(config)
 end
 
-L "lspconfig.ui.windows".default_options.border = "rounded"
+L("lspconfig.ui.windows").default_options.border = "rounded"

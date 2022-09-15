@@ -45,6 +45,7 @@ cmp.setup {
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
+    { name = "crates" },
   },
   formatting = {
     format = lspkind.cmp_format { symbol_map = cmp_kinds },

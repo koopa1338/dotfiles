@@ -16,9 +16,6 @@ require("packer").startup {
     use "lewis6991/impatient.nvim"
     -- use "folke/which-key.nvim"
 
-    -- libs
-    use "tpope/vim-repeat"
-
     -- editing
     use "kylechui/nvim-surround"
     use "numToStr/Comment.nvim"
@@ -32,7 +29,7 @@ require("packer").startup {
     use "Pocco81/TrueZen.nvim"
 
     -- movement and search
-    use "junegunn/vim-slash"
+    -- use "junegunn/vim-slash"
     use "markonm/traces.vim"
     use {
       "tpope/vim-scriptease",
@@ -67,6 +64,11 @@ require("packer").startup {
 
     -- syntax and languages
     use { "lervag/vimtex", ft = { "tex" } }
+    use {
+      "saecki/crates.nvim",
+      event = "BufRead Cargo.toml",
+      requires = { "nvim-lua/plenary.nvim" },
+    }
     use "neovim/nvim-lspconfig"
     use "williamboman/mason.nvim"
     use {

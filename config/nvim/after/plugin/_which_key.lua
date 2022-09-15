@@ -43,5 +43,5 @@ wk.register({
   Y = { "Yank Till End" },
   z = { "Focus Time" },
   Z = { "Focus Time++" },
-  ["<C-s>"] = { "Save File" }
+  ["<C-s>"] = { "Save File" },
 }, { prefix = "<leader>" })

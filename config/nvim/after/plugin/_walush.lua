@@ -700,6 +700,21 @@ local walush = lush(function()
     NotifyINFOBody { Normal },
     NotifyDEBUGBody { Normal },
     NotifyTRACEBody { Normal },
+
+    CratesNvimLoading { fg = xres.fg.lighten(25), bg = xres.bg },
+    CratesNvimPopupLoading { fg = xres.fg.lighten(25), bg = NvimFloat.bg },
+    CratesNvimVersion { fg = DiagnosticSignInfo.fg, bg = xres.bg },
+    CratesNvimPopupVersion { fg = DiagnosticSignInfo.fg, bg = NvimFloat.bg },
+
+    CratesNvimPreRelease { fg = DiagnosticSignWarn.fg.darken(25), bg = xres.bg },
+    CratesNvimPopupPreRelease { fg = DiagnosticSignWarn.fg.darken(25), bg = NvimFloat.bg },
+
+    CratesNvimYanked { fg = DiagnosticSignError.fg, bg = xres.bg },
+    CratesNvimPopupYanked { fg = DiagnosticSignError.fg, bg = NvimFloat.bg },
+
+    CratesNvimNoMatch { fg = DiagnosticSignWarn.fg, bg = xres.bg },
+    CratesNvimUpgrade { fg = GitSignsAdd.fg, bg = xres.bg },
+    CratesNvimError { fg = DiagnosticSignError.fg, bg = xres.bg },
   }
 end)
 

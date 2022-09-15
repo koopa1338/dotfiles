@@ -108,9 +108,9 @@ api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
-local formatOptions = api.nvim_create_augroup("FormatOptions", { clear = true })
+local format_options = api.nvim_create_augroup("FormatOptions", { clear = true })
 api.nvim_create_autocmd({ "FileType" }, {
-  group = formatOptions,
+  group = format_options,
   pattern = "*",
   callback = function()
     vim.opt.formatoptions = {
@@ -124,5 +124,36 @@ api.nvim_create_autocmd({ "FileType" }, {
       j = true, -- Auto-remove comments if possible.
       ["2"] = false, -- I'm not in gradeschool anymore
     }
+  end,
+})
+
+local crates_group = api.nvim_create_augroup("Crates", { clear = true })
+api.nvim_create_autocmd({ "BufRead" }, {
+  group = crates_group,
+  pattern = "Cargo.toml",
+  callback = function()
+    local crates = L "crates"
+    if not crates then
+      return
+    end
+    crates.setup { popup = { border = "rounded" } }
+    crates.reload()
+    local opts = { silent = true, remap = false, buffer = true }
+    Map("n", "<leader>cr", crates.reload, opts)
+    Map("n", "<leader>cp", crates.show_popup, opts)
+
+    Map("n", "<leader>cv", crates.show_versions_popup, opts)
+    Map("n", "<leader>cf", crates.show_features_popup, opts)
+
+    Map("n", "<leader>cu", crates.update_crate, opts)
+    Map("v", "<leader>cu", crates.update_crates, opts)
+    Map({ "n", "v" }, "<leader>ca", crates.update_all_crates, opts)
+
+    Map("n", "<leader>cU", crates.upgrade_crate, opts)
+    Map("v", "<leader>cU", crates.upgrade_crates, opts)
+    Map({ "n", "v" }, "<leader>ca", crates.upgrade_all_crates, opts)
+
+    Map("n", "<leader>cR", crates.open_repository, opts)
+    Map("n", "<leader>cD", crates.open_documentation, opts)
   end,
 })
