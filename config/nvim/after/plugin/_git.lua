@@ -47,6 +47,9 @@ gitsigns.setup {
   diff_opts = {
     internal = true, -- If luajit is present
   },
+  preview_config = {
+    border = "rounded",
+  },
 }
 
 Map("n", "<leader>gB", gitsigns.blame_line, { silent = true })
