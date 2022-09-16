@@ -1,5 +1,4 @@
-local zen = L "true-zen"
-if zen then
+L("true-zen", function(zen)
   zen.setup {
     modes = {
       ataraxis = {
@@ -12,4 +11,4 @@ if zen then
       },
     },
   }
-end
+end)

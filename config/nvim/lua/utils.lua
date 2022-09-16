@@ -31,9 +31,14 @@ P = function(arg)
   return arg
 end
 
-L = function(module)
+L = function(module, callback)
   if pcall(require, module) then
-    return require(module)
+    local loaded_mod = require(module)
+    if callback then
+      callback(loaded_mod)
+    else
+      return require(module)
+    end
   end
   return nil
 end

@@ -1,6 +1,4 @@
-local dressing = L "dressing"
-
-if dressing then
+L("dressing", function(dressing)
   dressing.setup {
     input = {
       enabled = true,
@@ -21,4 +19,4 @@ if dressing then
       enabled = false,
     },
   }
-end
+end)

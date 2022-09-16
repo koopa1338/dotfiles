@@ -1,4 +1,3 @@
-local surround = L "nvim-surround"
-if surround then
+L("nvim-surround", function(surround)
   surround.setup {}
-end
+end)

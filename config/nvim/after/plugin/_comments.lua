@@ -1,6 +1,4 @@
-local comment = L "Comment"
-
-if comment then
+L("Comment", function(comment)
   comment.setup {
     mappings = {
       basic = true,
@@ -8,4 +6,4 @@ if comment then
       extended = true,
     },
   }
-end
+end)
