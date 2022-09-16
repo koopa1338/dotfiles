@@ -54,7 +54,7 @@ o.path = o.path + "**"
 o.undodir = fn.expand "~/.config/nvim/undodir"
 o.undofile = true
 o.inccommand = "split"
-if vim.v.version >= 800 then
+if vim.version().minor >= 8 then
   o.winbar = "%=%m %f"
 end
 
