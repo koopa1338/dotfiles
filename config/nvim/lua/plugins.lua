@@ -9,6 +9,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd [[ packadd packer.nvim ]]
 end
 
+-- TODO:
+-- legendary.nvim + which-key
+-- rest-nvim for .http files (lazily loaded)
+-- heirline, alternatively galaxyline
+-- urlview.nvim
 require("packer").startup {
   function(use)
     -- Packer
@@ -29,7 +34,6 @@ require("packer").startup {
     use "Pocco81/TrueZen.nvim"
 
     -- movement and search
-    -- use "junegunn/vim-slash"
     use "markonm/traces.vim"
     use {
       "tpope/vim-scriptease",
@@ -87,6 +91,9 @@ require("packer").startup {
     }
     use "L3MON4D3/LuaSnip"
     use "rafamadriz/friendly-snippets"
+    use { "michaelb/sniprun",
+      run = 'bash install.sh'
+    }
 
     -- theme
     use "rktjmp/lush.nvim"
@@ -122,7 +129,6 @@ require("packer").startup {
         "sindrets/diffview.nvim",
       },
     }
-    use "rhysd/committia.vim"
 
     -- debugger
     use {
