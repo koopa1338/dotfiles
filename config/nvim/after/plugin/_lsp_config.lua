@@ -23,31 +23,61 @@ local function get_python_path()
   return fn.exepath "python3" or fn.exepath "python" or "python"
 end
 
+local log_lvl = vim.log.levels
+local unsupported_title = "LSP Provider not supported"
+
+local notify_unsupported_lsp = function(message)
+  vim.notify(message, log_lvl.INFO, {title = unsupported_title})
+end
+
+
 -- lsp config
 local opts = { silent = true }
 local custom_attach = function(client)
   bo.omnifunc = "v:lua.vim.lsp.omnifunc"
   local capabilities = client.server_capabilities
+  P(capabilities)
 
   if capabilities.declarationProvider then
     Map("n", "<leader>lD", vim.lsp.buf.declaration, opts)
+  else
+    Map("n", "<leader>lD", function()
+      notify_unsupported_lsp("LSP does not support jump to declaration")
+    end, opts)
   end
 
   if capabilities.definitionProvider then
     Map("n", "<leader>ld", vim.lsp.buf.definition, opts)
+  else
+    Map("n", "<leader>ld", function()
+      notify_unsupported_lsp("LSP does not support jump to defenition")
+    end, opts)
   end
 
   if capabilities.typeDefinitionProvider then
     Map("n", "<leader>lT", vim.lsp.buf.type_definition, opts)
+  else
+      notify_unsupported_lsp("LSP does not support jump to defenition")
+    Map("n", "<leader>lT", function()
+      notify_unsupported_lsp("LSP does not support show document type defenition")
+    end, opts)
   end
 
   if capabilities.renameProvider then
     Map("n", "<leader>lr", vim.lsp.buf.rename, opts)
+  else
+    Map("n", "<leader>lr", function()
+      notify_unsupported_lsp("LSP does not support show rename")
+    end, opts)
   end
 
   if capabilities.documentFormattingProvider then
     Map("n", "<leader>lf", function()
       vim.lsp.buf.format { async = true }
+    end, opts)
+  else
+    Map("n", "<leader>lf", function()
+      notify_unsupported_lsp("LSP does not support show formatting")
     end, opts)
   end
 
@@ -56,11 +86,19 @@ local custom_attach = function(client)
       border = "rounded",
     })
     Map("n", "<leader>ls", vim.lsp.buf.signature_help, opts)
+  else
+    Map("n", "<leader>ls", function()
+      notify_unsupported_lsp("LSP does not support signature help")
+    end, opts)
   end
 
   if capabilities.codeActionProvider then
     Map("n", "<leader>lca", vim.lsp.buf.code_action, opts)
     Map("v", "<leader>lca", vim.lsp.buf.range_code_action, opts)
+  else
+    Map({ "n", "v" }, "<leader>lca", function()
+      notify_unsupported_lsp("LSP does not support code actions")
+    end, opts)
   end
 
   if capabilities.hoverProvider then
@@ -68,6 +106,10 @@ local custom_attach = function(client)
       border = "rounded",
     })
     Map("n", "K", vim.lsp.buf.hover, opts)
+  else
+    Map("n", "K", function()
+      notify_unsupported_lsp("LSP does not support hover information")
+    end, opts)
   end
 
   -- Set autocommands conditional on server_capabilities
@@ -87,18 +129,34 @@ local custom_attach = function(client)
 
   if capabilities.documentSymbolProvider then
     Map("n", "<leader>lts", ":Telescope lsp_document_symbols<CR>", { silent = true })
+  else
+    Map("n", "<leader>lts", function()
+      notify_unsupported_lsp("LSP does not support showing document symbols")
+    end, { silent = true })
   end
 
   if capabilities.workspaceSymbolProvider then
     Map("n", "<leader>ltS", ":Telescope lsp_workspace_symbols<CR>", { silent = true })
+  else
+    Map("n", "<leader>ltS", function()
+      notify_unsupported_lsp("LSP does not support showing workspace symbols")
+    end, { silent = true })
   end
 
   if capabilities.referencesProvider then
     Map("n", "<leader>ltr", ":Telescope lsp_references<CR>", { silent = true })
+  else
+    Map("n", "<leader>ltr", function()
+      notify_unsupported_lsp("LSP does not support showing references")
+    end, { silent = true })
   end
 
   if capabilities.implementationProvider then
     Map("n", "<leader>lti", ":Telescope lsp_implementations<CR>", { silent = true })
+  else
+    Map("n", "<leader>lti", function()
+      notify_unsupported_lsp("LSP does not support showing implementations")
+    end, { silent = true })
   end
 
   Map("n", "<leader>lci", vim.lsp.buf.incoming_calls, opts)
