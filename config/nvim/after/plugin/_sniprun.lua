@@ -8,14 +8,14 @@ L("sniprun", function(sniprun)
 
       --# use the interpreter name as key
       GFM_original = {
-        use_on_filetypes = { "markdown.pandoc" } --# the 'use_on_filetypes' configuration key is
+        use_on_filetypes = { "markdown.pandoc" }, --# the 'use_on_filetypes' configuration key is
         --# available for every interpreter
       },
       Python3_original = {
-        error_truncate = "auto" --# Truncate runtime errors 'long', 'short' or 'auto'
+        error_truncate = "auto", --# Truncate runtime errors 'long', 'short' or 'auto'
         --# the hint is available for every interpreter
         --# but may not be always respected
-      }
+      },
     },
 
     --# you can combo different display modes as desired
@@ -34,7 +34,7 @@ L("sniprun", function(sniprun)
 
     display_options = {
       terminal_width = 45, --# change the terminal display option width
-      notification_timeout = 1000 --# timeout for nvim_notify output in ms
+      notification_timeout = 1000, --# timeout for nvim_notify output in ms
     },
 
     --# You can use the same keys to customize whether a sniprun producing
@@ -46,8 +46,8 @@ L("sniprun", function(sniprun)
 
     --# customize highlight groups (setting this overrides colorscheme)
     snipruncolors = {
-      SniprunVirtualTextOk  = { bg = "#66eeff", fg = "#000000", ctermbg = "Cyan", cterfg = "Black" },
-      SniprunFloatingWinOk  = { fg = "#66eeff", ctermfg = "Cyan" },
+      SniprunVirtualTextOk = { bg = "#66eeff", fg = "#000000", ctermbg = "Cyan", cterfg = "Black" },
+      SniprunFloatingWinOk = { fg = "#66eeff", ctermfg = "Cyan" },
       SniprunVirtualTextErr = { bg = "#881515", fg = "#000000", ctermbg = "DarkRed", cterfg = "Black" },
       SniprunFloatingWinErr = { fg = "#881515", ctermfg = "DarkRed" },
     },
@@ -56,8 +56,8 @@ L("sniprun", function(sniprun)
     inline_messages = 0, --# inline_message (0/1) is a one-line way to display messages
     --# to workaround sniprun not being able to display anything
 
-    borders = 'rounded', --# display borders around floating windows
+    borders = "rounded", --# display borders around floating windows
     --# possible values are 'none', 'single', 'double', or 'shadow'
-    live_mode_toggle = 'off' --# live mode toggle, see Usage - Running for more info
+    live_mode_toggle = "off", --# live mode toggle, see Usage - Running for more info
   }
 end)

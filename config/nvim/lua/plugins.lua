@@ -91,9 +91,7 @@ require("packer").startup {
     }
     use "L3MON4D3/LuaSnip"
     use "rafamadriz/friendly-snippets"
-    use { "michaelb/sniprun",
-      run = 'bash install.sh'
-    }
+    use { "michaelb/sniprun", run = "bash install.sh" }
 
     -- theme
     use "rktjmp/lush.nvim"
