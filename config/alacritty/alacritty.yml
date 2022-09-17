@@ -14,15 +14,15 @@ scrolling:
     multiplier: 1
 font:
     normal:
-        family: Inconsolata Nerd Font
+        family: Inconsolata Nerd Font Mono
         style: Medium
     bold:
-        family: Inconsolata Nerd Font
+        family: Inconsolata Nerd Font Mono
         style: Bold
     italic:
-        family: Inconsolata Nerd Font
+        family: Inconsolata Nerd Font Mono
         style: Italic
-    size: 10.0
+    size: 12.0
     offset:
         x: 0
         y: 0
