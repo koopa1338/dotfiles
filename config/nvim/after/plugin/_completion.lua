@@ -7,31 +7,31 @@ if not cmp or not luasnip or not lspkind then
 end
 
 local cmp_kinds = {
-  Text = "",
-  Method = "",
-  Function = "",
-  Constructor = "",
-  Field = "ﰠ",
-  Variable = "",
   Class = "",
+  Color = "",
+  Constant = "",
+  Constructor = "",
+  Enum = "",
+  EnumMember = "",
+  Event = "",
+  Field = "ﰠ",
+  File = "",
+  Folder = "",
+  Function = "",
   Interface = "",
+  Keyword = "",
+  Method = "",
   Module = "",
+  Operator = "ﬦ",
   Property = "",
+  Reference = "",
+  Snippet = "﬌",
+  Struct = "",
+  Text = "",
+  TypeParameter = "",
   Unit = "",
   Value = "",
-  Enum = "",
-  Keyword = "",
-  Snippet = "﬌",
-  Color = "",
-  File = "",
-  Reference = "",
-  Folder = "",
-  EnumMember = "",
-  Constant = "",
-  Struct = "",
-  Event = "",
-  Operator = "ﬦ",
-  TypeParameter = "",
+  Variable = "",
 }
 
 cmp.setup {
@@ -48,7 +48,23 @@ cmp.setup {
     { name = "crates" },
   },
   formatting = {
-    format = lspkind.cmp_format { symbol_map = cmp_kinds },
+    fields = { "kind", "abbr", "menu" },
+    format = function(entry, vim_item)
+      local kind = lspkind.cmp_format { symbol_map = cmp_kinds }(entry, vim_item)
+      local strings = vim.split(kind.kind, "%s", { trimempty = false })
+      kind.kind = " " .. strings[1] .. " "
+      kind.menu = "    (" .. strings[2] .. ")"
+
+      return kind
+    end,
+  },
+  window = {
+    completion = {
+      border = "rounded",
+      col_offset = -3,
+      side_padding = 0,
+    },
+    documentation = cmp.config.window.bordered(),
   },
   experimental = {
     native_menu = false,

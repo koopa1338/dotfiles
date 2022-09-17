@@ -5,7 +5,7 @@ end
 local hsl = lush.hsl
 
 -- set font for gui mode
-vim.opt.guifont = "Inconsolata Nerd Font:h10"
+vim.opt.guifont = "Inconsolata Nerd Font Mono:h14"
 
 local function get_xresources_color(color_name)
   local command = io.popen("xrdb -query | grep " .. color_name .. " -m 1 | cut -f 2")
@@ -55,8 +55,8 @@ local walush = lush(function()
     DiagnosticError { fg = DiffDelete.bg.lighten(35) }, -- DiagnosticError            xxx ctermfg=1 guifg=Red
     DiagnosticWarn { fg = DiagnosticError.fg.ro(50) }, -- DiagnosticWarn             xxx ctermfg=3 guifg=Orange
     DiagnosticWarning { DiagnosticWarn },
-    DiagnosticInfo { fg = xres.color7, bg = xres.bg.lighten(15) }, -- DiagnosticInfo             xxx ctermfg=4 guifg=LightBlue
-    DiagnosticHint { fg = xres.color15 }, -- DiagnosticHint             xxx ctermfg=7 guifg=LightGrey
+    DiagnosticInfo { fg = xres.color15, bg = xres.bg.lighten(15) }, -- DiagnosticInfo             xxx ctermfg=4 guifg=LightBlue
+    DiagnosticHint { fg = xres.color7 }, -- DiagnosticHint             xxx ctermfg=7 guifg=LightGrey
     DiagnosticUnderlineError { fg = DiagnosticError.fg, gui = "underline" }, -- DiagnosticUnderlineError   xxx cterm=underline gui=underline guisp=Red
     DiagnosticUnderlineWarn { fg = DiagnosticWarn.fg, gui = "underline" }, -- DiagnosticUnderlineWarn    xxx cterm=underline gui=underline guisp=Orange
     DiagnosticUnderlineInfo { fg = DiagnosticInfo.fg, gui = "underline" }, -- DiagnosticUnderlineInfo    xxx cterm=underline gui=underline guisp=LightBlue
@@ -95,18 +95,18 @@ local walush = lush(function()
     Comment { fg = xres.color4, bg = xres.color0 },
     SignColumn { fg = xres.color12, bg = xres.color8 },
     VertSplit { fg = xres.color0, bg = xres.color8, gui = "reverse" },
-    Title { fg = xres.fg, bg = xres.bg },
+    Title { fg = xres.fg.lighten(25), bg = xres.bg },
     WildMenu { fg = xres.color0, bg = xres.color11 },
     Keyword { fg = xres.color13 },
-    Pmenu { fg = xres.color15, bg = xres.color8 },
-    PmenuSel { fg = xres.color0, bg = xres.color14 },
-    PmenuSbar { fg = xres.fg },
+    Pmenu { fg = xres.color15, bg = xres.bg },
+    PmenuSel { fg = xres.none, bg = xres.bg.lighten(15) },
+    PmenuSbar { fg = xres.fg.lighten(25) },
     PmenuThumb { fg = xres.fg, bg = xres.color15 },
     QuickFixLine { Search },
     Substitute { Search },
     Whitespace { NonText },
     MsgSeparator { StatusLine },
-    NormalFloat { fg = Pmenu.fg, bg = xres.color0.lighten(5) },
+    NormalFloat { Pmenu },
     Label { Type },
     Operator { Type },
     StorageClass { Type },
@@ -143,7 +143,7 @@ local walush = lush(function()
     Statement { fg = xres.color10, gui = "bold" },
     Method {},
     Boolean { Statement },
-    FloatBorder { Normal },
+    FloatBorder { Pmenu },
     FloatTitle { Normal },
     SpecialChar { fg = xres.color12, bg = xres.color8 },
     SpecialComment { fg = xres.color11, bg = xres.color8 },
@@ -166,12 +166,12 @@ local walush = lush(function()
     RedrawDebugRecompose { bg = xres.color9.da(50) }, -- RedrawDebugRecompose xxx ctermbg=9 guibg=Red
     Cursor { fg = xres.bg, bg = xres.fg }, -- Cursor               xxx guifg=bg guibg=fg
     lCursor { fg = xres.bg, bg = xres.fg }, -- lCursor              xxx guifg=bg guibg=fg
-    FloatShadow { fg = xres.fg.lighten(20), bg = xres.bg.lighten(20) }, -- FloatShadow          xxx guibg=Black blend=80
-    FloatShadowThrough { fg = xres.fg, bg = xres.bg }, -- FloatShadowThrough   xxx guibg=Black blend=100
+    FloatShadow { fg = xres.fg.lighten(15), bg = xres.bg.lighten(15) }, -- FloatShadow          xxx guibg=Black blend=80
+    FloatShadowThrough { fg = xres.color15, bg = xres.bg }, -- FloatShadowThrough   xxx guibg=Black blend=100
     Error { DiagnosticError }, -- Error                xxx ctermfg=0 ctermbg=1 guifg=White guibg=Red
     Todo { fg = xres.color14, bg = xres.color8 }, -- Todo                 xxx ctermfg=15 ctermbg=8 guifg=Blue guibg=Yellow
     Number { fg = xres.color12 }, -- Number               xxx ctermfg=12
-    Float { fg = xres.color14 }, -- Float                xxx ctermfg=14 guifg=#88AAEE
+    Float { fg = xres.color12 }, -- Float                xxx ctermfg=14 guifg=#88AAEE
     Identifier { fg = xres.color12 }, -- Identifier           xxx ctermfg=12 guifg=#40ffff
     Exception { fg = xres.color10, bg = xres.color0 }, -- Exception            xxx ctermfg=10 ctermbg=0 guifg=Red guibg=White
     Typedef { fg = xres.color10, bg = xres.color8 }, -- Typedef              xxx ctermfg=10 ctermbg=8 gui=italic guifg=White guibg=Blue
@@ -188,11 +188,11 @@ local walush = lush(function()
     -- groups for lsp document highlights see `vim.lsp.buf.document_highlight`
     LspReferenceText { bg = xres.color0.lighten(10) },
     LspReferenceRead { SpecialKey },
-    LspReferenceWrite { fg = Special.fg, bg = LspReferenceRead.bg },
+    LspReferenceWrite { fg = LspReferenceRead.fg.darken(25), bg = LspReferenceRead.bg },
     LspInfoBorder { FloatBorder },
     LspInfoTitle { FloatTitle },
-    LspInfoList { fg = xres.color3, bg = xres.color8 },
-    LspInfoTip { fg = xres.color10, bg = xres.color8 },
+    LspInfoList { fg = xres.color3, bg = xres.bg },
+    LspInfoTip { fg = xres.color10, bg = xres.bg },
 
     -- diff
     diffOnly { Constant }, -- diffOnly       xxx links to Constant
@@ -701,20 +701,56 @@ local walush = lush(function()
     NotifyDEBUGBody { Normal },
     NotifyTRACEBody { Normal },
 
+    -- crates.nvim
     CratesNvimLoading { fg = xres.fg.lighten(25), bg = xres.bg },
-    CratesNvimPopupLoading { fg = xres.fg.lighten(25), bg = NvimFloat.bg },
+    CratesNvimPopupLoading { fg = xres.fg.lighten(25), bg = Pmenu.bg },
     CratesNvimVersion { fg = DiagnosticSignInfo.fg, bg = xres.bg },
-    CratesNvimPopupVersion { fg = DiagnosticSignInfo.fg, bg = NvimFloat.bg },
+    CratesNvimPopupVersion { fg = DiagnosticSignInfo.fg, bg = Pmenu.bg },
 
-    CratesNvimPreRelease { fg = DiagnosticSignWarn.fg.darken(25), bg = xres.bg },
-    CratesNvimPopupPreRelease { fg = DiagnosticSignWarn.fg.darken(25), bg = NvimFloat.bg },
+    CratesNvimPreRelease { fg = DiagnosticSignWarn.fg, bg = xres.bg },
+    CratesNvimPopupPreRelease { fg = DiagnosticSignWarn.fg, bg = Pmenu.bg },
 
     CratesNvimYanked { fg = DiagnosticSignError.fg, bg = xres.bg },
-    CratesNvimPopupYanked { fg = DiagnosticSignError.fg, bg = NvimFloat.bg },
+    CratesNvimPopupYanked { fg = DiagnosticSignError.fg, bg = Pmenu.bg },
 
-    CratesNvimNoMatch { fg = DiagnosticSignWarn.fg, bg = xres.bg },
-    CratesNvimUpgrade { fg = GitSignsAdd.fg, bg = xres.bg },
-    CratesNvimError { fg = DiagnosticSignError.fg, bg = xres.bg },
+    CratesNvimNoMatch { fg = DiagnosticSignWarn.fg, bg = xres.bg.lighten(15) },
+    CratesNvimUpgrade { fg = GitSignsAdd.fg, bg = xres.bg.lighten(15) },
+    CratesNvimError { fg = DiagnosticSignError.fg, bg = xres.bg.lighten(15) },
+
+    -- cmp completion
+    CmpItemMenu { fg = Title.fg, bg = xres.none, gui = "italic" },
+
+    CmpItemKindClass { fg = "#FFFFFF", bg = DevIconGulpfile.fg, gui = "bold" },
+    CmpItemKindStruct { fg = "#FFFFFF", bg = DevIconGulpfile.fg, gui = "bold" },
+    CmpItemKindEnum { fg = "#FFFFFF", bg = DevIconGulpfile.fg, gui = "bold" },
+    CmpItemKindEnumMember { fg = "#FFFFFF", bg = DevIconGulpfile.fg, gui = "bold" },
+    CmpItemKindInterface { fg = "#FFFFFF", bg = DevIconGulpfile.fg, gui = "bold" },
+    CmpItemKindModule { fg = "#FFFFFF", bg = DevIconGulpfile.fg, gui = "bold" },
+
+    CmpItemKindText { fg = "#FFFFFF", bg = DevIconDefault.fg, gui = "bold" },
+    CmpItemKindColor { fg = "#FFFFFF", bg = DevIconDefault.fg, gui = "bold" },
+
+    CmpItemKindEvent { fg = "#FFFFFF", bg = DevIconLess.fg, gui = "bold" },
+    CmpItemKindFile { fg = "#FFFFFF", bg = DevIconLess.fg, gui = "bold" },
+    CmpItemKindFolder { fg = "#FFFFFF", bg = DevIconLess.fg, gui = "bold" },
+
+    CmpItemKindKeyword { fg = "#FFFFFF", bg = DevIconDoc.fg, gui = "bold" },
+    CmpItemKindMethod { fg = "#FFFFFF", bg = DevIconDoc.fg, gui = "bold" },
+    CmpItemKindConstructor { fg = "#FFFFFF", bg = DevIconDoc.fg, gui = "bold" },
+    CmpItemKindFunction { fg = "#FFFFFF", bg = DevIconDoc.fg, gui = "bold" },
+
+    CmpItemKindOperator { fg = "#FFFFFF", bg = DevIconFssScript.fg, gui = "bold" },
+    CmpItemKindReference { fg = "#FFFFFF", bg = DevIconFssScript.fg, gui = "bold" },
+
+    CmpItemKindSnippet { fg = "#FFFFFF", bg = SpecialKey.fg, gui = "bold" },
+
+    CmpItemKindField { fg = "#FFFFFF", bg = DevIconSml.fg, gui = "bold" },
+    CmpItemKindProperty { fg = "#FFFFFF", bg = DevIconSml.fg, gui = "bold" },
+    CmpItemKindUnit { fg = "#FFFFFF", bg = DevIconSml.fg, gui = "bold" },
+    CmpItemKindValue { fg = "#FFFFFF", bg = DevIconSml.fg, gui = "bold" },
+    CmpItemKindVariable { fg = "#FFFFFF", bg = DevIconSml.fg, gui = "bold" },
+    CmpItemKindConstant { fg = "#FFFFFF", bg = DevIconSml.fg, gui = "bold" },
+    CmpItemKindTypeParameter { fg = "#FFFFFF", bg = DevIconSml.fg, gui = "bold" },
   }
 end)
 
