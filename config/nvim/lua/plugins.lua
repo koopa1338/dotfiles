@@ -10,7 +10,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- TODO:
--- legendary.nvim + which-key
 -- rest-nvim for .http files (lazily loaded)
 -- heirline, alternatively galaxyline
 -- urlview.nvim
@@ -19,7 +18,8 @@ require("packer").startup {
     -- Packer
     use "wbthomason/packer.nvim"
     use "lewis6991/impatient.nvim"
-    -- use "folke/which-key.nvim"
+    use "folke/which-key.nvim"
+    use "mrjones2014/legendary.nvim"
 
     -- editing
     use "kylechui/nvim-surround"
