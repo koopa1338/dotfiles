@@ -55,6 +55,18 @@ L("telescope", function(telescope)
   telescope.load_extension "notify"
   telescope.load_extension "ui-select"
 
+  L("urlview", function(urlview)
+    telescope.load_extension "urlview"
+    Map("n", "<leader>uu", ":UrlView<CR>", { silent = true })
+    Map("n", "<leader>uf", function()
+      vim.ui.input({ prompt = "File path: " }, function(input)
+        urlview.search("file", { filepath = input })
+      end)
+    end, { silent = true })
+    Map("n", "<leader>uj", ":UrlView jira <CR>", { silent = true })
+    Map("n", "<leader>up", ":UrlView packer<CR>", { silent = true })
+  end)
+
   Map("n", "<leader>fg", ":Telescope git_files theme=get_ivy<CR>", { silent = true })
   Map("n", "<leader>ff", ":Telescope fd theme=get_ivy hidden=true<CR>", { silent = true })
   Map("n", "<leader>FF", ":Telescope fd theme=get_ivy hidden=true no_ignore=true<CR>", { silent = true })

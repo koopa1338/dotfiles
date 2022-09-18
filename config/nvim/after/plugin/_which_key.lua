@@ -70,6 +70,13 @@ L("which-key", function(wk)
       k = { "Keymaps" },
       s = { "All" },
     },
+    u = {
+      name = "+urlview",
+      f = { "File" },
+      j = { "Jira" },
+      p = { "Packer" },
+      u = { "Buffer" },
+    },
     w = {
       name = "+windows",
       ["*"] = { "Grep String" },

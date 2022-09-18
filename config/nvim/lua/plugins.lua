@@ -21,6 +21,8 @@ require("packer").startup {
     use "folke/which-key.nvim"
     use "mrjones2014/legendary.nvim"
 
+    use "axieax/urlview.nvim"
+
     -- editing
     use "kylechui/nvim-surround"
     use "numToStr/Comment.nvim"
