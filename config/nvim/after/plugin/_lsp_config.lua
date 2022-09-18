@@ -71,7 +71,11 @@ local custom_attach = function(client)
 
   if capabilities.documentFormattingProvider then
     Map("n", "<leader>lf", function()
-      vim.lsp.buf.format { async = true }
+      if vim.version().minor >= 8 then
+        vim.lsp.buf.format { async = true }
+      else
+        vim.lsp.buf.formatting()
+      end
     end, opts)
   else
     Map("n", "<leader>lf", function()
