@@ -176,8 +176,9 @@ api.nvim_create_autocmd("BufWritePost", {
 require("nvim-autopairs").setup {}
 require("luatab").setup {}
 
-local notify = require "notify"
-notify.setup { stages = "slide" }
-vim.notify = notify
+L("notify", function(notify)
+  notify.setup { stages = "slide" }
+  vim.notify = notify
+end)
 
 return is_bootstrap
