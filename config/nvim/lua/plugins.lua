@@ -113,7 +113,6 @@ require("packer").startup {
 
     -- version control
     use "junegunn/gv.vim"
-    use "rhysd/git-messenger.vim"
     use {
       "lewis6991/gitsigns.nvim",
       requires = {
