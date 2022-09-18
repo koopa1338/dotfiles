@@ -27,22 +27,20 @@ local log_lvl = vim.log.levels
 local unsupported_title = "LSP Provider not supported"
 
 local notify_unsupported_lsp = function(message)
-  vim.notify(message, log_lvl.INFO, {title = unsupported_title})
+  vim.notify(message, log_lvl.INFO, { title = unsupported_title })
 end
-
 
 -- lsp config
 local opts = { silent = true }
 local custom_attach = function(client)
   bo.omnifunc = "v:lua.vim.lsp.omnifunc"
   local capabilities = client.server_capabilities
-  P(capabilities)
 
   if capabilities.declarationProvider then
     Map("n", "<leader>lD", vim.lsp.buf.declaration, opts)
   else
     Map("n", "<leader>lD", function()
-      notify_unsupported_lsp("LSP does not support jump to declaration")
+      notify_unsupported_lsp "LSP does not support jump to declaration"
     end, opts)
   end
 
@@ -50,16 +48,16 @@ local custom_attach = function(client)
     Map("n", "<leader>ld", vim.lsp.buf.definition, opts)
   else
     Map("n", "<leader>ld", function()
-      notify_unsupported_lsp("LSP does not support jump to defenition")
+      notify_unsupported_lsp "LSP does not support jump to defenition"
     end, opts)
   end
 
   if capabilities.typeDefinitionProvider then
     Map("n", "<leader>lT", vim.lsp.buf.type_definition, opts)
   else
-      notify_unsupported_lsp("LSP does not support jump to defenition")
+    notify_unsupported_lsp "LSP does not support jump to defenition"
     Map("n", "<leader>lT", function()
-      notify_unsupported_lsp("LSP does not support show document type defenition")
+      notify_unsupported_lsp "LSP does not support show document type defenition"
     end, opts)
   end
 
@@ -67,7 +65,7 @@ local custom_attach = function(client)
     Map("n", "<leader>lr", vim.lsp.buf.rename, opts)
   else
     Map("n", "<leader>lr", function()
-      notify_unsupported_lsp("LSP does not support show rename")
+      notify_unsupported_lsp "LSP does not support show rename"
     end, opts)
   end
 
@@ -77,7 +75,7 @@ local custom_attach = function(client)
     end, opts)
   else
     Map("n", "<leader>lf", function()
-      notify_unsupported_lsp("LSP does not support show formatting")
+      notify_unsupported_lsp "LSP does not support show formatting"
     end, opts)
   end
 
@@ -88,7 +86,7 @@ local custom_attach = function(client)
     Map("n", "<leader>ls", vim.lsp.buf.signature_help, opts)
   else
     Map("n", "<leader>ls", function()
-      notify_unsupported_lsp("LSP does not support signature help")
+      notify_unsupported_lsp "LSP does not support signature help"
     end, opts)
   end
 
@@ -97,7 +95,7 @@ local custom_attach = function(client)
     Map("v", "<leader>lca", vim.lsp.buf.range_code_action, opts)
   else
     Map({ "n", "v" }, "<leader>lca", function()
-      notify_unsupported_lsp("LSP does not support code actions")
+      notify_unsupported_lsp "LSP does not support code actions"
     end, opts)
   end
 
@@ -108,7 +106,7 @@ local custom_attach = function(client)
     Map("n", "K", vim.lsp.buf.hover, opts)
   else
     Map("n", "K", function()
-      notify_unsupported_lsp("LSP does not support hover information")
+      notify_unsupported_lsp "LSP does not support hover information"
     end, opts)
   end
 
@@ -131,7 +129,7 @@ local custom_attach = function(client)
     Map("n", "<leader>lts", ":Telescope lsp_document_symbols<CR>", { silent = true })
   else
     Map("n", "<leader>lts", function()
-      notify_unsupported_lsp("LSP does not support showing document symbols")
+      notify_unsupported_lsp "LSP does not support showing document symbols"
     end, { silent = true })
   end
 
@@ -139,7 +137,7 @@ local custom_attach = function(client)
     Map("n", "<leader>ltS", ":Telescope lsp_workspace_symbols<CR>", { silent = true })
   else
     Map("n", "<leader>ltS", function()
-      notify_unsupported_lsp("LSP does not support showing workspace symbols")
+      notify_unsupported_lsp "LSP does not support showing workspace symbols"
     end, { silent = true })
   end
 
@@ -147,7 +145,7 @@ local custom_attach = function(client)
     Map("n", "<leader>ltr", ":Telescope lsp_references<CR>", { silent = true })
   else
     Map("n", "<leader>ltr", function()
-      notify_unsupported_lsp("LSP does not support showing references")
+      notify_unsupported_lsp "LSP does not support showing references"
     end, { silent = true })
   end
 
@@ -155,7 +153,7 @@ local custom_attach = function(client)
     Map("n", "<leader>lti", ":Telescope lsp_implementations<CR>", { silent = true })
   else
     Map("n", "<leader>lti", function()
-      notify_unsupported_lsp("LSP does not support showing implementations")
+      notify_unsupported_lsp "LSP does not support showing implementations"
     end, { silent = true })
   end
 

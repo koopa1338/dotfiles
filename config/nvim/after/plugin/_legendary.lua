@@ -7,4 +7,3 @@ L("legendary", function(legendary)
   Map("n", "<leader>sk", ":Legendary keymaps<CR>", { silent = true })
   Map("n", "<leader>ss", ":Legendary<CR>", { silent = true })
 end)
-

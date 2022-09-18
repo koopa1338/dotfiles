@@ -48,7 +48,6 @@ L("gitsigns", function(gitsigns)
   Map("n", "<leader>g-", gitsigns.undo_stage_hunk, { silent = true })
   Map("n", "<leader>g+", gitsigns.stage_hunk, { silent = true })
   Map("n", "<leader>gu", gitsigns.reset_hunk, { silent = true })
-
 end)
 
 cmd [[
@@ -177,8 +176,6 @@ L("diffview", function(diffview)
 
   Map("n", "<Leader>gD", ":DiffviewOpen<CR>", { silent = true })
 end)
-
-
 
 L("neogit", function(neogit)
   neogit.setup {
