@@ -40,7 +40,9 @@ L("gitsigns", function(gitsigns)
     },
   }
 
-  Map("n", "<leader>gB", gitsigns.blame_line { full = true }, { silent = true })
+  Map("n", "<leader>gB", function()
+    gitsigns.blame_line { full = true }
+  end, { silent = true })
   Map("n", "<leader>gb", gitsigns.toggle_current_line_blame, { silent = true })
   Map("n", "<leader>gd", gitsigns.preview_hunk, { silent = true })
   Map("n", "<leader>g-", gitsigns.undo_stage_hunk, { silent = true })
