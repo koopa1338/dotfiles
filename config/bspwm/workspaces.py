@@ -9,10 +9,10 @@ subscript = str.maketrans("0123456789", "⁰¹²³⁴⁵⁶⁷⁸⁹")
 def set_monitor_workspaces():
     for i, m in enumerate(get_monitors()):
         pre = ""
-        if i > 0:
-            pre = "数"
-            pre += f"{i}".translate(subscript)
-        cmd = f"bspc monitor {m.name} -d"
+        if not m.is_primary:
+            pre += f"数{i}".translate(subscript)
+        name = m.name if "." not in m.name else f"%{m.name}"
+        cmd = f"bspc monitor {name} -d"
         for ws in ws_names:
             cmd += f" {pre}{ws}"
         os.system(cmd)
