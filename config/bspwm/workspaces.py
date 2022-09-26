@@ -7,6 +7,9 @@ subscript = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
 
 
 def set_monitor_workspaces():
+    mons = get_monitors()
+    mons.sort(key=lambda mon: mon.is_primary, reverse=True)
+    return
     for i, m in enumerate(get_monitors()):
         suff = ""
         if not m.is_primary:
