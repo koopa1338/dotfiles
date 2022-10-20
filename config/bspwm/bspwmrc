@@ -10,13 +10,11 @@
 #
 ############################################################
 
-fork_once() { [ $(pidof -sx $1) ] || $@ & }
+fork_once() { [ "$(pidof -sx $1)" ] || "$@" & }
 
 # Startup
 fork_once sxhkd
-fork_once volumeicon
 fork_once greenclip daemon
-fork_once dockd --daemon
 fork_once picom --config ~/.config/picom/picom.conf
 fork_once syndaemon -i 0.7 -d -K -t
 
