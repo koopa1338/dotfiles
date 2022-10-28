@@ -44,7 +44,7 @@ module-margin-left = 0
 module-margin-right = 1
 
 font-0 = Inconsolata Nerd Font:size=14;1
-font-1 = Monapo:size=14;0
+font-1 = Mikachan:size=14;0
 font-2 = Noto Mono for Powerline:pixelsize=14;1
 
 modules-left = bspwm
@@ -81,7 +81,7 @@ module-margin-left = 0
 module-margin-right = 1
 
 font-0 = Inconsolata Nerd Font:size=14;1
-font-1 = Monapo:size=14;0
+font-1 = Mikachan:size=14;0
 font-2 = Noto Mono for Powerline:pixelsize=14;1
 
 modules-left = bspwm
