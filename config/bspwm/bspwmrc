@@ -15,7 +15,7 @@ fork_once() { [ "$(pidof -sx $1)" ] || "$@" & }
 # Startup
 fork_once sxhkd
 fork_once greenclip daemon
-fork_once picom --config ~/.config/picom/picom.conf
+fork_once picom --config ~/.config/picom/picom.conf --experimental-backends
 fork_once syndaemon -i 0.7 -d -K -t
 
 
