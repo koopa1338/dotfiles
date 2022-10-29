@@ -24,18 +24,18 @@ xset r rate 300 65 &
 nm-applet --sm-disable &
 setxkbmap -model pc105 -layout de -variant nodeadkeys -option compose:rctrl,grp:alt_shift_toggle &
 
-~/bin/dunst_launch &
-~/bin/polybar_launch &
+"$HOME"/bin/dunst_launch &
+"$HOME"/bin/polybar_launch &
 sleep 1.5
 polkit-agent & # symbolic link of /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 fcitx &
-~/.config/wpg/wp_restore.sh &
+"$HOME"/.config/wpg/wp_restore.sh &
 
 #Java fix
 wmname LG3D
  
 # setting up workspaces
-~/.config/bspwm/workspaces.py
+"$HOME"/.config/bspwm/workspaces.py
 
 bspc config top_monocle_padding 0
 bspc config top_padding 30
@@ -65,4 +65,4 @@ bspc rule -a Blueman-manager state=floating center=true
 bspc rule -a SpeedCrunch state=floating center=true
 bspc rule -a Zathura state=tiled
 
-~/.config/bspwm/bspwm_colors.sh &
+"$HOME"/.config/bspwm/bspwm_colors.sh &
