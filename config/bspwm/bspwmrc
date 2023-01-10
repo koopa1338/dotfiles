@@ -34,8 +34,8 @@ fcitx &
 #Java fix
 wmname LG3D
  
-# setting up workspaces
-"$HOME"/.config/bspwm/workspaces.py
+# setting up workspaces (https://github.com/koopa1338/bspwm-workspaces)
+"$HOME"/bin/workspace &
 
 bspc config top_monocle_padding 0
 bspc config top_padding 30
