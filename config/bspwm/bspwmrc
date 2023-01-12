@@ -35,7 +35,7 @@ fcitx &
 wmname LG3D
  
 # setting up workspaces (https://github.com/koopa1338/bspwm-workspaces)
-"$HOME"/bin/workspace &
+"$HOME"/.cargo/bin/workspaces &
 
 bspc config top_monocle_padding 0
 bspc config top_padding 30
