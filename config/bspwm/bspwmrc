@@ -17,6 +17,7 @@ fork_once sxhkd
 fork_once greenclip daemon
 fork_once picom --config ~/.config/picom/picom.conf --experimental-backends
 fork_once syndaemon -i 0.7 -d -K -t
+fork_once gentoo-pipewire-launcher
 
 
 xset -b &
