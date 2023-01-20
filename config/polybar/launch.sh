@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/usr/bin/env sh
 
 # Terminate already running bar instances
 killall -q polybar
@@ -15,7 +14,6 @@ MONITOR=$PRIMARY polybar mon1 -c ~/.config/polybar/config &
 MONS=$(xrandr -q | rg connected | rg -v disconnected | rg -v primary | awk '{print $1}')
 for i in $MONS
 do
-    echo $i
     MONITOR=$i polybar mon2 -c ~/.config/polybar/config &
 done
 
