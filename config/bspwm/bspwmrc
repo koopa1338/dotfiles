@@ -17,7 +17,6 @@ fork_once sxhkd
 fork_once greenclip daemon
 fork_once picom --config ~/.config/picom/picom.conf --experimental-backends
 fork_once syndaemon -i 0.7 -d -K -t
-fork_once gentoo-pipewire-launcher
 
 
 xset -b &
@@ -52,15 +51,15 @@ bspc config border_width 3
 bspc config window_gap 6
 
 bspc rule -a Pavucontrol state=floating center=true
-bspc rule -a gmic_qt state=floating 
-bspc rule -a Teams-Benachrichtigung state=floating 
-bspc rule -a KeePassXC state=floating center=true 
-bspc rule -a copyq state=floating 
-bspc rule -a sun-awt-X11-XWindowPeer state=floating 
-bspc rule -a Gnome-calculator state=floating 
-bspc rule -a Seiteninformation* state=floating 
+bspc rule -a gmic_qt state=floating
+bspc rule -a Teams-Benachrichtigung state=floating
+bspc rule -a KeePassXC state=floating center=true
+bspc rule -a copyq state=floating
+bspc rule -a sun-awt-X11-XWindowPeer state=floating
+bspc rule -a Gnome-calculator state=floating
+bspc rule -a Seiteninformation* state=floating
 bspc rule -a Yad state=floating center=true
-bspc rule -a TeamViewer state=floating 
+bspc rule -a TeamViewer state=floating
 bspc rule -a Wpg state=floating center=true
 bspc rule -a Blueman-manager state=floating center=true
 bspc rule -a SpeedCrunch state=floating center=true
