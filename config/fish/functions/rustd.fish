@@ -1,3 +1,3 @@
 function rustd
-	rustup doc --std
+    rustup doc --std
 end

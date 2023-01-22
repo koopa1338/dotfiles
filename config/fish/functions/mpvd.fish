@@ -1,3 +1,3 @@
 function mpvd
-	mpv --really-quiet $argv & disown
+    mpv --really-quiet $argv & disown
 end

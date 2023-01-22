@@ -1,36 +1,36 @@
 [alias]
-	a = add
-	aa = a --all
-	ap = a -p
-	au = a -u
-	aup = a -up
-	br = branch
-	bra = br -a
-	cl = clone
-	cm = commit
-	cma = cm --amend
-	ccma = cma --no-edit
+    a = add
+    aa = a --all
+    ap = a -p
+    au = a -u
+    aup = a -up
+    br = branch
+    bra = br -a
+    cl = clone
+    cm = commit
+    cma = cm --amend
+    ccma = cma --no-edit
     cmf = cm --fixup
-	cmi = cm --interactive
-	cmm = cm -m
-	co = checkout
-	f = fetch --all -v
-	fp = f -p -t -P
-	ll = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
-	lsa = ll --all
-	p = push
-	pf = p --force-with-lease
-	rb = rebase
-	rba = rb --abort
-	rbc = rb --continue
-	rbi = rb --interactive
-	rbia = rb --interactive --autosquash
-	rbs = rb --skip
-	remotes = remote -v
-	rs = reset
-	st = status -sb
-	sta = stash
-	uncm = reset --mixed HEAD~
+    cmi = cm --interactive
+    cmm = cm -m
+    co = checkout
+    f = fetch --all -v
+    fp = f -p -t -P
+    ll = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
+    lsa = ll --all
+    p = push
+    pf = p --force-with-lease
+    rb = rebase
+    rba = rb --abort
+    rbc = rb --continue
+    rbi = rb --interactive
+    rbia = rb --interactive --autosquash
+    rbs = rb --skip
+    remotes = remote -v
+    rs = reset
+    st = status -sb
+    sta = stash
+    uncm = reset --mixed HEAD~
     be = br --edit-description
     d = diff
     dc = d --cached
@@ -56,19 +56,19 @@
     followTags = true
 
 [diff]
-	tool = nvimdiff
+    tool = nvimdiff
     colorMoved = default
 
 [difftool "nvimdiff"]
-	cmd = nvim -d $LOCAL $REMOTE
+    cmd = nvim -d $LOCAL $REMOTE
 
 [core]
     pager = delta
-	autocrlf = input
+    autocrlf = input
     excludesFile = ~/.config/git/ignore
 
 [credential]
-	helper = store
+    helper = store
 
 [pull]
     rebase = true
@@ -94,10 +94,10 @@
     path = ~/.config/git/user
 
 [init]
-	templatedir = ~/.config/git/git-templates
+    templatedir = ~/.config/git/git-templates
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true

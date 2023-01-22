@@ -1,3 +1,3 @@
 function pautorm
-	sudo pacman -Rns (pacman -Qdtq)
+    sudo pacman -Rns (pacman -Qdtq)
 end

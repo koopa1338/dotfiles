@@ -1,3 +1,3 @@
 function ipa
-	ip --color -s address show
+    ip --color -s address show
 end
