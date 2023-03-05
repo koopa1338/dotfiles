@@ -1,8 +1,8 @@
 # Shorten the uptime format
-long_uptime = false 
+long_uptime = false
 
 # Shorten the shell output
-long_shell = false 
+long_shell = false
 
 # Lengthen shell output
 long_kernel = false
@@ -47,5 +47,19 @@ theme = "Dracula"
 #   - Memory
 #   - Battery
 # Example:
- show = ["Host", "OperatingSystem", "Kernel", "DesktopEnvironment", "Distribution", "Terminal", "Shell", "Packages", "Uptime", "Machine", "Resolution", "Processor", "ProcessorLoad", "Memory"]
-
+show = [
+    "Host",
+    "OperatingSystem",
+    "Kernel",
+    "DesktopEnvironment",
+    "Distribution",
+    "Terminal",
+    "Shell",
+    "Packages",
+    "Uptime",
+    "Machine",
+    "Resolution",
+    "Processor",
+    "ProcessorLoad",
+    "Memory",
+]
