@@ -1,0 +1,57 @@
+:root {
+    --color0: #0A0B18;
+    --color1: #AB444F;
+    --color2: #404758;
+    --color3: #AE968B;
+    --color4: #4C4C9F;
+    --color5: #B15FAD;
+    --color6: #5E4C60;
+    --color7: #e5cbcf;
+    --color8: #181a3b;
+    --color9: #ed485a;
+    --color10: #49587c;
+    --color11: #f6bba0;
+    --color12: #5353dd;
+    --color13: #f769f0;
+    --color14: #835787;
+    --color15: #ffeff4;
+
+    --sidebar-bg: var(--color0);
+    --sidebar-color: var(--color4);
+
+    --tab-border-radius: 0px;
+    --tab-font-size: 14pt;
+    --tab-font-weight: 400;
+    --tab-height: 36px;
+    --nav-toolbar-padding: 6px;
+
+    --urlbar-font-size: 12pt;
+    --urlbar-font-weight: 700;
+    --urlbar-results-font-size: 12pt;
+    --urlbar-results-font-weight: 700;
+
+    --autocomplete-popup-background: var(--color0) !important;
+    --default-arrowpanel-background: var(--color0) !important;
+
+
+    --toolbar-bgcolor: var(--color0) !important;
+    --lwt-toolbarbutton-icon-fill: var(--color14) !important;
+    --default-arrowpanel-color: var(--color4) !important;
+    --urlbar-separator-color: transparent !important;
+
+
+    /* Minimal Functional Fox variables*/
+    --tab-pinned-bg: #70c1b3;
+    --tab-soundplaying-bg: #9c89b8;
+    
+    --urlbar-color: var(--color6);
+    --urlbar-results-url-color: var(--color6);
+    
+    --urlbar-focused-color: #e0fbfc;
+    --urlbar-results-color: #e0fbfc;
+    
+    --tab-selected-bg: #ee6c4d;
+    
+    /* Overriden Firefox variables*/
+    --panel-disabled-color: #f9f9fa80;
+}
