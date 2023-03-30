@@ -22,7 +22,7 @@ fork_once syndaemon -i 0.7 -d -K -t
 xset -b &
 xset r rate 300 65 &
 nm-applet --sm-disable &
-setxkbmap -model pc105 -layout eu&
+setxkbmap -layout eu&
 
 "$HOME"/bin/dunst_launch &
 "$HOME"/bin/polybar_launch &
