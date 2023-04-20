@@ -15,21 +15,23 @@ scrolling:
 font:
     normal:
         family: Inconsolata Nerd Font Mono
-        style: Medium
+        style: Regular
     bold:
         family: Inconsolata Nerd Font Mono
         style: Bold
     italic:
         family: Inconsolata Nerd Font Mono
         style: Italic
+    bold_italic:
+        family: Inconsolata Nerd Font Mono
+        style: Bold Italic
     size: 12.0
     offset:
         x: 0
-        y: 0
+        y: 1
     glyph_offset:
         x: 0
         y: 0
-    scale_with_dpi: false
 selection:
     semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
     save_to_clipboard: true
