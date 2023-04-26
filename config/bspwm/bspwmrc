@@ -55,8 +55,7 @@ bspc rule -a gmic_qt state=floating
 bspc rule -a Teams-Benachrichtigung state=floating
 bspc rule -a KeePassXC state=floating center=true
 bspc rule -a sun-awt-X11-XWindowPeer state=floating
-bspc rule -a Seiteninformation* state=floating
-bspc rule -a TeamViewer state=floating
+bspc rule -a TeamViewer:*:TeamViewer state=floating
 bspc rule -a Wpg state=floating center=true
 bspc rule -a Blueman-manager state=floating center=true
 bspc rule -a SpeedCrunch state=floating center=true
