@@ -8,10 +8,7 @@ super + Return
 
 # program launcher
 super + {d,s,w}
-    rofi -show {run,ssh,window}
-
-super + e
-    kaomoji
+    rofi -modi run,ssh,window -show {run,ssh,window}
 
 super + c
     rofi -modi "clipboard:greenclip print" -show clipboard
@@ -24,30 +21,6 @@ super + alt + l
 
 super + {_,shift + }p
     screenshot {full, selection}
-
-XF86MyComputer{ + shift }
-    {alacritty -e vifm, thunar}
-
-# make sxhkd reload its configuration files:
-# super + Escape
-# 	pkill -USR1 -x sxhkd
-#
-
-# increase,decrease,mute sound
-{XF86AudioRaiseVolume,XF86AudioLowerVolume,XF86AudioMute}
-    volume {up,down,mute}
-
-# max sound
-super + XF86AudioRaiseVolume
-    pactl set-sink-volume @DEFAULT_SINK@ 100%
-
-# mute Mic
-XF86AudioMicMute 
-    amixer -c 1 set Capture toggle
-
-# Toggle default sink
-super + XF86AudioMute
-    soundtoggle
 
 # increase,decrease screen brightness
 XF86MonBrightness{Down,Up}
@@ -75,7 +48,7 @@ super + b
 
 # swap the current node and the biggest node
 super + g
-    bspc node -s biggest
+    bspc node -s biggest.local
 
 #
 # state/flags
@@ -106,20 +79,6 @@ super + {period,comma}
 # focus the next/previous node in the current desktop
 super + {_,shift + }n
     bspc node -f {next,prev}.local
-
-# focus the next/previous desktop in the current monitor
-# super + bracket{left,right}
-#   bspc desktop -f {prev,next}.local
-
-# focus the last node/desktop
-# super + {grave,Tab}
-#   bspc {node,desktop} -f last
-
-# focus the older or newer node in the focus history
-# super + {o,i}
-#   bspc wm -h off; \
-#   bspc node {older,newer} -f; \
-#   bspc wm -h on
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
