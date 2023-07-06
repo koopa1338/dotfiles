@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + {d,s,w}
-    rofi -modi run,ssh,window -show {run,ssh,window}
+    rofi -show {run,ssh,window}
 
 super + c
     rofi -modi "clipboard:greenclip print" -show clipboard
