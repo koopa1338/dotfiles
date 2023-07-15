@@ -4,7 +4,7 @@ configuration {
     kb-mode-next: "Alt+l";
     kb-mode-previous: "Alt+h";
     sidebar-mode: true;
-    modes: [ run, ssh, window ];
+    modes: [ drun, run, ssh, window ];
     show-icons: true;
     run,window {
       fallback-icon: "homerun";
