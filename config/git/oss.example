@@ -1,0 +1,5 @@
+[includeIf "hasconfig:remote.*.url:https://github.com/**"]
+path = ~/.config/git/gitconfig-github
+
+[includeIf "hasconfig:remote.*.url:https://gitlab.com/**"]
+path = ~/.config/git/gitconfig-gitlab
