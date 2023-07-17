@@ -92,6 +92,7 @@
 
 [include]
     path = ~/.config/git/user
+    path = ~/.config/git/oss
 
 [init]
     templatedir = ~/.config/git/git-templates
