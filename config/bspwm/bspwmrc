@@ -17,6 +17,7 @@ fork_once sxhkd
 fork_once greenclip daemon
 fork_once picom --config ~/.config/picom/picom.conf
 fork_once syndaemon -i 0.7 -d -K -t
+fork_once dunst
 
 
 xset -b &
@@ -26,7 +27,6 @@ setxkbmap -layout eu&
 # reload sxhkd config on reload
 pkill -USR1 -x sxhkd
 
-"$HOME"/bin/dunst_launch &
 "$HOME"/bin/polybar_launch &
 sleep 1.5
 polkit-agent & # symbolic link of /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
