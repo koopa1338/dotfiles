@@ -1,11 +1,8 @@
 startpage/
 config/nvim/undodir
-config/nvim/plugin/packer_compiled.vim
-config/nvim/plugin/packer_compiled.lua
-config/nvim/lua/packer_compiled.lua
 config/git/user
 config/git/platforms
 config/git/gitconfig-*
 config/macchina/themes
 config/bspwm/bspwm_colors.sh
-config/dunst/dunstrc
+config/dunst/dunstrc.d/00-colors.conf
