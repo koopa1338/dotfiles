@@ -10,20 +10,23 @@
 #
 ############################################################
 
-fork_once() { [ "$(pidof -sx $1)" ] || "$@" & }
+fork_once() { [ "$(pidof -sx "$1")" ] || "$@" & }
+relaunch() {
+	if pgrep "$1"; then pkill "$1"; fi
+	"$@" &
+}
 
 # Startup
 fork_once sxhkd
 fork_once greenclip daemon
 fork_once picom --config ~/.config/picom/picom.conf
 fork_once syndaemon -i 0.7 -d -K -t
-fork_once dunst
-
+relaunch dunst
 
 xset -b &
 xset r rate 300 65 &
 nm-applet &
-setxkbmap -layout eu&
+setxkbmap -layout eu &
 # reload sxhkd config on reload
 pkill -USR1 -x sxhkd
 
@@ -35,7 +38,7 @@ fcitx &
 
 #Java fix
 wmname LG3D
- 
+
 # setting up workspaces (https://github.com/koopa1338/bspwm-workspaces)
 "$HOME"/.cargo/bin/workspaces &
 
