@@ -17,18 +17,16 @@ relaunch() {
 }
 
 # Startup
-fork_once sxhkd
 fork_once greenclip daemon
 fork_once picom --config ~/.config/picom/picom.conf
 fork_once syndaemon -i 0.7 -d -K -t
 relaunch dunst
+relaunch sxhkd
 
 xset -b &
 xset r rate 300 65 &
 nm-applet &
 setxkbmap -layout eu &
-# reload sxhkd config on reload
-pkill -USR1 -x sxhkd
 
 "$HOME"/bin/polybar_launch &
 sleep 1.5

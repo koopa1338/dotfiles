@@ -101,7 +101,7 @@ type = custom/text
 ; Label
 content            = 
 ; content-foreground = ${colors.foreground}
-content-padding    = 0
+content-padding    = 1
 
 ; Mouse click
 click-left = betterlockscreen -l dimblur
@@ -112,7 +112,7 @@ type = custom/text
 ; Label
 content            = 
 ; content-foreground = ${colors.foreground}
-content-padding    = 0
+content-padding    = 1
 
 ; Mouse click
 click-left = bspc quit
@@ -121,9 +121,9 @@ click-left = bspc quit
 type = custom/text
 
 ; Label
-content            = 勒
+content            = 
 ; content-foreground = ${colors.foreground}
-content-padding    = 0
+content-padding    = 1
 
 ; Mouse click
 click-left = sudo shutdown -r now
@@ -134,10 +134,10 @@ type = custom/text
 ; Label
 content            = 
 ; content-foreground = ${colors.red}
-content-padding    = 0
+content-padding    = 1
 
 ; Mouse click
-click-left = sudo shutdown now
+click-left = sudo shutdown -h now
 
 [module/filesystem]
 type = internal/fs
