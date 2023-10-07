@@ -20,6 +20,7 @@
     lsa = ll --all
     p = push
     pf = p --force-with-lease
+    pt = p --tags
     rb = rebase
     rba = rb --abort
     rbc = rb --continue
