@@ -27,6 +27,7 @@ xset -b &
 xset r rate 300 65 &
 nm-applet &
 setxkbmap -layout eu &
+"$HOME"/.local/bin/noisetorch -i > /dev/null 2>&1
 
 "$HOME"/bin/polybar_launch &
 sleep 1.5
