@@ -54,6 +54,9 @@
     ### History ###
     sticky_history = yes
     history_length = 20
+    history = ctrl+grave
+    close_all = ctrl+shift+grave
+    close = ctrl+space
 
     ### Misc/Advanced ###
     dmenu = /usr/bin/rofi -show run
