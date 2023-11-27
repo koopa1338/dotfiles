@@ -38,7 +38,7 @@
     ds = d --staged
     dst = d --stat
     pl = pull --rebase
-    pln = pl --rebase --no-autostash
+    pln = pl --no-autostash
     pub = push -u origin HEAD
     stl = stash list
     stp = stash pop
