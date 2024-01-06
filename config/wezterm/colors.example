@@ -1,0 +1,34 @@
+[colors]
+ansi = [
+    '{color0}',
+    '{color1}',
+    '{color2}',
+    '{color3}',
+    '{color4}',
+    '{color5}',
+    '{color6}',
+    '{color7}',
+]
+background = '{color0}'
+foreground = '{color15}'
+brights = [
+    '{color8}',
+    '{color9}',
+    '{color10}',
+    '{color11}',
+    '{color12}',
+    '{color13}',
+    '{color14}',
+    '{color15}',
+]
+cursor_bg = '{color15}'
+cursor_border = '{color15}'
+cursor_fg = '{color4}'
+selection_bg = '{color4}'
+selection_fg = '{color0}'
+
+[colors.indexed]
+
+[metadata]
+author = 'dynamic'
+name = 'Wpgtk'
