@@ -6,25 +6,37 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-config.font = wezterm.font("Inconsolata Nerd Font Mono")
-config.enable_tab_bar = false
-config.color_scheme_dirs = { '/home/koopa/.config/wezterm/' }
-config.color_scheme = "Wpgtk"
-config.xcursor_theme = "capitaine-dark"
-config.use_ime = true
-config.use_dead_keys = false
-config.xim_im_name = 'fcitx'
-config.warn_about_missing_glyphs = false
-config.window_padding = {
-  left = 4,
-  right = 4,
-  top = 4,
-  bottom = 4,
+local setup = {
+	font = wezterm.font("Inconsolata Nerd Font Mono"),
+	font_size = 14,
+	color_scheme_dirs = { wezterm.config_dir },
+	color_scheme = "Wpgtk",
+	xcursor_theme = "capitaine-dark",
+	use_ime = true,
+	use_dead_keys = false,
+	xim_im_name = "fcitx",
+	warn_about_missing_glyphs = false,
+	window_padding = {
+		left = 4,
+		right = 4,
+		top = 4,
+		bottom = 4,
+	},
+	enable_tab_bar = true,
+	enable_scroll_bar = true,
+	tab_bar_at_bottom = true,
+	use_fancy_tab_bar = false,
+	hide_tab_bar_if_only_one_tab = true,
+	debug_key_events = true,
+	keys = {
+		{ key = "Space", mods = "CTRL|SHIFT", action = wezterm.action.ActivateCopyMode },
+		{ key = "n", mods = "SHIFT|CTRL", action = wezterm.action.SpawnWindow },
+	},
 }
 
-config.keys = {
-	{ key = "Space", mods = "CTRL|SHIFT", action = wezterm.action.ActivateCopyMode },
-	{ key = "n", mods = "SHIFT|CTRL", action = wezterm.action.SpawnWindow },
-}
+-- setting config values
+for k, v in pairs(setup) do
+  config[k] = v
+end
 
 return config
