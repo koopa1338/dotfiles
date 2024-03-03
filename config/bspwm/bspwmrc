@@ -33,7 +33,7 @@ sleep 1.5
 polkit-agent & # symbolic link of /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 fcitx &
 "$HOME"/.config/wpg/wp_restore.sh &
-"$HOME"/.local/bin/noisetorch -i > /dev/null 2>&1
+"$HOME"/.local/bin/noisetorch -i -t 90 > /dev/null 2>&1
 
 #Java fix
 wmname LG3D

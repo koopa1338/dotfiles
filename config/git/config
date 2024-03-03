@@ -4,7 +4,7 @@
     ap = a -p
     au = a -u
     aup = a -up
-    br = branch
+    br = branch --column
     bra = br -a
     cl = clone
     cm = commit

@@ -126,7 +126,7 @@ content            = 
 content-padding    = 1
 
 ; Mouse click
-click-left = sudo shutdown -r now
+click-left = sudo /sbin/shutdown -r now
 
 [module/poweroff]
 type = custom/text
@@ -137,7 +137,7 @@ content            = 
 content-padding    = 1
 
 ; Mouse click
-click-left = sudo shutdown -h now
+click-left = sudo /sbin/shutdown -h now
 
 [module/filesystem]
 type = internal/fs

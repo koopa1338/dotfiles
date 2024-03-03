@@ -7,6 +7,7 @@ if wezterm.config_builder then
 end
 
 local setup = {
+	check_for_updates = true,
 	font = wezterm.font("Inconsolata Nerd Font Mono"),
 	font_size = 14,
 	color_scheme_dirs = { wezterm.config_dir },
@@ -27,7 +28,7 @@ local setup = {
 	tab_bar_at_bottom = true,
 	use_fancy_tab_bar = false,
 	hide_tab_bar_if_only_one_tab = true,
-	debug_key_events = true,
+	debug_key_events = false,
 	keys = {
 		{ key = "Space", mods = "CTRL|SHIFT", action = wezterm.action.ActivateCopyMode },
 		{ key = "n", mods = "SHIFT|CTRL", action = wezterm.action.SpawnWindow },
@@ -36,7 +37,7 @@ local setup = {
 
 -- setting config values
 for k, v in pairs(setup) do
-  config[k] = v
+	config[k] = v
 end
 
 return config
