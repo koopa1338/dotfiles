@@ -40,6 +40,7 @@
     pl = pull --rebase
     pln = pl --no-autostash
     pub = push -u origin HEAD
+    s = switch
     stl = stash list
     stp = stash pop
     sta = stash apply
