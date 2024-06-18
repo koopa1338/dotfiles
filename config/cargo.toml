@@ -1,0 +1,26 @@
+[alias]
+nt = "nextest run"
+rr = "run --release"
+cl = "clippy"
+clp = "clippy -- -W clippy::pedantic"
+wf = "whatfeatures"
+br = "b --release"
+ntr = "nt --release"
+
+[target.aarch64-unknown-linux-musl]
+linker = "aarch64-unknown-linux-musl-gcc"
+ar = "aarch64-unknown-linux-musl-ar"
+
+[target.aarch64-unknown-linux-gnu]
+linker = "aarch64-unknown-linux-gnu-gcc"
+ar = "aarch64-unknown-linux-gnu-ar"
+
+[target.x86_64-unknown-linux-gnu]
+rustflags = [
+  "-C", "link-arg=-fuse-ld=lld",
+]
+
+[target.x86_64-unknown-linux-musl]
+rustflags = [
+  "-C", "link-arg=-fuse-ld=lld",
+]
