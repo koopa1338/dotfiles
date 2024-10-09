@@ -9,6 +9,7 @@ configuration {
     run,window {
       fallback-icon: "homerun";
     }
+    terminal: "wezterm";
 
 }
 
