@@ -3,7 +3,6 @@ nt = "nextest run"
 rr = "run --release"
 cl = "clippy"
 clp = "clippy -- -W clippy::pedantic"
-wf = "whatfeatures"
 br = "b --release"
 ntr = "nt --release"
 
