@@ -8,7 +8,7 @@ end
 
 local setup = {
 	check_for_updates = true,
-	font = wezterm.font_with_fallback({ "Isconsolata Nerd Font Mono", "Koruri" }),
+	font = wezterm.font_with_fallback({ "Inconsolata Nerd Font Mono", "Koruri" }),
 	font_size = 14,
 	color_scheme_dirs = { wezterm.config_dir },
 	color_scheme = "Wpgtk",
