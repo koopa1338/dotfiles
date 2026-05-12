@@ -1,0 +1,7 @@
+[config]
+
+[templates]
+
+[templates.nvim]
+input_path = "/home/nisc/.config/matugen/templates/nvim.lua"
+output_path = "/home/nisc/.config/nvim/lua/colors.lua"
